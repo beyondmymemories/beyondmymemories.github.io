@@ -1,0 +1,1 @@
+Character Selection Information - Basic information

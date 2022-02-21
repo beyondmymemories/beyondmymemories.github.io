@@ -1,0 +1,1 @@
+Character 1 Information - Class and stats
