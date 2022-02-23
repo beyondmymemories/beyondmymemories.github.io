@@ -1,0 +1,35 @@
+-------------------------------------
+CHAPTER 1 ASSETS 
+NUMBER OF ASSETS: 16
+NUMBER OF COMPLETE ASSETS:  
+
+GUIDE 
+WIP: Work in progress
+NS: Not Started
+When complete will note name of file
+--------------------------------------
+
+Main Screen: Art pending
+
+Character Selection 
+   Mage: WIP 
+   Bard: NS
+   Rogue: NS
+   Barbarian: NS
+
+Main Cave Scenery: WIP 
+   Journal: NS
+   Dagger: NS
+   
+Waterfall Room Scenery: NS
+   Dog (Samoyed): NS
+   Hidden Door: NS 
+
+Dark Room Path (Asset may be repeated):NS
+   Enemy (To be decided): NS 
+
+Dwarf Shop: NS
+   Enemy 2 (Not decided but seen attacking dwarf): NS
+
+Final Boss Room (Generic cave boss room):NS 
+   Final boss (Minotaur????): NS

@@ -1,0 +1,67 @@
+
+body{
+    background-image:url("../Functions/Art/PlaceHolder.jpg");
+	background-color: grey
+ }
+h1{
+	
+}
+.button{ 
+  border: none;
+  color: grey;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+div.container4 {
+    height: 10em;
+    position: relative }
+
+div.container4 p {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%) }
+p{
+	text-align: center;
+    font-family: url();
+}
+.fade-in-text{
+	font-size: 70px; 
+	color: black; 
+	animation: fadeIn linear 4s; 
+	-webkit-animation: fadeIn linear 4s;
+	-moz-animation: fadeIn linear 4s; 
+	-ms-animation: fadeIn linear 4s;
+}
+
+@keyframes fadeIn {
+  0% {opacity:0;}
+  100% {opacity:1;}
+}
+
+@-moz-keyframes fadeIn {
+  0% {opacity:0;}
+  100% {opacity:1;}
+}
+
+@-webkit-keyframes fadeIn {
+  0% {opacity:0;}
+  100% {opacity:1;}
+}
+
+@-o-keyframes fadeIn {
+  0% {opacity:0;}
+  100% {opacity:1;}
+}
+
+@-ms-keyframes fadeIn {
+  0% {opacity:0;}
+  100% {opacity:1;}
+}
