@@ -259,7 +259,7 @@ O:
 //1.5.0//
 *SCENE CHANGE*
 L : You slowly approach the stream, following it through the tunnel towards an open area with a waterfall.
-if (companionAcquired == FALSE || companionDenied == FALSE) { 
+if (companion == "NA") { 
 	As you get closer, you stop as you hear sloshing in the water ahead.
 	What will you do?
 O :
@@ -313,7 +313,7 @@ O :
 *CHANGE SCENES*
 L: As you slowly approach the caven you peek in
 if (characterSelect == "Wizard") {
-	L : Your hat and staff barely visible behind the wall
+	L : Your hat barely visible behind the wall
 }//end of if
 else if (characterSelect == "Rogue") {
 	L : Your body blended into the shadows
@@ -353,7 +353,7 @@ else {
 }//end of else
 L : Please name your new companion!
 *Popup box for name* *SAVE*
-*companionAcquired==TRUE*
+*companion==ACCEPTED*
 L : X now by your side, what will you do?
 O :
 	1.2.0 : Return to Cave
@@ -363,7 +363,7 @@ O :
 L : Seeing the dog not moving from your earlier gesture, you pick up a rock near the stream and throw it towards the dog
 	Startled and seemingly sad, the dog scampers away from you, ducking into a hole in the wall and disappearing
 	~~ We will remember this ~~
-*companionDenied==TRUE*
+*companion==DENIED*
 O :
 	1.2.0 : Return to Cave
 	1.5.6 : Search around
