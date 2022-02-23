@@ -1,39 +1,66 @@
-
 body{
     background-image:url("../Functions/Art/PlaceHolder.jpg");
 	background-color: grey
  }
-h1{
+.center {
+  text-align: center;
+}
+
+.startup
+{
+    color: Black;
+    font-family: 'euphoria-script';
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-left: 0px;
+    margin-bottom: 0px;
+    font-size: 123px;
+    padding-left: 0%;
+    padding-top: 80px;
+    padding-right: 0px;
+    padding-bottom: 6px;
+}
+
+.button{
+    border: none;
+    color: Black;
+    font-family: 'euphoria-script';
+    padding-top: 7px;
+    padding-right: 32px;
+    padding-left: 25px;
+    padding-bottom: 6px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 18px;
+    margin-top: 169px;
+    margin-right: 0px;
+    margin-left: 0px;
+    margin-bottom: -3px;
+    cursor: pointer;
+}
+.button:hover{background-color:#2f3352 }
+
+.button:active{
+	font-colot: white;
+    background-color: #2f3352;
+    box: 0 5px #666;
+    transform: translateY(4px);
+}
+
+.button1 {border-radius: 8px}
+
+.fade-in-buttons{
+	font-size: 100px;
+	color: black; 
+	animation: fadeIn linear 8s; 
+	-webkit-animation: fadeIn linear 8s;
+	-moz-animation: fadeIn linear 8s; 
+	-ms-animation: fadeIn linear 8s;
 	
 }
-.button{ 
-  border: none;
-  color: grey;
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin: 4px 2px;
-  cursor: pointer;
-}
-div.container4 {
-    height: 10em;
-    position: relative }
-
-div.container4 p {
-    margin: 0;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    margin-right: -50%;
-    transform: translate(-50%, -50%) }
-p{
-	text-align: center;
-    font-family: url();
-}
 .fade-in-text{
-	font-size: 70px; 
+	font-size: 100px;
 	color: black; 
 	animation: fadeIn linear 4s; 
 	-webkit-animation: fadeIn linear 4s;
@@ -64,4 +91,5 @@ p{
 @-ms-keyframes fadeIn {
   0% {opacity:0;}
   100% {opacity:1;}
+}.p {
 }
