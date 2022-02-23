@@ -63,20 +63,22 @@ function clearState() {
 }
 
 //MAIN SCREEN TEST POPUPS---------------------------------------------------------
-function initializeSave() {
-	alert("document loaded");
-	var loadButton = document.getElementById('loadBtn');
+//Test initialization by removing load button if save does not exist.
+window.onload = init();
+function init() {
 	if(localStorage.getItem("saveExists") === null) {
-		loadButton.style.display = 'none';
-		
+		document.getElementById("loadBtn").style.display = 'none';
+		alert("NO SAVE");
 	}
 	else {
-		loadButton.style.display = 'none';
+		document.getElementById("loadBtn").style.display = 'none';
 		alert("SAVE EXISTS");
 	}
 }
 
+//Create new game and set saveExists to "True". 
 function newGame() {
+	
 	if(localStorage.getItem("saveExists") === null) {
 		alert("No save exists, A new game will start");
 		localStorage.setItem("saveExists", "True")
@@ -90,6 +92,8 @@ function newGame() {
 		}
 	}
 }
+
+//Check for saveExists and report outcome. In the future, initil
 function loadGame() {
 	if(localStorage.getItem("saveExists") == null) {
 		alert("A save does not exist.");
