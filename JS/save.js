@@ -61,3 +61,52 @@ function displayAll() {
 function clearState() {
 	localStorage.clear();
 }
+
+//MAIN SCREEN TEST POPUPS---------------------------------------------------------
+function initializeSave() {
+	alert("document loaded");
+	var loadButton = document.getElementById('loadBtn');
+	if(localStorage.getItem("saveExists") === null) {
+		loadButton.style.display = 'none';
+		
+	}
+	else {
+		loadButton.style.display = 'none';
+		alert("SAVE EXISTS");
+	}
+}
+
+function newGame() {
+	if(localStorage.getItem("saveExists") === null) {
+		alert("No save exists, A new game will start");
+		localStorage.setItem("saveExists", "True")
+	}
+	else {
+		if (confirm("A game already Exists. Do you want to start a New Game?")) {
+		  alert("A new game will start");
+		} 
+		else {
+		  alert("A new game will NOT start");
+		}
+	}
+}
+function loadGame() {
+	if(localStorage.getItem("saveExists") == null) {
+		alert("A save does not exist.");
+	}
+	else {
+		alert("Game started from existing save");
+	}
+}
+function deleteGame() {
+
+	if(localStorage.getItem("saveExists") != null) {
+		if(confirm("Are you sure you want to delete your game save?\n ALL PROGRESS WILL BE LOST")) {
+			localStorage.removeItem("saveExists");
+		}
+	}
+	else {
+		alert("No game save exists");
+	}	
+	
+}
