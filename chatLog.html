@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <! –– Connects to the CSS and JavaScript files. ––>
+        <link href="CSS/chatLog.css" rel="stylesheet" type="text/css">
+        <script type="text/javascript" src="JS/chatLog.js"></script>
+    </head>
+
+    <body>
+        
+        <! –– First option. ––>
+        <button onclick="updateChatLog('testingScript.txt','//1.1.1//')">Sit and Wait</button>
+        
+        <! –– Second option. ––>
+        <button onclick="updateChatLog('testingScript.txt','//1.2.1//')">Search Around You</button>
+        
+        <! –– The chatlog box. ––>
+        <chatLogDisplay class="form">  
+            <p id="chatLog"></p>
+        </chatLogDisplay>
+    </body>
+</html>
