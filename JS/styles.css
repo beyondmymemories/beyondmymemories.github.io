@@ -1,0 +1,10 @@
+@charset "utf-8";
+/* CSS Document */
+body {
+	background-color: #232323;
+	color: white;
+}
+
+.myButton {
+	padding: 12px;
+}

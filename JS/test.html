@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+	 
+<script type="text/javascript" src="save.js"></script>
+	<script type="text/javascript" src="idle.js"></script>
+<link rel="stylesheet" href="styles.css">
+
+<title>Test Idle and Save</title>
+</head>
+
+	
+<body onLoad=>
+	<div class=wrapper>
+		<div>
+			<input type="checkbox" id="saveExists"> Save Exists 
+		</div>
+		
+		<div>
+			<input type="text" id="gold"> Gold:
+			
+		</div>
+		<div>
+			<input type="text" id="level"> Level
+		</div>
+		<div>
+			<input type="text" id="name"> Character Name
+		</div>
+			<button class="myButton"onclick="updateAll()">Update Variables</button>
+			<button class="myButton"onclick="saveAll()">Save State</button>
+			<button class="myButton"onclick="loadAll()">Load State</button>
+			<button class="myButton"onclick="cleanAll()">Delete State</button>
+
+		</div>
+		<div>
+			<button class="myButton" onclick="displayAll()">Display State</button>		
+		</div>
+	
+	<p id=goldDisplay>Gold:</p>
+	<p id=levelDisplay>Level</p>
+	<p id=nameDisplay>Name:</p>
+
+</body>
+</html>
