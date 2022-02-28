@@ -71,7 +71,7 @@ function init() {
 		alert("NO SAVE");
 	}
 	else {
-		document.getElementById("loadBtn").style.display = 'none';
+		document.getElementById("loadBtn").style.display = 'block';
 		alert("SAVE EXISTS");
 	}
 }
