@@ -82,6 +82,7 @@ function newGame() {
 	if(localStorage.getItem("saveExists") === null) {
 		alert("No save exists, A new game will start");
 		localStorage.setItem("saveExists", "True")
+		window.location.href = "charSelect.html";
 	}
 	else {
 		if (confirm("A game already Exists. Do you want to start a New Game?")) {
