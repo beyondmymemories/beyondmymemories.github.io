@@ -1,0 +1,63 @@
+//START//
+C lands in cave
+C : Where am I?
+L : You feel your head and find a small stream of blood going down your head.
+    Looking above, you see the moon through a large crack high above you.
+    Around you, all you see is a cave, dark and cold.
+C : Why am I here?
+L : Your head begins to hurt
+C : I can't remember anything..
+O :
+    1.1.0 : Sit and Wait
+    1.2.1 : Search around You
+//START//
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+//1.1.0//
+L : you stay sitting, waiting for your memory to come back.
+    Nothing comes to you, The cave is cold and dark
+    You are tired
+O : 
+    1.1.1 : Sit and Wait
+    1.2.1 : Search Around You
+//1.1.0//
+
+//1.1.1//
+    you stay sitting, waiting for your memory to come back.
+    Nothing comes to you, 
+    you get even colder and start to be hungry <br><br>
+//1.1.1//
+
+//1.1.2//
+L : you stay sitting, waiting for your memory to come back.
+    Nothing comes to you, you get even more tired, cold and even more hungry
+O : 
+    1.1.3 : Sit and Wait
+    1.2.1 : Search Around You
+//1.1.2//
+
+//1.1.3//
+L : You, tired and exhausted, fall asleep.
+    A monster wanders out during the night and drags your body away, never to be seen again.
+    Restart and try again?
+GAME ENDS - RESTART FROM CHECKPOINT
+//1.1.3//
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+//1.2.0//
+    In front of you, illuminated by the moonlight, you see 3 different tunnels. 
+    Two of them are forked. One is cold and dark, while the other is filled with bright light
+    Off to your right, you see a different tunnel, one where water is flowing out from, and slowly filling the cave.
+    Where would you like to go?
+O:
+    1.3.0 : Warm and Brightly lit tunnel
+    1.4.0 : Cold and Dark tunnel
+    1.5.0 : Tunnel with water's origin
+//1.2.0//
+
+//1.2.1//
+    You stand up and search around you, your hand coming across a small journal by your side.
+    This journal may help you
+    You also find a small dagger, about the size of your hand, near your feet.
+    This dagger may help you <br><br>
+//1.2.1//
