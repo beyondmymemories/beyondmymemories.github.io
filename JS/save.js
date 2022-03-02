@@ -12,6 +12,16 @@ stored variables: variables in local storage. Not to be used live. must be loade
 I am going to compile all data to a single JSON that is encoded as a string and decoded back to a JSON on save and load.
 
 */
+//UNIVERSAL FUNCTIONS----------------------------
+function saveVar(name, value) {
+	localStorage.setItem(name, value);
+}
+function loadVar(name) {
+	return localStorage.getItem(name)
+}
+
+
+
 
 //live Variables
 var saveExists
@@ -68,11 +78,11 @@ window.onload = init();
 function init() {
 	if(localStorage.getItem("saveExists") === null) {
 		document.getElementById("loadBtn").style.display = 'none';
-		alert("NO SAVE");
+		//alert("NO SAVE");
 	}
 	else {
-		document.getElementById("loadBtn").style.display = 'inline';
-		alert("SAVE EXISTS");
+		document.getElementById("loadBtn").style.display = 'block';
+		//alert("SAVE EXISTS");
 	}
 }
 

@@ -10,7 +10,7 @@
 <title>Test Idle and Save</title>
 </head>
 
-	
+<h1>SAVE SYSTEM</h1>	
 <body onLoad=>
 	<div class=wrapper>
 		<div>
@@ -37,9 +37,28 @@
 			<button class="myButton" onclick="displayAll()">Display State</button>		
 		</div>
 	
-	<p id=goldDisplay>Gold:</p>
-	<p id=levelDisplay>Level</p>
-	<p id=nameDisplay>Name:</p>
+	<p id="goldDisplay">Gold:</p>
+	<p id="levelDisplay">Level</p>
+	<p id="nameDisplay">Name:</p>
+	
+	
+	<h1>IDLE MECHANIC</h1>
+	<div class="wrapper">
+		<div>
+			<h2 id="idleOutput"></h2>
+			<button class="myButton" onclick="beginIdle()">Begin Idle</button>
+			<button class="myButton" onclick="displayTimeIdle()">Show time idle</button>
+			
+		</div>
+		<div>
+			<button class="myButton" onclick="applyIdle()">Apply Idle</button>
+			
+		</div>
+		<div>
+		
+		</div>
+		
+	</div>
 
 </body>
 </html>
