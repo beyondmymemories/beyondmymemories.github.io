@@ -30,6 +30,16 @@ var playerLevel
 var playerName
 var gameSave
 
+//UNIVERSAL FUNCTIONS----------------------------
+function saveVar(name, value) {
+    localStorage.setItem(name, value);
+}
+function loadVar(name) {
+    return localStorage.getItem(name)
+}
+
+
+
 //Load variables from text box inputs to live variables
 function updateAll() {
 	saveExists = document.getElementById("saveExists").value
@@ -55,8 +65,7 @@ function loadAll() {
 	saveExists = localStorage.getItem("saveExists");
 	playerGold = localStorage.getItem("playerGold");
 	playerLevel = localStorage.getItem("playerLevel");
-	playerName = localStorage.getItem("playerName");
-	
+	playerName = localStorage.getItem("playerName");	
 	displayAll();
 }
 
@@ -92,11 +101,15 @@ function newGame() {
 	if(localStorage.getItem("saveExists") === null) {
 		alert("No save exists, A new game will start");
 		localStorage.setItem("saveExists", "True")
-		window.location.href = "charSelect.html";
+		//window.location.href = "charSelect.html";
+		document.getElementById("container2").style.display = 'inline'
+		document.getElementById("container1").style.display = 'none'
 	}
 	else {
 		if (confirm("A game already Exists. Do you want to start a New Game?")) {
 		  alert("A new game will start");
+		  document.getElementById("container2").style.display = 'inline'
+		  document.getElementById("container1").style.display = 'none'
 		} 
 		else {
 		  alert("A new game will NOT start");
@@ -112,6 +125,8 @@ function loadGame() {
 	else {
 		alert("Game started from existing save");
 	}
+	document.getElementById("container3").style.display = 'inline-block'
+	document.getElementById("container1").style.display = 'none'
 }
 function deleteGame() {
 
