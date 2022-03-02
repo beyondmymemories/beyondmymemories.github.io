@@ -82,7 +82,7 @@ function newGame() {
 	if(localStorage.getItem("saveExists") === null) {
 		alert("No save exists, A new game will start");
 		localStorage.setItem("saveExists", "True")
-		window.location.href = "charSelect.html";
+		//window.location.href = "charSelect.html";
 	}
 	else {
 		if (confirm("A game already Exists. Do you want to start a New Game?")) {
@@ -92,6 +92,9 @@ function newGame() {
 		  alert("A new game will NOT start");
 		}
 	}
+	document.getElementById("container2").style.display = 'inline'
+	document.getElementById("container1").style.display = 'none'
+
 }
 
 //Check for saveExists and report outcome. In the future, initil
@@ -102,6 +105,8 @@ function loadGame() {
 	else {
 		alert("Game started from existing save");
 	}
+	document.getElementById("container2").style.display = 'inline'
+	document.getElementById("container1").style.display = 'none'
 }
 function deleteGame() {
 
