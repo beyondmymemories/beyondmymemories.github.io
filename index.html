@@ -5,8 +5,11 @@
 <link href="CSS/index.css" rel="stylesheet" type="text/css">
 <link href="CSS/container1.css" rel="stylesheet" type="text/css">
 <link href="CSS/container2.css" rel="stylesheet" type="text/css">
+<link href="CSS/container3.css" rel="stylesheet" type="text/css">
 	
+<!--JAva script Things!-->
 <script type="text/javascript" src="JS/save.js"></script>
+<script type="text/javascript" src="JS/load_function.js"></script>
 
 <!--Chapter 1's links -->
 
@@ -51,7 +54,7 @@
              <div class="characters">   
                 <img src="Functions/Art/temp image.png" alt="temp">
             </div>
-            <button class="button button1">Wizard</button>
+            <button class="button button1" onclick="load_function()">Wizard</button>
         </div>
     
         <!–– This decides the button and art for the Barbarian. ––>
@@ -60,7 +63,7 @@
                 <img src="Functions/Art/temp image.png" alt="temp">
             </div>
 			<br>
-            <button class="button button2">Barbarian</button>
+            <button class="button button2" onclick="load_function()">Barbarian</button>
         </div>
    
         <!–– This decides the button and art for the Bard. ––>
@@ -68,7 +71,7 @@
             <div class="characters"> 
                 <img src="Functions/Art/temp image.png" alt="temp">
             </div>
-            <button class="button button3">Bard</button>
+            <button class="button button3" onclick="load_function()">Bard</button>
         </div>
     
         <!–– This decides the button and art for the Rouge. ––>
@@ -76,7 +79,7 @@
             <div class="characters"> 
                 <img src="Functions/Art/temp image.png" alt="temp">
             </div>
-            <button class="button button4">Rogue</button>
+            <button class="button button4" onclick="load_function()">Rogue</button>
         </div>
     
     </div>
@@ -85,17 +88,18 @@
 
 
 <!--Creating div for the main hub page that will constantly change-->
-<div class="container3">
-   	
-	<div id="button-options" class="button-grid">
-		<center>
-		<button class="options">Option 1</button>
-		<button class="options">Option 2</button>
-		<button class="options">Option 3</button>
-		<button class="options">Option 4</button>
-		</center>
-		</div>
-	</div>
+<div class="container3" id="container3">
+    <div class="fade-in-text">
+	    <div id="button-options" class="button-grid">
+		    <center>
+		    <button class="options">Option 1</button>
+		    <button class="options">Option 2</button>
+		    <button class="options">Option 3</button>
+		    <button class="options">Option 4</button>
+		    </center>
+	    </div>
+    </div>
+</div>
 
 </body> 
 	
