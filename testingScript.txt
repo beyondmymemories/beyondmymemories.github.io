@@ -23,12 +23,9 @@ O :
 //1.1.0//
 
 //1.1.1//
-L : you stay sitting, waiting for your memory to come back.
+    you stay sitting, waiting for your memory to come back.
     Nothing comes to you, 
-    you get even colder and start to be hungry <br>
-O : <br>
-    1.1.2 : Sit and Wait <br>
-    1.2.1 : Search Around You <br> <br>
+    you get even colder and start to be hungry <br><br>
 //1.1.1//
 
 //1.1.2//
@@ -59,10 +56,8 @@ O:
 //1.2.0//
 
 //1.2.1//
-L : You stand up and search around you, your hand coming across a small journal by your side.
+    You stand up and search around you, your hand coming across a small journal by your side.
     This journal may help you
     You also find a small dagger, about the size of your hand, near your feet.
-    This dagger may help you <br>
-
-    1.2.0 : General Cave Stuff <br> <br>
+    This dagger may help you <br><br>
 //1.2.1//
