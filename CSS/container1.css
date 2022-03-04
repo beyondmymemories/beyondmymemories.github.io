@@ -1,4 +1,8 @@
 /* This is used to define how the text fades in. */
+body{ 
+    background-image:url("../Functions/Art/Chapter1/titlePage.png");	
+    background-color: grey;
+}
 .fade-in-text {
     font-size: 70px; 
     color: black; 
@@ -8,14 +12,15 @@
     -ms-animation: fadeIn linear 4s;
 }
 
+
 div.container1 {
     text-align: center;
     display: block;
 }
 
 .startup {
-    color: Black;
-	font-family: 'euphoria-script';
+    color: white;
+    font-family: 'euphoria-script';
     margin-top: 0px;
     margin-right: 0px;
     margin-left: 0px;
