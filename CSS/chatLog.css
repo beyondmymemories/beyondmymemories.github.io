@@ -1,9 +1,12 @@
 textarea {
+	position:absolute;
     margin-top: 15px;
     width: 50%; 
+	z-index: 1;
 }
 
 chatLogDisplay {
+	position:absolute;
     height: 500px;
     width: 250px;
     overflow: scroll;
@@ -13,4 +16,5 @@ chatLogDisplay {
     flex-direction: column-reverse;
     top: 120px;
     left: 30px;
+	z-index: 1;
 }
