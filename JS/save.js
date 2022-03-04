@@ -90,7 +90,7 @@ function init() {
 		//alert("NO SAVE");
 	}
 	else {
-		document.getElementById("loadBtn").style.display = 'block';
+		document.getElementById("loadBtn").style.display = 'inline-block';
 		//alert("SAVE EXISTS");
 	}
 }
