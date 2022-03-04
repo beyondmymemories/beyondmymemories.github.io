@@ -1,48 +1,16 @@
-body {
-    padding: 0;
-    margin: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100vw;
-    height: 100vh;
-    background-image:url("../Functions/Art/PlaceHolder.jpg");	
-    background-color: grey;
-}
-
-.container {
-    width: 800px;
-    max-width: 80%;
-    background-color: white;
-    padding: 10px;
-    border-radius: 5px;
-    box-shadow: 0 0 10px 2px;
-}
-
-.button { 
-    border: none;
-    color: grey;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
-    cursor: pointer;
-}
-
-chatLogDisplay {
-    height: 50%;
-    width: 215px;
-    overflow: scroll;
-    float: left;
-    position: relative;
-    margin-left: -80%;
-    display: flex;
-    flex-direction: column-reverse;
-}
-
 textarea {
     margin-top: 15px;
     width: 50%; 
+}
+
+chatLogDisplay {
+    height: 500px;
+    width: 250px;
+    overflow: scroll;
+    float: left;
+    position: relative;
+    display: flex;
+    flex-direction: column-reverse;
+    top: 120px;
+    left: 30px;
 }
