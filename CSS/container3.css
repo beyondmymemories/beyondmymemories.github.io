@@ -3,12 +3,10 @@
 
 .imagesettings img{
 	float: left;
-    margin-left: +20;
     margin-top: +20;
-    height: auto;
-	width: 1000px;
+    height: 650px;
+	width: 1070px;
 	z-index:0;
-	margin-left: auto;
 }
 
 div.container3 {
@@ -16,21 +14,30 @@ div.container3 {
     font-family: 'euphoria-script';
     padding: 0;
     margin : 0;
-    justify-content: center;
-    align-items: center;
+    border: 2px solid white;
+    width: 100%;
+    height: 650px;
  }
  
  .button-grid {
 	z-index:1;
 	position:absolute;
     display: grid;
+    border: 3px solid white;
     grid-template-columns: repeat(2,auto);
     gap: 10px;
+    width: auto;
+    height: auto;
+    padding: 15px;
+    position: absolute;
+    left: 650px;
+    top: 500px;
  
  }
  
  button.options {
      padding: 5px 10px;
+     margin: 5px 3px;
  }
  
  button.options:hover {
