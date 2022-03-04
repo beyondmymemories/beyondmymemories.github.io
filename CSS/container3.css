@@ -1,7 +1,16 @@
 /*Div for the main container of all main hub information*/
-body{ 
-    background-image:url("../Functions/Art/Chapter1/beginCave.png");	
+
+
+.imagesettings img{
+	float: left;
+    margin-left: +20;
+    margin-top: +20;
+    height: auto;
+	width: 1000px;
+	z-index:0;
+	margin-left: auto;
 }
+
 div.container3 {
     display: none;
     font-family: 'euphoria-script';
@@ -12,6 +21,8 @@ div.container3 {
  }
  
  .button-grid {
+	z-index:1;
+	position:absolute;
     display: grid;
     grid-template-columns: repeat(2,auto);
     gap: 10px;

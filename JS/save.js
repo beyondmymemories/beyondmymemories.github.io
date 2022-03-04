@@ -104,12 +104,14 @@ function newGame() {
 		//window.location.href = "charSelect.html";
 		document.getElementById("container2").style.display = 'inline'
 		document.getElementById("container1").style.display = 'none'
+		element.style.backgroundColor = "#00FF00";
 	}
 	else {
 		if (confirm("A game already Exists. Do you want to start a New Game?")) {
 		  alert("A new game will start");
 		  document.getElementById("container2").style.display = 'inline'
 		  document.getElementById("container1").style.display = 'none'
+		  element.style.backgroundColor = "#00FF00";
 		} 
 		else {
 		  alert("A new game will NOT start");

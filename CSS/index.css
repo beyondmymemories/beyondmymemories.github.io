@@ -1,10 +1,7 @@
 /* This is to define our background. */
-/*body {
-    background-image:url("../Functions/Art/PlaceHolder.jpg");	
-    background-color: grey;
+body{
+	background-color:black;
 }
-*/
-
 /* This handles the title of the page. */
 div.title {
 

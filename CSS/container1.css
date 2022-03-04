@@ -1,7 +1,6 @@
 /* This is used to define how the text fades in. */
-body{ 
-    background-image:url("../Functions/Art/Chapter1/beginCave.png");	
-}
+
+
 .fade-in-text {
     font-size: 70px; 
     color: black; 
@@ -15,6 +14,9 @@ body{
 div.container1 {
     text-align: center;
     display: block;
+	width: auto;
+	height: 600px;
+	background-image:url("../Functions/Art/Chapter1/beginCave.png");
 }
 
 .startup {
