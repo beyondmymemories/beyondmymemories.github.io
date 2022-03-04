@@ -1,7 +1,6 @@
 /* This is used to define how the text fades in. */
 body{ 
-    background-image:url("../Functions/Art/Chapter1/titlePage.png");	
-    background-color: grey;
+    background-image:url("../Functions/Art/Chapter1/beginCave.png");	
 }
 .fade-in-text {
     font-size: 70px; 
