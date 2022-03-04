@@ -7,19 +7,28 @@ div.container3 {
     font-family: 'euphoria-script';
     padding: 0;
     margin : 0;
-    justify-content: center;
-    align-items: center;
+    border: 2px solid white;
+    width: 100%;
+    height: 650px;
  }
  
  .button-grid {
     display: grid;
+    border: 3px solid white;
     grid-template-columns: repeat(2,auto);
     gap: 10px;
+    width: auto;
+    height: auto;
+    padding: 15px;
+    position: absolute;
+    left: 650px;
+    top: 500px;
  
  }
  
  button.options {
      padding: 5px 10px;
+     margin: 5px 3px;
  }
  
  button.options:hover {
