@@ -1,4 +1,4 @@
-var Attacks = {
+var Attacks1 = {
     Weapons: {
         'Greataxe': {
             type: 'heavy',
@@ -37,7 +37,7 @@ var Attacks = {
             sell: 2
         }
     },
-    
+
     Spells: {
         'Fireball': {
             type: 'fire',
