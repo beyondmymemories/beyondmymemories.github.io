@@ -32,7 +32,7 @@ div.container1 {
     padding-bottom: 6px;
 }
 
-.button1 {border-radius: 8px}
+.button1, .button2, .button3, .button4 {border-radius: 8px}
 
 @keyframes fadeIn {
     0% {opacity:0;}
