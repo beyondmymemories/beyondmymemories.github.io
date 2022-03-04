@@ -6,10 +6,12 @@
 <link href="CSS/container1.css" rel="stylesheet" type="text/css">
 <link href="CSS/container2.css" rel="stylesheet" type="text/css">
 <link href="CSS/container3.css" rel="stylesheet" type="text/css">
+<link href="CSS/chatLog.css" rel="stylesheet" type="text/css">
 	
 <!--JAva script Things!-->
 <script type="text/javascript" src="JS/save.js"></script>
 <script type="text/javascript" src="JS/load_function.js"></script>
+<script type="text/javascript" src="JS/chatLog.js"></script>
 
 <!--Chapter 1's links -->
 
@@ -30,7 +32,7 @@
 		</p>
 
 		<button class="button button1" onclick="newGame()">Begin</button>
-		<div id="loadBtn">
+		<div id="loadBtn" style="display: inline-block;">
 			<button class="button button1" onclick="loadGame()">Load</button>
 		</div>
 	
@@ -91,13 +93,17 @@
 <!--Creating div for the main hub page that will constantly change-->
 <div class="container3" id="container3">
     <div class="fade-in-text">
+
+        <! –– The chatlog box. ––>
+        <chatLogDisplay class="form">  
+            <p id="chatLog"></p>
+        </chatLogDisplay>
+
 	    <div id="button-options" class="button-grid">
-		    <center>
 		    <button class="options">Option 1</button>
 		    <button class="options">Option 2</button>
 		    <button class="options">Option 3</button>
 		    <button class="options">Option 4</button>
-		    </center>
 	    </div>
     </div>
 </div>
