@@ -1,4 +1,8 @@
 /* This handles the items within this container. */
+body{ 
+    background-image:url("../Functions/Art/Chapter1/titlePage.png");	
+    background-color: grey;
+}
 div.container2 {
     height: 10em;
     position: relative;
@@ -25,8 +29,9 @@ div.container2 p {
     float: left;
     margin-left: +20;
     margin-top: +20;
-    width: 150px;
-    height: 150px;
+    height: 300px;
+	padding-right: 50px;
+	padding-left: 50px;
 }
 
 /* This handles the first character button. */
@@ -34,6 +39,8 @@ div.buttonChar {
     display: inline-block;
     grid-template-columns: repeat(2,auto);
     gap: 10px;
+	padding-right: 50px;
+	padding-left: 50px;
 }
 /*
 div.buttonChar2 {

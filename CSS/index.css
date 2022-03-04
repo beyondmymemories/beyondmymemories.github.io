@@ -1,17 +1,19 @@
 /* This is to define our background. */
-body {
+/*body {
     background-image:url("../Functions/Art/PlaceHolder.jpg");	
     background-color: grey;
 }
+*/
 
 /* This handles the title of the page. */
 div.title {
+
     height: 1em;
     position: relative;  
 }
 
 p {	
-	
+	color: white;
     text-align: center;
     font-family: 'euphoria-script';
 }
