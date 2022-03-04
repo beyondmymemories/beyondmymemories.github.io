@@ -1,4 +1,7 @@
 /*Div for the main container of all main hub information*/
+body{ 
+    background-image:url("../Functions/Art/Chapter1/beginCave.png");	
+}
 div.container3 {
     display: none;
     font-family: 'euphoria-script';
