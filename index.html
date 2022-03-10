@@ -52,36 +52,43 @@
         </div>
     
         <! –– This decides the button and art for the Wizard. ––>
-		<div class="buttonChar">
+		<div class="characterbutton">
              <div class="characters">   
                 <img src="Functions/Art/Chapter1/wizardChar.png" alt="temp">
             </div>
-            <button class="button button1" onclick="load_function()">Wizard</button>
+            <div class="buttonChar">
+                <button class="button button1" onclick="load_function()">Wizard</button>
+            </div>
         </div>
     
         <!–– This decides the button and art for the Barbarian. ––>
-        <div class="buttonChar">   
+        <div class="characterbutton">   
             <div class="characters"> 
                 <img src="Functions/Art/Chapter1/barbarianChar.png" alt="temp">
             </div>
-			<br>
-            <button class="button button2" onclick="load_function()">Barbarian</button>
+            <div class="buttonChar">
+                <button class="button button2" onclick="load_function()">Barbarian</button>
+            </div>
         </div>
    
         <!–– This decides the button and art for the Bard. ––>
-        <div class="buttonChar">  
+        <div class="characterbutton">  
             <div class="characters"> 
                 <img src="Functions/Art/temp image.png" alt="temp">
             </div>
-            <button class="button button3" onclick="load_function()">Bard</button>
+            <div class="buttonChar">
+                <button class="button button3" onclick="load_function()">Bard</button>
+            </div>
         </div>
     
         <!–– This decides the button and art for the Rouge. ––>
-        <div class="buttonChar">
+        <div class="characterbutton">
             <div class="characters"> 
-                <img src="Functions/Art/temp image.png" alt="temp">
+                <img src="Functions/Art/stickman.png" alt="temp">
             </div>
-            <button class="button button4" onclick="load_function()">Rogue</button>
+            <div class="buttonChar">
+                <button class="button button4" onclick="load_function()">Rogue</button>
+            </div>
         </div>
 		
     	
@@ -94,18 +101,20 @@
 <div class="container3" id="container3">
     <div class="fade-in-text">
 	  
-
-        <! –– The chatlog box. ––>
-        <chatLogDisplay class="form">  
-            <p id="chatLog"></p>
-        </chatLogDisplay>
-	    <div id="button-options" class="button-grid">
-		    <button class="options">Option 1</button>
-		    <button class="options">Option 2</button>
-		    <button class="options">Option 3</button>
-		    <button class="options">Option 4</button>
-	    </div>
-		<div class="imagesettings"><img src="Functions/Art/Chapter1/smallerCave.png" alt="begin"></div>
+		<div class="imagesettings">
+            
+            <img src="Functions/Art/Chapter1/smallerCave.png" alt="begin">
+            <! –– The chatlog box. ––>
+            <chatLogDisplay class="form">  
+                <p id="chatLog"></p>
+            </chatLogDisplay>
+	        <div id="button-options" class="button-grid">
+		        <button class="options">Option 1</button>
+		        <button class="options">Option 2</button>
+		        <button class="options">Option 3</button>
+		        <button class="options">Option 4</button>
+	        </div>
+        </div>
     </div>
 </div>
 
