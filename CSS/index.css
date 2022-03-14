@@ -6,7 +6,9 @@ body{
 div.title {
 
     height: 1em;
-    position: relative;  
+    position: relative; 
+    margin-top: 30px;
+    margin-bottom: 10px; 
 }
 
 p {	

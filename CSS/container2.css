@@ -4,8 +4,9 @@ div.container2 {
     height: 10em;
     position:relative;
     display: none;
-    margin: 10px;
-	height: 600px;
+    /*margin: 10px;*/
+	height: 97.7vh;
+    width: 100%;
 	background-image:url("../Functions/Art/Chapter1/beginCave.png");
 }
 
@@ -16,6 +17,10 @@ div.container2 p {
 	padding-top: 50px;
     margin-right: -50%;
     transform: translate(-50%, -50%)
+}
+
+.characterbutton {
+    display: inline-block;
 }
 
 /* This is the character class. */
@@ -31,16 +36,18 @@ div.container2 p {
 	width: auto;
 	padding-right: 50px;
 	padding-left: 50px;
-	background-image:url("../Functions/Art/Chapter1/titlePage.png");
+	/*background-image:url("../Functions/Art/Chapter1/titlePage.png");*/
 }
 
 /* This handles the first character button. */
 div.buttonChar {
     display: inline-block;
     grid-template-columns: repeat(2,auto);
-    gap: 10px;
+   /* gap: 10px; */
 	padding-right: 50px;
 	padding-left: 50px;
+    width: 200px;
+    text-align: center;
 }
 .bgImage{
 	width: auto;
