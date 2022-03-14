@@ -1,24 +1,32 @@
 <!doctype html>
 <html>
 <head>
+<!--The following script tag downloads a font from the Adobe Edge Web Fonts server for use within the web page. We recommend that you do not modify it.--><script>var __adobewebfontsappname__="dreamweaver"</script><script src="http://use.edgefonts.net/euphoria-script:n4:default.js" type="text/javascript"></script>
 <link href="CSS/index.css" rel="stylesheet" type="text/css">
+	
 <script type="text/javascript" src="JS/save.js"></script>
+	
 </head>
+		
 <body onload="init();">
-<div class="fade-in-text"> 
-<div class="container4">
-    <p> Beyond My Memories</p>
-    <button class="button button1" onclick="newGame()">New Game</button>
+
+<div class="fade-in-text">
+<div class="center"> 
+<p class="startup"> 
+	  Beyond My Memories
+	</p>
+
+<div class="fade-in-buttons">
+	<button class="button button1" onclick="newGame()" href="charSelect.html">Begin</button>
 	<div id="loadBtn">
-		<button class="button button1" onclick="loadGame()">Load</button>
-		<button class="button button1" onclick="deleteGame()">Delete Game</button>
-	</div>
-	<div>
-		<a href="JS/test.html" class="button button1">Save and Idle Test</a>
+	<button class="button button1" onclick="loadGame()">Load</button>
 	</div>
 	
+	<button class="button button1" onclick="deleteGame()">Delete</button>
+  
 </div>
 </div>
-		
+</div>		
 </body> 
+	
 </html> 

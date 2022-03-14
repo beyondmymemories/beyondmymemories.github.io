@@ -9,15 +9,31 @@ stored variables: variables in local storage. Not to be used live. must be loade
 
 !LocalStorage only saves strings. Complex data structures must be encoded and decoded as strings if it is to be saved.
 
-I am going to compile all data to a single JSON that is encoded as a string and decoded back to a JSON on save and load.
+Any JS scripts that uses save.js will use saveVar() and loadVar(). saveVar() needs to be within a scripts own uniquely named save function and loadVar() needs do be within a scripts own uniquely named load function that loads saved variables to the live variables within.
 
 */
 //UNIVERSAL FUNCTIONS----------------------------
+
+/*	saveVar() and loadVar() are for other scripts to use localStorage to permanantly store 			variables.
+	These can be used strictly with "live variables". Data is not to be used directly from 
+	localStorage. There should be a live variable and it will be saved on an 
+	explicit save event.
+*/
 function saveVar(name, value) {
 	localStorage.setItem(name, value);
 }
 function loadVar(name) {
-	return localStorage.getItem(name)
+	return localStorage.getItem(name);
+}
+
+/*	These are the ultimate saving and loading functions. They will call all save and load 			functions from any other js script that needs variables saved to localStorage.
+*/
+function globalSave() {
+	alert("placeholder: globalSave\(\)");
+}
+
+function globalLoad() {
+	alert("placeholder globalLoad\(\)");
 }
 
 var debug = true;
@@ -110,6 +126,7 @@ function newGame() {
 	if(localStorage.getItem("saveExists") === null) {
 		alert("No save exists, A new game will start");
 		localStorage.setItem("saveExists", "True")
+		window.location.href = "charSelect.html";
 	}
 	else {
 		if (confirm("A game already Exists. Do you want to start a New Game?")) {
