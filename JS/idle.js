@@ -26,6 +26,10 @@ function translateSeconds(secondsIn) {
 }
 
 function applyIdle() {
-	number(playerGold) = number(playerGold) + number(5);
+	var timeIdle = Date.now() - loadVar("exitTime");
+	seconds = Math.round(timeIdle/1000)
+	addGold(seconds);
+	console.log("added: " + seconds);
+	displayAll();
 	//alert(playerGold.concat(" + ", endIdle(), " = ", (playerGold + endIdle())));
 }
