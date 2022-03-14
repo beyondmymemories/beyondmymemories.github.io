@@ -8,3 +8,10 @@ body {
 .myButton {
 	padding: 12px;
 }
+.outline {
+	
+	outline-color: black;
+	outline-style: solid;
+	width: 50vw;
+
+}
