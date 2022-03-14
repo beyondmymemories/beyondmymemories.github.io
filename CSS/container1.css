@@ -1,0 +1,95 @@
+/* This is used to define how the text fades in. */
+
+
+.fade-in-text {
+    font-size: 70px; 
+    color: black; 
+    animation: fadeIn linear 4s; 
+    -webkit-animation: fadeIn linear 4s;
+    -moz-animation: fadeIn linear 4s; 
+    -ms-animation: fadeIn linear 4s;
+}
+
+
+div.container1 {
+    text-align: center;
+    display: block;
+	width: auto;
+	height: 600px;
+	background-image:url("../Functions/Art/Chapter1/beginCave.png");
+}
+
+.startup {
+    color: white;
+    font-family: 'euphoria-script';
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-left: 0px;
+    margin-bottom: 0px;
+    font-size: 123px;
+    padding-left: 0%;
+    padding-top: 100px;
+    padding-right: 0px;
+    padding-bottom: 6px;
+}
+
+.button1, .button2, .button3, .button4 {border-radius: 8px}
+
+@keyframes fadeIn {
+    0% {opacity:0;}
+    100% {opacity:1;}
+}
+
+@-moz-keyframes fadeIn {
+    0% {opacity:0;}
+    100% {opacity:1;}
+}
+
+@-webkit-keyframes fadeIn {
+    0% {opacity:0;}
+    100% {opacity:1;}
+}
+
+@-o-keyframes fadeIn {
+    0% {opacity:0;}
+    100% {opacity:1;}
+}
+
+@-ms-keyframes fadeIn {
+
+    0% {opacity:0;}
+    100% {opacity:1;}
+}
+
+.button:hover{
+    color: white;
+    background-color:#2f3352 
+}
+
+.button:active {
+	color: white;
+    background-color: #2f3352;
+    box-sizing: 0 5px #666;
+    transform: translateY(4px);
+}
+
+
+/* This defines the buttons. */
+.button{
+    border: none;
+    color: Black;
+    font-family: 'euphoria-script';
+    padding-top: 7px;
+    padding-right: 32px;
+    padding-left: 25px;
+    padding-bottom: 6px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 41px;
+    margin-top: 108px;
+    margin-right: 0px;
+    margin-left: 0px;
+    margin-bottom: -3px;
+    cursor: pointer;
+}

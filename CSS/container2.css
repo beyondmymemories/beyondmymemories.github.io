@@ -1,0 +1,68 @@
+/* This handles the items within this container. */
+
+div.container2 {
+    height: 10em;
+    position:relative;
+    display: none;
+    margin: 10px;
+	height: 600px;
+	background-image:url("../Functions/Art/Chapter1/beginCave.png");
+}
+
+div.container2 p {
+	position:absolute;
+    margin: 0;
+    left: 50%;
+	padding-top: 50px;
+    margin-right: -50%;
+    transform: translate(-50%, -50%)
+}
+
+/* This is the character class. */
+.characters {
+    width: 100px;
+}
+
+/* This defines the character images. */
+.characters img {
+    float: left;
+    margin-left: +20;
+    height: 300px;
+	width: auto;
+	padding-right: 50px;
+	padding-left: 50px;
+	background-image:url("../Functions/Art/Chapter1/titlePage.png");
+}
+
+/* This handles the first character button. */
+div.buttonChar {
+    display: inline-block;
+    grid-template-columns: repeat(2,auto);
+    gap: 10px;
+	padding-right: 50px;
+	padding-left: 50px;
+}
+.bgImage{
+	width: auto;
+	height: 600px;
+	width:700px;
+}
+/*
+div.buttonChar2 {
+    display: inline-block;
+    grid-template-columns: repeat(2,auto);
+    gap: 10px;
+}
+
+div.buttonChar3 {
+    display: inline-block;
+    grid-template-columns: repeat(2,auto);
+    gap: 10px;
+}
+
+div.buttonChar4 {
+    display: inline-block;
+    grid-template-columns: repeat(2,auto);
+    gap: 10px;
+}
+*/

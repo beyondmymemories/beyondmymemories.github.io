@@ -46,9 +46,19 @@ var playerLevel
 var playerName
 var gameSave
 
+
 function addGold(amount) {
 	playerGold = parseInt(playerGold) + parseInt(amount);
 }
+
+//UNIVERSAL FUNCTIONS----------------------------
+function saveVar(name, value) {
+    localStorage.setItem(name, value);
+}
+function loadVar(name) {
+    return localStorage.getItem(name);
+}
+
 
 //Load variables from text box inputs to live variables
 function updateAll() {
@@ -81,10 +91,14 @@ function loadAll() {
 	saveExists = localStorage.getItem("saveExists");
 	playerGold = localStorage.getItem("playerGold");
 	playerLevel = localStorage.getItem("playerLevel");
+
 	playerName = localStorage.getItem("playerName");
 	
 	if (debug) console.log("saveExists loaded as: " + saveExists);
 	
+
+	playerName = localStorage.getItem("playerName");	
+
 	displayAll();
 }
 
@@ -114,7 +128,7 @@ function init() {
 		//alert("NO SAVE");
 	}
 	else {
-		document.getElementById("loadBtn").style.display = 'block';
+		document.getElementById("loadBtn").style.display = 'inline-block';
 		//alert("SAVE EXISTS");
 	}
 	alert("test");
@@ -126,11 +140,17 @@ function newGame() {
 	if(localStorage.getItem("saveExists") === null) {
 		alert("No save exists, A new game will start");
 		localStorage.setItem("saveExists", "True")
-		window.location.href = "charSelect.html";
+		//window.location.href = "charSelect.html";
+		document.getElementById("container2").style.display = 'inline'
+		document.getElementById("container1").style.display = 'none'
+		element.style.backgroundColor = "#00FF00";
 	}
 	else {
 		if (confirm("A game already Exists. Do you want to start a New Game?")) {
 		  alert("A new game will start");
+		  document.getElementById("container2").style.display = 'inline'
+		  document.getElementById("container1").style.display = 'none'
+		  element.style.backgroundColor = "#00FF00";
 		} 
 		else {
 		  alert("A new game will NOT start");
@@ -146,6 +166,8 @@ function loadGame() {
 	else {
 		alert("Game started from existing save");
 	}
+	document.getElementById("container3").style.display = 'inline-block'
+	document.getElementById("container1").style.display = 'none'
 }
 function deleteGame() {
 

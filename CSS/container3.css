@@ -1,0 +1,50 @@
+/*Div for the main container of all main hub information*/
+
+
+.imagesettings img{
+	float: left;
+    margin-top: +20;
+    height: 650px;
+	width: 1070px;
+	z-index:0;
+}
+
+div.container3 {
+    display: none;
+    font-family: 'euphoria-script';
+    padding: 0;
+    margin : 0;
+    border: 2px solid white;
+    width: 100%;
+    height: 650px;
+ }
+ 
+ .button-grid {
+	z-index:1;
+	position:absolute;
+    display: grid;
+    border: 3px solid white;
+    grid-template-columns: repeat(2,auto);
+    gap: 10px;
+    width: auto;
+    height: auto;
+    padding: 15px;
+    position: absolute;
+    left: 650px;
+    top: 500px;
+ 
+ }
+ 
+ button.options {
+     padding: 5px 10px;
+     margin: 5px 3px;
+ }
+ 
+ button.options:hover {
+    border-color: black; 
+    box-shadow: 0 0 5px 2px;
+ 
+ }
+ 
+ /*End of main container*/
+ 

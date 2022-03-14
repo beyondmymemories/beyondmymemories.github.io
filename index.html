@@ -1,32 +1,114 @@
 <!doctype html>
 <html>
 <head>
-<!--The following script tag downloads a font from the Adobe Edge Web Fonts server for use within the web page. We recommend that you do not modify it.--><script>var __adobewebfontsappname__="dreamweaver"</script><script src="http://use.edgefonts.net/euphoria-script:n4:default.js" type="text/javascript"></script>
+<!--The following script tag downloads a font from the Adobe Edge Web Fonts server for use within the web page. We recommend that you do not modify it.--><script>var __adobewebfontsappname__="dreamweaver"</script><script src="https://use.edgefonts.net/euphoria-script:n4:default.js" type="text/javascript"></script>
 <link href="CSS/index.css" rel="stylesheet" type="text/css">
+<link href="CSS/container1.css" rel="stylesheet" type="text/css">
+<link href="CSS/container2.css" rel="stylesheet" type="text/css">
+<link href="CSS/container3.css" rel="stylesheet" type="text/css">
+<link href="CSS/chatLog.css" rel="stylesheet" type="text/css">
 	
+<!--JAva script Things!-->
 <script type="text/javascript" src="JS/save.js"></script>
-	
+<script type="text/javascript" src="JS/load_function.js"></script>
+<script type="text/javascript" src="JS/chatLog.js"></script>
+
+<!--Chapter 1's links -->
+
+
+<title>Remember me</title>
 </head>
-		
+
+<!--
+	This is the beginning page
+	ALL CSS is contained in container1.css
+-->
 <body onload="init();">
 
-<div class="fade-in-text">
-<div class="center"> 
-<p class="startup"> 
-	  Beyond My Memories
-	</p>
+<div class="container1" id="container1">
+	<div class="fade-in-text">
+		<p class="startup"> 
+	  		Beyond My Memories
+		</p>
 
-<div class="fade-in-buttons">
-	<button class="button button1" onclick="newGame()" href="charSelect.html">Begin</button>
-	<div id="loadBtn">
-	<button class="button button1" onclick="loadGame()">Load</button>
-	</div>
+		<button class="button button1" onclick="newGame()">Begin</button>
+		<div id="loadBtn" style="display: inline-block;">
+			<button class="button button1" onclick="loadGame()">Load</button>
+		</div>
 	
-	<button class="button button1" onclick="deleteGame()">Delete</button>
-  
+		<button class="button button1" onclick="deleteGame()">Delete</button>
+	</div>
 </div>
+
+<!--
+	This is the character selection container
+	ALL CSS is contained in the container2.css	
+-->
+<div class="container2" id="container2"> 
+    <div class="fade-in-text">
+        <!–– The title of the page. ––>
+         <div class="title">
+            <p> Character Selection</p>
+        </div>
+    
+        <! –– This decides the button and art for the Wizard. ––>
+		<div class="buttonChar">
+             <div class="characters">   
+                <img src="Functions/Art/Chapter1/wizardChar.png" alt="temp">
+            </div>
+            <button class="button button1" onclick="load_function()">Wizard</button>
+        </div>
+    
+        <!–– This decides the button and art for the Barbarian. ––>
+        <div class="buttonChar">   
+            <div class="characters"> 
+                <img src="Functions/Art/Chapter1/barbarianChar.png" alt="temp">
+            </div>
+			<br>
+            <button class="button button2" onclick="load_function()">Barbarian</button>
+        </div>
+   
+        <!–– This decides the button and art for the Bard. ––>
+        <div class="buttonChar">  
+            <div class="characters"> 
+                <img src="Functions/Art/temp image.png" alt="temp">
+            </div>
+            <button class="button button3" onclick="load_function()">Bard</button>
+        </div>
+    
+        <!–– This decides the button and art for the Rouge. ––>
+        <div class="buttonChar">
+            <div class="characters"> 
+                <img src="Functions/Art/temp image.png" alt="temp">
+            </div>
+            <button class="button button4" onclick="load_function()">Rogue</button>
+        </div>
+		
+    	
+    </div>
 </div>
-</div>		
+
+
+
+<!--Creating div for the main hub page that will constantly change-->
+<div class="container3" id="container3">
+    <div class="fade-in-text">
+	  
+
+        <! –– The chatlog box. ––>
+        <chatLogDisplay class="form">  
+            <p id="chatLog"></p>
+        </chatLogDisplay>
+	    <div id="button-options" class="button-grid">
+		    <button class="options">Option 1</button>
+		    <button class="options">Option 2</button>
+		    <button class="options">Option 3</button>
+		    <button class="options">Option 4</button>
+	    </div>
+		<div class="imagesettings"><img src="Functions/Art/Chapter1/smallerCave.png" alt="begin"></div>
+    </div>
+</div>
+
 </body> 
 	
 </html> 
