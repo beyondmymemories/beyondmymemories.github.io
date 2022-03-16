@@ -11,7 +11,7 @@ function load_function() {
     document.getElementById("container2").style.display = "none"
     document.getElementById("container3").style.display = "inline-block"
 
-
+    selectOption();
 
 
 } //end of function
