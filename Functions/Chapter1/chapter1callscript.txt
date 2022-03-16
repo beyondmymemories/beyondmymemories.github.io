@@ -1,0 +1,471 @@
+Chapter 1 Script - Descriptive
+
+Notes:
+	M = merchant - says in log
+	C = character - says in log
+	L = log - general messages
+	O = option buttons
+	S = SO says in log
+
+//START//
+    Where am I? <br>
+    You feel your head and find a small stream of blood going down your head.
+	Looking above, you see the moon through a large crack high above you.
+	Around you, all you see is a cave, dark and cold. <br>
+    Why am I here? <br>
+    Your head begins to hurt <br>
+    I can't remember anything.. 
+<br><br>
+//START//
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+//1.1.0//
+    You stay sitting, waiting for your memory to come back. <br>
+	Nothing comes to you, The cave is cold and dark <br>
+	You are tired 
+<br><br>
+//1.1.0//
+
+//1.1.1//
+    You stay sitting, waiting for your memory to come back. <br>
+	Nothing comes to you, <br>
+	you get even colder and start to be hungry
+<br><br>
+//1.1.1//
+
+//1.1.2//
+    You stay sitting, waiting for your memory to come back. <br>
+	Nothing comes to you, you get even more tired, cold and even more hungry <br>
+<br><br>
+//1.1.2//
+
+//1.1.3//
+    You, tired and exhausted, fall asleep. <br>
+	A monster wanders out during the night and drags your body away, never to be seen again. <br>
+	Restart and try again?
+<br><br>
+//1.1.3//
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+//1.2.0//	
+	In front of you, illuminated by the moonlight, you see 3 different tunnels. <br>
+	Two of them are forked. One is cold and dark, while the other is filled with bright light <br>
+	Off to your right, you see a different tunnel, one where water is flowing out from, and slowly filling the cave. <br>
+	Where would you like to go?
+<br><br>
+//1.2.0//
+
+//1.2.1//
+    You stand up and search around you, your hand coming across a small journal by your side. <br>
+	~~This journal may help you~~ <br>
+	You also find a small dagger, about the size of your hand, near your feet. <br>
+	~~This dagger may help you~~ 
+<br><br>
+//1.2.1//
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+//1.3.0//
+    You wander into this warm tunnel, your body starts to warm from the torches. <br>
+	In front of you, there are two different paths split by a sign. <br>
+	The sign states: <br>
+	_________________________________________ <br>
+	|	Ivan's Wandering Shop of Curio's!	| <br>
+	| 		--------------------->			| <br>
+	|_______________________________________| <br>
+<br><br>
+//1.3.0//
+
+//1.3.0a//
+    In the other direction, continuing through the tunnel, you hear a bloodcurdling scream. <br>
+	Where would you like to go?
+<br><br>
+//1.3.0a//
+
+//1.3.0b//
+	Where would you like to go? 
+<br><br>
+//1.3.0b//
+
+//1.3.1//
+If (metMerchant == FALSE) {
+L : You follow the path to the merchant's shop, only to find it empty
+	You see an area where a merchant could set up shop, along with different objects
+	There is a sign on the counter:
+	_________________________________________
+	| 	Currently out, please come back		|
+	|			   	later!					|
+	|_______________________________________|
+	As such, you return to the path you came from and continue down this tunnel.
+} //end of if
+else {
+O :
+*GENERAL SHOP INTERACTION*
+	1.2.0 : Return to Cave
+	1.3.5 : Continue through tunnel
+}//end of else
+//1.3.1//
+
+//1.3.2//
+L : As you continue down the tunnel, the screaming gets louder and louder.
+	Please roll a 'Stealth Check'
+	<Stealth rolls depend on your dexterity, you roll a 20 sided die (d20) 
+	 and will add your 'dexterity' modifier>
+*Player rolls button die*
+	1.3.4 : total >= 12
+	1.3.5 : total < 12 
+//1.3.2//
+
+//1.3.4//
+L : With your quiet footsteps, and the terrified screams, you're pretty quiet
+	In front of you, you are able to see a monster
+*DESCRIPTION OF MONSTER - DESCRIBED BY MIGUEL*
+	It is attacking someone! A shorter man, in fine fabric, with a moustache
+	Being as sneaky as you are, you are able to sneak up to the monster and attack!
+	~~Entering Combat with : X ~~
+
+	1.3.6 : Killed in combat
+	1.3.7 : Success in combat
+//1.3.4//
+
+//1.3.3//
+if (metMerchant = FALSE) {
+L : Unfortunately, you're body is just too tired to be able to stay quiet walking down this tunnel
+	In front of you, you are able to see a monster
+*DESCRIPTION OF MONSTER - DESCRIBED BY MIGUEL*
+	It is attacking someone! A shorter man, in fine fabric, with a moustache
+}//end of if
+else if (idle = READY)
+L : Another monster has appeared where you were able to kill the last one.
+}//end of else
+L :	As the monster was able to hear you approaching, he is ready for your attack!
+	~~Entering Combat with : X ~~
+
+	1.3.4 : Killed in combat
+	1.3.5 : Success in combat
+}//end of elseif
+else {
+L : Enough time hasn't passed for another monster to appear, please try again later.
+O :
+	1.3.1 : Return to Merchant
+	1.2.0 : Return to Cave	
+}//end of else
+//1.3.3//
+
+//1.3.4//
+L : Unfortunately, the X is able to strike you down, ending your life with a final blow.
+	Restart and try again?
+*GAME ENDS - RESTART FROM CHECKPOINT*
+//1.3.4//
+
+//1.3.5//
+L : You're able to defeat the monster! 
+	~~ Awarded Y experience ~~
+if (metMerchant == FALSE) {
+L :	The merchant, bloody and in shock, slowly stands to his feet
+M : Ah! Mhm..
+L : You find him to be much shorter than you, his head coming up to your hips
+	A dwarf! A rare species to find as they don't leave their homes often
+	He dusts himself off, and sticks out his hand to you
+M : My apologies for my haggard appearance, my name is Ivan Hamil, of Ivan's Wandering Shop of Curio's!
+	I must say, my dear fellow, that you look to be nearly in the same state that I am!
+	Nevertheless, I am most grateful to you for saving my life, please allow me to guide you back to my shop
+	and give you a token of my gratitude.
+*You wander back to his shop*
+L : Ivan, who was at your side, is immediately behind the counter, mumbling and searching to himself
+M : Ah! Here we are, for you!
+	~~You've obtained a black obsidian key! It may help you~~
+	Please come to my shop anytime! I happen to sell many different items that may be of use to you in this cavern
+	It goes quite deep, and I can't say that I have seen many people leave.
+	Me? Oh dwarves are able to teleport here and there, you know, but we are unable to take others with us.
+
+*metMerchant=TRUE*
+**GENERAL SHOP INTERACTION - OPEN AND SHOP AND CLOSE*
+	1.2.0 : Return to Cave
+}//end of if
+else {
+	1.3.1 : Return to Merchant
+	1.2.0 : Return to Cave
+}//end of else
+//1.3.5//
+
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+//1.4.0//
+*SCENE CHANGES - COLD DARK TUNNEL*
+L : As you wander into this cold, dark tunnel, your body gets chilled from the lack of warmth
+	The path continues to curve and curve, until you eventually hear noises from up ahead.
+if (lootAdventurer == FALSE) {
+O :
+	1.4.1 : Try to be Quiet
+	1.4.3 : Don't be Quiet
+}//end of if
+	1.4.3
+//1.4.0//
+
+//1.4.1//
+L :	Please roll a 'Stealth Check'
+	<Stealth rolls depend on your dexterity, you roll a 20 sided die (d20) 
+	 and will add your 'dexterity' modifier>
+*Player rolls button die*
+	1.4.2 : total >= 13
+	1.4.3 : total < 13 
+//1.4.1//
+
+//1.4.2//
+L : Despite the coldness of the tunnel, you are able to calm your heart, and be quiet and cautious.
+	Ahead you see X
+*DESCRIPTION OF MONSTER - DESCRIBED BY MIGUEL*
+	You are able to slow sneak up on the monster, and attack!
+	~~Entering Combat with : X ~~
+
+	1.4.4 : Killed in combat
+	1.4.5 : Success in combat
+//1.4.2//
+
+//1.4.3//
+if (lootAdventurer == FALSE) {
+L : Unfortunately, the coldness and darkness of the tunnel gets to you, you are too nervous to remain quiet and stealthy
+}//end of if
+	Ahead you see X
+*DESCRIPTION OF MONSTER - DESCRIBED BY MIGUEL*
+L :	As the monster was able to hear you approaching, he is ready for your attack!
+	~~Entering Combat with : X ~~
+
+	1.4.4 : Killed in combat
+	1.4.5 : Success in combat
+//1.4.3//
+
+//1.4.4//
+L : Unfortunately, the X is able to strike you down, ending your life with a final blow.
+	Restart and try again?
+*GAME ENDS - RESTART FROM CHECKPOINT*
+//1.4.4//
+
+//1.4.5//
+L : You're able to defeat the monster! 
+	~~ Awarded Y experience ~~
+if (lootAdventurer == FALSE) {
+	Behind the corpse of the X, you see a body, human and completely ravaged on the stone floor.
+	The body is coverd in tattered clothes with a small satchel at its side.
+	Inside you find, V coins, and a basic healing potion. 
+	~~ Found V coins ~~
+	~~ Found Healing Potions ~~
+*lootAdventurer=TRUE*
+}//end of if
+O:
+	1.2.0 : Return to Cave
+//1.4.5//
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+//1.5.0//
+*SCENE CHANGE*
+L : You slowly approach the stream, following it through the tunnel towards an open area with a waterfall.
+if (companion == "NA") { 
+	As you get closer, you stop as you hear sloshing in the water ahead.
+	What will you do?
+O :
+	1.5.1 : Surprise the creature!
+	1.5.2 : Cautiously approach the room
+}//end of if
+if (doorFound==TRUE) {
+	L : You remember that there is a black obsidian door in this room.
+	if (metMerchant == TRUE) {
+		L : The merchant gave you a black key incredibly similar to the color of this room.
+		O :
+			1.2.0 : Return to Cave
+			1.5.7 : Try the key
+	} //end of if
+	else {
+		L : However, you haven't found a key for this door, maybe you need to explore these tunnels more.
+		O :
+			1.2.0 : Return to Cave
+	}//end of else
+}//end of if
+else {
+	L : This is the same room with the waterfall, where you found X
+	O :
+		1.2.0 : Return to Cave
+		1.5.6 : Search Around
+}
+//1.5.0//
+
+//1.5.1//
+*CHANGE SCENES*
+if (characterSelect == "Wizard") {
+	L : 
+}//end of if
+else if (characterSelect == "Rogue") {
+	L :
+}//end of elseif
+else if (characterSelect == "Barbarian") {
+	L :
+}//end of elseif
+else if(characterSelect == "Bard") {
+	L :
+}//end of elseif
+L : You can tell that this white, wet, and fluffy dog was bouncing in the water. 
+	As you've surprised it, the dog stops and looks at you curiously.
+	It's a bit startled, but not running off.
+	What will you do?
+O :
+	1.5.3 : Shoo it off
+	1.5.4 : Call it to you
+//1.5.1//
+
+//1.5.2//
+*CHANGE SCENES*
+L: As you slowly approach the caven you peek in
+if (characterSelect == "Wizard") {
+	L : Your hat barely visible behind the wall
+}//end of if
+else if (characterSelect == "Rogue") {
+	L : Your body blended into the shadows
+}//end of elseif
+else if (characterSelect == "Barbarian") {
+	L : A little uncharacteristic for your huge size but you make it work
+}//end of elseif
+else if(characterSelect == "Bard") {
+	L : Your lute and belt barely jingling as you lean out
+}//end of elseif
+L : In the water up ahead, you see a dog, white and wet, splashing in the cave water.
+	It hasn't noticed you yet
+	What will you do?
+O :
+	1.5.4 Step out and call to it
+	1.5.1 Surprise it
+//1.5.2//
+
+//1.5.3//
+L : As you shoo it off, the dog continues to look at you longer.
+	Your head starts to hurt, this dog seems familiar
+	What will you do?
+O :
+	1.5.5 Scare it off
+	1.5.4 Call it to you
+//1.5.3//
+
+//1.5.4//
+L : You call out to the dog, bending down as you do.
+	The dog, excitedly, starts bounding through the water towards you
+if (characterSelect != "Barbarian") {
+	L : He runs and runs, eventually jumping on to you, his momentum pushing your back to the floor as he licks you
+	L : You're able to shove him off with some effort and he just smells your legs and stays by your side.
+}//end of if
+else {
+	L : He runs and runs, eventually jumping towards you, but your strength catches him easily and you stand holding him
+	L : He is by no means small, but incredibly light-weight to you.
+	L : As you set him down, he stays by your side, looking at you expectantly
+}//end of else
+L : Please name your new companion!
+*Popup box for name* *SAVE*
+*companion==ACCEPTED*
+L : X now by your side, what will you do?
+O :
+	1.2.0 : Return to Cave
+	1.5.6 : Search around
+//1.5.4//
+
+//1.5.5//
+L : Seeing the dog not moving from your earlier gesture, you pick up a rock near the stream and throw it towards the dog
+	Startled and seemingly sad, the dog scampers away from you, ducking into a hole in the wall and disappearing
+	~~ We will remember this ~~
+*companion==DENIED*
+O :
+	1.2.0 : Return to Cave
+	1.5.6 : Search around
+//1.5.5//
+
+//1.5.6//
+L : You look around, noticing the roof of this cave is similar to the main cave, way too high to climb out
+	You notice behind the waterfall from the hole in the roof, a door.
+	Black, with white ornate decorations on the side, it is exquisite.
+	Near this door, there is a keyhole, supposedly to unlock what is behind this door.
+	There is nothing else of interest.
+*doorFound==TRUE*
+if (metMerchant == TRUE) {
+	L : You remember the merchant gave you a key, a black key, that is very similar to this door.
+		Try it?
+	O :
+		1.2.0 Return to Cave
+		1.5.7 Try the key
+}//end of if
+else {
+ 	O :
+		1.2.0 Return to Cave
+}//end of else
+//1.5.6//
+
+//1.5.7//
+*Popup*
+	Are you sure you would like to continue? You may not be able to return to this area
+
+	O :
+		1.6.0 : Continue
+		1.2.0 : Return to Cave and explore more
+//1.5.7//
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+//1.6.0//
+L : As you insert the key into the keyhole, the door opens, sliding over slowly.
+	The tunnel in front of you is dark, with smooth stone rather than the material stone in the cave
+	Gathering your wits, you head in.
+	The monster of you, bigger than anything you ever remember facing, a minotaur!
+*DESCRIPTION OF MINOTAUR - MIGUEL*
+	You look back behind you, only to see a stone concrete slab close the hole, you're trapped.
+	~~Entering Combat with : X ~~
+
+	1.6.1 : Killed in combat
+	1.6.2 : Success in combat
+//1.6.0//
+
+//1.6.1//
+L : Unfortunately, the X is able to strike you down, ending your life with a final blow.
+	Restart and try again?
+*GAME ENDS - RESTART FROM CHECKPOINT*
+//1.6.1//
+
+//1.6.2//
+L : You've defeating the monster, panting and tired, you sit on the floor, slowing you breath and heartrate.
+	You hear sliding from the other side of the room, only to see another dark tunnel, that continues downward.
+C : I can rest for a few moments
+	As you sit, you feel a tug on your brain
+	Then a pull
+	Your head feels like its splitting in 2 as a familiar scene returns to you
+
+L : You see a (man/woman) who looks breathtaking standing in front of you.
+S : Isn't he just amazing!
+L : The (man/woman) glances at you excitedly, before looking back to the furry creature in front of her
+S : I can't believe you found one! I thought they were supposed to be rare!
+C : They are rare, you wouldn't believe the struggle to just find one of those pups
+S : Well, I'm sure it was worth all the struggle. Wouldn't you say so?
+L : She starts petting the small dog, it eventually rolls over on its back and gets comfy in her lap
+S : X. We'll call you 'X'. Isn't it just perfect for this adorable cloud?
+L : X, huh? That's the best you could think of?
+S : Oh shut it. Don't listen to him X, you'll be ours forever 
+L : The (man/woman) looks back at you once more, smiling with that adorable little dog.
+
+*SCENE CHANGE*
+if (companion == "ACCEPTED") {
+	L : As you come back to your sense, you find X licking you face
+		It was real, it felt so real.
+	C : But if it was, why would I be here? Why now?
+	L : Questions asked, but no one can answer them.
+		You pet X, thinking back on your memory
+		After enough time had passed and your head returned to normal, you continue towards the only path you and X can take
+		Downwards.
+} //end of if companion
+else {
+	L : You come back to your senses, still dazed
+		It was real, it felt so real.
+	C : But if it was, why would I be here? Why now?
+	L : Questions asked, but no one can answer you
+		After enough time had passed and your head returned to normal, you continue towards the only path you can take
+} //end of else
+		~~ Chapter 1 : Beginnings - COMPLETE ~~
+//1.6.3//
