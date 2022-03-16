@@ -15,7 +15,7 @@ var Attacks1 = {
             sell: 3.5
         },
         'Dagger': {
-            type: 'light',
+            type: 'finesse',
             damage: 4,
             amount: 1,
             buy: 20,
@@ -29,7 +29,7 @@ var Attacks1 = {
             sell: 2
         },
         'Shortsword': {
-            type: 'light',
+            type: 'finesse',
             damage: 6,
             amount: 1,
             buy: 20,
