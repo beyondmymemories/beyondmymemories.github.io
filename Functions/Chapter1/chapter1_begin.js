@@ -14,7 +14,7 @@ function selectOption() {
     //document.getElementById("2").('onclick', updateChatLog('Chapter 1 Script.txt','//START//'));
     //document.getElementById("BUTTONTESTING").onclick = updateChatLog('../Functions/Chapter1/Chapter 1 Script.txt','//START//');
     document.getElementById("BUTTONTESTING").addEventListener("click", function(event) {
-        updateChatLog('../Functions/Chapter1/Chapter 1 Script.txt','//START//');
+        updateChatLog('./../Functions/Chapter1/Chapter 1 Script.txt','//START//');
     });
 
 
