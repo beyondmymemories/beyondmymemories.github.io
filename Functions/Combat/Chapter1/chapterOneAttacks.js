@@ -2,37 +2,43 @@ var Attacks1 = {
     Weapons: {
         'Greataxe': {
             type: 'heavy',
-            damage: 6,
+            damage: 12,
+            amount: 1,
             buy: 50,
             sell: 5
         },
-        'Club': {
+        'Maul': {
             type: 'heavy',
-            damage: 5,
+            damage: 6,
+            amount: 2,
             buy: 35,
             sell: 3.5
         },
         'Dagger': {
             type: 'light',
-            damage: 2.5,
+            damage: 4,
+            amount: 1,
             buy: 20,
             sell: 2
         },
         'Goodaxe': {
             type: 'heavy',
-            damage: 4,
+            damage: 8,
+            amount: 1,
             buy: 20,
             sell: 2
         },
         'Shortsword': {
             type: 'light',
-            damage: 3,
+            damage: 6,
+            amount: 1,
             buy: 20,
             sell: 2
         },
         'Shortbow': {
             type: 'light',
-            damage: 3,
+            damage: 6,
+            amount: 1,
             buy: 20,
             sell: 2
         }
@@ -41,15 +47,18 @@ var Attacks1 = {
     Spells: {
         'Fireball': {
             type: 'fire',
-            damage: 10
+            damage: 6,
+            amount: 8
         },
         'Vicious Mockery': {
             type: 'psychic',
-            damage: 4
+            damage: 4,
+            amount: 1
         },
         'Healing Word': {
             type: 'heal',
-            heal: 6
+            heal: 4,
+            amount: 1
         }
     }
 }
