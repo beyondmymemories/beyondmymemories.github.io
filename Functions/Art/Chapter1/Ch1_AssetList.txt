@@ -12,20 +12,20 @@ When complete will note name of file
 Main Screen: Art pending
 
 Character Selection 
-   Mage: WIP 
+   Mage: wizardChar 
    Bard: NS
    Rogue: NS
-   Barbarian: NS
+   Barbarian: WIP
 
-Main Cave Scenery: WIP 
-   Journal: NS
+Main Cave Scenery: beginCave 
+   Journal: WIP
    Dagger: NS
    
-Waterfall Room Scenery: NS
-   Dog (Samoyed): NS
-   Hidden Door: NS 
+Waterfall Room Scenery: WIP
+   Dog (Samoyed): WIP
+   Hidden Door: WIP 
 
-Dark Room Path (Asset may be repeated):NS
+Dark Room Path (Asset may be repeated):WIP
    Enemy (To be decided): NS 
 
 Dwarf Shop: NS
