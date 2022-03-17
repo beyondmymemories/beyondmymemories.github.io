@@ -19,6 +19,7 @@ C : I can't remember anything..
 O :
 	1.1.0 : Sit and Wait
 	1.2.1 : Search around You
+//START//
 
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
@@ -29,6 +30,7 @@ L : you stay sitting, waiting for your memory to come back.
 O : 
 	1.1.1 : Sit and Wait
 	1.2.1 : Search Around You
+//1.1.0//
 
 //1.1.1//
 L : you stay sitting, waiting for your memory to come back.
@@ -37,6 +39,7 @@ L : you stay sitting, waiting for your memory to come back.
 O : 
 	1.1.2 : Sit and Wait
 	1.2.1 : Search Around You
+//1.1.1//
 
 //1.1.2//
 L : you stay sitting, waiting for your memory to come back.
@@ -44,12 +47,14 @@ L : you stay sitting, waiting for your memory to come back.
 O : 
 	1.1.3 : Sit and Wait
 	1.2.1 : Search Around You
+//1.1.2//
 
 //1.1.3//
 L : You, tired and exhausted, fall asleep.
 	A monster wanders out during the night and drags your body away, never to be seen again.
 	Restart and try again?
 *GAME ENDS - RESTART FROM CHECKPOINT*
+//1.1.3//
 
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
@@ -62,6 +67,7 @@ O:
 	1.3.0 : Warm and Brightly lit tunnel
 	1.4.0 : Cold and Dark tunnel
 	1.5.0 : Tunnel with water's origin
+//1.2.0//
 
 //1.2.1//
 L : You stand up and search around you, your hand coming across a small journal by your side.
@@ -70,6 +76,7 @@ L : You stand up and search around you, your hand coming across a small journal 
 	~~This dagger may help you~~
 
 	1.2.0 : General Cave Stuff 
+//1.2.1//
 
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
@@ -87,14 +94,15 @@ L:		In the other direction, continuing through the tunnel, you hear a bloodcurdl
 	Where would you like to go?
 O :
 	1.3.1 : Follow sign to merchant
-	1.3.3 : Continue through the tunnel
+	1.3.2 : Continue through the tunnel
 } //end of if
 else {
 	Where would you like to go?
 O :
 	1.3.1 : Follow sign to merchant
-	1.3.5 : Continue through the tunnel
+	1.3.3 : Continue through the tunnel
 }//end of else
+//1.3.0//
 
 //1.3.1//
 If (metMerchant == FALSE) {
@@ -113,8 +121,9 @@ O :
 	1.2.0 : Return to Cave
 	1.3.5 : Continue through tunnel
 }//end of else
+//1.3.1//
 
-//1.3.3//
+//1.3.2//
 L : As you continue down the tunnel, the screaming gets louder and louder.
 	Please roll a 'Stealth Check'
 	<Stealth rolls depend on your dexterity, you roll a 20 sided die (d20) 
@@ -122,6 +131,7 @@ L : As you continue down the tunnel, the screaming gets louder and louder.
 *Player rolls button die*
 	1.3.4 : total >= 12
 	1.3.5 : total < 12 
+//1.3.2//
 
 //1.3.4//
 L : With your quiet footsteps, and the terrified screams, you're pretty quiet
@@ -133,8 +143,9 @@ L : With your quiet footsteps, and the terrified screams, you're pretty quiet
 
 	1.3.6 : Killed in combat
 	1.3.7 : Success in combat
+//1.3.4//
 
-//1.3.5//
+//1.3.3//
 if (metMerchant = FALSE) {
 L : Unfortunately, you're body is just too tired to be able to stay quiet walking down this tunnel
 	In front of you, you are able to see a monster
@@ -147,8 +158,8 @@ L : Another monster has appeared where you were able to kill the last one.
 L :	As the monster was able to hear you approaching, he is ready for your attack!
 	~~Entering Combat with : X ~~
 
-	1.3.6 : Killed in combat
-	1.3.7 : Success in combat
+	1.3.4 : Killed in combat
+	1.3.5 : Success in combat
 }//end of elseif
 else {
 L : Enough time hasn't passed for another monster to appear, please try again later.
@@ -156,13 +167,15 @@ O :
 	1.3.1 : Return to Merchant
 	1.2.0 : Return to Cave	
 }//end of else
+//1.3.3//
 
-//1.3.6//
+//1.3.4//
 L : Unfortunately, the X is able to strike you down, ending your life with a final blow.
 	Restart and try again?
 *GAME ENDS - RESTART FROM CHECKPOINT*
+//1.3.4//
 
-//1.3.7//
+//1.3.5//
 L : You're able to defeat the monster! 
 	~~ Awarded Y experience ~~
 if (metMerchant == FALSE) {
@@ -191,6 +204,8 @@ else {
 	1.3.1 : Return to Merchant
 	1.2.0 : Return to Cave
 }//end of else
+//1.3.5//
+
 
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
@@ -204,6 +219,7 @@ O :
 	1.4.3 : Don't be Quiet
 }//end of if
 	1.4.3
+//1.4.0//
 
 //1.4.1//
 L :	Please roll a 'Stealth Check'
@@ -212,6 +228,7 @@ L :	Please roll a 'Stealth Check'
 *Player rolls button die*
 	1.4.2 : total >= 13
 	1.4.3 : total < 13 
+//1.4.1//
 
 //1.4.2//
 L : Despite the coldness of the tunnel, you are able to calm your heart, and be quiet and cautious.
@@ -222,6 +239,7 @@ L : Despite the coldness of the tunnel, you are able to calm your heart, and be 
 
 	1.4.4 : Killed in combat
 	1.4.5 : Success in combat
+//1.4.2//
 
 //1.4.3//
 if (lootAdventurer == FALSE) {
@@ -234,11 +252,13 @@ L :	As the monster was able to hear you approaching, he is ready for your attack
 
 	1.4.4 : Killed in combat
 	1.4.5 : Success in combat
+//1.4.3//
 
 //1.4.4//
 L : Unfortunately, the X is able to strike you down, ending your life with a final blow.
 	Restart and try again?
 *GAME ENDS - RESTART FROM CHECKPOINT*
+//1.4.4//
 
 //1.4.5//
 L : You're able to defeat the monster! 
@@ -253,6 +273,7 @@ if (lootAdventurer == FALSE) {
 }//end of if
 O:
 	1.2.0 : Return to Cave
+//1.4.5//
 
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
@@ -286,6 +307,7 @@ else {
 		1.2.0 : Return to Cave
 		1.5.6 : Search Around
 }
+//1.5.0//
 
 //1.5.1//
 *CHANGE SCENES*
@@ -308,6 +330,7 @@ L : You can tell that this white, wet, and fluffy dog was bouncing in the water.
 O :
 	1.5.3 : Shoo it off
 	1.5.4 : Call it to you
+//1.5.1//
 
 //1.5.2//
 *CHANGE SCENES*
@@ -330,6 +353,7 @@ L : In the water up ahead, you see a dog, white and wet, splashing in the cave w
 O :
 	1.5.4 Step out and call to it
 	1.5.1 Surprise it
+//1.5.2//
 
 //1.5.3//
 L : As you shoo it off, the dog continues to look at you longer.
@@ -338,6 +362,7 @@ L : As you shoo it off, the dog continues to look at you longer.
 O :
 	1.5.5 Scare it off
 	1.5.4 Call it to you
+//1.5.3//
 
 //1.5.4//
 L : You call out to the dog, bending down as you do.
@@ -358,6 +383,7 @@ L : X now by your side, what will you do?
 O :
 	1.2.0 : Return to Cave
 	1.5.6 : Search around
+//1.5.4//
 
 //1.5.5//
 L : Seeing the dog not moving from your earlier gesture, you pick up a rock near the stream and throw it towards the dog
@@ -367,6 +393,7 @@ L : Seeing the dog not moving from your earlier gesture, you pick up a rock near
 O :
 	1.2.0 : Return to Cave
 	1.5.6 : Search around
+//1.5.5//
 
 //1.5.6//
 L : You look around, noticing the roof of this cave is similar to the main cave, way too high to climb out
@@ -386,6 +413,7 @@ else {
  	O :
 		1.2.0 Return to Cave
 }//end of else
+//1.5.6//
 
 //1.5.7//
 *Popup*
@@ -394,6 +422,7 @@ else {
 	O :
 		1.6.0 : Continue
 		1.2.0 : Return to Cave and explore more
+//1.5.7//
 
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
@@ -408,11 +437,13 @@ L : As you insert the key into the keyhole, the door opens, sliding over slowly.
 
 	1.6.1 : Killed in combat
 	1.6.2 : Success in combat
+//1.6.0//
 
 //1.6.1//
 L : Unfortunately, the X is able to strike you down, ending your life with a final blow.
 	Restart and try again?
 *GAME ENDS - RESTART FROM CHECKPOINT*
+//1.6.1//
 
 //1.6.2//
 L : You've defeating the monster, panting and tired, you sit on the floor, slowing you breath and heartrate.
@@ -422,7 +453,6 @@ C : I can rest for a few moments
 	Then a pull
 	Your head feels like its splitting in 2 as a familiar scene returns to you
 
-//1.6.3//
 L : You see a (man/woman) who looks breathtaking standing in front of you.
 S : Isn't he just amazing!
 L : The (man/woman) glances at you excitedly, before looking back to the furry creature in front of her
@@ -436,11 +466,21 @@ S : Oh shut it. Don't listen to him X, you'll be ours forever
 L : The (man/woman) looks back at you once more, smiling with that adorable little dog.
 
 *SCENE CHANGE*
-L : As you come back to your sense, you find X licking you face
-	It was real, it felt so real.
-C : But if it was, why would I be here? Why now?
-L : Questions asked, but no one can answer them.
-	You pet X, thinking back on your memory
-	After enough time had passed and your head returned to normal, you continue towards the only path you and X can take
-	Downwards.
-	~~ Chapter 1 : Beginnings - COMPLETE ~~
+if (companion == "ACCEPTED") {
+	L : As you come back to your sense, you find X licking you face
+		It was real, it felt so real.
+	C : But if it was, why would I be here? Why now?
+	L : Questions asked, but no one can answer them.
+		You pet X, thinking back on your memory
+		After enough time had passed and your head returned to normal, you continue towards the only path you and X can take
+		Downwards.
+} //end of if companion
+else {
+	L : You come back to your senses, still dazed
+		It was real, it felt so real.
+	C : But if it was, why would I be here? Why now?
+	L : Questions asked, but no one can answer you
+		After enough time had passed and your head returned to normal, you continue towards the only path you can take
+} //end of else
+		~~ Chapter 1 : Beginnings - COMPLETE ~~
+//1.6.3//

@@ -168,7 +168,10 @@ function loadGame() {
 	}
 	document.getElementById("container3").style.display = 'inline-block'
 	document.getElementById("container1").style.display = 'none'
+	load_function();
 }
+
+
 function deleteGame() {
 
 	if(localStorage.getItem("saveExists") != null) {
