@@ -116,6 +116,8 @@ L : You follow the path to the merchant's shop, only to find it empty
 	As such, you return to the path you came from and continue down this tunnel.
 } //end of if
 else {
+L : Ivan smiles at you, welcoming you to his shop.
+	What're you buying?
 O :
 *GENERAL SHOP INTERACTION*
 	1.2.0 : Return to Cave
