@@ -243,7 +243,7 @@ L : Despite the coldness of the tunnel, you are able to calm your heart, and be 
 	1.4.5 : Success in combat
 //1.4.2//
 
-//1.4.3//
+//1.4.3a//
 if (lootAdventurer == FALSE) {
 L : Unfortunately, the coldness and darkness of the tunnel gets to you, you are too nervous to remain quiet and stealthy
 }//end of if
@@ -254,7 +254,7 @@ L :	As the monster was able to hear you approaching, he is ready for your attack
 
 	1.4.4 : Killed in combat
 	1.4.5 : Success in combat
-//1.4.3//
+//1.4.3a//
 
 //1.4.4//
 L : Unfortunately, the X is able to strike you down, ending your life with a final blow.

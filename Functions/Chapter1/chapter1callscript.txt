@@ -97,7 +97,6 @@ GENERAL CHAT CALLS
 
 //1.3.0a//
     In the other direction, continuing through the tunnel, you hear a bloodcurdling scream. <br>
-	Where would you like to go?
 <br><br>
 //1.3.0a//
 
@@ -106,7 +105,7 @@ GENERAL CHAT CALLS
 <br><br>
 //1.3.0b//
 
-//1.3.1a//
+//1.3.1//
 	You follow the path to the merchant's shop, only to find it empty <br>
 	You see an area where a merchant could set up shop, along with different objects <br>
 	There is a sign on the counter: <br>
@@ -116,7 +115,7 @@ GENERAL CHAT CALLS
 	|_______________________________________| <br>
 	As such, you return to the path you came from and continue down this tunnel.
 <br><br>
-//1.3.1a//
+//1.3.1//
 
 //1.3.2//
 	As you continue down the tunnel, the screaming gets louder and louder. <br>
@@ -164,7 +163,7 @@ GENERAL CHAT CALLS
 <br><br>
 //1.3.4//
 
-//1.3.5a//
+//1.3.5//
 	You're able to defeat the monster! <br>
 	The merchant, bloody and in shock, slowly stands to his feet <br>
 	"Ah! Mhm.." <br>
@@ -182,12 +181,8 @@ GENERAL CHAT CALLS
 	"Please come to my shop anytime! I happen to sell many different items that may be of use to you in this cavern <br>
 	It goes quite deep, and I can't say that I have seen many people leave. <br>
 	Me? Oh dwarves are able to teleport here and there, you know, but we are unable to take others with us."
-//1.3.5a//
+//1.3.5//
 
-//1.3.5b//
-	You're able to defeat the Monster!
-<br><br>
-//1.3.5b//
 
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
