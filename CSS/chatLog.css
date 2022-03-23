@@ -8,7 +8,7 @@ textarea {
 chatLogDisplay {
 	position:absolute;
     height: 500px;
-    width: 250px;
+    width: 350px;
     overflow: scroll;
     float: left;
     position: relative;
@@ -24,7 +24,7 @@ chatLogDisplay {
 chatDemo {
 	position:absolute;
     height: 500px;
-    width: 250px;
+    width: 350px;
     overflow: scroll;
     float: left;
     position: relative;

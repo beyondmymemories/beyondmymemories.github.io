@@ -116,6 +116,8 @@ L : You follow the path to the merchant's shop, only to find it empty
 	As such, you return to the path you came from and continue down this tunnel.
 } //end of if
 else {
+L : Ivan smiles at you, welcoming you to his shop.
+	What're you buying?
 O :
 *GENERAL SHOP INTERACTION*
 	1.2.0 : Return to Cave
@@ -228,7 +230,7 @@ L :	Please roll a 'Stealth Check'
 *Player rolls button die*
 	1.4.2 : total >= 13
 	1.4.3 : total < 13 
-//1.4.1//
+//1.4.1//te
 
 //1.4.2//
 L : Despite the coldness of the tunnel, you are able to calm your heart, and be quiet and cautious.
@@ -241,7 +243,7 @@ L : Despite the coldness of the tunnel, you are able to calm your heart, and be 
 	1.4.5 : Success in combat
 //1.4.2//
 
-//1.4.3//
+//1.4.3a//
 if (lootAdventurer == FALSE) {
 L : Unfortunately, the coldness and darkness of the tunnel gets to you, you are too nervous to remain quiet and stealthy
 }//end of if
@@ -252,7 +254,7 @@ L :	As the monster was able to hear you approaching, he is ready for your attack
 
 	1.4.4 : Killed in combat
 	1.4.5 : Success in combat
-//1.4.3//
+//1.4.3a//
 
 //1.4.4//
 L : Unfortunately, the X is able to strike you down, ending your life with a final blow.
@@ -290,7 +292,7 @@ O :
 if (doorFound==TRUE) {
 	L : You remember that there is a black obsidian door in this room.
 	if (metMerchant == TRUE) {
-		L : The merchant gave you a black key incredibly similar to the color of this room.
+		L : The merchant gave you a black key incredibly similar to the color of this door.
 		O :
 			1.2.0 : Return to Cave
 			1.5.7 : Try the key

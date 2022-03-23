@@ -1,0 +1,445 @@
+Chapter 1 Script - Descriptive
+
+Notes:
+	M = merchant - says in log
+	C = character - says in log
+	L = log - general messages
+	O = option buttons
+	S = SO says in log
+
+//START//
+    Where am I? <br>
+    You feel your head and find a small stream of blood going down your head.
+	Looking above, you see the moon through a large crack high above you.
+	Around you, all you see is a cave, dark and cold. <br>
+    Why am I here? <br>
+    Your head begins to hurt <br>
+    I can't remember anything.. 
+<br><br>
+//START//
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+//1.1.0//
+    You stay sitting, waiting for your memory to come back. <br>
+	Nothing comes to you, The cave is cold and dark <br>
+	You are tired 
+<br><br>
+//1.1.0//
+
+//1.1.1//
+    You stay sitting, waiting for your memory to come back. <br>
+	Nothing comes to you, <br>
+	you get even colder and start to be hungry
+<br><br>
+//1.1.1//
+
+//1.1.2//
+    You stay sitting, waiting for your memory to come back. <br>
+	Nothing comes to you, you get even more tired, cold and even more hungry <br>
+<br><br>
+//1.1.2//
+
+//1.1.3//
+    You, tired and exhausted, fall asleep. <br>
+	A monster wanders out during the night and drags your body away, never to be seen again. <br>
+	Restart and try again?
+<br><br>
+//1.1.3//
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+GENERAL CHAT CALLS
+
+//1.2.0//	
+	In front of you, illuminated by the moonlight, you see 3 different tunnels. <br>
+	Two of them are forked. One is cold and dark, while the other is filled with bright light <br>
+	Off to your right, you see a different tunnel, one where water is flowing out from, and slowly filling the cave. <br>
+	Where would you like to go?
+<br><br>
+//1.2.0//
+
+//1.2.1//
+    You stand up and search around you, your hand coming across a small journal by your side. <br>
+	~~This journal may help you~~ <br>
+	You also find a small dagger, about the size of your hand, near your feet. <br>
+	~~This dagger may help you~~ 
+<br><br>
+//1.2.1//
+
+//1.2.2//
+	You're able to defeat the monster!
+//1.2.2//
+
+//1.2.3//
+	Unfortunately, the Monster is able to strike you down, ending your life with a final blow. <br>
+	Restart and try again? 
+<br><br>
+//1.2.3//
+
+//1.2.4//
+	Ivan smiles at you, welcoming you to his shop. <br>
+	What're you buying?
+<br><br>
+//1.2.4//
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+//1.3.0//
+    You wander into this warm tunnel, your body starts to warm from the torches. <br>
+	In front of you, there are two different paths split by a sign. <br>
+	The sign states: <br>
+	_________________________________________ <br>
+	|	Ivan's Wandering Shop of Curio's!	| <br>
+	| 		--------------------->			| <br>
+	|_______________________________________| <br>
+<br><br>
+//1.3.0//
+
+//1.3.0a//
+    In the other direction, continuing through the tunnel, you hear a bloodcurdling scream. <br>
+<br><br>
+//1.3.0a//
+
+//1.3.0b//
+	Where would you like to go? 
+<br><br>
+//1.3.0b//
+
+//1.3.1//
+	You follow the path to the merchant's shop, only to find it empty <br>
+	You see an area where a merchant could set up shop, along with different objects <br>
+	There is a sign on the counter: <br>
+	_________________________________________ <br>
+	| 	Currently out, please come back		| <br>
+	|			   	later!					| <br>
+	|_______________________________________| <br>
+	As such, you return to the path you came from and continue down this tunnel.
+<br><br>
+//1.3.1//
+
+//1.3.2//
+	As you continue down the tunnel, the screaming gets louder and louder. <br>
+	Please roll a 'Stealth Check' <br>
+	==Stealth rolls depend on your dexterity, you roll a 20 sided die (d20) 
+	 and will add your 'dexterity' modifier==
+	 <br><br>
+//1.3.2//
+
+//1.3.4//
+	With your quiet footsteps, and the terrified screams, you're pretty quiet <br>
+	In front of you, you are able to see a monster <br>
+	A hobgoblin! Larger in size than normal goblins, he's brandishing a club, distracted by something <br>
+	It is attacking someone! A shorter man, in fine fabric, with a moustache <br>
+	Being as sneaky as you are, you are able to sneak up to the monster and attack! <br>
+	~~Entering Combat with : Hobgoblin ~~
+<br><br>
+//1.3.4//
+
+//1.3.3a//
+	Unfortunately, you're body is just too tired to be able to stay quiet walking down this tunnel <br>
+	In front of you, you are able to see a monster <br>
+	A hobgoblin! Larger in size than normal goblins, he's brandishing a club, distracted by something <br>
+	It is attacking someone! A shorter man, in fine fabric, with a moustache 
+	As the monster was able to hear you approaching, he is ready for your attack! <br>
+	~~Entering Combat with : Hobgoblin ~~
+<br><br>
+//1.3.3a//
+
+//1.3.3b//
+	Another monster has appeared where you were able to kill the last one. <br>
+	As the monster was able to hear you approaching, he is ready for your attack! <br>
+	~~Entering Combat with : Hobgoblin ~~
+<br><br>
+//1.3.3b//
+
+//1.3.3c//
+	Enough time hasn't passed for another monster to appear, please try again later.
+<br><br>
+//1.3.3c//
+
+//1.3.5//
+	You're able to defeat the monster! <br>
+	The merchant, bloody and in shock, slowly stands to his feet <br>
+	"Ah! Mhm.." <br>
+	You find him to be much shorter than you, his head coming up to your hips <br>
+	A dwarf! A rare species to find as they don't leave their homes often <br>
+	He dusts himself off, and sticks out his hand to you <br>
+	"My apologies for my haggard appearance, my name is Ivan Hamil, of Ivan's Wandering Shop of Curio's! <br>
+	I must say, my dear fellow, that you look to be nearly in the same state that I am! <br>
+	Nevertheless, I am most grateful to you for saving my life, please allow me to guide you back to my shop <br>
+	and give you a token of my gratitude." <br>
+*You wander back to his shop* <br>
+	Ivan, who was at your side, is immediately behind the counter, mumbling and searching to himself <br>
+	"Ah! Here we are, for you!" <br>
+	~~You've obtained a black obsidian key! It may help you~~ <br>
+	"Please come to my shop anytime! I happen to sell many different items that may be of use to you in this cavern <br>
+	It goes quite deep, and I can't say that I have seen many people leave. <br>
+	Me? Oh dwarves are able to teleport here and there, you know, but we are unable to take others with us."
+//1.3.5//
+
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+//1.4.0//
+	As you wander into this cold, dark tunnel, your body gets chilled from the lack of warmth <br>
+	The path continues to curve and curve, until you eventually hear noises from up ahead.
+<br><br>
+//1.4.0//
+
+//1.4.1//
+	Please roll a 'Stealth Check' <br>
+	==Stealth rolls depend on your dexterity, you roll a 20 sided die (d20) 
+	 and will add your 'dexterity' modifier==
+<br><br>
+//1.4.1//
+
+//1.4.2//
+	Despite the coldness of the tunnel, you are able to calm your heart, and be quiet and cautious. <br>
+	Ahead you see a goblin! <br>
+	He's quite short, around the same height of a dwarf <br>
+	You are able to slow sneak up on the monster, and attack! <br>
+	~~Entering Combat with : goblin ~~ <br>
+//1.4.2//
+
+//1.4.3a//
+	Unfortunately, the coldness and darkness of the tunnel gets to you, you are too nervous to remain quiet and stealthy
+<br><br>
+//1.4.3a//
+
+//1.4.3b//
+	Ahead you see a goblin! <br>
+	He's quite short, around the same height of a dwarf <br>
+	As the monster was able to hear you approaching, he is ready for your attack! <br>
+	~~Entering Combat with : Goblin ~~
+<br><br>
+//1.4.3b//
+
+//1.4.5//
+	You're able to defeat the monster! <br>
+	Behind the corpse of the Goblin, you see a body, human and completely ravaged on the stone floor. <br>
+	The body is coverd in tattered clothes with a small satchel at its side. <br>
+	Inside you find, V coins, and a basic healing potion. <br>
+	~~ Found V coins ~~ <br>
+	~~ Found Healing Potions ~~ 
+<br><br>
+//1.4.5//
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+//1.5.0//
+	You slowly approach the stream, following it through the tunnel towards an open area with a waterfall.
+<br><br>
+//1.5.0//
+
+//1.5.0a//
+	As you get closer, you stop as you hear sloshing in the water ahead. <br>
+	What will you do?
+<br><br>
+//1.5.0a//
+
+//1.5.0b//
+	You remember that there is a black obsidian door in this room.
+<br><br>
+//1.5.0b//
+
+//1.5.0c//
+	The merchant gave you a black key incredibly similar to the color of this room.
+<br><br>
+//1.5.0c//
+
+//1.5.0d//
+	However, you haven't found a key for this door, maybe you need to explore these tunnels more.
+<br><br>
+//1.5.0d//
+
+//1.5.0e//
+	This is the same room with the waterfall, where you found the dog
+<br><br>
+//1.5.0e//
+
+//1.5.1a//
+	You jump into the open space, book open ready to cast.
+<br><br>
+//1.5.1a//
+
+//1.5.1b//
+	You jump into the open space, knives out and ready to attack
+<br><br>
+//1.5.1b//
+
+//1.5.1c//
+	You run into the open space, skidding to a stop after giving a war cry
+<br><br>
+//1.5.1c//
+
+//1.5.1d//
+	You come out singing, while strumming your lute
+<br><br>
+//1.5.1d//
+
+//1.5.1e//
+	You can tell that this white, wet, and fluffy dog was bouncing in the water. <br>
+	As you've surprised it, the dog stops and looks at you curiously. <br>
+	It's a bit startled, but not running off. <br>
+	What will you do?
+<br><br>
+//1.5.1e//
+
+//1.5.2a//
+	As you slowly approach the cavern you peek in
+<br><br>
+//1.5.2a//
+
+//1.5.2b//
+	Your hat barely visible behind the wall
+<br><br>
+//1.5.2b//
+
+//1.5.2c//
+	Your body blended into the shadows
+<br><br>
+//1.5.2c//
+
+//1.5.2d//
+	A little uncharacteristic for your huge size but you make it work
+<br><br>
+//1.5.2d//
+
+//1.5.2e//
+	Your lute and belt barely jingling as you lean out
+<br><br>
+//1.5.2e//
+
+//1.5.2f//
+	In the water up ahead, you see a dog, white and wet, splashing in the cave water. <br>
+	It hasn't noticed you yet <br>
+	What will you do?
+<br><br>
+//1.5.2f//
+
+//1.5.3//
+	As you shoo it off, the dog continues to look at you longer. <br>
+	Your head starts to hurt, this dog seems familiar <br>
+	What will you do?
+<br><br>
+//1.5.3//
+
+//1.5.4a//
+	You call out to the dog, bending down as you do. <br>
+	The dog, excitedly, starts bounding through the water towards you
+<br><br>
+//1.5.4a//
+
+//1.5.4b//
+	He runs and runs, eventually jumping on to you, his momentum pushing your back to the floor as he licks you <br>
+	You're able to shove him off with some effort and he just smells your legs and stays by your side.
+<br><br>
+//1.5.4b//
+
+//1.5.4c//
+	He runs and runs, eventually jumping towards you, but your strength catches him easily and you stand holding him <br>
+	He is by no means small, but incredibly light-weight to you. <br>
+	As you set him down, he stays by your side, looking at you expectantly
+<br><br>
+//1.5.4c//
+
+//1.5.4d//
+	Please name your new companion! <br>
+	What will you do next?
+<br><br>
+//1.5.4d//
+
+//1.5.5//
+	Seeing the dog not moving from your earlier gesture, you pick up a rock near the stream and throw it towards the dog <br>
+	Startled and seemingly sad, the dog scampers away from you, ducking into a hole in the wall and disappearing <br>
+	~~ We will remember this ~~
+	What will you do next?
+<br><br>
+//1.5.5//
+
+//1.5.6a//
+	You look around, noticing the roof of this cave is similar to the main cave, way too high to climb out <br>
+	You notice behind the waterfall from the hole in the roof, a door. <br>
+	Black, with white ornate decorations on the side, it is exquisite. <br>
+	Near this door, there is a keyhole, supposedly to unlock what is behind this door. <br>
+	There is nothing else of interest. 
+<br><br>
+//1.5.6a//
+
+//1.5.6b//
+	You remember the merchant gave you a key, a black key, that is very similar to this door. <br>
+	Try it? 
+<br><br>
+//1.5.6b//
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+//1.6.0a//
+	As you insert the key into the keyhole, the door opens, sliding over slowly. <br>
+	The tunnel in front of you is dark, with smooth stone rather than the material stone in the cave <br>
+	Gathering your wits, you head in. <br>
+	The monster of you, bigger than anything you ever remember facing, a minotaur! <br>
+//1.6.0a//
+
+//1.6.0b//
+	The minotaur is around the same height as you, with brownish fur and a large gray axe 
+<br><br>
+//1.6.0b//
+
+//1.6.0c//
+	The minotaur is much taller than you, with brownish fur and a large gray axe 
+<br><br>
+//1.6.0c//
+
+//1.6.0d//
+	You look back behind you, only to see a stone concrete slab close the hole, you're trapped. <br>
+	~~Entering Combat with : X ~~ 
+<br><br>
+//1.6.0d//
+
+//1.6.1a//
+	You've defeating the monster, panting and tired, you sit on the floor, slowing you breath and heartrate. <br>
+	You hear sliding from the other side of the room, only to see another dark tunnel, that continues downward. <br>
+	"I can rest for a few moments" <br>
+	As you sit, you feel a tug on your brain <br>
+	It gets stronger and stronger <br>
+	Your head feels like its splitting in 2 as a familiar scene returns to you <br><br>
+
+	You see a (man/woman) who looks breathtaking standing in front of you. <br>
+	"Isn't he just amazing!" They say! <br>
+	The (man/woman) glances at you excitedly, before looking back to the furry creature in front of her <br>
+	"I can't believe you found one! I thought they were supposed to be rare!" <br>
+	"They are rare," you reply "you wouldn't believe the struggle to just find one of those pups" <br>
+	"Well, I'm sure it was worth all the struggle. Wouldn't you say so?" They grin at you <br>
+	She starts petting the small dog, it eventually rolls over on its back and gets comfy in her lap <br>
+	"DOGNAME. We'll call you 'DOGNAME'. Isn't it just perfect for this adorable cloud?" <br>
+	"DOGNAME, huh? That's the best you could think of?" You clapback <br>
+	"Oh shut it. Don't listen to him DOGNAME, you'll be ours forever" <br>
+	The (man/woman) looks back at you once more, smiling with that adorable little dog.
+<br><br>
+//1.6.1a//
+
+//1.6.1b//
+	As you come back to your sense, you find X licking you face <br>
+	It was real, it felt so real. <br>
+	But if it was, why would I be here? Why now? <br>
+	Questions asked, but no one can answer them. <br>
+	You pet DOGNAME, thinking back on your memory <br>
+	After enough time had passed and your head returned to normal, you continue towards the only path you and DOGNAME can take <br>
+	Downwards.
+<br><br>
+//1.6.1b//
+
+//1.6.1c//
+	You come back to your senses, still dazed <br>
+	It was real, it felt so real. <br>
+	But if it was, why would I be here? Why now? <br>
+	Questions asked, but no one can answer you <br>
+	After enough time had passed and your head returned to normal, you continue towards the only path you can take
+<br><br>
+//1.6.1c//
+
+//1.6.1d//
+		~~ Chapter 1 : Beginnings - COMPLETE ~~
+<br><br>
+//1.6.1d//
