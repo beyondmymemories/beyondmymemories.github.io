@@ -4,7 +4,7 @@
 .imagesettings img{
 	float: left;
     margin-top: +20;
-    height: 650px;
+    height: 96vh;
 	width: 97.5vw;
 	z-index:0;
 }
@@ -16,7 +16,7 @@ div.container3 {
     margin : 0;
     border: 2px solid white;
     width: 100%;
-    height: 650px;
+    height: 96vh;
     overflow: hidden;
  }
  

@@ -30,9 +30,11 @@ const buttonOptionsElement = document.getElementById('button-options');
 //array of variables for chapter1
 let chapter1var = {}
 
-function testStart() {
+function testStart(characterChoice) {
 
-    chapter1var = {}
+    console.log(characterChoice);
+
+    chapter1var = { character: characterChoice }
     printChatNode('//START//')
 }
 
@@ -40,6 +42,9 @@ function printChatNode(chatNodeIndex) {
 
     //get the current chatNode/option to display
    const chatNode = chatNodes.find(chatNode => chatNode.id === chatNodeIndex)
+
+   //Save the state
+   savechapter1(chatNodeIndex);
 
     //display the chatoption with chatlog
     updateChatLog('../Functions/Chapter1/chapter1callscript.txt', chatNode.id);
@@ -101,6 +106,37 @@ function selectOption(option) {
 
 } //end of selectOption
 
+/*
+SAVING FUNCTION
+*/
+function savechapter1(chatNodeIndex) {
+   
+    //Save where we are - chatnodeindex -> called function state
+    saveVar(funcState, chatnodeIndex);
+
+    //save all the current variable options for chapter 1
+    saveVar(chapter1vars, chapter1var);
+
+
+} //end of saving chapter 1
+
+/*
+Load function
+*/
+function loadChapter1(chatNodeIndex) {
+   
+
+    loadVar(funcState);
+
+    loadVar(chapter1vars);
+
+
+} //end of saving chapter 1
+
+
+
+
+
 const chatNodes = [
     {
         id: '//START//',
@@ -108,12 +144,12 @@ const chatNodes = [
             {
                 text: 'Sit and wait',
                 NextChat: '//1.1.0//',
-                updateVars: { character: "Barbarian" }
+               // updateVars: { character: "Barbarian" }
             },
             {
                 text: 'Search around you',
                 NextChat: '//1.2.1//',
-                updateVars: { character: "Barbarian" }
+              //  updateVars: { character: "Barbarian" }
             }
         ]
     },

@@ -6,14 +6,15 @@
 
 var funcState
 
-function load_function() {
+function load_function(characterChoice) {
 
     document.getElementById("container2").style.display = "none"
     document.getElementById("container3").style.display = "inline-block"
 
-    testStart();
-
     //IF funcState == '//START//'
+
+    //get character value (should late be set to larger value than chapter 1)
+    testStart(characterChoice);
 
     //ELSE 
 
