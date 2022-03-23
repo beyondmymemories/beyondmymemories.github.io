@@ -1,0 +1,10 @@
+.Battle {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-image: url(/images/maps/StreetBattle.png);
+  background-size: cover;
+  image-rendering: pixelated;
+}
