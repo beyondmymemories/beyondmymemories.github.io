@@ -8,3 +8,15 @@
   background-size: cover;
   image-rendering: pixelated;
 }
+
+.Battle_hero, .Battle_enemy {
+  position: absolute;
+  transform: scale(2);
+  width: 32px;
+  height: 32px;
+  overflow: hidden;
+  background: url(/images/characters/shadow.png) no-repeat no-repeat;
+}
+.Battle_hero img, .Battle_enemy img {
+  pointer-events: none;
+}
