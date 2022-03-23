@@ -71,7 +71,7 @@ GENERAL CHAT CALLS
 //1.2.2//
 
 //1.2.3//
-	Unfortunately, the X is able to strike you down, ending your life with a final blow. <br>
+	Unfortunately, the Monster is able to strike you down, ending your life with a final blow. <br>
 	Restart and try again? 
 <br><br>
 //1.2.3//
@@ -120,8 +120,8 @@ GENERAL CHAT CALLS
 //1.3.2//
 	As you continue down the tunnel, the screaming gets louder and louder. <br>
 	Please roll a 'Stealth Check' <br>
-	<Stealth rolls depend on your dexterity, you roll a 20 sided die (d20) 
-	 and will add your 'dexterity' modifier>
+	==Stealth rolls depend on your dexterity, you roll a 20 sided die (d20) 
+	 and will add your 'dexterity' modifier==
 	 <br><br>
 //1.3.2//
 
@@ -157,12 +157,6 @@ GENERAL CHAT CALLS
 <br><br>
 //1.3.3c//
 
-//1.3.4//
-	Unfortunately, the X is able to strike you down, ending your life with a final blow. <br>
-	Restart and try again? 
-<br><br>
-//1.3.4//
-
 //1.3.5//
 	You're able to defeat the monster! <br>
 	The merchant, bloody and in shock, slowly stands to his feet <br>
@@ -194,8 +188,8 @@ GENERAL CHAT CALLS
 
 //1.4.1//
 	Please roll a 'Stealth Check' <br>
-	<Stealth rolls depend on your dexterity, you roll a 20 sided die (d20) 
-	 and will add your 'dexterity' modifier> 
+	==Stealth rolls depend on your dexterity, you roll a 20 sided die (d20) 
+	 and will add your 'dexterity' modifier==
 <br><br>
 //1.4.1//
 
@@ -232,8 +226,12 @@ GENERAL CHAT CALLS
 
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
+//1.5.0//
+	You slowly approach the stream, following it through the tunnel towards an open area with a waterfall.
+<br><br>
+//1.5.0//
+
 //1.5.0a//
-	You slowly approach the stream, following it through the tunnel towards an open area with a waterfall. <br>
 	As you get closer, you stop as you hear sloshing in the water ahead. <br>
 	What will you do?
 <br><br>
@@ -255,7 +253,7 @@ GENERAL CHAT CALLS
 //1.5.0d//
 
 //1.5.0e//
-	This is the same room with the waterfall, where you found DOGNAME
+	This is the same room with the waterfall, where you found the dog
 <br><br>
 //1.5.0e//
 
@@ -288,9 +286,9 @@ GENERAL CHAT CALLS
 //1.5.1e//
 
 //1.5.2a//
-	As you slowly approach the caven you peek in
+	As you slowly approach the cavern you peek in
 <br><br>
-//1.5.1a//
+//1.5.2a//
 
 //1.5.2b//
 	Your hat barely visible behind the wall
@@ -347,14 +345,15 @@ GENERAL CHAT CALLS
 
 //1.5.4d//
 	Please name your new companion! <br>
-	DOGNAME now by your side, what will you do?
+	What will you do next?
 <br><br>
-//1.5.4//
+//1.5.4d//
 
 //1.5.5//
 	Seeing the dog not moving from your earlier gesture, you pick up a rock near the stream and throw it towards the dog <br>
 	Startled and seemingly sad, the dog scampers away from you, ducking into a hole in the wall and disappearing <br>
 	~~ We will remember this ~~
+	What will you do next?
 <br><br>
 //1.5.5//
 
@@ -396,7 +395,7 @@ GENERAL CHAT CALLS
 	You look back behind you, only to see a stone concrete slab close the hole, you're trapped. <br>
 	~~Entering Combat with : X ~~ 
 <br><br>
-//1.6.0//
+//1.6.0d//
 
 //1.6.1a//
 	You've defeating the monster, panting and tired, you sit on the floor, slowing you breath and heartrate. <br>

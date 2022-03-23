@@ -230,7 +230,7 @@ L :	Please roll a 'Stealth Check'
 *Player rolls button die*
 	1.4.2 : total >= 13
 	1.4.3 : total < 13 
-//1.4.1//
+//1.4.1//te
 
 //1.4.2//
 L : Despite the coldness of the tunnel, you are able to calm your heart, and be quiet and cautious.
@@ -292,7 +292,7 @@ O :
 if (doorFound==TRUE) {
 	L : You remember that there is a black obsidian door in this room.
 	if (metMerchant == TRUE) {
-		L : The merchant gave you a black key incredibly similar to the color of this room.
+		L : The merchant gave you a black key incredibly similar to the color of this door.
 		O :
 			1.2.0 : Return to Cave
 			1.5.7 : Try the key
