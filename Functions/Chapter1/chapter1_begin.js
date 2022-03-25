@@ -48,6 +48,14 @@ function printChatNode(chatNodeIndex, load_chapter1vars) {
     }*/
 
 
+    //If the changeImage != null -> change background
+    if (chatNode.changeImage != null) {
+
+        console.log(chatNode.changeImage)
+
+        document.getElementById("backgroundImage").src=chatNode.changeImage;
+    }
+
     //display the correct buttons
     while (document.getElementById('button-options').firstChild) {
         document.getElementById('button-options').removeChild(document.getElementById('button-options').firstChild)
@@ -200,6 +208,7 @@ const chatNodes = [
     //1.2 ==> MAIN CAVE AND GENERAL CHATCALLS 
     {
         id: '//1.2.0//',
+        changeImage: "Functions/Art/Chapter1/smallerCave.png",
         options: [
             {
                 text: 'Warm and Bright Tunnel',
@@ -467,6 +476,7 @@ const chatNodes = [
     //1.5 ==> WATERFALL ROOM
     {
         id: '//1.5.0//',
+        changeImage: 'Functions/Art/Chapter1/waterFallRoom.png',
         options: [
             {
                 text: 'Continue',
