@@ -30,7 +30,7 @@ function printChatNode(chatNodeIndex, load_chapter1vars) {
 
     //display the chatoption with chatlog
     updateChatLog('../Functions/Chapter1/chapter1callscript.txt', chatNode.id);
-
+    
     if(combat == 1) {
         if(monster == 1){
             var monster = Monster1.Goblins.Hobgoblin
@@ -46,7 +46,6 @@ function printChatNode(chatNodeIndex, load_chapter1vars) {
         return 'Fail'
     }
 
-    */
 
     //display the correct buttons
     while (document.getElementById('button-options').firstChild) {
