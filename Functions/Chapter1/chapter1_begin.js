@@ -19,9 +19,9 @@ function StartChapter1() {
 function combatFunc(combatNum) {
     
     if(combatNum == 'fight1'){
-            var monster = Monsters1.Goblins.Hobgoblin
-            var monsterHP = monster.health
-            var characterHP = 10
+            let monster = Monsters1.Goblins.Hobgoblin
+            let monsterHP = monster.health
+            let characterHP = 10
         }
         while(monsterHP > 0 && characterHP > 0){
             monsterHP = monsterHP - 10
@@ -49,8 +49,8 @@ function printChatNode(chatNodeIndex, load_chapter1vars) {
     updateChatLog('../Functions/Chapter1/chapter1callscript.txt', chatNode.id);
     
     
-    if(combat != null) {
-        combatFunc(combat);
+    if(chatNode.combat != null) {
+        combatFunc(chatNode.combat);
     }
 
 
@@ -306,8 +306,6 @@ const chatNodes = [
     },
     {
         id: '//1.3.2//',
-        //combat: 1,
-        //monster: 1,
         //diceCheck:
         options: [
             {
