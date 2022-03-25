@@ -45,6 +45,7 @@ var charStats1 = {
          int: -1,
          wis: 3,
          chr: 2
-      }
+      },
+      maxhp: 25
    }
 }
