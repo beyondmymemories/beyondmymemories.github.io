@@ -31,6 +31,7 @@ function printChatNode(chatNodeIndex, load_chapter1vars) {
     //display the chatoption with chatlog
     updateChatLog('../Functions/Chapter1/chapter1callscript.txt', chatNode.id);
     
+    /*
     if(combat == 1) {
         if(monster == 1){
             var monster = Monster1.Goblins.Hobgoblin
@@ -44,7 +45,7 @@ function printChatNode(chatNodeIndex, load_chapter1vars) {
         if(monsterHP == 0)
             return 'Success'
         return 'Fail'
-    }
+    }*/
 
 
     //display the correct buttons
@@ -290,8 +291,8 @@ const chatNodes = [
     },
     {
         id: '//1.3.2//',
-        combat: 1,
-        monster: 1,
+        //combat: 1,
+        //monster: 1,
         //diceCheck:
         options: [
             {
