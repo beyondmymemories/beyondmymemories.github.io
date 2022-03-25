@@ -1,29 +1,4 @@
 
-/*
-
-    //Call the beginning of the game
-    updateChatLog('../Functions/Chapter1/chapter1callscript.txt','//START//');
-
-    document.getElementById("1").innerHTML="Waterfall Room"
-    document.getElementById("BUTTONTESTING").innerHTML="Search Around You"
-    document.getElementById("3").innerHTML="Test3"
-    document.getElementById("4").innerHTML="Combat"
-
-    document.getElementById("1").addEventListener("click", function(event) {
-        //Change photo
-
-    });
-    
-    document.getElementById("BUTTONTESTING").addEventListener("click", function(event) {
-        updateChatLog('../Functions/Chapter1/Chapter 1 Script.txt','//START//');
-    });
-
-    document.getElementById("4").addEventListener("click", function(event) {
-        document.getElementById("container3").style.display = "none"
-        document.getElementById("container4").style.display = "inline-block"
-    });
-
-*/
 
 const buttonOptionsElement = document.getElementById('button-options');
 
@@ -37,10 +12,15 @@ function StartChapter1() {
     console.log(chapter1var.character);
 
    // chapter1var = { character: characterChoice }
-    printChatNode('//START//')
+    printChatNode('//START//', false)
 }
 
-function printChatNode(chatNodeIndex) {
+function printChatNode(chatNodeIndex, load_chapter1vars) {
+
+    //if we're coming back to the website - refresh variables
+    if (load_chapter1vars) {
+        loadChapter1();
+    } //end of if load chapter1vars
 
     //get the current chatNode/option to display
    const chatNode = chatNodes.find(chatNode => chatNode.id === chatNodeIndex)
@@ -50,6 +30,17 @@ function printChatNode(chatNodeIndex) {
 
     //display the chatoption with chatlog
     updateChatLog('../Functions/Chapter1/chapter1callscript.txt', chatNode.id);
+
+    /*if combat != null
+
+    result = combatfunct(chatnode.combat)
+    
+    if result = true -> succeed
+
+        printChatNode()
+    else -> they failed
+
+    */
 
     //display the correct buttons
     while (document.getElementById('button-options').firstChild) {
@@ -91,7 +82,7 @@ function showOption(option) {
 
     console.log(test);
 
-    return option.requiredVar == null || option.requiredVar(chapter1var)
+    return option.requiredVar == null || option.requiredVar(chapter1var) 
     //return true;
 } //end of showOption
 
@@ -104,7 +95,7 @@ function selectOption(option) {
         chapter1var = Object.assign(chapter1var, option.updateVars)
 
         //show next chatlog node
-        printChatNode(nextChatNodeId)
+        printChatNode(nextChatNodeId, false)
 
 } //end of selectOption
 
@@ -116,8 +107,11 @@ function savechapter1(chatNodeIndex) {
     //Save where we are - chatnodeindex -> called function state
     saveVar("funcState", chatNodeIndex);
 
-    //save all the current variable options for chapter 1
-    saveVar("chapter1vars", chapter1var);
+    //sstringify the object chapter1var
+    const chapter1vars = JSON.stringify(chapter1var);
+
+    //Load the "string"
+    saveVar("chapter1vars", chapter1vars);
 
 
 } //end of saving chapter 1
@@ -125,13 +119,13 @@ function savechapter1(chatNodeIndex) {
 /*
 Load function
 */
-function loadChapter1(chatNodeIndex) {
+function loadChapter1() {
    
-
+    //load chapter 1 function state
     loadVar("funcState");
 
-    loadVar("chapter1vars");
-
+    //load chapter1var
+    chapter1var = JSON.parse(loadVar("chapter1vars"));
 
 } //end of saving chapter 1
 
@@ -305,6 +299,7 @@ const chatNodes = [
     },
     {
         id: '//1.3.3a//',
+        combat: 'fight1',
         options: [
             {
                 text: 'Success',
