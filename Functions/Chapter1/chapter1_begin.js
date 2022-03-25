@@ -15,6 +15,22 @@ function StartChapter1() {
     printChatNode('//START//', false)
 }
 
+//combat function
+function combatFunc(combatNum) {
+    if(comabt == 'fight1'){
+            var monster = Monsters1.Goblins.Hobgoblin
+            var monsterHP = monster.health
+            var characterHP = 10
+        }
+        while(monsterHP > 0 && characterHP > 0){
+            monsterHP = monsterHP - 10
+            characterHP = characterHP - 1
+        }
+        if(monsterHP == 0)
+            return 'Success'
+        return 'Fail'
+}
+
 function printChatNode(chatNodeIndex, load_chapter1vars) {
 
     //if we're coming back to the website - refresh variables
@@ -31,21 +47,10 @@ function printChatNode(chatNodeIndex, load_chapter1vars) {
     //display the chatoption with chatlog
     updateChatLog('../Functions/Chapter1/chapter1callscript.txt', chatNode.id);
     
-    /*
-    if(combat == 1) {
-        if(monster == 1){
-            var monster = Monster1.Goblins.Hobgoblin
-            var monsterHP = monster.health
-            var characterHP = 10
-        }
-        while(monsterHP > 0 && characterHP > 0){
-            monsterHP = monsterHP - 10
-            characterHP = characterHP - 1
-        }
-        if(monsterHP == 0)
-            return 'Success'
-        return 'Fail'
-    }*/
+    
+    if(combat != null) {
+        combatFunc(combat);
+    }
 
 
     //If the changeImage != null -> change background
