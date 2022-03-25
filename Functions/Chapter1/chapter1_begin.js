@@ -31,14 +31,20 @@ function printChatNode(chatNodeIndex, load_chapter1vars) {
     //display the chatoption with chatlog
     updateChatLog('../Functions/Chapter1/chapter1callscript.txt', chatNode.id);
 
-    /*if combat != null
-
-    result = combatfunct(chatnode.combat)
-    
-    if result = true -> succeed
-
-        printChatNode()
-    else -> they failed
+    if(combat == 1) {
+        if(monster == 1){
+            var monster = Monster1.Goblins.Hobgoblin
+            var monsterHP = monster.health
+            var characterHP = 10
+        }
+        while(monsterHP > 0 && characterHP > 0){
+            monsterHP = monsterHP - 10
+            characterHP = characterHP - 1
+        }
+        if(monsterHP == 0)
+            return 'Success'
+        return 'Fail'
+    }
 
     */
 
@@ -285,6 +291,8 @@ const chatNodes = [
     },
     {
         id: '//1.3.2//',
+        combat: 1,
+        monster: 1,
         //diceCheck:
         options: [
             {
