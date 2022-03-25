@@ -17,7 +17,8 @@ function StartChapter1() {
 
 //combat function
 function combatFunc(combatNum) {
-    if(comabt == 'fight1'){
+    
+    if(combatNum == 'fight1'){
             var monster = Monsters1.Goblins.Hobgoblin
             var monsterHP = monster.health
             var characterHP = 10
