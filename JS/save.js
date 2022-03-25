@@ -56,6 +56,9 @@ function saveVar(name, value) {
     localStorage.setItem(name, value);
 }
 function loadVar(name) {
+
+	//console.log(localStorage.getItem(name))
+
     return localStorage.getItem(name);
 }
 
@@ -123,7 +126,7 @@ function clearState() {
 //Test initialization by removing load button if save does not exist.
 window.onload = init();
 function init() {
-	if(localStorage.getItem("saveExists") === null) {
+	if(localStorage.getItem("funcState") === null) {
 		document.getElementById("loadBtn").style.display = 'none';
 		//alert("NO SAVE");
 	}
@@ -179,6 +182,8 @@ function deleteGame() {
 			localStorage.removeItem("playerGold");
 			localStorage.removeItem("playerName");
 			localStorage.removeItem("playerLevel");
+
+			localStorage.removeItem("funcState");
 		}
 	}
 	else {

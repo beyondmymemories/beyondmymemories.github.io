@@ -30,11 +30,13 @@ const buttonOptionsElement = document.getElementById('button-options');
 //array of variables for chapter1
 let chapter1var = {}
 
-function testStart(characterChoice) {
+function StartChapter1() {
 
-    console.log(characterChoice);
+    chapter1var = { character: loadVar("character") }
 
-    chapter1var = { character: characterChoice }
+    console.log(chapter1var.character);
+
+   // chapter1var = { character: characterChoice }
     printChatNode('//START//')
 }
 
@@ -112,10 +114,10 @@ SAVING FUNCTION
 function savechapter1(chatNodeIndex) {
    
     //Save where we are - chatnodeindex -> called function state
-    saveVar(funcState, chatnodeIndex);
+    saveVar("funcState", chatNodeIndex);
 
     //save all the current variable options for chapter 1
-    saveVar(chapter1vars, chapter1var);
+    saveVar("chapter1vars", chapter1var);
 
 
 } //end of saving chapter 1
@@ -126,9 +128,9 @@ Load function
 function loadChapter1(chatNodeIndex) {
    
 
-    loadVar(funcState);
+    loadVar("funcState");
 
-    loadVar(chapter1vars);
+    loadVar("chapter1vars");
 
 
 } //end of saving chapter 1
