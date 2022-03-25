@@ -19,17 +19,17 @@ function StartChapter1() {
 function combatFunc(combatNum) {
     
     if(combatNum == 'fight1'){
-            let monster = Monsters1.Goblins.Hobgoblin
-            let monsterHP = monster.health
-            let characterHP = 10
-        }
-        while(monsterHP > 0 && characterHP > 0){
-            monsterHP = monsterHP - 10
-            characterHP = characterHP - 1
-        }
-        if(monsterHP == 0)
-            return 'Success'
-        return 'Fail'
+        monster = Monsters1.Goblins.Hobgoblin
+        monsterHP = monster.health
+        characterHP = 10
+    }
+    while(monsterHP > 0 && characterHP > 0){
+        monsterHP = monsterHP - 10
+        characterHP = characterHP - 1
+    }
+    if(monsterHP == 0)
+        return 'Success'
+    return 'Fail'
 }
 
 function printChatNode(chatNodeIndex, load_chapter1vars) {
