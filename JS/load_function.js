@@ -5,13 +5,10 @@
 */
 
 /*
-
 Function saveCharacter: called when the click the button with their character
-Inputs: a string value with the character choice
-Does: Saves the funcState to be the beginning state 
-Outputs: nothing, calls a load_function
-
-
+Inputs:                 a string value with the character choice
+Does:                   Saves the funcState to be the beginning state 
+Outputs:                nothing, calls a load_function
 */
 function saveCharacter(characterChoice) {
 
@@ -20,8 +17,6 @@ function saveCharacter(characterChoice) {
 
     //save the function state
     saveVar("funcState", '//START//');
-
-    
 
     //start the game
     load_function();
@@ -44,7 +39,7 @@ function load_function() {
     } //end 
     //ELSE 
     else {
-        printChatNode(loadVar("funcState"));
+        printChatNode(loadVar("funcState"), true);
     } //end 
 
 
