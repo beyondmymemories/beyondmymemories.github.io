@@ -24,7 +24,9 @@ function combatFunc(combatNum) {
         characterHP = 10
     }
     while(monsterHP > 0 && characterHP > 0){
-        
+        /*while (document.getElementById('button-options').firstChild) {
+            document.getElementById('button-options').removeChild(document.getElementById('button-options').firstChild)
+        }*/
     }
     if(monsterHP == 0)
         return 'Success'
