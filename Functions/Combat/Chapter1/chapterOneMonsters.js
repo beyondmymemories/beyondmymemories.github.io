@@ -25,19 +25,17 @@ var Monsters1 = {
             chr: 0
         }
     },
-    Beasts: {
-        'Minotaur': {
-            type: 'melee',
-            weapon: Attacks1.Weapons.Greataxe,
-            health: 50,
-            stats: {
-                str: 5,
-                dex: 2,
-                con: 4,
-                int: -2,
-                wis: -2,
-                chr: 0
-            }
+    'Minotaur': {
+        type: 'melee',
+        weapon: Attacks1.Weapons.Greataxe,
+        health: 50,
+        stats: {
+            str: 5,
+            dex: 2,
+            con: 4,
+            int: -2,
+            wis: -2,
+            chr: 0
         }
     }
 }
