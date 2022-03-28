@@ -18,7 +18,7 @@ function StartChapter1() {
 //combat function
 function combatFunc(combatNum) {
     
-    if(combatNum == 'fight1'){
+    if(combatNum == 'Hobgoblin'){
         monster = Monsters1.Goblins.Hobgoblin
         monsterHP = monster.health
         characterHP = 10
@@ -334,6 +334,7 @@ const chatNodes = [
     },
     {
         id: '//1.3.3b//',
+        combat: 'fight1',
         options: [
             {
                 text: 'Success',
@@ -361,6 +362,7 @@ const chatNodes = [
     },
     {
         id: '//1.3.4//',
+        combat: 'fight1',
         options: [
             {
                 text: 'Success',
@@ -425,6 +427,7 @@ const chatNodes = [
     },
     {
         id: '//1.4.2//',
+        combat: 'Goblin',
         options: [
             {
                 text: 'Success',
@@ -448,6 +451,7 @@ const chatNodes = [
     },
     {
         id: '//1.4.3b//',
+        combat: 'Goblin',
         options: [
             {
                 text: 'Sucess',
@@ -875,6 +879,7 @@ const chatNodes = [
     },
     {
         id: '//1.6.0d//',
+        combat: 'Minotaur',
         options: [
             {
                 text: 'Success',
