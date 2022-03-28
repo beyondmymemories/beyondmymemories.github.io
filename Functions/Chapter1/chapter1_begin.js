@@ -19,13 +19,12 @@ function StartChapter1() {
 function combatFunc(combatNum) {
     
     if(combatNum == 'Hobgoblin'){
-        monster = Monsters1.Goblins.Hobgoblin
+        monster = Monsters1.Hobgoblin
         monsterHP = monster.health
         characterHP = 10
     }
     while(monsterHP > 0 && characterHP > 0){
-        monsterHP = monsterHP - 10
-        characterHP = characterHP - 1
+        
     }
     if(monsterHP == 0)
         return 'Success'
@@ -40,10 +39,10 @@ function printChatNode(chatNodeIndex, load_chapter1vars) {
     } //end of if load chapter1vars
 
     //get the current chatNode/option to display
-   const chatNode = chatNodes.find(chatNode => chatNode.id === chatNodeIndex)
+    const chatNode = chatNodes.find(chatNode => chatNode.id === chatNodeIndex)
 
-   //Save the state
-   savechapter1(chatNodeIndex);
+    //Save the state
+    savechapter1(chatNodeIndex);
 
     //display the chatoption with chatlog
     updateChatLog('../Functions/Chapter1/chapter1callscript.txt', chatNode.id);
