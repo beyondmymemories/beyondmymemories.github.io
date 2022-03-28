@@ -9,3 +9,7 @@ container1.css: The CSS file that controls the look and layout of the title scre
 container2.css: The CSS file that controls the look and layout of the character select.
 
 container3.css: The CSS file that controls the look and layout of the main game page.
+
+container4.css: The CSS file that controls the look and layout of the main combat page.
+
+DiceStyleSheet.css: This CSS file controls the look and layout of the dice display. 
