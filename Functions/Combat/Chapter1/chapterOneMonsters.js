@@ -1,43 +1,28 @@
 var Monsters1 = {
-    Goblins: {
-        'Archer': {
-            type: 'ranged',
-            weapon: Attacks1.Weapons.Shortbow,
-            health: 9,
-            stats: {
-                str: 1,
-                dex: 3,
-                con: 1,
-                int: -2,
-                wis: -1,
-                chr: 1
-            }
-        },
-        'Melee': {
-            type: 'melee',
-            weapon: Attacks1.Weapons.Shortsword,
-            health: 12,
-            stats:{
-                str: 3,
-                dex: 1,
-                con: 1,
-                int: -2,
-                wis: -1,
-                chr: 1
-            }
-        },
-        'Hobgoblin': {
-            type: 'melee',
-            weapon: Attacks1.Weapons.Maul,
-            health: 30,
-            stats: {
-                str: 4,
-                dex: 1,
-                con: 3,
-                int: -2,
-                wis: -1,
-                chr: 0
-            }
+    'Goblin': {
+        type: 'melee',
+        weapon: Attacks1.Weapons.Shortsword,
+        health: 12,
+        stats:{
+            str: 3,
+            dex: 1,
+            con: 1,
+            int: -2,
+            wis: -1,
+            chr: 1
+        }
+    },
+    'Hobgoblin': {
+        type: 'melee',
+        weapon: Attacks1.Weapons.Maul,
+        health: 30,
+        stats: {
+            str: 4,
+            dex: 1,
+            con: 3,
+            int: -2,
+            wis: -1,
+            chr: 0
         }
     },
     Beasts: {
