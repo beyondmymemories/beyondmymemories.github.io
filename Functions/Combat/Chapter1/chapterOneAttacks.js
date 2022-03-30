@@ -79,4 +79,4 @@ const wizAttacks = new Array(Attacks1.Spells.Fireball, Attacks1.Weapons.Dagger);
 const wizBonus = new Array(Attacks1.Spells.Firebolt, Attacks1.Weapons.Dagger);
 
 const bardAttacks = new Array(Attacks1.Spells.'Vicious Mockery', Attacks1.Spells.Firebolt, Attacks1.Weapons.Rapier);
-const bardBonus = new Array(
+const bardBonus = new Array(Attacks1.Spells.'Healing Word', Attacks1.Weapons.Dagger);
