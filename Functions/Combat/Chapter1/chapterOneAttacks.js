@@ -41,6 +41,13 @@ var Attacks1 = {
             amount: 1,
             buy: 20,
             sell: 2
+        },
+        'Rapier': {
+            type: 'finesse',
+            damage: 8,
+            amount: 1,
+            buy: 25,
+            sell: 2
         }
     },
 
@@ -49,6 +56,11 @@ var Attacks1 = {
             type: 'fire',
             damage: 6,
             amount: 8
+        },
+        'Firebolt': {
+            type: 'fire',
+            damage: 8,
+            amount: 1
         },
         'Vicious Mockery': {
             type: 'psychic',
@@ -62,3 +74,9 @@ var Attacks1 = {
         }
     }
 }
+
+const wizAttacks = new Array(Attacks1.Spells.Fireball, Attacks1.Weapons.Dagger);
+const wizBonus = new Array(Attacks1.Spells.Firebolt, Attacks1.Weapons.Dagger);
+
+const bardAttacks = new Array(Attacks1.Spells.'Vicious Mockery', Attacks1.Spells.Firebolt, Attacks1.Weapons.Rapier);
+const bardBonus = new Array(
