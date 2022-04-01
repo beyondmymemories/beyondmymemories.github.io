@@ -19,19 +19,23 @@ Any JS scripts that uses save.js will use saveVar() and loadVar(). saveVar() nee
 	localStorage. There should be a live variable and it will be saved on an 
 	explicit save event.
 */
-function saveJson(name, value) {
-	saveVar(name, JSON.stringify(value))
-}
-
-function loadJson(name) {
-	return JSON.parse(loadVar(name));
-}
 
 function saveVar(name, value) {
 	localStorage.setItem(name, value);
 }
 function loadVar(name) {
 	return localStorage.getItem(name);
+}
+
+/*	saveJson() and loadJson() are the same as saveVar and loadVar but they encode the variable
+	into a string and they decode back into a usable JSON when loading.
+*/
+function saveJson(name, value) {
+	saveVar(name, JSON.stringify(value))
+}
+
+function loadJson(name) {
+	return JSON.parse(loadVar(name));
 }
 
 /*	These are the ultimate saving and loading functions. They will call all save and load 			functions from any other js script that needs variables saved to localStorage.
