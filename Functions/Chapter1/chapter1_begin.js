@@ -24,7 +24,22 @@ function combatFunc(combatNum) {
         characterHP = 10
     }
     while(monsterHP > 0 && characterHP > 0){
-        
+        wizAttacks.forEach(attacks => {
+           //create button
+           const button = document.createElement('button')
+           
+           //button name will be weapon/spell name
+           button.innerText = attacks.name
+            
+           //add it to the correct css
+           button.classList.add('options')
+            
+           //click event listener
+           button.addEventListener('click', () => selectOptiopns(attacks))
+            
+           //stuff
+           document.getElementById('button-options').appendChild(button)
+        }
     }
     if(monsterHP == 0)
         return 'Success'
