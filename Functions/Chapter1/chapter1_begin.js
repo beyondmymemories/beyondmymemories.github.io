@@ -15,34 +15,106 @@ function StartChapter1() {
     printChatNode('//START//', false)
 }
 
+//if player can use either attack or bonus
+const attackAvailable = 1
+const bonusAvailable = 1
+
 //combat function
 function combatFunc(combatNum) {
+    //Initialize which character we use
+    const character = loadVar('character')
+    if(character == 'Wizard')
+        character = charStats1.Wizard
+    else if(character == 'Bard')
+        character = charStats1.Bard
+    else if(character == 'Barbarian')
+        character = charStats1.Barbarian
+    else
+        character = charStats1.Rogue
     
+    //Decide which combat we'll be doing
     if(combatNum == 'Hobgoblin'){
         monster = Monsters1.Hobgoblin
         monsterHP = monster.health
         characterHP = 10
     }
-    while(monsterHP > 0 && characterHP > 0){
-        wizAttacks.forEach(attacks => {
-           //create button
-           const button = document.createElement('button')
-           
-           //button name will be weapon/spell name
-           button.innerText = attacks.name
-            
-           //add it to the correct css
-           button.classList.add('options')
-            
-           //click event listener
-           button.addEventListener('click', () => selectOptiopns(attacks))
-            
-           //stuff
-           document.getElementById('button-options').appendChild(button)
+    
+    //roll for initiative
+    const monsterRoll = diceRoll(1, 20) + monster.stats.dex
+    const playerRoll = diceRoll(1, 20) + 4
+    
+    var combatChoices = {'Action', 'Bonus Action', 'Pass', 'Items'}
+    
+    //if the monster goes first
+    if(monsterRoll > playerRoll) {
+        while(monsterHP > 0 && characterHP > 0){
+            while(true){
+                
+                //create all choices that the character can choose
+                combatChocies.foreach(choice => {
+                   //create button
+                   const button = document.createElement('button')
+
+                   //button name will be weapon/spell name
+                   button.innerText = choice
+
+                   //add it to the correct css
+                   button.classList.add('options')
+
+                   //click event listener
+                   button.addEventListener('click', () => selectOptions(option))
+
+                   //stuff
+                   document.getElementById('button-options').appendChild(button)
+                })
+                
+                
+                wizAttacks.forEach(attacks => {
+                   //create button
+                   const button = document.createElement('button')
+
+                   //button name will be weapon/spell name
+                   button.innerText = attacks.name
+
+                   //add it to the correct css
+                   button.classList.add('options')
+
+                   //click event listener
+                   button.addEventListener('click', () => selectOptions(attacks))
+
+                   //stuff
+                   document.getElementById('button-options').appendChild(button)
+                })
+            }
         }
     }
+    
+    else{
+        while(monsterHP > 0 && characterHP > 0){
+
+            wizAttacks.forEach(attacks => {
+               //create button
+               const button = document.createElement('button')
+
+               //button name will be weapon/spell name
+               button.innerText = attacks.name
+
+               //add it to the correct css
+               button.classList.add('options')
+
+               //click event listener
+               button.addEventListener('click', () => selectOptions(attacks))
+
+               //stuff
+               document.getElementById('button-options').appendChild(button)
+            })
+        }
+    }
+    
+    //If monster dead
     if(monsterHP == 0)
         return 'Success'
+    //If player died
     return 'Fail'
 }
 
