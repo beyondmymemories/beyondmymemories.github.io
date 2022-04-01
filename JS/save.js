@@ -19,6 +19,14 @@ Any JS scripts that uses save.js will use saveVar() and loadVar(). saveVar() nee
 	localStorage. There should be a live variable and it will be saved on an 
 	explicit save event.
 */
+function saveJson(name, value) {
+	saveVar(name, JSON.stringify(value))
+}
+
+function loadJson(name) {
+	return JSON.parse(loadVar(name));
+}
+
 function saveVar(name, value) {
 	localStorage.setItem(name, value);
 }
@@ -35,6 +43,8 @@ function globalSave() {
 function globalLoad() {
 	alert("placeholder globalLoad\(\)");
 }
+
+
 
 var debug = true;
 
@@ -134,7 +144,7 @@ function init() {
 		document.getElementById("loadBtn").style.display = 'inline-block';
 		//alert("SAVE EXISTS");
 	}
-	alert("test");
+	//alert("test");
 }
 
 //Create new game and set saveExists to "True". 

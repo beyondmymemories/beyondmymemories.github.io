@@ -14,7 +14,6 @@ function endIdle() {
 	
 }
 
-
 function displayTimeIdle() {
 	var enterTime = Date.now();
 	
@@ -32,4 +31,32 @@ function applyIdle() {
 	console.log("added: " + seconds);
 	displayAll();
 	//alert(playerGold.concat(" + ", endIdle(), " = ", (playerGold + endIdle())));
+}
+
+//TIMER FUNCTIONS -----------------------------
+
+function beginTimer(minutes, name) {
+	var timer = {"end" : minutes, "name" : name, "start" : Date.now()}
+
+	saveJson(name, timer);
+}
+
+function checkTimer(name) {
+	timer = loadJson("" + name);
+	console.log("TIMER RESULT: " + (Date.now() - timer.start)/1000);
+	if ((Date.now() - timer.start)/1000 >= timer.end) {
+		return true;
+	}
+	else {
+		return false;
+	}
+}
+
+function testBeginTimer() {
+	beginTimer(document.getElementById("timeInput").value, document.getElementById("nameInput").value);
+}
+
+function testCheckTimer() {
+	document.getElementById("timerOutput").innerHTML = checkTimer(document.getElementById("checkNameInput").value);
+
 }
