@@ -51,7 +51,7 @@ function combatFunc(combatNum) {
             while(true){
                 
                 //create all choices that the character can choose
-                combatChocies.foreach(choice => {
+                combatChoices.foreach(choice => {
                    //create button
                    const button = document.createElement('button')
 
