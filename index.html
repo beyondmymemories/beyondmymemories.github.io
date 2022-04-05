@@ -8,8 +8,10 @@
 <link href="CSS/container3.css" rel="stylesheet" type="text/css">
 <link href="CSS/container4.css" rel="stylesheet" type="text/css">
 <link href="CSS/chatLog.css" rel="stylesheet" type="text/css">
+<link href="CSS/DiceStyleSheet.css" rel="stylesheet" type="text/css">
 	
 <!--JAva script Things!-->
+<script type="text/javascript" src="JS/diceFunction.js"></script>
 <script type="text/javascript" src="JS/chatLog.js"></script>
 <script type="text/javascript" src="Functions/Chapter1/chapter1_begin.js"></script>
 <script type="text/javascript" src="JS/load_function.js"></script>
@@ -120,6 +122,15 @@
 		        <button class="options" id="4">Option 4</button>
 	        </div>
         </div>
+    </div>
+
+    <!--the dice fade it beauty-->
+    <div id="diceOverlay">
+         <h2 style="margin: 50px 10px 10px 10px; color: white; font-family: Papyrus;"> Time for a roll</h2>
+         <input type ="image" id="Theyseemerollin" src="../Functions/Art/DiceRoller/DiceImagePlaceHolder.png" name="rollDice" width="auto" height="200px" alt="rollDice"/>
+         <p id="diceNum" style="font-size: 72px; font-family: Papyrus;"></p>
+         <button id="diceOff"onclick="overlayOff()">Exit</button>
+          
     </div>
 </div>
 

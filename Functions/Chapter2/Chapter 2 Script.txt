@@ -1,0 +1,110 @@
+Chapter 2 Script - Descriptive
+
+Notes:
+	M = merchant - says in log
+	C = character - says in log
+	L = log - general messages
+	O = option buttons
+	S = SO says in log
+	P = pool
+
+
+//2.1.0//
+*lands in new area*
+L : As you reach the bottom of the stairwell, you enter a dimly lit, circular room
+	Unlike normal torches, this room is lit blue, from a center pool in the room
+	The water rises, swirling in the center of the room, with sparks of blue lightning between the water
+	As you approach the center of the room, a stone slab slams behind you. Closing the stairwell.
+	You cannot go back
+
+O :
+	2.1.1a: Gaze into the pool
+	2.1.1b: Touch the floating water
+//2.1.0//
+
+//2.1.1a//
+L : The pool goes deep, slowly getting darker the further it goes.
+
+	2.1.1c
+//2.1.1a//
+
+//2.1.1b//
+L : The water swirls around your hand, cold to the touch.
+
+if (!rogue) {
+	L : The blue sparks whips out, but being fast, you're able to pull away before it shocks you
+}
+else {
+	L : The blue spark whips out, catching you on you arm. It stings and you pull away as a reflex.
+}
+
+	2.1.1c
+//2.1.1b//
+
+//2.1.1c//
+L :	You suddenly hear a yawn, a long yawn
+	The room shakes as the sound fills the circular space.
+P : "Oh great, another adventurer."
+L : Roll a perception check.
+
+O :
+	 2.1.2a: <=15: Sucess
+	 2.1.2a: >15 : Fails
+//2.1.1//
+
+//2.1.2a//
+L : While no one appears to be in the circular space, the water in the pool and floating seem to react to the speaker
+	The sparks quake with each word said.
+//2.1.2a//
+
+//2.1.2b//
+L : You look around, confused from where this voice seems to be coming from. 
+	There's no one in the room and the voice seems to come from everywhere
+
+	2.1.2c
+//2.1.2b//
+
+//2.1.2c//
+P : "What are you after? Gold? Glory? Well just go back, you won't find anything here."
+L : The voice sounds exasperated, tired and annoyed.
+
+O:
+	2.1.3a: I don't remember anything
+	2.1.3b: What are you?
+
+
+//2.1.2c//
+
+//2.1.3a//
+C : "I don't remember anything" you reply to the rude voice
+P : "Hmm... well that is quite rare, but still no matter to me." He replies,
+	"I don't care for your kind, you're all the same. You only care about yourself
+	So get lost"
+
+O :
+	2.1.4a: "I can't go back"
+	2.1.4b: "You don't know anything"
+//2.1.3a//
+
+//2.1.3b//
+C : "What are you? Where are you?" you say, turning around the room
+P : "What's it to you? Do you even care? Your kind is all the same. Annoying and selfish.
+	Get lost."
+
+O : 
+	2.1.4a: "I can't go back"
+	2.1.4b: "You don't know anything"
+//2.1.3b//
+
+//2.1.4a//
+C : "I can't go back" you reply, gesturing to the stone behind you
+P : "I cAn'T gO BaCk" he mocks, "I'll give you a hint if you want it, but don't expect anything else from me."
+
+O :
+	2.1.5: "Accept his hint"
+	2.1.6: "Reject the help"
+//2.1.4a//
+
+//2.1.4b//
+C : "You don't know anything", you childishly reply
+P : "I DON'T KNOW ANYTING!

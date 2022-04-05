@@ -21,17 +21,42 @@ function diceRoll(rollNumber, diceType) {
 } // end of diceRoll
 
 //prints out the dice number when rolled
-function printpls(){
-    
-    document.getElementById('diceNum').innerHTML = diceRoll(timesRolled,d4);
+function printpls(rollNumber, diceType){
+
+     var theStupidDice
+
+     document.getElementById("Theyseemerollin").addEventListener("click", function() {
+
+        theStupidDice = diceRoll(rollNumber,diceType);
+
+        document.getElementById('diceNum').innerHTML = theStupidDice
+     }); //end of eventlistener
+
+     //theStupidDice = document.getElementById('diceNum').innerHTML
+
+     document.getElementById("diceOff").addEventListener("click", function() {
+        overlayOff();
+        
+        return theStupidDice
+     });
 }
 
 //turns on the overlay
 function overlayOn(){
+
     document.getElementById("diceOverlay").style.display="block";
+
+    document.getElementById("Theyseemerollin").style.display = 'inline';
+
+    document.getElementById("Theyseemerollin").style.width = 'auto';
+    document.getElementById("Theyseemerollin").style.height = '200px';
+
 }
 
 //turns off the overlay
 function overlayOff(){
+
+    document.getElementById("diceNum").innerHTML = "";
+
     document.getElementById("diceOverlay").style.display="none";
 }
