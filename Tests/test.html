@@ -1,0 +1,68 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+	 
+<script type="text/javascript" src="../JS/save.js"></script>
+	<script type="text/javascript" src="../JS/idle.js"></script>
+<link rel="stylesheet" href="../CSS/styles.css">
+
+<title>Test Idle and Save</title>
+</head>
+	
+<body onLoad=>
+		
+<div class="outline">
+	<h1>SAVE SYSTEM</h1>	
+		<div class="wrapper">
+			<div>
+				<input type="checkbox" id="saveExists"> Save Exists 
+			</div>
+
+			<div>
+				<input type="text" id="gold"> Gold:
+
+			</div>
+			
+			<div>
+				<input type="text" id="level"> Level
+			</div>
+
+			<div>
+				<input type="text" id="name"> Character Name
+			</div>
+			
+				<button class="myButton"onclick="updateAll()">Update Live Variables</button>
+				<button class="myButton"onclick="saveAll()">Save State</button>
+				<button class="myButton"onclick="loadAll()">Load State</button>
+				<button class="myButton"onclick="clearState()">Delete State</button>
+
+		</div>
+			<div>
+				<button class="myButton" onclick="displayAll()">Display Live State</button>		
+
+		<p id="goldDisplay">Gold:</p>
+		<p id="levelDisplay">Level</p>
+		<p id="nameDisplay">Name:</p>
+</div>
+<div class="outline">
+	<h1>IDLE MECHANIC</h1>
+	<div class="wrapper">
+		<div>
+			
+			<h2 id="idleOutput"></h2>
+			
+			<button class="myButton" onclick="beginIdle()">Begin Idle</button>
+			<button class="myButton" onclick="displayTimeIdle()">Show time idle</button>
+			
+		</div>
+		
+		<div>
+			<button class="myButton" onclick="applyIdle()">Apply Idle</button>
+		</div>
+		
+	</div>
+</div>
+
+</body>
+</html>

@@ -21,6 +21,24 @@ chatLogDisplay {
     font-size: medium;
 }
 
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: lightgrey;
+  border-radius:5px;
+}
+
+::-webkit-scrollbar-corner {
+  border-radius: 5px;
+  background: transparent;
+}
+
+
+
 chatDemo {
 	position:absolute;
     height: 500px;
