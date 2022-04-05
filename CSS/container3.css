@@ -49,5 +49,21 @@ div.container3 {
  
  }
  
+ .checkpoint-grid {
+	z-index:1;
+	position:absolute;
+    display: grid;
+    border: 3px solid white;
+    grid-template-columns: repeat(2,auto);
+    gap: 10px;
+    width: auto;
+    height: auto;
+    padding: 15px;
+    position: absolute;
+    left: 5%;
+    top: 3%;
+ 
+ }
+
  /*End of main container*/
  
