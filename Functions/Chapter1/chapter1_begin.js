@@ -52,8 +52,37 @@ function printChatNode(chatNodeIndex, load_chapter1vars) {
 
     document.getElementById("backgroundImage").src=globalImg;
 
+    //did we die - restart from checkpoint
+    if (chatNode.restartCheckPoint) {
+
+        //loop through each buttons option to display them
+        chatNode.options.forEach(option => {
+
+        if (option.NextAutoChat != null) {
+            //printChatNode(option.NextAutoChat);
+        } 
+        if (showOption(option)) {
+            //create button
+            const button = document.createElement('button')
+    
+            //display the button text
+            button.innerText = option.text
+    
+            //add it to the correct css
+            button.classList.add('options')
+    
+            //click event listener
+            button.addEventListener('click', () => selectOption(option))
+    
+            document.getElementById('button-options').appendChild(button)
+            }
+        })
+
+        
+
+    }
     //check if we need to roll dice here
-    if (chatNode.dicetype != null) {
+    else if (chatNode.dicetype != null) {
 
         //test that overlay works
         overlayOn();
@@ -282,6 +311,13 @@ const chatNodes = [
     //DEAD - RESTART
     {
         id: '//1.2.3//',
+        restartCheckPoint: true,
+        options: [
+            {
+                text: 'Reload from Checkpoint'
+            }
+        ]
+
     },
     //MERCHANT SHOP!
     {

@@ -21,24 +21,28 @@ function diceRoll(rollNumber, diceType) {
 } // end of diceRoll
 
 //prints out the dice number when rolled
-function printpls(rollNumber, diceType){
+function printpls(rollNumber, diceType, tobeat, sucess, fail){
 
-     var theStupidDice
+     var returnedDiceResult
 
      document.getElementById("Theyseemerollin").addEventListener("click", function() {
 
-        theStupidDice = diceRoll(rollNumber,diceType);
+        returnedDiceResult = diceRoll(rollNumber,diceType);
 
-        document.getElementById('diceNum').innerHTML = theStupidDice
+        document.getElementById('Theyseemerollin').style.display = 'none';
+        document.getElementById('diceNum').innerHTML = returnedDiceResult
+
+         if (returnedDiceResult >= tobeat) {
+             //we suceeded - chatnode to suceeed
+             printChatNode(sucess, false)
+         }
+         else if (returnedDiceResult < tobeat) {
+             //fails - chatnode to fail
+             printChatNode(fail, false)
+         }
+         else 
+             alert("FAILED!")
      }); //end of eventlistener
-
-     //theStupidDice = document.getElementById('diceNum').innerHTML
-
-     document.getElementById("diceOff").addEventListener("click", function() {
-        overlayOff();
-        
-        return theStupidDice
-     });
 }
 
 //turns on the overlay
