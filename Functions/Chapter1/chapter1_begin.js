@@ -4,12 +4,15 @@ const buttonOptionsElement = document.getElementById('button-options');
 
 //array of variables for chapter1
 let chapter1var = {}
+var globalImg = "";
 
 function StartChapter1() {
 
     chapter1var = { character: loadVar("character") }
 
     console.log(chapter1var.character);
+
+    globalImg = "Functions/Art/Chapter1/smallerCave.png";
 
    // chapter1var = { character: characterChoice }
     printChatNode('//START//', false)
@@ -24,9 +27,6 @@ function printChatNode(chatNodeIndex, load_chapter1vars) {
 
     //get the current chatNode/option to display
    const chatNode = chatNodes.find(chatNode => chatNode.id === chatNodeIndex)
-
-   //Save the state
-   savechapter1(chatNodeIndex);
 
     //display the chatoption with chatlog
     updateChatLog('../Functions/Chapter1/chapter1callscript.txt', chatNode.id);
@@ -47,16 +47,16 @@ function printChatNode(chatNodeIndex, load_chapter1vars) {
 
         console.log(chatNode.changeImage)
 
-        document.getElementById("backgroundImage").src=chatNode.changeImage;
+        globalImg = chatNode.changeImage;
     }
 
-    //display the correct buttons
-    while (document.getElementById('button-options').firstChild) {
-        document.getElementById('button-options').removeChild(document.getElementById('button-options').firstChild)
-    }
+    document.getElementById("backgroundImage").src=globalImg;
 
-    //loop through each buttons option to display them
-    chatNode.options.forEach(option => {
+    //did we die - restart from checkpoint
+    if (chatNode.restartCheckPoint) {
+
+        //loop through each buttons option to display them
+        chatNode.options.forEach(option => {
 
         if (option.NextAutoChat != null) {
             //printChatNode(option.NextAutoChat);
@@ -64,19 +64,89 @@ function printChatNode(chatNodeIndex, load_chapter1vars) {
         if (showOption(option)) {
             //create button
             const button = document.createElement('button')
-
+    
             //display the button text
             button.innerText = option.text
-
+    
             //add it to the correct css
             button.classList.add('options')
-
+    
             //click event listener
             button.addEventListener('click', () => selectOption(option))
-
+    
             document.getElementById('button-options').appendChild(button)
+            }
+        })
+
+        
+
+    }
+    //check if we need to roll dice here
+    else if (chatNode.dicetype != null) {
+
+        //test that overlay works
+        overlayOn();
+
+        //printpls(chatNode.rollnumber, chatNode.dicetype, chatNode.tobeat, chatNode.sucess, chatNode.fail);
+
+        var returnedDiceResult
+
+        document.getElementById("Theyseemerollin").addEventListener("click", function() {
+   
+           returnedDiceResult = diceRoll(chatNode.rollnumber,chatNode.dicetype);
+
+           document.getElementById('Theyseemerollin').style.display = 'none';
+           document.getElementById('diceNum').innerHTML = returnedDiceResult
+
+            if (returnedDiceResult >= chatNode.tobeat) {
+                //we suceeded - chatnode to suceeed
+                printChatNode(chatNode.sucess, false)
+            }
+            else if (returnedDiceResult < chatNode.tobeat) {
+                //fails - chatnode to fail
+                printChatNode(chatNode.fail, false)
+            }
+            else 
+                alert("FAILED!")
+        }); //end of eventlistener
+
+    
+    } //if we have dice to roll! 
+    else {
+        //Save the state
+        savechapter1(chatNodeIndex);
+
+        //display the correct buttons
+        while (document.getElementById('button-options').firstChild) {
+            document.getElementById('button-options').removeChild(document.getElementById('button-options').firstChild)
         }
-    })
+
+        //loop through each buttons option to display them
+        chatNode.options.forEach(option => {
+
+            if (option.NextAutoChat != null) {
+                //printChatNode(option.NextAutoChat);
+            } 
+            if (showOption(option)) {
+                //create button
+                const button = document.createElement('button')
+
+                //display the button text
+                button.innerText = option.text
+
+                //add it to the correct css
+                button.classList.add('options')
+
+                //click event listener
+                button.addEventListener('click', () => selectOption(option))
+
+                document.getElementById('button-options').appendChild(button)
+            }
+        })
+
+
+    } //end of else
+
 
     //set the previous Node -> might be used later
     const previousChatNode = chatNodeIndex
@@ -115,6 +185,9 @@ function savechapter1(chatNodeIndex) {
     //Save where we are - chatnodeindex -> called function state
     saveVar("funcState", chatNodeIndex);
 
+    //save the image for the background
+    saveVar("backgroundImage", globalImg);
+
     //sstringify the object chapter1var
     const chapter1vars = JSON.stringify(chapter1var);
 
@@ -134,6 +207,9 @@ function loadChapter1() {
 
     //load chapter1var
     chapter1var = JSON.parse(loadVar("chapter1vars"));
+
+    //load image
+    globalImg = loadVar("backgroundImage");
 
 } //end of saving chapter 1
 
@@ -235,6 +311,13 @@ const chatNodes = [
     //DEAD - RESTART
     {
         id: '//1.2.3//',
+        restartCheckPoint: true,
+        options: [
+            {
+                text: 'Reload from Checkpoint'
+            }
+        ]
+
     },
     //MERCHANT SHOP!
     {
@@ -294,17 +377,11 @@ const chatNodes = [
     },
     {
         id: '//1.3.2//',
-        //diceCheck:
-        options: [
-            {
-                text: 'Success',
-                NextChat: '//1.3.4//'
-            },
-            {
-                text: 'Fails',
-                NextChat: '//1.3.3a//'
-            }
-        ]
+        rollnumber: 1,
+        dicetype: d20,
+        tobeat: 13,
+        sucess: '//1.3.4//',
+        fail: '//1.3.3a//'
     },
     {
         id: '//1.3.3a//',
@@ -399,17 +476,11 @@ const chatNodes = [
     },
     {
         id: '//1.4.1//',
-        //diceCheck:
-        options: [
-            {
-                text: 'Success',
-                NextChat: '//1.4.2//'
-            },
-            {
-                text: 'Fails',
-                NextChat: '//1.4.3a//'
-            }
-        ]
+        rollnumber: 1,
+        dicetype: d20,
+        tobeat: 13,
+        sucess: '//1.4.2//',
+        fails: '//1.4.3a//'
     },
     {
         id: '//1.4.2//',
