@@ -16,6 +16,7 @@
 <script type="text/javascript" src="Functions/Chapter1/chapter1_begin.js"></script>
 <script type="text/javascript" src="JS/load_function.js"></script>
 <script type="text/javascript" src="JS/save.js"></script>
+<script type="text/javascript" src="JS/designScripts.js"></script>
 
 
 
@@ -60,8 +61,20 @@
     
         <! –– This decides the button and art for the Wizard. ––>
 		<div class="characterbutton">
-             <div class="characters">   
-                <img src="Functions/Art/Chapter1/wizardChar.png" alt="temp">
+            <div class="statcontainer">
+                <div class="characters">  
+                    <img src="Functions/Art/Chapter1/wizardChar.png" alt="temp" class="image">
+                        <div class ="statsOverlay">
+                            <div class="text">Wizard Stats:<br>
+                                str: -1<br>
+                                dex: 2<br>
+                                con: 0<br>
+                                int: 4<br>
+                                wis: 3<br>
+                                chr: 1<br>
+                            </div>
+                        </div>
+                </div>    
             </div>
             <div class="buttonChar">
                 <button class="button button1" value="Wizard" onclick="saveCharacter(this.value)">Wizard</button>
@@ -69,9 +82,21 @@
         </div>
     
         <!–– This decides the button and art for the Barbarian. ––>
-        <div class="characterbutton">   
-            <div class="characters"> 
-                <img src="Functions/Art/Chapter1/barbarianChar.png" alt="temp">
+        <div class="characterbutton">
+            <div class="statcontainer"> 
+                <div class="characters"> 
+                    <img src="Functions/Art/Chapter1/barbarianChar.png" alt="temp">
+                        <div class ="statsOverlay">
+                            <div class="text">Barbarian Stats:<br>
+                                str: 4<br>
+                                dex: 0<br>
+                                con: 3<br>
+                                int: -1<br>
+                                wis: 1<br>
+                                chr: 2<br>
+                            </div>
+                        </div>
+                </div>
             </div>
             <div class="buttonChar">
                 <button class="button button2" value="Barbarian" onclick="saveCharacter(this.value)">Barbarian</button>
@@ -79,9 +104,21 @@
         </div>
    
         <!–– This decides the button and art for the Bard. ––>
-        <div class="characterbutton">  
-            <div class="characters"> 
-                <img src="Functions/Art/temp image.png" alt="temp">
+        <div class="characterbutton">
+            <div class="statcontainer"> 
+                <div class="characters"> 
+                    <img src="Functions/Art/temp image.png" alt="temp">
+                        <div class ="statsOverlay">
+                            <div class="text">Bard Stats:<br>
+                                str: 0<br>
+                                dex: 3<br>
+                                con: 2<br>
+                                int: -1<br>
+                                wis: 1<br>
+                                chr: 4<br>                        
+                            </div>
+                        </div>
+                </div>
             </div>
             <div class="buttonChar">
                 <button class="button button3" value="Bard" onclick="saveCharacter(this.value)">Bard</button>
@@ -90,8 +127,20 @@
     
         <!–– This decides the button and art for the Rouge. ––>
         <div class="characterbutton">
-            <div class="characters"> 
-                <img src="Functions/Art/stickman.png" alt="temp">
+            <div class="statcontainer">
+                <div class="characters"> 
+                    <img src="Functions/Art/stickman.png" alt="temp">
+                    <div class ="statsOverlay">
+                            <div class="text">Rogue Stats:<br>
+                                str: 1<br>
+                                dex: 4<br>
+                                con: 0<br>
+                                int: -1<br>
+                                wis: 3<br>
+                                chr: 2<br>
+                            </div>
+                    </div>
+                </div>
             </div>
             <div class="buttonChar">
                 <button class="button button4" value="Rogue" onclick="saveCharacter(this.value)">Rogue</button>
