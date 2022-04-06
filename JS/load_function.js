@@ -18,6 +18,9 @@ function saveCharacter(characterChoice) {
     //save the function state
     saveVar("funcState", '//START//');
 
+    //Set the chapter to 1
+    //setChapter(1);
+
     //start the game
     load_function();
 
