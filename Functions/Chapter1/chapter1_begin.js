@@ -24,34 +24,39 @@ function combatFunc(combatNum) {
     //Initialize which character we use
     const character = loadVar('character')
     if(character == 'Wizard')
-        character = charStats1.Wizard
+        var characterChoice = charStats1.Wizard
     else if(character == 'Bard')
-        character = charStats1.Bard
+        var characterChoice = charStats1.Bard
     else if(character == 'Barbarian')
-        character = charStats1.Barbarian
+        var characterChoice = charStats1.Barbarian
     else
-        character = charStats1.Rogue
+        var characterChoice = charStats1.Rogue
     
     //Decide which combat we'll be doing
     if(combatNum == 'Hobgoblin'){
-        monster = Monsters1.Hobgoblin
-        monsterHP = monster.health
-        characterHP = 10
+        var monster = Monsters1.Hobgoblin
+        var monsterHP = monster.health
+        var characterHP = characterChoice.maxhp
+    }
+    if(combatNum == 'Goblin'){
+        var monster = Monsters1.Goblin
+        var monsterHP = monster.health
+        var characterHP = characterChoice.maxhp
     }
     
     //roll for initiative
     const monsterRoll = diceRoll(1, 20) + monster.stats.dex
     const playerRoll = diceRoll(1, 20) + 4
     
-    var combatChoices = {'Action', 'Bonus Action', 'Pass', 'Items'}
+    //var combatChoices = {'Action', 'Bonus Action', 'Pass', 'Items'}
     
     //if the monster goes first
     if(monsterRoll > playerRoll) {
-        while(monsterHP > 0 && characterHP > 0){
+        //while(monsterHP > 0 && characterHP > 0){
             while(true){
                 
                 //create all choices that the character can choose
-                combatChoices.foreach(choice => {
+                /*combatChoices.foreach(choice => {
                    //create button
                    const button = document.createElement('button')
 
@@ -66,7 +71,7 @@ function combatFunc(combatNum) {
 
                    //stuff
                    document.getElementById('button-options').appendChild(button)
-                })
+                })*/
                 
                 
                 wizAttacks.forEach(attacks => {
@@ -86,11 +91,11 @@ function combatFunc(combatNum) {
                    document.getElementById('button-options').appendChild(button)
                 })
             }
-        }
+        //}
     }
     
     else{
-        while(monsterHP > 0 && characterHP > 0){
+        //while(monsterHP > 0 && characterHP > 0){
 
             wizAttacks.forEach(attacks => {
                //create button
@@ -108,7 +113,7 @@ function combatFunc(combatNum) {
                //stuff
                document.getElementById('button-options').appendChild(button)
             })
-        }
+        //}
     }
     
     //If monster dead
@@ -138,6 +143,7 @@ function printChatNode(chatNodeIndex, load_chapter1vars) {
     if(chatNode.combat != null) {
         combatFunc(chatNode.combat);
     }
+    else{
 
 
     //If the changeImage != null -> change background
@@ -178,6 +184,7 @@ function printChatNode(chatNodeIndex, load_chapter1vars) {
 
     //set the previous Node -> might be used later
     const previousChatNode = chatNodeIndex
+}
 
 } //end of function printChatNode
 
@@ -406,7 +413,7 @@ const chatNodes = [
     },
     {
         id: '//1.3.3a//',
-        combat: 'fight1',
+        combat: 'Hobgoblin',/*
         options: [
             {
                 text: 'Success',
@@ -416,12 +423,12 @@ const chatNodes = [
                 text: 'Fails',
                 NextChat: '//1.2.3//'
             }
-        ]
+        ]*/
     },
     {
         id: '//1.3.3b//',
-        combat: 'fight1',
-        options: [
+        combat: 'Hobgoblin',
+        /*options: [
             {
                 text: 'Success',
                 NextChat: '//1.2.2//',
@@ -431,7 +438,7 @@ const chatNodes = [
                 text: 'Fails',
                 NextChat: '//1.2.3//'
             }
-        ]
+        ]*/
     },
     {
         id: '//1.3.3c//',
@@ -448,7 +455,7 @@ const chatNodes = [
     },
     {
         id: '//1.3.4//',
-        combat: 'fight1',
+        combat: 'Hobgoblin',/*
         options: [
             {
                 text: 'Success',
@@ -458,7 +465,7 @@ const chatNodes = [
                 text: 'Fails',
                 NextChat: '//1.2.3//'
             }
-        ]
+        ]*/
     },
     {
         id: '//1.3.5//',
