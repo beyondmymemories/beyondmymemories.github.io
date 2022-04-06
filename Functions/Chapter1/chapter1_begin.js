@@ -55,6 +55,12 @@ function printChatNode(chatNodeIndex, load_chapter1vars) {
     //did we die - restart from checkpoint
     if (chatNode.restartCheckPoint) {
 
+
+        //display the correct buttons
+        while (document.getElementById('button-options').firstChild) {
+            document.getElementById('button-options').removeChild(document.getElementById('button-options').firstChild)
+        }
+
         //loop through each buttons option to display them
         chatNode.options.forEach(option => {
 
@@ -71,7 +77,7 @@ function printChatNode(chatNodeIndex, load_chapter1vars) {
             //add it to the correct css
             button.classList.add('options')
     
-            //click event listener
+            //click event listener - load the load function for it
             button.addEventListener('click', () => selectOption(option))
     
             document.getElementById('button-options').appendChild(button)
