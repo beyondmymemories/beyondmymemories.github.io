@@ -10,8 +10,6 @@ function StartChapter1() {
 
     chapter1var = { character: loadVar("character") }
 
-    console.log(chapter1var.character);
-
     globalImg = "Functions/Art/Chapter1/smallerCave.png";
 
    // chapter1var = { character: characterChoice }
@@ -119,6 +117,7 @@ function printChatNode(chatNodeIndex, load_chapter1vars) {
     
     } //if we have dice to roll! 
     else {
+
         //Save the state
         savechapter1(chatNodeIndex);
 
@@ -150,12 +149,10 @@ function printChatNode(chatNodeIndex, load_chapter1vars) {
             }
         })
 
+        //set the previous Node -> might be used later
+        const previousChatNode = chatNodeIndex
 
     } //end of else
-
-
-    //set the previous Node -> might be used later
-    const previousChatNode = chatNodeIndex
 
 } //end of function printChatNode
 
