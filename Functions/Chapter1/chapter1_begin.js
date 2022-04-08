@@ -6,11 +6,20 @@ const buttonOptionsElement = document.getElementById('button-options');
 let chapter1var = {}
 var globalImg = "";
 
+//code for checkpoints <3 isaac
+var lastChatNodeIndex;
+function getLastChatNodeIndex() {
+    return lastChatNodeIndex;
+}
+
+function getChapter1Var() {
+    return chapter1var;
+}
+
+
 function StartChapter1() {
 
     chapter1var = { character: loadVar("character") }
-
-    console.log(chapter1var.character);
 
     globalImg = "Functions/Art/Chapter1/smallerCave.png";
 
@@ -127,7 +136,7 @@ function combatFunc(combatNum) {
 }
 
 function printChatNode(chatNodeIndex, load_chapter1vars) {
-
+    lastChatNodeIndex = chatNodeIndex;
     //if we're coming back to the website - refresh variables
     if (load_chapter1vars) {
         loadChapter1();
@@ -141,7 +150,6 @@ function printChatNode(chatNodeIndex, load_chapter1vars) {
 
     //display the chatoption with chatlog
     updateChatLog('../Functions/Chapter1/chapter1callscript.txt', chatNode.id);
-    
     
     if(chatNode.combat != null) {
         combatFunc(chatNode.combat)
@@ -158,8 +166,44 @@ function printChatNode(chatNodeIndex, load_chapter1vars) {
 
     document.getElementById("backgroundImage").src=globalImg;
 
+    /*if (chatNoded.combat != null)
+
+result = combatfunct(chatnode.combat)
+    
+    if result = true -> succeed
+
+        printChatNode()
+    else -> they failed
+
+    */
+
+   //if we enter combat
+   if(chatNode.combat != null) {
+
+        //display the correct buttons
+        while (document.getElementById('button-options').firstChild) {
+            document.getElementById('button-options').removeChild(document.getElementById('button-options').firstChild)
+        }
+
+        //enter combat
+        var combatResult = combatFunc(chatNode.combat);
+
+        //if we succeeded in combat
+        if (combatResult == "Success0"){
+
+            //check this: !currentVars.lootAdventurer
+            printChatNode(chatNode.sucess0);
+        }
+        else if (combatResult == "Success"){
+            printChatNode(chatNode.sucess)
+        }
+        //failed in combat -> die
+        else {
+            printChatNode(chatNode.fail)
+        }
+    }
     //did we die - restart from checkpoint
-    if (chatNode.restartCheckPoint) {
+    else if (chatNode.restartCheckPoint) {
 
 
         //display the correct buttons
@@ -225,6 +269,7 @@ function printChatNode(chatNodeIndex, load_chapter1vars) {
     
     } //if we have dice to roll! 
     else {
+
         //Save the state
         savechapter1(chatNodeIndex);
 
@@ -256,6 +301,8 @@ function printChatNode(chatNodeIndex, load_chapter1vars) {
             }
         })
 
+        //set the previous Node -> might be used later
+        const previousChatNode = chatNodeIndex
 
     } //end of else
 
@@ -497,7 +544,10 @@ const chatNodes = [
     },
     {
         id: '//1.3.3a//',
-        combat: 'Hobgoblin',/*
+        combat: 'Hobgoblin',
+        sucess: "//1.3.5//",
+        fail: "//1.2.3//"
+        /*
         options: [
             {
                 text: 'Success',
@@ -512,6 +562,8 @@ const chatNodes = [
     {
         id: '//1.3.3b//',
         combat: 'Hobgoblin',
+        sucess: '//1.2.2//',
+        fail: '//1.2.3//'
         /*options: [
             {
                 text: 'Success',
@@ -539,7 +591,10 @@ const chatNodes = [
     },
     {
         id: '//1.3.4//',
-        combat: 'Hobgoblin',/*
+        combat: 'Hobgoblin',
+        sucess: "//1.3.5//",
+        fail: "//1.2.3//"
+        /*
         options: [
             {
                 text: 'Success',
@@ -599,6 +654,8 @@ const chatNodes = [
     {
         id: '//1.4.2//',
         combat: 'Goblin',
+        sucess: '//1.4.5//',
+        fail: '//1.2.3//'
         /*options: [
             {
                 text: 'Success',
@@ -623,6 +680,9 @@ const chatNodes = [
     {
         id: '//1.4.3b//',
         combat: 'Goblin',
+        sucess0: '//1.4.5//',
+        sucess: '//1.3.4//',
+        fail: '//1.3.3a//'
         /*options: [
             {
                 text: 'Success',
@@ -665,7 +725,7 @@ const chatNodes = [
             {
                 text: 'Continue',
                 NextChat: '//1.5.0b//',
-                requiredVar: (currentVars) => !currentVars.metCompanion,
+                requiredVar: (currentVars) => currentVars.metCompanion,
                 requiredVar: (currentVars) => currentVars.foundDoor
             }
         ]
