@@ -29,17 +29,6 @@ function printChatNode(chatNodeIndex, load_chapter1vars) {
     //display the chatoption with chatlog
     updateChatLog('../Functions/Chapter1/chapter1callscript.txt', chatNode.id);
 
-    /*if combat != null
-
-    result = combatfunct(chatnode.combat)
-    
-    if result = true -> succeed
-
-        printChatNode()
-    else -> they failed
-
-    */
-
     //If the changeImage != null -> change background
     if (chatNode.changeImage != null) {
 
@@ -50,6 +39,16 @@ function printChatNode(chatNodeIndex, load_chapter1vars) {
 
     document.getElementById("backgroundImage").src=globalImg;
 
+    /*if (chatNoded.combat != null)
+
+result = combatfunct(chatnode.combat)
+    
+    if result = true -> succeed
+
+        printChatNode()
+    else -> they failed
+
+    */
     //did we die - restart from checkpoint
     if (chatNode.restartCheckPoint) {
 
@@ -552,7 +551,7 @@ const chatNodes = [
             {
                 text: 'Continue',
                 NextChat: '//1.5.0b//',
-                requiredVar: (currentVars) => !currentVars.metCompanion,
+                requiredVar: (currentVars) => currentVars.metCompanion,
                 requiredVar: (currentVars) => currentVars.foundDoor
             }
         ]
