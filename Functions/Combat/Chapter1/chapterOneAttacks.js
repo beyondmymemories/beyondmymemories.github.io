@@ -1,55 +1,93 @@
 var Attacks1 = {
     Weapons: {
         'Greataxe': {
+            name: 'Greataxe',
             type: 'heavy',
-            damage: 6,
+            damage: 12,
+            amount: 1,
             buy: 50,
             sell: 5
         },
-        'Club': {
+        'Maul': {
+            name: 'Maul',
             type: 'heavy',
-            damage: 5,
+            damage: 6,
+            amount: 2,
             buy: 35,
             sell: 3.5
         },
         'Dagger': {
-            type: 'light',
-            damage: 2.5,
+            name: 'Dagger',
+            type: 'finesse',
+            damage: 4,
+            amount: 1,
             buy: 20,
             sell: 2
         },
         'Goodaxe': {
+            name: 'Goodaxe',
             type: 'heavy',
-            damage: 4,
+            damage: 8,
+            amount: 1,
             buy: 20,
             sell: 2
         },
         'Shortsword': {
-            type: 'light',
-            damage: 3,
+            name: 'Shortsword',
+            type: 'finesse',
+            damage: 6,
+            amount: 1,
             buy: 20,
             sell: 2
         },
         'Shortbow': {
+            name: 'Shortbow',
             type: 'light',
-            damage: 3,
+            damage: 6,
+            amount: 1,
             buy: 20,
+            sell: 2
+        },
+        'Rapier': {
+            name: 'Rapier',
+            type: 'finesse',
+            damage: 8,
+            amount: 1,
+            buy: 25,
             sell: 2
         }
     },
 
     Spells: {
         'Fireball': {
+            name: 'Fireball',
             type: 'fire',
-            damage: 10
+            damage: 6,
+            amount: 8
         },
-        'Vicious Mockery': {
+        'Firebolt': {
+            name: 'Firebolt',
+            type: 'fire',
+            damage: 8,
+            amount: 1
+        },
+        'ViciousMockery': {
+            name: 'Vicious Mockery',
             type: 'psychic',
-            damage: 4
+            damage: 4,
+            amount: 1
         },
-        'Healing Word': {
+        'HealingWord': {
+            name: 'Healing Word',
             type: 'heal',
-            heal: 6
+            heal: 4,
+            amount: 1
         }
     }
 }
+
+const wizAttacks = new Array(Attacks1.Spells.Fireball, Attacks1.Weapons.Dagger);
+const wizBonus = new Array(Attacks1.Spells.Firebolt, Attacks1.Weapons.Dagger);
+
+const bardAttacks = new Array(Attacks1.Spells.ViciousMockery, Attacks1.Spells.Firebolt, Attacks1.Weapons.Rapier);
+const bardBonus = new Array(Attacks1.Spells.HealingWord, Attacks1.Weapons.Dagger);
