@@ -8,6 +8,12 @@
 	width: 97.5vw;
 	z-index:0;
 }
+.CharacterIcon{
+    width:60px;
+    position:absolute;
+    top: 12px;
+    right: 12px;
+}
 
 div.container3 {
     display: none;
