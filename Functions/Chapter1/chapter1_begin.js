@@ -154,7 +154,6 @@ function printChatNode(chatNodeIndex, load_chapter1vars) {
         loadChapter1();
     } //end of if load chapter1vars
 
-    //get the current chatNode/option to display
     //Save the state
     savechapter1(chatNodeIndex);
 
