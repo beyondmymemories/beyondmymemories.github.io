@@ -16,6 +16,10 @@ function getChapter1Var() {
     return chapter1var;
 }
 
+function getglobalImg() {
+    return globalImg;
+}
+
 
 function StartChapter1() {
 

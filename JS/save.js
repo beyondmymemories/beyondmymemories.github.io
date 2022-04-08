@@ -41,18 +41,25 @@ function loadJson(name) {
 /*	These are the ultimate saving and loading functions. They will call all save and load 			functions from any other js script that needs variables saved to localStorage.
 */
 function globalSave() {
-	alert("placeholder: globalSave\(\)");
-
-	saveVar("saveExists", saveExists)
-	saveVar("playerGold", playerGold)
-	saveVar("playerLevel", playerLevel)
-	saveVar("playerName", playerName)
-	saveVar("dogName", dogName)
+	//alert("placeholder: globalSave\(\)");
 	
+	saveVar("saveExists", saveExists);
+	saveVar("playerGold", playerGold);
+	saveVar("playerLevel", playerLevel);
+	saveVar("playerName", playerName);
+	saveVar("dogName", dogName);
+	console.log("GLOBAL SAVE COMPLETED");
 }
 
 function globalLoad() {
-	alert("placeholder globalLoad\(\)");
+	//alert("placeholder globalLoad\(\)");
+	saveExists = loadVar("saveExists");
+	playerGold = loadVar("playerGold");
+	playerLevel = loadVar("playerLevel");
+	playerName = loadVar("playerName");
+	dogName = loadVar("dogName");
+	console.log("GLOBAL LOAD COMPLETED");
+
 }
 
 /*
@@ -62,9 +69,11 @@ function globalLoad() {
 function createCheckpoint() {
 
 	saveVar("checkpoint_chatNodeIndex", getLastChatNodeIndex());
+	saveVar("checkpoint_globalImg", getGlobalImg())
 	saveJson("checkpoint_chapterVars", getChapter1Var() );
 
 	globalSave();
+	console.log("CHECKPOINT CREATED");
 }
 
 function loadCheckpoint() {
@@ -72,8 +81,8 @@ function loadCheckpoint() {
 	console.log(loadVar("checkpoint_chatNodeIndex"));
 	console.log(loadJson("checkpoint_chapterVars"));
 	printChatNode(loadVar("checkpoint_chatNodeIndex"), loadJson("checkpoint_chapterVars"));
-
-
+	document.getElementById("backgroundImage").src=loadVar("checkpoint_globalImg");
+	console.log("CHECKPOINT LOADED AT:  " + loadVar("checkpoint_chatNodeIndex"))
 }
 
 
@@ -241,8 +250,8 @@ function init() {
 
 //Create new game and set saveExists to "True". 
 function newGame() {
-	
-	if(localStorage.getItem("saveExists") === null) {
+	console.log(loadVar("saveExists"));
+	if(localStorage.getItem("saveExists") === null || loadVar("saveExists") == "undefined") {
 		alert("No save exists, A new game will start");
 		localStorage.setItem("saveExists", "True")
 		//window.location.href = "charSelect.html";
@@ -250,7 +259,7 @@ function newGame() {
 		document.getElementById("container1").style.display = 'none'
 		element.style.backgroundColor = "#00FF00";
 	}
-	else {
+	else{
 		if (confirm("A game already Exists. Do you want to start a New Game?")) {
 		  alert("A new game will start");
 		  document.getElementById("container2").style.display = 'inline-block'
@@ -287,8 +296,9 @@ function deleteGame() {
 
 			localStorage.removeItem("funcState");
 
-			saveVar("saveExists") = false;
+			
 		}
+		saveVar("saveExists") = null;
 	}
 	else {
 		alert("No game save exists");
