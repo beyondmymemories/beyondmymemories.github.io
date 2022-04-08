@@ -139,7 +139,7 @@ function combatFunc(combatNum) {/*
         return 'Success'
     //If player died
     return 'Fail'*/
-    return Success
+    return 'Success'
 }
 
 function printChatNode(chatNodeIndex, load_chapter1vars) {
