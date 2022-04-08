@@ -172,8 +172,30 @@ result = combatfunct(chatnode.combat)
 
     */
 
+   //if we enter combat
    if(chatNode.combat != null) {
-        combatFunc(chatNode.combat);
+
+        //display the correct buttons
+        while (document.getElementById('button-options').firstChild) {
+            document.getElementById('button-options').removeChild(document.getElementById('button-options').firstChild)
+        }
+
+        //enter combat
+        var combatResult = combatFunc(chatNode.combat);
+
+        //if we succeeded in combat
+        if (combatResult == "Success0"){
+
+            //check this: !currentVars.lootAdventurer
+            printChatNode(chatNode.sucess0);
+        }
+        else if (combatResult == "Success"){
+            printChatNode(chatNode.sucess)
+        }
+        //failed in combat -> die
+        else {
+            printChatNode(chatNode.fail)
+        }
     }
     //did we die - restart from checkpoint
     else if (chatNode.restartCheckPoint) {
@@ -512,7 +534,10 @@ const chatNodes = [
     },
     {
         id: '//1.3.3a//',
-        combat: 'Hobgoblin',/*
+        combat: 'Hobgoblin',
+        sucess: "//1.3.5//",
+        fail: "//1.2.3//"
+        /*
         options: [
             {
                 text: 'Success',
@@ -527,6 +552,8 @@ const chatNodes = [
     {
         id: '//1.3.3b//',
         combat: 'Hobgoblin',
+        sucess: '//1.2.2//',
+        fail: '//1.2.3//'
         /*options: [
             {
                 text: 'Success',
@@ -554,7 +581,10 @@ const chatNodes = [
     },
     {
         id: '//1.3.4//',
-        combat: 'Hobgoblin',/*
+        combat: 'Hobgoblin',
+        sucess: "//1.3.5//",
+        fail: "//1.2.3//"
+        /*
         options: [
             {
                 text: 'Success',
@@ -614,6 +644,8 @@ const chatNodes = [
     {
         id: '//1.4.2//',
         combat: 'Goblin',
+        sucess: '//1.4.5//',
+        fail: '//1.2.3//'
         /*options: [
             {
                 text: 'Success',
@@ -638,6 +670,9 @@ const chatNodes = [
     {
         id: '//1.4.3b//',
         combat: 'Goblin',
+        sucess0: '//1.4.5//',
+        sucess: '//1.3.4//',
+        fail: '//1.3.3a//'
         /*options: [
             {
                 text: 'Success',
