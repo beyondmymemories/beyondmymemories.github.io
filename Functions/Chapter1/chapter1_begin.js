@@ -22,6 +22,9 @@ function getglobalImg() {
 function setglobalImg(input) {
     globalImg = input;
 }
+function setChatper1Var(input) {
+    chapter1var = input;
+}
 
 function StartChapter1() {
 
