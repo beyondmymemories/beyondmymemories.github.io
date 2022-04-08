@@ -15,7 +15,8 @@ function iconPicker(){
     var characterChoice=loadVar("character")
     console.log(characterChoice);
     if(characterChoice=="Wizard"){
-        document.getElementById(charIcon).src=="../Functions/Art/Chapter1/wizardChar.png";
+       var icon = document.getElementById(charIcon);
+       icon.src="../Functions/Art/Chapter1/wizardChar.png"
     }//end of switching icon for a wizard
     if(characterChoice=="Barbarian"){
 
