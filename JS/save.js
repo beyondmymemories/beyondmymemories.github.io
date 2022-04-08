@@ -286,6 +286,8 @@ function deleteGame() {
 			localStorage.removeItem("playerLevel");
 
 			localStorage.removeItem("funcState");
+
+			saveVar("saveExists") = false;
 		}
 	}
 	else {
