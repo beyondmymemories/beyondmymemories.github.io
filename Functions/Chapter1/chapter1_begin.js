@@ -21,8 +21,6 @@ function StartChapter1() {
 
     chapter1var = { character: loadVar("character") }
 
-    console.log(chapter1var.character);
-
     globalImg = "Functions/Art/Chapter1/smallerCave.png";
 
    // chapter1var = { character: characterChoice }
@@ -152,13 +150,6 @@ function printChatNode(chatNodeIndex, load_chapter1vars) {
 
     //display the chatoption with chatlog
     updateChatLog('../Functions/Chapter1/chapter1callscript.txt', chatNode.id);
-    
-    
-    if(chatNode.combat != null) {
-        combatFunc(chatNode.combat);
-    }
-    else{
-
 
     //If the changeImage != null -> change background
     if (chatNode.changeImage != null) {
@@ -170,8 +161,22 @@ function printChatNode(chatNodeIndex, load_chapter1vars) {
 
     document.getElementById("backgroundImage").src=globalImg;
 
+    /*if (chatNoded.combat != null)
+
+result = combatfunct(chatnode.combat)
+    
+    if result = true -> succeed
+
+        printChatNode()
+    else -> they failed
+
+    */
+
+   if(chatNode.combat != null) {
+        combatFunc(chatNode.combat);
+    }
     //did we die - restart from checkpoint
-    if (chatNode.restartCheckPoint) {
+    else if (chatNode.restartCheckPoint) {
 
 
         //display the correct buttons
@@ -237,6 +242,7 @@ function printChatNode(chatNodeIndex, load_chapter1vars) {
     
     } //if we have dice to roll! 
     else {
+
         //Save the state
         savechapter1(chatNodeIndex);
 
@@ -268,14 +274,10 @@ function printChatNode(chatNodeIndex, load_chapter1vars) {
             }
         })
 
+        //set the previous Node -> might be used later
+        const previousChatNode = chatNodeIndex
 
     } //end of else
-
-
-    //set the previous Node -> might be used later
-    const previousChatNode = chatNodeIndex
-}
-
 } //end of function printChatNode
 
 function showOption(option) {
@@ -678,7 +680,7 @@ const chatNodes = [
             {
                 text: 'Continue',
                 NextChat: '//1.5.0b//',
-                requiredVar: (currentVars) => !currentVars.metCompanion,
+                requiredVar: (currentVars) => currentVars.metCompanion,
                 requiredVar: (currentVars) => currentVars.foundDoor
             }
         ]
