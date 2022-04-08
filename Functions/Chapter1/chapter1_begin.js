@@ -38,7 +38,7 @@ const attackAvailable = 1
 const bonusAvailable = 1
 
 //combat function
-function combatFunc(combatNum) {
+function combatFunc(combatNum) {/*
     //Initialize which character we use
     const character = loadVar('character')
     if(character == 'Wizard')
@@ -138,7 +138,8 @@ function combatFunc(combatNum) {
     if(monsterHP == 0)
         return 'Success'
     //If player died
-    return 'Fail'
+    return 'Fail'*/
+    return Success
 }
 
 function printChatNode(chatNodeIndex, load_chapter1vars) {
@@ -164,7 +165,7 @@ function printChatNode(chatNodeIndex, load_chapter1vars) {
     updateChatLog('../Functions/Chapter1/chapter1callscript.txt', chatNodeIndex);
 
     //If the changeImage != null -> change background
-    else if (chatNode.changeImage != null) {
+    if (chatNode.changeImage != null) {
 
         console.log(chatNode.changeImage)
 
