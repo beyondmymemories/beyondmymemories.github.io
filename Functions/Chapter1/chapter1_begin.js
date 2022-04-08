@@ -165,7 +165,7 @@ function printChatNode(chatNodeIndex, load_chapter1vars) {
     updateChatLog('../Functions/Chapter1/chapter1callscript.txt', chatNodeIndex);
 
     //If the changeImage != null -> change background
-    else if (chatNode.changeImage != null) {
+    if (chatNode.changeImage != null) {
 
         console.log(chatNode.changeImage)
 
