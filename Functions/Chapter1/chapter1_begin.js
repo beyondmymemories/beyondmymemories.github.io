@@ -65,10 +65,10 @@ function combatFunc(combatNum) {
     //if the monster goes first
     if(monsterRoll > playerRoll) {
         //while(monsterHP > 0 && characterHP > 0){
-            while(true){
+            //while(true){
                 
                 //create all choices that the character can choose
-                /*combatChoices.foreach(choice => {
+                combatChoices.foreach(choice => {
                    //create button
                    const button = document.createElement('button')
 
@@ -83,7 +83,7 @@ function combatFunc(combatNum) {
 
                    //stuff
                    document.getElementById('button-options').appendChild(button)
-                })*/
+                })
                 
                 
                 wizAttacks.forEach(attacks => {
@@ -102,7 +102,7 @@ function combatFunc(combatNum) {
                    //stuff
                    document.getElementById('button-options').appendChild(button)
                 })
-            }
+            //}
         //}
     }
     
@@ -150,9 +150,14 @@ function printChatNode(chatNodeIndex, load_chapter1vars) {
 
     //display the chatoption with chatlog
     updateChatLog('../Functions/Chapter1/chapter1callscript.txt', chatNode.id);
+    
+    if(chatNode.combat != null) {
+        combatFunc(chatNode.combat)
+    }
+
 
     //If the changeImage != null -> change background
-    if (chatNode.changeImage != null) {
+    else if (chatNode.changeImage != null) {
 
         console.log(chatNode.changeImage)
 
@@ -300,7 +305,12 @@ result = combatfunct(chatnode.combat)
         const previousChatNode = chatNodeIndex
 
     } //end of else
-} //end of function printChatNode
+
+
+    //set the previous Node -> might be used later
+    const previousChatNode = chatNodeIndex
+}
+
 
 function showOption(option) {
 
