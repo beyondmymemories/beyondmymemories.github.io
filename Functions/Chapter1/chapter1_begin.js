@@ -64,7 +64,7 @@ function combatFunc(combatNum) {
     
     //if the monster goes first
     if(monsterRoll > playerRoll) {
-        //while(monsterHP > 0 && characterHP > 0){
+        while(monsterHP > 0 && characterHP > 0){
             //while(true){
                 
                 //create all choices that the character can choose
@@ -103,11 +103,11 @@ function combatFunc(combatNum) {
                    document.getElementById('button-options').appendChild(button)
                 })
             //}
-        //}
+        }
     }
     
     else{
-        //while(monsterHP > 0 && characterHP > 0){
+        while(monsterHP > 0 && characterHP > 0){
 
             wizAttacks.forEach(attacks => {
                //create button
@@ -125,7 +125,7 @@ function combatFunc(combatNum) {
                //stuff
                document.getElementById('button-options').appendChild(button)
             })
-        //}
+        }
     }
     
     //If monster dead
@@ -166,16 +166,6 @@ function printChatNode(chatNodeIndex, load_chapter1vars) {
 
     document.getElementById("backgroundImage").src=globalImg;
 
-    /*if (chatNoded.combat != null)
-
-result = combatfunct(chatnode.combat)
-    
-    if result = true -> succeed
-
-        printChatNode()
-    else -> they failed
-
-    */
 
    //if we enter combat
    if(chatNode.combat != null) {
