@@ -521,7 +521,7 @@ const chatNodes = [
     {
         id: '//1.4.2//',
         combat: 'Goblin',
-        options: [
+        /*options: [
             {
                 text: 'Success',
                 NextChat: '//1.4.5//'
@@ -530,7 +530,7 @@ const chatNodes = [
                 text: 'Fails',
                 NextChat: '//1.2.3//'
             }
-        ]
+        ]*/
 
     },
     {
@@ -545,15 +545,15 @@ const chatNodes = [
     {
         id: '//1.4.3b//',
         combat: 'Goblin',
-        options: [
+        /*options: [
             {
-                text: 'Sucess',
+                text: 'Success',
                 NextChat: '//1.4.5//',
                 NextAutoChat: '//1.4.5//',
                 requiredVar: (currentVars) => !currentVars.lootAdventurer
             },
             {
-                text: 'Sucess',
+                text: 'Success',
                 NextChat: '//1.2.2//',
                 NextAutoChat: '//1.2.0//',
                 requiredVar: (currentVars) => currentVars.lootAdventurer
@@ -562,7 +562,7 @@ const chatNodes = [
                 text: 'Fails',
                 NextChat: '//1.2.3//',
             }
-        ]
+        ]*/
     },
     {
         id: '//1.4.5//',
