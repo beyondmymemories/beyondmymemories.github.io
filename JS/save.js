@@ -42,24 +42,112 @@ function loadJson(name) {
 */
 function globalSave() {
 	alert("placeholder: globalSave\(\)");
+
+	saveVar("saveExists", saveExists)
+	saveVar("playerGold", playerGold)
+	saveVar("playerLevel", playerLevel)
+	saveVar("playerName", playerName)
+	saveVar("dogName", dogName)
+	
 }
 
 function globalLoad() {
 	alert("placeholder globalLoad\(\)");
 }
 
+/*
+	CHECKPOINT FUNCTIONS
+*/
+
+function createCheckpoint() {
+
+	saveVar("checkpoint_chatNodeIndex", getLastChatNodeIndex());
+	saveJson("checkpoint_chapterVars", getChapter1Var() );
+
+	globalSave();
+}
+
+function loadCheckpoint() {
+	globalLoad();
+	console.log(loadVar("checkpoint_chatNodeIndex"));
+	console.log(loadJson("checkpoint_chapterVars"));
+	printChatNode(loadVar("checkpoint_chatNodeIndex"), loadJson("checkpoint_chapterVars"));
+
+
+}
 
 
 var debug = true;
 
 
-//live Variables
+/*
+	Live variables and their get and set functions
+*/
 var saveExists
 var playerGold
 var playerLevel
 var playerName
+var dogName
 var gameSave
 
+/*
+	Get and set functions:
+
+	input string of the name of the live variable as selection and what value you want to change it to as value. 
+	ex: 
+	add 10 gold:
+		setLiveVar("playerGold", getLiveVar("playerGold") + 10);
+*/
+//setLiveVar will change any variable in this script from any other script
+function setLiveVar(selection, value) {
+	switch (selection) {
+		case "playerGold": 
+			playerGold = value;
+		break;
+
+		case "playerLevel": 
+		playerGold = value;
+		break;
+
+		case "playerName": 
+			playerGold = value;
+		break;
+
+		case "dogName": 
+			playerGold = value;
+		break;
+
+		case "playerGold": 
+			playerGold = value;
+		break;
+
+	} 
+}
+//getLiveVar() is a universal function to call any variable in this script from any other script.
+function getLiveVar(selection) {
+	switch (selection) {
+		case "playerGold": 
+			return playerGold;
+		break;
+
+		case "playerLevel": 
+			return playerGold;
+		break;
+
+		case "playerName": 
+			return playerGold;
+		break;
+
+		case "dogName": 
+			return playerGold;
+		break;
+
+		case "playerGold": 
+			return playerGold;
+		break;
+
+	} 
+}
 
 function addGold(amount) {
 	playerGold = parseInt(playerGold) + parseInt(amount);

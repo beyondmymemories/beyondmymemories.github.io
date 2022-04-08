@@ -6,6 +6,17 @@ const buttonOptionsElement = document.getElementById('button-options');
 let chapter1var = {}
 var globalImg = "";
 
+//code for checkpoints <3 isaac
+var lastChatNodeIndex;
+function getLastChatNodeIndex() {
+    return lastChatNodeIndex;
+}
+
+function getChapter1Var() {
+    return chapter1var;
+}
+
+
 function StartChapter1() {
 
     chapter1var = { character: loadVar("character") }
@@ -19,7 +30,7 @@ function StartChapter1() {
 }
 
 function printChatNode(chatNodeIndex, load_chapter1vars) {
-
+    lastChatNodeIndex = chatNodeIndex;
     //if we're coming back to the website - refresh variables
     if (load_chapter1vars) {
         loadChapter1();
