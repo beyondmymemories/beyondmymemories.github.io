@@ -70,8 +70,8 @@ function createCheckpoint() {
 
 	saveVar("checkpoint_chatNodeIndex", getLastChatNodeIndex());
 
-	saveVar("checkpoint_globalImg", getGlobalImg())
-	
+	saveVar("checkpoint_globalImg", getglobalImg())
+
 	saveJson("checkpoint_chapterVars", getChapter1Var() );
 
 	globalSave();
