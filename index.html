@@ -11,12 +11,13 @@
 <link href="CSS/DiceStyleSheet.css" rel="stylesheet" type="text/css">
 	
 <!--JAva script Things!-->
+<script type="text/javascript" src="JS/designScripts.js"></script>
 <script type="text/javascript" src="JS/diceFunction.js"></script>
 <script type="text/javascript" src="JS/chatLog.js"></script>
 <script type="text/javascript" src="Functions/Chapter1/chapter1_begin.js"></script>
 <script type="text/javascript" src="JS/load_function.js"></script>
 <script type="text/javascript" src="JS/save.js"></script>
-<script type="text/javascript" src="JS/designScripts.js"></script>
+
 
 
 
@@ -77,7 +78,7 @@
                 </div>    
             </div>
             <div class="buttonChar">
-                <button class="button button1" value="Wizard" onclick="saveCharacter(this.value)">Wizard</button>
+                <button class="button button1" value="Wizard" onclick="saveCharacter(this.value); iconPicker(this.value)">Wizard</button>
             </div>
         </div>
     
@@ -99,7 +100,7 @@
                 </div>
             </div>
             <div class="buttonChar">
-                <button class="button button2" value="Barbarian" onclick="saveCharacter(this.value)">Barbarian</button>
+                <button class="button button2" value="Barbarian" onclick="saveCharacter(this.value); iconPicker(this.value)">Barbarian</button>
             </div>
         </div>
    
@@ -107,7 +108,7 @@
         <div class="characterbutton">
             <div class="statcontainer"> 
                 <div class="characters"> 
-                    <img src="Functions/Art/temp image.png" alt="temp">
+                    <img src="Functions/Art/Chapter1/bardChar.png" alt="temp">
                         <div class ="statsOverlay">
                             <div class="text">Bard Stats:<br>
                                 str: 0<br>
@@ -121,7 +122,7 @@
                 </div>
             </div>
             <div class="buttonChar">
-                <button class="button button3" value="Bard" onclick="saveCharacter(this.value)">Bard</button>
+                <button class="button button3" value="Bard" onclick="saveCharacter(this.value); iconPicker(this.value)">Bard</button>
             </div>
         </div>
     
@@ -129,7 +130,7 @@
         <div class="characterbutton">
             <div class="statcontainer">
                 <div class="characters"> 
-                    <img src="Functions/Art/stickman.png" alt="temp">
+                    <img src="Functions/Art/Chapter1/rogueChar.png" alt="temp">
                     <div class ="statsOverlay">
                             <div class="text">Rogue Stats:<br>
                                 str: 1<br>
@@ -143,7 +144,7 @@
                 </div>
             </div>
             <div class="buttonChar">
-                <button class="button button4" value="Rogue" onclick="saveCharacter(this.value)">Rogue</button>
+                <button class="button button4" value="Rogue" onclick="saveCharacter(this.value); iconPicker(this.value)">Rogue</button>
             </div>
         </div>
 		
@@ -156,7 +157,7 @@
 <!--Creating div for the main hub page that will constantly change-->
 <div class="container3" id="container3">
     <div class="fade-in-text">
-	  
+     <img src="Functions/Art/Chapter1/icon.png" class="CharacterIcon" id="charIcon" onload="iconPicker()">
 		<div class="imagesettings">
             
             <img id="backgroundImage" src="Functions/Art/Chapter1/smallerCave.png" alt="begin">
