@@ -16,6 +16,12 @@ function getChapter1Var() {
     return chapter1var;
 }
 
+function getglobalImg() {
+    return globalImg;
+}
+function setglobalImg(input) {
+    globalImg = input;
+}
 
 function StartChapter1() {
 
@@ -137,6 +143,11 @@ function combatFunc(combatNum) {
 
 function printChatNode(chatNodeIndex, load_chapter1vars) {
     lastChatNodeIndex = chatNodeIndex;
+
+    //STUPID FREAKING THINGS THAT I LOVE
+    if (chatNodeIndex == '//START//')
+        createCheckpoint();
+
     //if we're coming back to the website - refresh variables
     if (load_chapter1vars) {
         loadChapter1();
@@ -149,12 +160,8 @@ function printChatNode(chatNodeIndex, load_chapter1vars) {
     savechapter1(chatNodeIndex);
 
     //display the chatoption with chatlog
-    updateChatLog('../Functions/Chapter1/chapter1callscript.txt', chatNode.id);
-    
-    if(chatNode.combat != null) {
-        combatFunc(chatNode.combat)
-    }
 
+    updateChatLog('../Functions/Chapter1/chapter1callscript.txt', chatNodeIndex);
 
     //If the changeImage != null -> change background
     else if (chatNode.changeImage != null) {
@@ -178,6 +185,7 @@ function printChatNode(chatNodeIndex, load_chapter1vars) {
         //enter combat
         var combatResult = combatFunc(chatNode.combat);
 
+        combatResult = "Success0"
         //if we succeeded in combat
         if (combatResult == "Success0"){
 
@@ -201,14 +209,7 @@ function printChatNode(chatNodeIndex, load_chapter1vars) {
             document.getElementById('button-options').removeChild(document.getElementById('button-options').firstChild)
         }
 
-        //loop through each buttons option to display them
         chatNode.options.forEach(option => {
-
-        if (option.NextAutoChat != null) {
-            //printChatNode(option.NextAutoChat);
-        } 
-        if (showOption(option)) {
-            //create button
             const button = document.createElement('button')
     
             //display the button text
@@ -216,16 +217,13 @@ function printChatNode(chatNodeIndex, load_chapter1vars) {
     
             //add it to the correct css
             button.classList.add('options')
-    
+
             //click event listener - load the load function for it
-            button.addEventListener('click', () => selectOption(option))
+            button.addEventListener('click', () => loadCheckpoint())
     
             document.getElementById('button-options').appendChild(button)
-            }
-        })
-
-        
-
+        });
+    
     }
     //check if we need to roll dice here
     else if (chatNode.dicetype != null) {
@@ -506,7 +504,13 @@ const chatNodes = [
             },
             {
                 text: 'Continue Down tunnel',
-                NextChat: '//1.3.2//'
+                NextChat: '//1.3.2//',
+                requiredVar: (currentVars) => !currentVars.metMerchant
+            },
+            {
+                text: 'Continue Down Tunnel',
+                NextChat: '//1.3.3b//',
+                requiredVar: (currentVars) => currentVars.metMerchant
             }
         ]
     },
