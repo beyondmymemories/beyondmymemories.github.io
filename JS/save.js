@@ -80,8 +80,9 @@ function loadCheckpoint() {
 	globalLoad();
 	console.log(loadVar("checkpoint_chatNodeIndex"));
 	console.log(loadJson("checkpoint_chapterVars"));
+	setglobalImg(loadVar("checkpoint_globalImg"));
 	printChatNode(loadVar("checkpoint_chatNodeIndex"), loadJson("checkpoint_chapterVars"));
-	document.getElementById("backgroundImage").src=loadVar("checkpoint_globalImg");
+
 	console.log("CHECKPOINT LOADED AT:  " + loadVar("checkpoint_chatNodeIndex"))
 }
 
