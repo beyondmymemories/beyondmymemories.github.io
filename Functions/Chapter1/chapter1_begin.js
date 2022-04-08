@@ -144,6 +144,7 @@ function combatFunc(combatNum) {/*
 
 function printChatNode(chatNodeIndex, load_chapter1vars) {
     lastChatNodeIndex = chatNodeIndex;
+    globalImg = "Functions/Art/Chapter1/smallerCave.png";
 
     //STUPID FREAKING THINGS THAT I LOVE
     if (chatNodeIndex == '//START//')
