@@ -143,6 +143,7 @@ function combatFunc(combatNum) {
 
 function printChatNode(chatNodeIndex, load_chapter1vars) {
     lastChatNodeIndex = chatNodeIndex;
+    globalImg = "Functions/Art/Chapter1/smallerCave.png";
 
     //STUPID FREAKING THINGS THAT I LOVE
     if (chatNodeIndex == '//START//')
@@ -164,7 +165,7 @@ function printChatNode(chatNodeIndex, load_chapter1vars) {
     updateChatLog('../Functions/Chapter1/chapter1callscript.txt', chatNodeIndex);
 
     //If the changeImage != null -> change background
-    else if (chatNode.changeImage != null) {
+    if (chatNode.changeImage != null) {
 
         console.log(chatNode.changeImage)
 
