@@ -87,6 +87,8 @@ function loadCheckpoint() {
 
 	printChatNode(loadVar("checkpoint_chatNodeIndex"), loadJson("checkpoint_chapterVars"));
 
+	setChatper1Var(loadJson("checkpoint_chapterVars"));
+
 	console.log("CHECKPOINT LOADED AT:  " + loadVar("checkpoint_chatNodeIndex"))
 }
 
