@@ -19,7 +19,9 @@ function getChapter1Var() {
 function getglobalImg() {
     return globalImg;
 }
-
+function setglobalImg(input) {
+    globalImg = input;
+}
 
 function StartChapter1() {
 
