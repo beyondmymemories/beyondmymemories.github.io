@@ -45,5 +45,5 @@ function load_function() {
         printChatNode(loadVar("funcState"), true);
     } //end 
 
-
+    iconPicker()
 } //end of function
