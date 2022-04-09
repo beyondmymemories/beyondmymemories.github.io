@@ -38,9 +38,9 @@ const attackAvailable = 1
 const bonusAvailable = 1
 
 //combat function
-function combatFunc(combatNum) {/*
+function combatFunc(combatNum) {
     //Initialize which character we use
-    const character = loadVar('character')
+    /*const character = loadVar('character')
     if(character == 'Wizard')
         var characterChoice = charStats1.Wizard
     else if(character == 'Bard')
@@ -138,7 +138,8 @@ function combatFunc(combatNum) {/*
     if(monsterHP == 0)
         return 'Success'
     //If player died
-    return 'Fail'*/
+    return 'Fail'
+    */
     return 'Success'
 }
 
