@@ -105,7 +105,7 @@ GENERAL CHAT CALLS
 <br><br>
 //1.3.0b//
 
-//1.3.1//
+//1.3.1a//
 	You follow the path to the merchant's shop, only to find it empty <br>
 	You see an area where a merchant could set up shop, along with different objects <br>
 	There is a sign on the counter: <br>
@@ -115,7 +115,13 @@ GENERAL CHAT CALLS
 	|_______________________________________| <br>
 	As such, you return to the path you came from and continue down this tunnel.
 <br><br>
-//1.3.1//
+//1.3.1a//
+
+//1.3.1b//
+	You follow the path to the merchants shop. <br>
+	You can see the merchant with his back turned as you approach.
+<br><br>
+//1.3.1b//
 
 //1.3.2//
 	As you continue down the tunnel, the screaming gets louder and louder. <br>

@@ -22,6 +22,9 @@ function getglobalImg() {
 function setglobalImg(input) {
     globalImg = input;
 }
+function setChatper1Var(input) {
+    chapter1var = input;
+}
 
 function StartChapter1() {
 
@@ -145,7 +148,6 @@ function combatFunc(combatNum) {
 
 function printChatNode(chatNodeIndex, load_chapter1vars) {
     lastChatNodeIndex = chatNodeIndex;
-    globalImg = "Functions/Art/Chapter1/smallerCave.png";
 
     //STUPID FREAKING THINGS THAT I LOVE
     if (chatNodeIndex == '//START//')
@@ -156,11 +158,11 @@ function printChatNode(chatNodeIndex, load_chapter1vars) {
         loadChapter1();
     } //end of if load chapter1vars
 
-    //get the current chatNode/option to display
-    const chatNode = chatNodes.find(chatNode => chatNode.id === chatNodeIndex)
-
     //Save the state
     savechapter1(chatNodeIndex);
+
+    //get the current chatNode/option to display
+    const chatNode = chatNodes.find(chatNode => chatNode.id === chatNodeIndex)
 
     //display the chatoption with chatlog
 
@@ -175,6 +177,7 @@ function printChatNode(chatNodeIndex, load_chapter1vars) {
     }
 
     document.getElementById("backgroundImage").src=globalImg;
+
 
 
    //if we enter combat
@@ -203,8 +206,10 @@ function printChatNode(chatNodeIndex, load_chapter1vars) {
             printChatNode(chatNode.fail)
         }
     }
-    //did we die - restart from checkpoint
     else if (chatNode.restartCheckPoint) {
+
+    //did we die - restart from checkpoint
+    if (chatNode.restartCheckPoint) {
 
 
         //display the correct buttons
@@ -457,6 +462,12 @@ const chatNodes = [
     //DEFEAT MONSTER
     {
         id: '//1.2.2//',
+        options: [
+            {
+                text: 'Return to Cave',
+                NextChat: '//1.2.0//'
+            },
+        ]
     },
     //DEAD - RESTART
     {
@@ -503,7 +514,13 @@ const chatNodes = [
         options: [
             {
                 text: 'Follow Sign to Merchant',
-                NextChat: '//1.3.1//'
+                NextChat: '//1.3.1a//',
+                requiredVar: (currentVars) => !currentVars.metMerchant
+            },
+            {
+                text: 'Follow Sign to Merchant',
+                NextChat: '//1.3.1b//',
+                requiredVar: (currentVars) => currentVars.metMerchant
             },
             {
                 text: 'Continue Down tunnel',
@@ -518,7 +535,7 @@ const chatNodes = [
         ]
     },
     {
-        id: '//1.3.1//',
+        id: '//1.3.1a//',
         options: [
             {
                 text: 'Talk to Merchant',
@@ -526,10 +543,37 @@ const chatNodes = [
                 requiredVar: (currentVars) => currentVars.metMerchant
             },
             {
-                text: 'Continue',
-                NextChat: '//1.3.2//'
+                text: 'Continue Down tunnel',
+                NextChat: '//1.3.2//',
+                requiredVar: (currentVars) => !currentVars.metMerchant
+            },
+            {
+                text: 'Continue Down tunnel',
+                NextChat: '//1.3.3b//',
+                requiredVar: (currentVars) => currentVars.metMerchant
             }
         ]
+    },
+    {
+        id: '//1.3.1b//',
+        options: [
+            {
+                text: 'Talk to Merchant',
+                NextChat: '//1.2.4//',
+                requiredVar: (currentVars) => currentVars.metMerchant
+            },
+            {
+                text: 'Continue Down tunnel',
+                NextChat: '//1.3.2//',
+                requiredVar: (currentVars) => !currentVars.metMerchant
+            },
+            {
+                text: 'Continue Down tunnel',
+                NextChat: '//1.3.3b//',
+                requiredVar: (currentVars) => currentVars.metMerchant
+            }
+        ]
+
     },
     {
         id: '//1.3.2//',
@@ -543,8 +587,8 @@ const chatNodes = [
         id: '//1.3.3a//',
         combat: 'Hobgoblin',
         sucess: "//1.3.5//",
-        fail: "//1.2.3//"
-        /*
+        fail: "//1.2.3//",
+        ///*
         options: [
             {
                 text: 'Success',
@@ -554,14 +598,15 @@ const chatNodes = [
                 text: 'Fails',
                 NextChat: '//1.2.3//'
             }
-        ]*/
+        ]//*/
     },
     {
         id: '//1.3.3b//',
         combat: 'Hobgoblin',
         sucess: '//1.2.2//',
-        fail: '//1.2.3//'
-        /*options: [
+        fail: '//1.2.3//',
+        ///*
+        options: [
             {
                 text: 'Success',
                 NextChat: '//1.2.2//',
@@ -571,7 +616,7 @@ const chatNodes = [
                 text: 'Fails',
                 NextChat: '//1.2.3//'
             }
-        ]*/
+        ]//*/
     },
     {
         id: '//1.3.3c//',
@@ -590,8 +635,8 @@ const chatNodes = [
         id: '//1.3.4//',
         combat: 'Hobgoblin',
         sucess: "//1.3.5//",
-        fail: "//1.2.3//"
-        /*
+        fail: "//1.2.3//",
+        ///*
         options: [
             {
                 text: 'Success',
@@ -601,7 +646,7 @@ const chatNodes = [
                 text: 'Fails',
                 NextChat: '//1.2.3//'
             }
-        ]*/
+        ]//*/
     },
     {
         id: '//1.3.5//',
@@ -652,8 +697,9 @@ const chatNodes = [
         id: '//1.4.2//',
         combat: 'Goblin',
         sucess: '//1.4.5//',
-        fail: '//1.2.3//'
-        /*options: [
+        fail: '//1.2.3//',
+        ///*
+        options: [
             {
                 text: 'Success',
                 NextChat: '//1.4.5//'
@@ -662,7 +708,7 @@ const chatNodes = [
                 text: 'Fails',
                 NextChat: '//1.2.3//'
             }
-        ]*/
+        ]//*/
 
     },
     {
@@ -679,8 +725,9 @@ const chatNodes = [
         combat: 'Goblin',
         sucess0: '//1.4.5//',
         sucess: '//1.3.4//',
-        fail: '//1.3.3a//'
-        /*options: [
+        fail: '//1.3.3a//',
+        ///*
+        options: [
             {
                 text: 'Success',
                 NextChat: '//1.4.5//',
@@ -697,7 +744,7 @@ const chatNodes = [
                 text: 'Fails',
                 NextChat: '//1.2.3//',
             }
-        ]*/
+        ]//*/
     },
     {
         id: '//1.4.5//',
