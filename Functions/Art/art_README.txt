@@ -13,3 +13,5 @@ Ch5_AssetList.txt: Contains information for the various art for chapter 5.
 PlaceHolder.jpg: Is the temporary background for our website.
 
 temp image.png: Is a temporary image for the character selection panes.
+
+stickman.png: Is a temporary image for the character selection panes.
