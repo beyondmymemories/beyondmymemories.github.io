@@ -11,3 +11,5 @@ diceTest.html Was used to test the dice display mechanic.
 test.html: Was used to test the save, load and idle mechanics for our project.
 
 testingScript.txt: Was used within the test chatLog.html to provide text for printouts.
+
+CharclconTest.html: Was used to test the character selection screen and icon.
