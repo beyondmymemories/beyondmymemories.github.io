@@ -13,3 +13,5 @@ container3.css: The CSS file that controls the look and layout of the main game 
 container4.css: The CSS file that controls the look and layout of the main combat page.
 
 DiceStyleSheet.css: This CSS file controls the look and layout of the dice display. 
+
+styles.css: This CSS file controls the look and layout of the test made for idle, save and load.
