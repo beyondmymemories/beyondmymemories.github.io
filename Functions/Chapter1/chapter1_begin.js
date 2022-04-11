@@ -206,6 +206,7 @@ function printChatNode(chatNodeIndex, load_chapter1vars) {
             printChatNode(chatNode.fail)
         }
     }
+    //else if (chatNode.restartCheckPoint) {
 
     //did we die - restart from checkpoint
     else if (chatNode.restartCheckPoint) {
