@@ -6,11 +6,29 @@ const buttonOptionsElement = document.getElementById('button-options');
 let chapter1var = {}
 var globalImg = "";
 
+//code for checkpoints <3 isaac
+var lastChatNodeIndex;
+function getLastChatNodeIndex() {
+    return lastChatNodeIndex;
+}
+
+function getChapter1Var() {
+    return chapter1var;
+}
+
+function getglobalImg() {
+    return globalImg;
+}
+function setglobalImg(input) {
+    globalImg = input;
+}
+function setChatper1Var(input) {
+    chapter1var = input;
+}
+
 function StartChapter1() {
 
     chapter1var = { character: loadVar("character") }
-
-    console.log(chapter1var.character);
 
     globalImg = "Functions/Art/Chapter1/smallerCave.png";
 
@@ -18,29 +36,137 @@ function StartChapter1() {
     printChatNode('//START//', false)
 }
 
+//if player can use either attack or bonus
+const attackAvailable = 1
+const bonusAvailable = 1
+
+//combat function
+function combatFunc(combatNum) {
+    //Initialize which character we use
+    /*const character = loadVar('character')
+    if(character == 'Wizard')
+        var characterChoice = charStats1.Wizard
+    else if(character == 'Bard')
+        var characterChoice = charStats1.Bard
+    else if(character == 'Barbarian')
+        var characterChoice = charStats1.Barbarian
+    else
+        var characterChoice = charStats1.Rogue
+    
+    //Decide which combat we'll be doing
+    if(combatNum == 'Hobgoblin'){
+        var monster = Monsters1.Hobgoblin
+        var monsterHP = monster.health
+        var characterHP = characterChoice.maxhp
+    }
+    if(combatNum == 'Goblin'){
+        var monster = Monsters1.Goblin
+        var monsterHP = monster.health
+        var characterHP = characterChoice.maxhp
+    }
+    
+    //roll for initiative
+    const monsterRoll = diceRoll(1, 20) + monster.stats.dex
+    const playerRoll = diceRoll(1, 20) + 4
+    
+    //var combatChoices = {'Action', 'Bonus Action', 'Pass', 'Items'}
+    
+    //if the monster goes first
+    if(monsterRoll > playerRoll) {
+        while(monsterHP > 0 && characterHP > 0){
+            //while(true){
+                
+                //create all choices that the character can choose
+                combatChoices.foreach(choice => {
+                   //create button
+                   const button = document.createElement('button')
+
+                   //button name will be weapon/spell name
+                   button.innerText = choice
+
+                   //add it to the correct css
+                   button.classList.add('options')
+
+                   //click event listener
+                   button.addEventListener('click', () => selectOptions(option))
+
+                   //stuff
+                   document.getElementById('button-options').appendChild(button)
+                })
+                
+                
+                wizAttacks.forEach(attacks => {
+                   //create button
+                   const button = document.createElement('button')
+
+                   //button name will be weapon/spell name
+                   button.innerText = attacks.name
+
+                   //add it to the correct css
+                   button.classList.add('options')
+
+                   //click event listener
+                   button.addEventListener('click', () => selectOptions(attacks))
+
+                   //stuff
+                   document.getElementById('button-options').appendChild(button)
+                })
+            //}
+        }
+    }
+    
+    else{
+        while(monsterHP > 0 && characterHP > 0){
+
+            wizAttacks.forEach(attacks => {
+               //create button
+               const button = document.createElement('button')
+
+               //button name will be weapon/spell name
+               button.innerText = attacks.name
+
+               //add it to the correct css
+               button.classList.add('options')
+
+               //click event listener
+               button.addEventListener('click', () => selectOptions(attacks))
+
+               //stuff
+               document.getElementById('button-options').appendChild(button)
+            })
+        }
+    }
+    
+    //If monster dead
+    if(monsterHP == 0)
+        return 'Success'
+    //If player died
+    return 'Fail'
+    */
+    return 'Success'
+}
+
 function printChatNode(chatNodeIndex, load_chapter1vars) {
+    lastChatNodeIndex = chatNodeIndex;
+
+    //STUPID FREAKING THINGS THAT I LOVE
+    if (chatNodeIndex == '//START//')
+        createCheckpoint();
 
     //if we're coming back to the website - refresh variables
     if (load_chapter1vars) {
         loadChapter1();
     } //end of if load chapter1vars
 
+    //Save the state
+    savechapter1(chatNodeIndex);
+
     //get the current chatNode/option to display
-   const chatNode = chatNodes.find(chatNode => chatNode.id === chatNodeIndex)
+    const chatNode = chatNodes.find(chatNode => chatNode.id === chatNodeIndex)
 
     //display the chatoption with chatlog
-    updateChatLog('../Functions/Chapter1/chapter1callscript.txt', chatNode.id);
 
-    /*if combat != null
-
-    result = combatfunct(chatnode.combat)
-    
-    if result = true -> succeed
-
-        printChatNode()
-    else -> they failed
-
-    */
+    updateChatLog('../Functions/Chapter1/chapter1callscript.txt', chatNodeIndex);
 
     //If the changeImage != null -> change background
     if (chatNode.changeImage != null) {
@@ -52,8 +178,38 @@ function printChatNode(chatNodeIndex, load_chapter1vars) {
 
     document.getElementById("backgroundImage").src=globalImg;
 
+
+
+   //if we enter combat
+   if(chatNode.combat != null) {
+
+        //display the correct buttons
+        while (document.getElementById('button-options').firstChild) {
+            document.getElementById('button-options').removeChild(document.getElementById('button-options').firstChild)
+        }
+
+        //enter combat
+        var combatResult = combatFunc(chatNode.combat);
+
+        combatResult = "Success0"
+        //if we succeeded in combat
+        if (combatResult == "Success0"){
+
+            //check this: !currentVars.lootAdventurer
+            printChatNode(chatNode.sucess0);
+        }
+        else if (combatResult == "Success"){
+            printChatNode(chatNode.sucess)
+        }
+        //failed in combat -> die
+        else {
+            printChatNode(chatNode.fail)
+        }
+    }
+    //else if (chatNode.restartCheckPoint) {
+
     //did we die - restart from checkpoint
-    if (chatNode.restartCheckPoint) {
+    else if (chatNode.restartCheckPoint) {
 
 
         //display the correct buttons
@@ -61,14 +217,7 @@ function printChatNode(chatNodeIndex, load_chapter1vars) {
             document.getElementById('button-options').removeChild(document.getElementById('button-options').firstChild)
         }
 
-        //loop through each buttons option to display them
         chatNode.options.forEach(option => {
-
-        if (option.NextAutoChat != null) {
-            //printChatNode(option.NextAutoChat);
-        } 
-        if (showOption(option)) {
-            //create button
             const button = document.createElement('button')
     
             //display the button text
@@ -76,16 +225,13 @@ function printChatNode(chatNodeIndex, load_chapter1vars) {
     
             //add it to the correct css
             button.classList.add('options')
-    
+
             //click event listener - load the load function for it
-            button.addEventListener('click', () => selectOption(option))
+            button.addEventListener('click', () => loadCheckpoint())
     
             document.getElementById('button-options').appendChild(button)
-            }
-        })
-
-        
-
+        });
+    
     }
     //check if we need to roll dice here
     else if (chatNode.dicetype != null) {
@@ -119,6 +265,7 @@ function printChatNode(chatNodeIndex, load_chapter1vars) {
     
     } //if we have dice to roll! 
     else {
+
         //Save the state
         savechapter1(chatNodeIndex);
 
@@ -150,14 +297,16 @@ function printChatNode(chatNodeIndex, load_chapter1vars) {
             }
         })
 
+        //set the previous Node -> might be used later
+        const previousChatNode = chatNodeIndex
 
     } //end of else
 
 
     //set the previous Node -> might be used later
     const previousChatNode = chatNodeIndex
+}
 
-} //end of function printChatNode
 
 function showOption(option) {
 
@@ -313,6 +462,12 @@ const chatNodes = [
     //DEFEAT MONSTER
     {
         id: '//1.2.2//',
+        options: [
+            {
+                text: 'Return to Cave',
+                NextChat: '//1.2.0//'
+            },
+        ]
     },
     //DEAD - RESTART
     {
@@ -359,16 +514,28 @@ const chatNodes = [
         options: [
             {
                 text: 'Follow Sign to Merchant',
-                NextChat: '//1.3.1//'
+                NextChat: '//1.3.1a//',
+                requiredVar: (currentVars) => !currentVars.metMerchant
+            },
+            {
+                text: 'Follow Sign to Merchant',
+                NextChat: '//1.3.1b//',
+                requiredVar: (currentVars) => currentVars.metMerchant
             },
             {
                 text: 'Continue Down tunnel',
-                NextChat: '//1.3.2//'
+                NextChat: '//1.3.2//',
+                requiredVar: (currentVars) => !currentVars.metMerchant
+            },
+            {
+                text: 'Continue Down Tunnel',
+                NextChat: '//1.3.3b//',
+                requiredVar: (currentVars) => currentVars.metMerchant
             }
         ]
     },
     {
-        id: '//1.3.1//',
+        id: '//1.3.1a//',
         options: [
             {
                 text: 'Talk to Merchant',
@@ -376,10 +543,37 @@ const chatNodes = [
                 requiredVar: (currentVars) => currentVars.metMerchant
             },
             {
-                text: 'Continue',
-                NextChat: '//1.3.2//'
+                text: 'Continue Down tunnel',
+                NextChat: '//1.3.2//',
+                requiredVar: (currentVars) => !currentVars.metMerchant
+            },
+            {
+                text: 'Continue Down tunnel',
+                NextChat: '//1.3.3b//',
+                requiredVar: (currentVars) => currentVars.metMerchant
             }
         ]
+    },
+    {
+        id: '//1.3.1b//',
+        options: [
+            {
+                text: 'Talk to Merchant',
+                NextChat: '//1.2.4//',
+                requiredVar: (currentVars) => currentVars.metMerchant
+            },
+            {
+                text: 'Continue Down tunnel',
+                NextChat: '//1.3.2//',
+                requiredVar: (currentVars) => !currentVars.metMerchant
+            },
+            {
+                text: 'Continue Down tunnel',
+                NextChat: '//1.3.3b//',
+                requiredVar: (currentVars) => currentVars.metMerchant
+            }
+        ]
+
     },
     {
         id: '//1.3.2//',
@@ -391,7 +585,10 @@ const chatNodes = [
     },
     {
         id: '//1.3.3a//',
-        combat: 'fight1',
+        combat: 'Hobgoblin',
+        sucess: "//1.3.5//",
+        fail: "//1.2.3//",
+        ///*
         options: [
             {
                 text: 'Success',
@@ -401,10 +598,14 @@ const chatNodes = [
                 text: 'Fails',
                 NextChat: '//1.2.3//'
             }
-        ]
+        ]//*/
     },
     {
         id: '//1.3.3b//',
+        combat: 'Hobgoblin',
+        sucess: '//1.2.2//',
+        fail: '//1.2.3//',
+        ///*
         options: [
             {
                 text: 'Success',
@@ -415,7 +616,7 @@ const chatNodes = [
                 text: 'Fails',
                 NextChat: '//1.2.3//'
             }
-        ]
+        ]//*/
     },
     {
         id: '//1.3.3c//',
@@ -432,6 +633,10 @@ const chatNodes = [
     },
     {
         id: '//1.3.4//',
+        combat: 'Hobgoblin',
+        sucess: "//1.3.5//",
+        fail: "//1.2.3//",
+        ///*
         options: [
             {
                 text: 'Success',
@@ -441,7 +646,7 @@ const chatNodes = [
                 text: 'Fails',
                 NextChat: '//1.2.3//'
             }
-        ]
+        ]//*/
     },
     {
         id: '//1.3.5//',
@@ -490,6 +695,10 @@ const chatNodes = [
     },
     {
         id: '//1.4.2//',
+        combat: 'Goblin',
+        sucess: '//1.4.5//',
+        fail: '//1.2.3//',
+        ///*
         options: [
             {
                 text: 'Success',
@@ -499,7 +708,7 @@ const chatNodes = [
                 text: 'Fails',
                 NextChat: '//1.2.3//'
             }
-        ]
+        ]//*/
 
     },
     {
@@ -513,15 +722,20 @@ const chatNodes = [
     },
     {
         id: '//1.4.3b//',
+        combat: 'Goblin',
+        sucess0: '//1.4.5//',
+        sucess: '//1.3.4//',
+        fail: '//1.3.3a//',
+        ///*
         options: [
             {
-                text: 'Sucess',
+                text: 'Success',
                 NextChat: '//1.4.5//',
                 NextAutoChat: '//1.4.5//',
                 requiredVar: (currentVars) => !currentVars.lootAdventurer
             },
             {
-                text: 'Sucess',
+                text: 'Success',
                 NextChat: '//1.2.2//',
                 NextAutoChat: '//1.2.0//',
                 requiredVar: (currentVars) => currentVars.lootAdventurer
@@ -530,7 +744,7 @@ const chatNodes = [
                 text: 'Fails',
                 NextChat: '//1.2.3//',
             }
-        ]
+        ]//*/
     },
     {
         id: '//1.4.5//',
@@ -555,7 +769,7 @@ const chatNodes = [
             {
                 text: 'Continue',
                 NextChat: '//1.5.0b//',
-                requiredVar: (currentVars) => !currentVars.metCompanion,
+                requiredVar: (currentVars) => currentVars.metCompanion,
                 requiredVar: (currentVars) => currentVars.foundDoor
             }
         ]
@@ -940,6 +1154,7 @@ const chatNodes = [
     },
     {
         id: '//1.6.0d//',
+        combat: 'Minotaur',
         options: [
             {
                 text: 'Success',
