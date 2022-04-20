@@ -1,5 +1,5 @@
 var charStats1 = {
-   'Barbarian': {
+   Barbarian: {
       type: 'Character',
       stats: {
          str: 4,
@@ -11,7 +11,7 @@ var charStats1 = {
       },
       maxhp: 50
    },
-   'Wizard': {
+   Wizard: {
       type: 'Character',
       stats: {
          str: -1,
@@ -24,7 +24,7 @@ var charStats1 = {
       maxhp: 30
       
    },
-   'Bard': {
+   Bard: {
       type: 'Character',
       stats: {
          str: 0,
@@ -36,7 +36,7 @@ var charStats1 = {
       },
       maxhp: 30
    },
-   'Rogue': {
+   Rogue: {
       type: 'Character',
       stats: {
          str: 1,
