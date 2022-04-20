@@ -5,14 +5,15 @@
 	float: left;
     margin-top: +20;
     height: 96vh;
-	width: 97.5vw;
+	width: 100%;
 	z-index:0;
+    max-width: 100%;
 }
 .CharacterIcon{
-    width:60px;
-    position:absolute;
-    top: 12px;
-    right: 12px;
+    width: 150px;
+    position: absolute;
+    top: 3%;
+    right: 1%;
 }
 
 div.container3 {
@@ -30,7 +31,7 @@ div.container3 {
 	z-index:1;
 	position:absolute;
     display: grid;
-    border: 3px solid white;
+    /*border: 3px solid white;*/
     grid-template-columns: repeat(2,auto);
     gap: 10px;
     width: auto;
@@ -38,21 +39,28 @@ div.container3 {
     padding: 15px;
     position: absolute;
     left: 650px;
-    top: 500px;
+    top: 70%;
  
  }
  
  button.options {
-     padding: 5px 10px;
-     margin: 5px 3px;
-     border-radius: 5px;
+    padding: 5px 15px;
+    margin: 5px 3px;
+    border-radius: 5px;
+    color: white;
+    background-color: #2f3352;
+    font-family: Papyrus;
+    border: none;
+    font-size: 20px;
  }
  
  button.options:hover {
-    border-color: black; 
+    /*border-color: black; 
     box-shadow: 0 0 5px 2px;
-    border-radius: 5px;
- 
+    /*border-radius: 5px;*/
+    color: #2f3352;
+    background-color: white;
+    font: Papyrus;
  }
  
  .checkpoint-grid {
