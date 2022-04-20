@@ -17,10 +17,21 @@ function getChapter1Var() {
 }
 
 function getglobalImg() {
+    
+    console.log(globalImg)
+
     return globalImg;
 }
 function setglobalImg(input) {
+
+    console.log(globalImg)
+
     globalImg = input;
+
+    document.getElementById("backgroundImage").src=globalImg;
+
+    console.log(globalImg)
+
 }
 function setChatper1Var(input) {
     chapter1var = input;
@@ -29,6 +40,8 @@ function setChatper1Var(input) {
 function StartChapter1() {
 
     chapter1var = { character: loadVar("character") }
+
+    setglobalImg("Functions/Art/Chapter1/smallerCave.png");
 
     globalImg = "Functions/Art/Chapter1/smallerCave.png";
 
@@ -153,6 +166,11 @@ function printChatNode(chatNodeIndex, load_chapter1vars) {
     if (chatNodeIndex == '//START//')
         createCheckpoint();
 
+    //If we've reached the end -> finish game
+    if (chatNodeIndex == 'END') {
+        loadContainer7();
+    }
+    
     //if we're coming back to the website - refresh variables
     if (load_chapter1vars) {
         loadChapter1();
@@ -168,6 +186,9 @@ function printChatNode(chatNodeIndex, load_chapter1vars) {
 
     updateChatLog('../Functions/Chapter1/chapter1callscript.txt', chatNodeIndex);
 
+    //display dashed line
+    updateChatLog('../Functions/Chapter1/chapter1callscript.txt','//dashes//');
+
     //If the changeImage != null -> change background
     if (chatNode.changeImage != null) {
 
@@ -175,6 +196,8 @@ function printChatNode(chatNodeIndex, load_chapter1vars) {
 
         globalImg = chatNode.changeImage;
     }
+
+   // console.log(globalImg)
 
     document.getElementById("backgroundImage").src=globalImg;
 
@@ -301,10 +324,6 @@ function printChatNode(chatNodeIndex, load_chapter1vars) {
         const previousChatNode = chatNodeIndex
 
     } //end of else
-
-
-    //set the previous Node -> might be used later
-    const previousChatNode = chatNodeIndex
 }
 
 
@@ -364,7 +383,7 @@ function loadChapter1() {
     chapter1var = JSON.parse(loadVar("chapter1vars"));
 
     //load image
-    globalImg = loadVar("backgroundImage");
+    globalImg = (loadVar("backgroundImage"));
 
 } //end of saving chapter 1
 
@@ -1203,5 +1222,14 @@ const chatNodes = [
     },
     {
         id: '//1.6.1d//',
+        options: [
+            {
+                text: 'Finish',
+                NextChat: 'END'
+            }
+        ]
+    },
+    {
+        id: 'END'
     },
 ] //ChatNodes end
