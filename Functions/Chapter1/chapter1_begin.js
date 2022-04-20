@@ -57,6 +57,7 @@ function recCombat(monster, turn){
     }
 
     if(turn == "enemy" || turn == "pass"){
+        console.log(characterHP);
         attackAvailable = 1
         bonusAvailable = 1
         
@@ -97,7 +98,7 @@ function recCombat(monster, turn){
                     button.classList.add('options')
  
                     //click event listener
-                    button.addEventListener('click', () => action(attacks))
+                    button.addEventListener('click', () => action(monster, attacks))
  
                     //stuff
                     document.getElementById('button-options').appendChild(button)
@@ -115,7 +116,7 @@ function recCombat(monster, turn){
                     button.classList.add('options')
  
                     //click event listener
-                    button.addEventListener('click', () => action(attacks))
+                    button.addEventListener('click', () => action(monster, attacks))
  
                     //stuff
                     document.getElementById('button-options').appendChild(button)
@@ -133,7 +134,7 @@ function recCombat(monster, turn){
                     button.classList.add('options')
  
                     //click event listener
-                    button.addEventListener('click', () => action(attacks))
+                    button.addEventListener('click', () => action(monster, attacks))
  
                     //stuff
                     document.getElementById('button-options').appendChild(button)
@@ -151,7 +152,10 @@ function combatChoice(monster){
     while (document.getElementById('button-options').firstChild) {
         document.getElementById('button-options').removeChild(document.getElementById('button-options').firstChild)
     }
+
     if(attackAvailable == 1){
+        
+        console.log("Action made");
         const button = document.createElement('button')
 
         //display the button text
@@ -166,6 +170,7 @@ function combatChoice(monster){
         document.getElementById('button-options').appendChild(button)
     }
     if(bonusAvailable == 1){
+        console.log("Bonus Made");
         const button = document.createElement('button')
 
         //display the button text
@@ -180,6 +185,7 @@ function combatChoice(monster){
         document.getElementById('button-options').appendChild(button)
     }
 
+    console.log("Pass Made");
     const button = document.createElement('button')
 
     //display the button text
@@ -229,12 +235,14 @@ function combatFunc(combatNum) {
     
     //if the monster goes first
     if(monsterRoll > playerRoll) {
-        //console.log("Monster First");
+        console.log("Monster First");
         recCombat(monster, "enemy")
     }
     
     else{
-        //console.log("Player First");
+        console.log("Player First");
+        attackAvailable = 1
+        bonusAvailable = 1
         combatChoice(monster)
     }
 }
@@ -816,8 +824,8 @@ const chatNodes = [
         id: '//1.4.3b//',
         combat: 'Goblin',
         sucess0: '//1.4.5//',
-        sucess: '//1.3.4//',
-        fail: '//1.3.3a//',
+        sucess: '//1.4.5//',
+        fail: '//1.2.3//',
         /*
         options: [
             {
