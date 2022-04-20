@@ -164,6 +164,11 @@ function printChatNode(chatNodeIndex, load_chapter1vars) {
     if (chatNodeIndex == '//START//')
         createCheckpoint();
 
+    //If we've reached the end -> finish game
+    if (chatNodeIndex == 'END') {
+        loadContainer7();
+    }
+    
     //if we're coming back to the website - refresh variables
     if (load_chapter1vars) {
         loadChapter1();
@@ -1213,5 +1218,14 @@ const chatNodes = [
     },
     {
         id: '//1.6.1d//',
+        options: [
+            {
+                text: 'Finish',
+                NextChat: 'END'
+            }
+        ]
+    },
+    {
+        id: 'END'
     },
 ] //ChatNodes end
