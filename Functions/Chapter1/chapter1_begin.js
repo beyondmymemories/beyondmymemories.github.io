@@ -56,7 +56,7 @@ const bonusAvailable = 1
 //combat function
 function combatFunc(combatNum) {
     //Initialize which character we use
-    const character = loadVar('character')
+    /*const character = loadVar('character')
     if(character == 'Wizard')
         var characterChoice = charStats1.Wizard
     else if(character == 'Bard')
@@ -86,7 +86,7 @@ function combatFunc(combatNum) {
     
     //if the monster goes first
     if(monsterRoll > playerRoll) {
-        //while(monsterHP > 0 && characterHP > 0){
+        while(monsterHP > 0 && characterHP > 0){
             //while(true){
                 
                 //create all choices that the character can choose
@@ -125,11 +125,11 @@ function combatFunc(combatNum) {
                    document.getElementById('button-options').appendChild(button)
                 })
             //}
-        //}
+        }
     }
     
     else{
-        //while(monsterHP > 0 && characterHP > 0){
+        while(monsterHP > 0 && characterHP > 0){
 
             wizAttacks.forEach(attacks => {
                //create button
@@ -147,7 +147,7 @@ function combatFunc(combatNum) {
                //stuff
                document.getElementById('button-options').appendChild(button)
             })
-        //}
+        }
     }
     
     //If monster dead
@@ -155,6 +155,8 @@ function combatFunc(combatNum) {
         return 'Success'
     //If player died
     return 'Fail'
+    */
+    return 'Success'
 }
 
 function printChatNode(chatNodeIndex, load_chapter1vars) {
@@ -199,7 +201,9 @@ function printChatNode(chatNodeIndex, load_chapter1vars) {
 
     document.getElementById("backgroundImage").src=globalImg;
 
- /*  //if we enter combat
+
+
+   //if we enter combat
    if(chatNode.combat != null) {
 
         //display the correct buttons
@@ -225,10 +229,10 @@ function printChatNode(chatNodeIndex, load_chapter1vars) {
             printChatNode(chatNode.fail)
         }
     }
-    else if (chatNode.restartCheckPoint) {
-*/
+    //else if (chatNode.restartCheckPoint) {
+
     //did we die - restart from checkpoint
-    if (chatNode.restartCheckPoint) {
+    else if (chatNode.restartCheckPoint) {
 
 
         //display the correct buttons
