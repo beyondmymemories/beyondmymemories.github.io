@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/ClientSide/html.html to edit this template
+
+General Shop:
+-Health Potion (multiple): 150 gold
+-Return Stone (Teleports player back to shop)(multiple): 1 gold
+-Night's rest (long rest)(multiple): 75 gold
+-Cat nap (short rest)(multiple): 35 gold
+
+Barbarian Shop:
+-Greataxe(multiple): 500 gold
+-Chainmail(multiple): 650 gold
+
+Wizard Shop:
+-New spell (Mage armor)(once): 650 gold
+-Ring of Fire (increase fire damage)(once): 450 gold
+
+Rogue Shop:
+-Stronger dagger(s)(multiple): 550 gold
+-Boots of stealth (increase stealth for combat)(once): 500 gold
+
+Bard Shop:
+-Greater Rapier (increase roll/damage perhaps)(multiple): 550 gold
+-New Spell (Cure Wounds)(once): 700 gold
+
+Dog Shop (if they have dog):
+-Name change(multiple): 100 gold
+-Doggy treats (for fun :P)(multiple): 1 gold
+-Perhaps an item/armor to make idle more rewarding(probably once): N/A
+
+
+
+
+
+-->
+<html>
+    <head>
+        <title>Shop Test</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script type="text/javascript" src="../JS/save.js"></script>
+        <script type="text/javascript" src="../JS/shop.js"></script>
+    </head>
+    <body  onload="buttonWait()">
+        <div >
+               <button id="enter" onclick="goldAmount();buttonOff();buttonOn();">Enter</button>
+               
+               
+               <button id="item1" onclick="buy('item1')">Health Potion $150</button>
+               <button id="item2" onclick="buy('item2')">Return Stone $1</button>
+               <button id="item3" onclick="buy('item3')">Night's rest $75</button>
+               <button id="item4" onclick="buy('item4')">Cat nap $35</button>
+               
+               
+               
+               
+               <div id="counter"> </div>
+               
+               <div id="error"> </div>
+        </div>
+    </body>
+</html>
+
