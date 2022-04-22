@@ -1,0 +1,10 @@
+#Journal{
+    display: none;
+    margin-left: auto;
+    margin-right:auto;
+    width:50%;
+}
+#JournalClick{
+    right:0px;
+    height:100px;
+}
