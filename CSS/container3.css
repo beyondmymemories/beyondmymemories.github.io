@@ -9,6 +9,18 @@
 	z-index:0;
     max-width: 100%;
 }
+
+.topimage {
+    margin-top: +20;
+    height: 80%;
+    width: px;
+    z-index: 0;
+    position: absolute;
+    top: 18%;
+    left: 45%;
+    display:none;
+}
+
 .CharacterIcon{
     width: 150px;
     position: absolute;

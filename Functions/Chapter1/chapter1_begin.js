@@ -197,6 +197,14 @@ function printChatNode(chatNodeIndex, load_chapter1vars) {
 
     document.getElementById("backgroundImage").src=globalImg;
 
+    if (chatNode.changeOverlayImage != null){
+        document.getElementById("overlayedImage").style.display = "inline-block";
+
+        document.getElementById("overlayedImage").src=chatNode.changeOverlayImage;
+    }
+    else {
+        document.getElementById("overlayedImage").style.display = "none";
+    }
 
         //If there is more to print!
         if (chatNode.NextAutoChat != null) {
@@ -822,7 +830,7 @@ const chatNodes = [
     {
         id: '//1.5.0//',
         changeImage: 'Functions/Art/Chapter1/waterFallRoom.png',
-        NextAutoChat: [
+        /*NextAutoChat: [
             {
                 id:'//1.5.0a//',
                 requiredVar: (currentVars) => !currentVars.metCompanion
@@ -849,6 +857,7 @@ const chatNodes = [
             },
             
         ],
+    */
         options: [
             {
                 text: 'Continue',
@@ -987,6 +996,7 @@ const chatNodes = [
     },
     {
         id: '//1.5.1e//',
+        changeOverlayImage: 'Functions/Art/Chapter1/goodBoy.png',
         options: [
             {
                 text: 'Shoo it off',
@@ -1066,6 +1076,7 @@ const chatNodes = [
     },
     {
         id: '//1.5.2f//',
+        changeOverlayImage: 'Functions/Art/Chapter1/goodBoy.png',
         options: [
             {
                 text: 'Step out and call to it',
@@ -1095,6 +1106,7 @@ const chatNodes = [
     },
     {
         id: '//1.5.3//',
+        changeOverlayImage: 'Functions/Art/Chapter1/goodBoy.png',
         options: [
             {
                 text: 'Scare it off',
@@ -1108,6 +1120,7 @@ const chatNodes = [
     },
     {
         id: '//1.5.4a//',
+        changeOverlayImage: 'Functions/Art/Chapter1/goodBoy.png',
         options: [
             {
                 text: 'Continue',
@@ -1127,6 +1140,7 @@ const chatNodes = [
     },
     {
         id: '//1.5.4b//',
+        changeOverlayImage: 'Functions/Art/Chapter1/goodBoy.png',
         options: [
             {
                 text: 'Continue',
@@ -1138,6 +1152,7 @@ const chatNodes = [
     },
     {
         id: '//1.5.4c//',
+        changeOverlayImage: 'Functions/Art/Chapter1/goodBoy.png',
         options: [
             {
                 text: 'Continue',
@@ -1149,7 +1164,7 @@ const chatNodes = [
     },
     {
         id: '//1.5.4d//',
-        //dogname set
+        changeOverlayImage: 'Functions/Art/Chapter1/goodBoy.png',
         options: [
             {
                 text: 'Return to Cave',
