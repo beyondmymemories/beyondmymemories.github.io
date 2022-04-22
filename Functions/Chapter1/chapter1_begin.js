@@ -284,11 +284,7 @@ function printChatNode(chatNodeIndex, load_chapter1vars) {
     const chatNode = chatNodes.find(chatNode => chatNode.id === chatNodeIndex)
 
     //display the chatoption with chatlog
-
-    updateChatLog('../Functions/Chapter1/chapter1callscript.txt', chatNodeIndex);
-
-    //display dashed line
-    updateChatLog('../Functions/Chapter1/chapter1callscript.txt','//dashes//');
+    if (updateChatLog('../Functions/Chapter1/chapter1callscript.txt', chatNodeIndex));
 
     //If the changeImage != null -> change background
     if (chatNode.changeImage != null) {
@@ -301,6 +297,37 @@ function printChatNode(chatNodeIndex, load_chapter1vars) {
    // console.log(globalImg)
 
     document.getElementById("backgroundImage").src=globalImg;
+
+    if (chatNode.changeOverlayImage != null){
+        document.getElementById("overlayedImage").style.display = "inline-block";
+
+        document.getElementById("overlayedImage").src=chatNode.changeOverlayImage;
+    }
+    else {
+        document.getElementById("overlayedImage").style.display = "none";
+    }
+
+        //If there is more to print!
+        if (chatNode.NextAutoChat != null) {
+            //loop through each id and print them
+            chatNode.NextAutoChat.forEach(autochat => {
+
+                if (showOption(autochat)) {
+                    if (updateChatLog('../Functions/Chapter1/chapter1callscript.txt', autochat.id));
+                }
+            }) //end of chatnode
+
+            //display dashed line
+            if (updateChatLog('../Functions/Chapter1/chapter1callscript.txt','//dashes//'));
+
+        }
+        else {
+            
+            //display dashed line
+            if (updateChatLog('../Functions/Chapter1/chapter1callscript.txt','//dashes//'));
+        }
+
+
 
 
 
@@ -400,9 +427,6 @@ function printChatNode(chatNodeIndex, load_chapter1vars) {
         //loop through each buttons option to display them
         chatNode.options.forEach(option => {
 
-            if (option.NextAutoChat != null) {
-                //printChatNode(option.NextAutoChat);
-            } 
             if (showOption(option)) {
                 //create button
                 const button = document.createElement('button')
@@ -574,7 +598,6 @@ const chatNodes = [
             {
                 text: 'Continue',
                 NextChat: '//1.2.0//',
-                NextAutoChat: '//1.2.0//'
             }
         ]
     },
@@ -606,8 +629,17 @@ const chatNodes = [
     //1.3 ==> WARM AND BRIGHT TUNNEL
     {
         id: '//1.3.0//',
-        options: [
+        NextAutoChat: [
             {
+                id: '//1.3.0a//',
+                requiredVar: (currentVars) => !currentVars.metMerchant
+            },
+            {
+                id: '//1.3.0b//',
+            }
+        ],
+        options: [
+/*            {
                 text: 'Continue',
                 NextChat: '//1.3.0a//',
                 requiredVar: (currentVars) => !currentVars.metMerchant
@@ -615,6 +647,27 @@ const chatNodes = [
             {
                 text: 'Continue',
                 NextChat: '//1.3.0b//',
+                requiredVar: (currentVars) => currentVars.metMerchant
+            },
+*/
+            {
+                text: 'Follow Sign to Merchant',
+                NextChat: '//1.3.1a//',
+                requiredVar: (currentVars) => !currentVars.metMerchant
+            },
+            {
+                text: 'Follow Sign to Merchant',
+                NextChat: '//1.3.1b//',
+                requiredVar: (currentVars) => currentVars.metMerchant
+            },
+            {
+                text: 'Continue Down tunnel',
+                NextChat: '//1.3.2//',
+                requiredVar: (currentVars) => !currentVars.metMerchant
+            },
+            {
+                text: 'Continue Down Tunnel',
+                NextChat: '//1.3.3b//',
                 requiredVar: (currentVars) => currentVars.metMerchant
             }
         ]
@@ -850,13 +903,11 @@ const chatNodes = [
             {
                 text: 'Success',
                 NextChat: '//1.4.5//',
-                NextAutoChat: '//1.4.5//',
                 requiredVar: (currentVars) => !currentVars.lootAdventurer
             },
             {
                 text: 'Success',
                 NextChat: '//1.2.2//',
-                NextAutoChat: '//1.2.0//',
                 requiredVar: (currentVars) => currentVars.lootAdventurer
             },
             {
@@ -879,6 +930,34 @@ const chatNodes = [
     {
         id: '//1.5.0//',
         changeImage: 'Functions/Art/Chapter1/waterFallRoom.png',
+        /*NextAutoChat: [
+            {
+                id:'//1.5.0a//',
+                requiredVar: (currentVars) => !currentVars.metCompanion
+            },
+            {
+                id: '//1.5.0b//',
+                requiredVar: (currentVars) => currentVars.foundDoor
+            },
+            {
+                id: '//1.5.0c//',
+                requiredVar: (currentVars) => currentVars.metCompanion,
+                requiredVar: (currentVars) => currentVars.foundDoor,
+                requiredVar: (currentVars) => currentVars.metMerchant
+            },
+            {
+                id: '//1.5.0d//',
+                requiredVar: (currentVars) => currentVars.metCompanion,
+                requiredVar: (currentVars) => !currentVars.metMerchant,
+                requiredVar: (currentVars) => currentVars.foundDoor
+            },
+            {
+                id: '//1.5.0e//',
+                requiredVar: (currentVars) => currentVars.metCompanion,
+            },
+            
+        ],
+    */
         options: [
             {
                 text: 'Continue',
@@ -890,7 +969,7 @@ const chatNodes = [
                 NextChat: '//1.5.0b//',
                 requiredVar: (currentVars) => currentVars.metCompanion,
                 requiredVar: (currentVars) => currentVars.foundDoor
-            }
+            },
         ]
     },
     {
@@ -1017,6 +1096,7 @@ const chatNodes = [
     },
     {
         id: '//1.5.1e//',
+        changeOverlayImage: 'Functions/Art/Chapter1/goodBoy.png',
         options: [
             {
                 text: 'Shoo it off',
@@ -1096,6 +1176,7 @@ const chatNodes = [
     },
     {
         id: '//1.5.2f//',
+        changeOverlayImage: 'Functions/Art/Chapter1/goodBoy.png',
         options: [
             {
                 text: 'Step out and call to it',
@@ -1125,6 +1206,7 @@ const chatNodes = [
     },
     {
         id: '//1.5.3//',
+        changeOverlayImage: 'Functions/Art/Chapter1/goodBoy.png',
         options: [
             {
                 text: 'Scare it off',
@@ -1138,6 +1220,7 @@ const chatNodes = [
     },
     {
         id: '//1.5.4a//',
+        changeOverlayImage: 'Functions/Art/Chapter1/goodBoy.png',
         options: [
             {
                 text: 'Continue',
@@ -1157,6 +1240,7 @@ const chatNodes = [
     },
     {
         id: '//1.5.4b//',
+        changeOverlayImage: 'Functions/Art/Chapter1/goodBoy.png',
         options: [
             {
                 text: 'Continue',
@@ -1168,6 +1252,7 @@ const chatNodes = [
     },
     {
         id: '//1.5.4c//',
+        changeOverlayImage: 'Functions/Art/Chapter1/goodBoy.png',
         options: [
             {
                 text: 'Continue',
@@ -1179,7 +1264,7 @@ const chatNodes = [
     },
     {
         id: '//1.5.4d//',
-        //dogname set
+        changeOverlayImage: 'Functions/Art/Chapter1/goodBoy.png',
         options: [
             {
                 text: 'Return to Cave',
