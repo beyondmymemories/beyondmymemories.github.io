@@ -8,13 +8,13 @@ Notes:
 	S = SO says in log
 
 //START//
-    Where am I? <br>
+    "Where am I?" <br>
     You feel your head and find a small stream of blood going down your head.
 	Looking above, you see the moon through a large crack high above you.
 	Around you, all you see is a cave, dark and cold. <br>
-    Why am I here? <br>
+    "Why am I here?" <br>
     Your head begins to hurt <br>
-    I can't remember anything.. 
+    "I can't remember anything.. "
 <br><br>
 //START//
 
@@ -70,6 +70,7 @@ GENERAL CHAT CALLS
 
 //1.2.2//
 	You're able to defeat the monster!
+<br><br>
 //1.2.2//
 
 //1.2.3//
@@ -226,9 +227,8 @@ GENERAL CHAT CALLS
 	You're able to defeat the monster! <br>
 	Behind the corpse of the Goblin, you see a body, human and completely ravaged on the stone floor. <br>
 	The body is coverd in tattered clothes with a small satchel at its side. <br>
-	Inside you find, V coins, and a basic healing potion. <br>
-	~~ Found V coins ~~ <br>
-	~~ Found Healing Potions ~~ 
+	Inside you find some gold coins <br>
+	~~ Found gold coins ~~ 
 <br><br>
 //1.4.5//
 
@@ -352,7 +352,9 @@ GENERAL CHAT CALLS
 //1.5.4c//
 
 //1.5.4d//
-	Please name your new companion! <br>
+	As you bend down to pet him, you see a small collar underneath his fur <br><br>
+ 	~~Cloud~~<br><br>
+
 	What will you do next?
 <br><br>
 //1.5.4d//
@@ -386,7 +388,7 @@ GENERAL CHAT CALLS
 	As you insert the key into the keyhole, the door opens, sliding over slowly. <br>
 	The tunnel in front of you is dark, with smooth stone rather than the material stone in the cave <br>
 	Gathering your wits, you head in. <br>
-	The monster of you, bigger than anything you ever remember facing, a minotaur! <br>
+	The monster of you, bigger than anything you ever remember facing, a MINOTAUR! <br>
 //1.6.0a//
 
 //1.6.0b//
@@ -401,7 +403,7 @@ GENERAL CHAT CALLS
 
 //1.6.0d//
 	You look back behind you, only to see a stone concrete slab close the hole, you're trapped. <br>
-	~~Entering Combat with : X ~~ 
+	~~Entering Combat with : Minotaur ~~ 
 <br><br>
 //1.6.0d//
 
@@ -413,27 +415,27 @@ GENERAL CHAT CALLS
 	It gets stronger and stronger <br>
 	Your head feels like its splitting in 2 as a familiar scene returns to you <br><br>
 
-	You see a (man/woman) who looks breathtaking standing in front of you. <br>
+	You see a blurry figure standing in front of you. <br>
 	"Isn't he just amazing!" They say! <br>
-	The (man/woman) glances at you excitedly, before looking back to the furry creature in front of her <br>
+	They glances at you excitedly, before looking back to the furry creature in front of her <br>
 	"I can't believe you found one! I thought they were supposed to be rare!" <br>
 	"They are rare," you reply "you wouldn't believe the struggle to just find one of those pups" <br>
 	"Well, I'm sure it was worth all the struggle. Wouldn't you say so?" They grin at you <br>
-	She starts petting the small dog, it eventually rolls over on its back and gets comfy in her lap <br>
-	"DOGNAME. We'll call you 'DOGNAME'. Isn't it just perfect for this adorable cloud?" <br>
-	"DOGNAME, huh? That's the best you could think of?" You clapback <br>
+	They starts petting the small dog, it eventually rolls over on its back and gets comfy in her lap <br>
+	"Cloud. We'll call you 'Cloud'. Isn't it just perfect for this adorable puffball?" <br>
+	"Cloud, huh? That's the best you could think of?" You retort <br>
 	"Oh shut it. Don't listen to him DOGNAME, you'll be ours forever" <br>
-	The (man/woman) looks back at you once more, smiling with that adorable little dog.
+	They look back at you once more, smiling with that adorable little dog.
 <br><br>
 //1.6.1a//
 
 //1.6.1b//
-	As you come back to your sense, you find X licking you face <br>
+	As you come back to your sense, you find Cloud licking you face <br>
 	It was real, it felt so real. <br>
 	But if it was, why would I be here? Why now? <br>
 	Questions asked, but no one can answer them. <br>
-	You pet DOGNAME, thinking back on your memory <br>
-	After enough time had passed and your head returned to normal, you continue towards the only path you and DOGNAME can take <br>
+	You pet Cloud, thinking back on your memory <br>
+	After enough time had passed and your head returned to normal, you continue towards the only path you and Cloud can take <br>
 	Downwards.
 <br><br>
 //1.6.1b//
