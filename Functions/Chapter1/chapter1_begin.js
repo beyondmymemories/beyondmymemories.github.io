@@ -56,11 +56,30 @@ var monsterHP = 0
 var characterChoice = ""
 var character = "empty"
 var characterHP = 0
+var comSucc
+var comFail
+
+function comResult(result){
+    if (result == "Success0"){
+        //check this: !currentVars.lootAdventurer
+        printChatNode(comSucc);
+    }
+    else if (result == "Success"){
+        printChatNode(comSucc)
+    }
+    //failed in combat -> die
+    else{
+        printChatNode(comFail)
+    }
+}
 
 function action(monster, attack){
     monsterHP = monsterHP - (diceRoll(attack.amount, attack.damage) + character.stats.dex)
+    console.log(monsterHP);
     if(monsterHP > 0)
         combatChoice(monster)
+    else
+        comResult("Success")
 }
 
 function recCombat(monster, turn){
@@ -76,7 +95,9 @@ function recCombat(monster, turn){
         
         characterHP = characterHP - (diceRoll(monster.weapon.amount, monster.weapon.damage) + monster.stats.str)
         if(characterHP > 0)
-            recCombat(monster, "action")
+            combatChoice(monster)
+        else
+            comResult("Fail")
     }
     else if(turn == "action") {
         attackAvailable = 0
@@ -157,6 +178,80 @@ function recCombat(monster, turn){
     }
     else if(turn == "bonus"){
         bonusAvailable = 0
+        switch(characterChoice){
+            case 'Wizard':
+                wizBonus.forEach(attacks => {
+                    //create button
+                    const button = document.createElement('button')
+ 
+                    //button name will be weapon/spell name
+                    button.innerText = attacks.name
+ 
+                    //add it to the correct css
+                    button.classList.add('options')
+ 
+                    //click event listener
+                    button.addEventListener('click', () => action(monster, attacks))
+ 
+                    //stuff
+                    document.getElementById('button-options').appendChild(button)
+                })
+                break;
+            case 'Barbarian':
+                barbBonus.forEach(attacks => {
+                    //create button
+                    const button = document.createElement('button')
+ 
+                    //button name will be weapon/spell name
+                    button.innerText = attacks.name
+ 
+                    //add it to the correct css
+                    button.classList.add('options')
+ 
+                    //click event listener
+                    button.addEventListener('click', () => action(monster, attacks))
+ 
+                    //stuff
+                    document.getElementById('button-options').appendChild(button)
+                })
+                break;
+            case 'Bard':
+                bardBonus.forEach(attacks => {
+                    //create button
+                    const button = document.createElement('button')
+ 
+                    //button name will be weapon/spell name
+                    button.innerText = attacks.name
+ 
+                    //add it to the correct css
+                    button.classList.add('options')
+ 
+                    //click event listener
+                    button.addEventListener('click', () => action(monster, attacks))
+ 
+                    //stuff
+                    document.getElementById('button-options').appendChild(button)
+                })
+                break;
+            case 'Rogue':
+                rogueBonus.forEach(attacks => {
+                    //create button
+                    const button = document.createElement('button')
+ 
+                    //button name will be weapon/spell name
+                    button.innerText = attacks.name
+ 
+                    //add it to the correct css
+                    button.classList.add('options')
+ 
+                    //click event listener
+                    button.addEventListener('click', () => action(monster, attacks))
+ 
+                    //stuff
+                    document.getElementById('button-options').appendChild(button)
+                })
+                break;
+        }
     }
 }
 
@@ -313,22 +408,9 @@ function printChatNode(chatNodeIndex, load_chapter1vars) {
         }
 
         //enter combat
-        var combatResult = combatFunc(chatNode.combat);
-
-        //combatResult = "Success0"
-        //if we succeeded in combat
-        if (combatResult == "Success0"){
-
-            //check this: !currentVars.lootAdventurer
-            printChatNode(chatNode.sucess0);
-        }
-        else if (combatResult == "Success"){
-            printChatNode(chatNode.sucess)
-        }
-        //failed in combat -> die
-        else {
-            printChatNode(chatNode.fail)
-        }
+        comSucc = chatNode.sucess
+        comFail = chatNode.fail
+        combatFunc(chatNode.combat);
     }
 
     //did we die - restart from checkpoint
@@ -707,35 +789,12 @@ const chatNodes = [
         combat: 'Hobgoblin',
         sucess: "//1.3.5//",
         fail: "//1.2.3//",
-        ///*
-        options: [
-            {
-                text: 'Success',
-                NextChat: '//1.3.5//'
-            },
-            {
-                text: 'Fails',
-                NextChat: '//1.2.3//'
-            }
-        ]//*/
     },
     {
         id: '//1.3.3b//',
         combat: 'Hobgoblin',
         sucess: '//1.2.2//',
         fail: '//1.2.3//',
-        ///*
-        options: [
-            {
-                text: 'Success',
-                NextChat: '//1.2.2//',
-                NextAutoChat: '//1.2.0//'
-            },
-            {
-                text: 'Fails',
-                NextChat: '//1.2.3//'
-            }
-        ]//*/
     },
     {
         id: '//1.3.3c//',
@@ -755,17 +814,6 @@ const chatNodes = [
         combat: 'Hobgoblin',
         sucess: "//1.3.5//",
         fail: "//1.2.3//",
-        ///*
-        options: [
-            {
-                text: 'Success',
-                NextChat: '//1.3.5//'
-            },
-            {
-                text: 'Fails',
-                NextChat: '//1.2.3//'
-            }
-        ]//*/
     },
     {
         id: '//1.3.5//',
@@ -816,18 +864,7 @@ const chatNodes = [
         id: '//1.4.2//',
         combat: 'Goblin',
         sucess: '//1.4.5//',
-        fail: '//1.2.3//',
-        /*
-        options: [
-            {
-                text: 'Success',
-                NextChat: '//1.4.5//'
-            },
-            {
-                text: 'Fails',
-                NextChat: '//1.2.3//'
-            }
-        ]*/
+        fail: '//1.2.3//'
 
     },
     {
@@ -845,25 +882,6 @@ const chatNodes = [
         sucess0: '//1.4.5//',
         sucess: '//1.4.5//',
         fail: '//1.2.3//',
-        /*
-        options: [
-            {
-                text: 'Success',
-                NextChat: '//1.4.5//',
-                NextAutoChat: '//1.4.5//',
-                requiredVar: (currentVars) => !currentVars.lootAdventurer
-            },
-            {
-                text: 'Success',
-                NextChat: '//1.2.2//',
-                NextAutoChat: '//1.2.0//',
-                requiredVar: (currentVars) => currentVars.lootAdventurer
-            },
-            {
-                text: 'Fails',
-                NextChat: '//1.2.3//',
-            }
-        ]*/
     },
     {
         id: '//1.4.5//',
