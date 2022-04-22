@@ -16,5 +16,6 @@ function updateChatLog(scriptName, key) {
     xhttp.open("GET", scriptName, true);
     
     // Sends the request.
-    xhttp.send();  
+    if (xhttp.send())
+        return true;
 } // end of updateChatLog
