@@ -1,40 +1,33 @@
 <!DOCTYPE html>
 <!--
-Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
-Click nbfs://nbhost/SystemFileSystem/Templates/ClientSide/html.html to edit this template
-
-General Shop:
--Health Potion (multiple): 150 gold
--Return Stone (Teleports player back to shop)(multiple): 1 gold
--Night's rest (long rest)(multiple): 75 gold
--Cat nap (short rest)(multiple): 35 gold
-
-Barbarian Shop:
--Greataxe(multiple): 500 gold
--Chainmail(multiple): 650 gold
-
-Wizard Shop:
--New spell (Mage armor)(once): 650 gold
--Ring of Fire (increase fire damage)(once): 450 gold
-
-Rogue Shop:
--Stronger dagger(s)(multiple): 550 gold
--Boots of stealth (increase stealth for combat)(once): 500 gold
-
-Bard Shop:
--Greater Rapier (increase roll/damage perhaps)(multiple): 550 gold
--New Spell (Cure Wounds)(once): 700 gold
-
-Dog Shop (if they have dog):
--Name change(multiple): 100 gold
--Doggy treats (for fun :P)(multiple): 1 gold
--Perhaps an item/armor to make idle more rewarding(probably once): N/A
-
-
-
-
-
+ 
+ General Shop:
+ -Health Potion (multiple): 150 gold
+ -Return Stone (Teleports player back to shop)(multiple): 1 gold
+ -Night's rest (long rest)(multiple): 75 gold
+ -Cat nap (short rest)(multiple): 35 gold
+ 
+ Barbarian Shop:
+ -Greataxe(multiple): 500 gold
+ -Chainmail(multiple): 650 gold
+ 
+ Wizard Shop:
+ -New spell (Mage armor)(once): 650 gold
+ -Ring of Fire (increase fire damage)(once): 450 gold
+ 
+ Rogue Shop:
+ -Stronger dagger(s)(multiple): 550 gold
+ -Boots of stealth (increase stealth for combat)(once): 500 gold
+ 
+ Bard Shop:
+ -Greater Rapier (increase roll/damage perhaps)(multiple): 550 gold
+ -New Spell (Cure Wounds)(once): 700 gold
+ 
+ Dog Shop (if they have dog):
+ -Name change(multiple): 100 gold
+ -Doggy treats (for fun :P)(multiple): 1 gold
 -->
+
 <html>
     <head>
         <title>Shop Test</title>
@@ -42,23 +35,34 @@ Dog Shop (if they have dog):
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <script type="text/javascript" src="../JS/save.js"></script>
         <script type="text/javascript" src="../JS/shop.js"></script>
+        <link href="../CSS/shop.css" rel="stylesheet" type="text/css">
     </head>
-    <body  onload="buttonWait()">
+    <body  onload="buttonWait();">
         <div >
-               <button id="enter" onclick="goldAmount();buttonOff();buttonOn();">Enter</button>
-               
-               
-               <button id="item1" onclick="buy('item1')">Health Potion $150</button>
-               <button id="item2" onclick="buy('item2')">Return Stone $1</button>
-               <button id="item3" onclick="buy('item3')">Night's rest $75</button>
-               <button id="item4" onclick="buy('item4')">Cat nap $35</button>
-               
-               
-               
-               
-               <div id="counter"> </div>
-               
-               <div id="error"> </div>
+
+            <button id="enter" onclick="goldAmount();buttonOff();buttonOn();">Enter</button>
+
+            <div id="shopTitle"> </div>
+
+            <div id="counter"> </div>
+
+            <div id="error"> </div>   
+
+            <button id="item1" onclick="buy('item1')">Health Potion $150</button>
+            <button id="item2" onclick="buy('item2')">Return Stone $1</button>
+            <button id="item3" onclick="buy('item3')">Night's rest $75</button>
+            <button id="item4" onclick="buy('item4')">Cat nap $35</button>
+            <button id="item5" onclick="buy('item5')">Greataxe $500</button>
+            <button id="item6" onclick="buy('item6')">Chainmail $650</button>
+            <button id="item7" onclick="buy('item7')">New spell (Mage armor) $650</button>
+            <button id="item8" onclick="buy('item8')">Ring of Fire (increase fire damage) $450</button>
+            <button id="item9" onclick="buy('item9')">Stronger dagger $550</button>
+            <button id="item10" onclick="buy('item10')">Boots of stealth (increase stealth) $500</button>
+            <button id="item11" onclick="buy('item11')">Greater Rapier (increase roll/damage) $500</button>
+            <button id="item12" onclick="buy('item12')">New Spell (Cure Wounds) $700</button>
+            <button id="item13" onclick="buy('item13')">Name dog change $100</button>
+            <button id="item14" onclick="buy('item14')">Doggy treats $1</button>
+
         </div>
     </body>
 </html>

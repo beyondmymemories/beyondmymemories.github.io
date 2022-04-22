@@ -1,0 +1,277 @@
+body{
+    text-align: center;
+    display: block;
+    width: auto;
+    height: 97.7vh;
+    background-image:url("../Functions/Art/Chapter1/OpenShop.png");
+}
+
+#shopTitle{
+    color: white;
+    font-family: 'euphoria-script';
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-left: 0px;
+    margin-bottom: 0px;
+    font-size: 30px;
+    padding-left: 0%;
+    padding-top: 100px;
+    padding-right: 0px;
+    padding-bottom: 0px;
+}
+
+#error {
+    color: white;
+    font-family: 'euphoria-script';
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-left: 0px;
+    margin-bottom: 0px;
+    font-size: 30px;
+    padding-left: 0%;
+    padding-top: 10px;
+    padding-right: 0px;
+    padding-bottom: 0px;
+}
+
+#enter{
+    border: none;
+    color: grey;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    position: relative;
+    right: 0px;
+    top: 200px
+}
+
+#counter {
+    color: white;
+    font-family: 'euphoria-script';
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-left: 0px;
+    margin-bottom: 0px;
+    font-size: 30px;
+    padding-left: 0%;
+    padding-top: 10px;
+    padding-right: 0px;
+    padding-bottom: 0px;
+}
+
+
+
+#item1 {
+    border: none;
+    color: grey;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    position: relative;
+    right: -630px;
+    top: 40px
+}
+
+
+#item2 {
+    border: none;
+    color: grey;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    position: relative;
+    right: -1055px;
+    top: -15px
+}
+
+#item3 {
+    border: none;
+    color: grey;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    position: relative;
+    right: -630px;
+    top: -10px
+}
+
+#item4 {
+    border: none;
+    color: grey;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    position: relative;
+    right: -1055px;
+    top: -65px
+}
+
+#item5 {
+    border: none;
+    color: grey;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    position: relative;
+    right: -630px;
+    top: -60px
+}
+
+#item6 {
+    border: none;
+    color: grey;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    position: relative;
+    right: -1055px;
+    top: -115px
+}
+
+#item7 {
+    border: none;
+    color: grey;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    position: relative;
+    right: -630px;
+    top: -110px
+}
+
+#item8 {
+    border: none;
+    color: grey;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    position: relative;
+    right: -1055px;
+    top: -165px
+}
+
+#item9 {
+    border: none;
+    color: grey;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    position: relative;
+    right: -630px;
+    top: -160px
+}
+
+#item10 {
+    border: none;
+    color: grey;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    position: relative;
+    right: -1055px;
+    top: -215px
+}
+
+#item11 {
+    border: none;
+    color: grey;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    position: relative;
+    right: -630px;
+    top: -210px
+}
+
+#item12 {
+    border: none;
+    color: grey;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    position: relative;
+    right: -630px;
+    top: -208px
+}
+
+#item13 {
+    border: none;
+    color: grey;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    position: relative;
+    right: -1055px;
+    top: -317px
+}
+
+#item14 {
+    border: none;
+    color: grey;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    position: relative;
+    right: -1055px;
+    top: -315px
+}
