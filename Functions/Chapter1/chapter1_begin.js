@@ -17,10 +17,21 @@ function getChapter1Var() {
 }
 
 function getglobalImg() {
+    
+    console.log(globalImg)
+
     return globalImg;
 }
 function setglobalImg(input) {
+
+    console.log(globalImg)
+
     globalImg = input;
+
+    document.getElementById("backgroundImage").src=globalImg;
+
+    console.log(globalImg)
+
 }
 function setChatper1Var(input) {
     chapter1var = input;
@@ -30,6 +41,8 @@ function StartChapter1() {
 
     chapter1var = { character: loadVar("character") }
 
+    setglobalImg("Functions/Art/Chapter1/smallerCave.png");
+
     globalImg = "Functions/Art/Chapter1/smallerCave.png";
 
    // chapter1var = { character: characterChoice }
@@ -37,113 +50,309 @@ function StartChapter1() {
 }
 
 //if player can use either attack or bonus
-const attackAvailable = 1
-const bonusAvailable = 1
+var attackAvailable = 1
+var bonusAvailable = 1
+var monsterHP = 0
+var characterChoice = ""
+var character = "empty"
+var characterHP = 0
+var comSucc
+var comFail
+
+function comResult(result){
+    if (result == "Success0"){
+        //check this: !currentVars.lootAdventurer
+        printChatNode(comSucc);
+    }
+    else if (result == "Success"){
+        printChatNode(comSucc)
+    }
+    //failed in combat -> die
+    else{
+        printChatNode(comFail)
+    }
+}
+
+function action(monster, attack){
+    monsterHP = monsterHP - (diceRoll(attack.amount, attack.damage) + character.stats.dex)
+    console.log(monsterHP);
+    if(monsterHP > 0)
+        combatChoice(monster)
+    else
+        comResult("Success")
+}
+
+function recCombat(monster, turn){
+
+    while (document.getElementById('button-options').firstChild) {
+        document.getElementById('button-options').removeChild(document.getElementById('button-options').firstChild)
+    }
+
+    if(turn == "enemy" || turn == "pass"){
+        console.log(characterHP);
+        attackAvailable = 1
+        bonusAvailable = 1
+        
+        characterHP = characterHP - (diceRoll(monster.weapon.amount, monster.weapon.damage) + monster.stats.str)
+        if(characterHP > 0)
+            combatChoice(monster)
+        else
+            comResult("Fail")
+    }
+    else if(turn == "action") {
+        attackAvailable = 0
+        switch(characterChoice){
+            case 'Wizard':
+                wizAttacks.forEach(attacks => {
+                    //create button
+                    const button = document.createElement('button')
+ 
+                    //button name will be weapon/spell name
+                    button.innerText = attacks.name
+ 
+                    //add it to the correct css
+                    button.classList.add('options')
+ 
+                    //click event listener
+                    button.addEventListener('click', () => action(monster, attacks))
+ 
+                    //stuff
+                    document.getElementById('button-options').appendChild(button)
+                })
+                break;
+            case 'Barbarian':
+                barbAttacks.forEach(attacks => {
+                    //create button
+                    const button = document.createElement('button')
+ 
+                    //button name will be weapon/spell name
+                    button.innerText = attacks.name
+ 
+                    //add it to the correct css
+                    button.classList.add('options')
+ 
+                    //click event listener
+                    button.addEventListener('click', () => action(monster, attacks))
+ 
+                    //stuff
+                    document.getElementById('button-options').appendChild(button)
+                })
+                break;
+            case 'Bard':
+                bardAttacks.forEach(attacks => {
+                    //create button
+                    const button = document.createElement('button')
+ 
+                    //button name will be weapon/spell name
+                    button.innerText = attacks.name
+ 
+                    //add it to the correct css
+                    button.classList.add('options')
+ 
+                    //click event listener
+                    button.addEventListener('click', () => action(monster, attacks))
+ 
+                    //stuff
+                    document.getElementById('button-options').appendChild(button)
+                })
+                break;
+            case 'Rogue':
+                rogueAttacks.forEach(attacks => {
+                    //create button
+                    const button = document.createElement('button')
+ 
+                    //button name will be weapon/spell name
+                    button.innerText = attacks.name
+ 
+                    //add it to the correct css
+                    button.classList.add('options')
+ 
+                    //click event listener
+                    button.addEventListener('click', () => action(monster, attacks))
+ 
+                    //stuff
+                    document.getElementById('button-options').appendChild(button)
+                })
+                break;
+        }
+    }
+    else if(turn == "bonus"){
+        bonusAvailable = 0
+        switch(characterChoice){
+            case 'Wizard':
+                wizBonus.forEach(attacks => {
+                    //create button
+                    const button = document.createElement('button')
+ 
+                    //button name will be weapon/spell name
+                    button.innerText = attacks.name
+ 
+                    //add it to the correct css
+                    button.classList.add('options')
+ 
+                    //click event listener
+                    button.addEventListener('click', () => action(monster, attacks))
+ 
+                    //stuff
+                    document.getElementById('button-options').appendChild(button)
+                })
+                break;
+            case 'Barbarian':
+                barbBonus.forEach(attacks => {
+                    //create button
+                    const button = document.createElement('button')
+ 
+                    //button name will be weapon/spell name
+                    button.innerText = attacks.name
+ 
+                    //add it to the correct css
+                    button.classList.add('options')
+ 
+                    //click event listener
+                    button.addEventListener('click', () => action(monster, attacks))
+ 
+                    //stuff
+                    document.getElementById('button-options').appendChild(button)
+                })
+                break;
+            case 'Bard':
+                bardBonus.forEach(attacks => {
+                    //create button
+                    const button = document.createElement('button')
+ 
+                    //button name will be weapon/spell name
+                    button.innerText = attacks.name
+ 
+                    //add it to the correct css
+                    button.classList.add('options')
+ 
+                    //click event listener
+                    button.addEventListener('click', () => action(monster, attacks))
+ 
+                    //stuff
+                    document.getElementById('button-options').appendChild(button)
+                })
+                break;
+            case 'Rogue':
+                rogueBonus.forEach(attacks => {
+                    //create button
+                    const button = document.createElement('button')
+ 
+                    //button name will be weapon/spell name
+                    button.innerText = attacks.name
+ 
+                    //add it to the correct css
+                    button.classList.add('options')
+ 
+                    //click event listener
+                    button.addEventListener('click', () => action(monster, attacks))
+ 
+                    //stuff
+                    document.getElementById('button-options').appendChild(button)
+                })
+                break;
+        }
+    }
+}
+
+function combatChoice(monster){
+    //display the correct buttons
+    while (document.getElementById('button-options').firstChild) {
+        document.getElementById('button-options').removeChild(document.getElementById('button-options').firstChild)
+    }
+
+    if(attackAvailable == 1){
+        
+        console.log("Action made");
+        const button = document.createElement('button')
+
+        //display the button text
+        button.innerText = "Action"
+
+        //add it to the correct css
+        button.classList.add('options')
+
+        //click event listener - load the load function for it
+        button.addEventListener('click', () => recCombat(monster, "action"))
+
+        document.getElementById('button-options').appendChild(button)
+    }
+    if(bonusAvailable == 1){
+        console.log("Bonus Made");
+        const button = document.createElement('button')
+
+        //display the button text
+        button.innerText = "Bonus Action"
+
+        //add it to the correct css
+        button.classList.add('options')
+
+        //click event listener - load the load function for it
+        button.addEventListener('click', () => recCombat(monster, "bonus"))
+
+        document.getElementById('button-options').appendChild(button)
+    }
+
+    console.log("Pass Made");
+    const button = document.createElement('button')
+
+    //display the button text
+    button.innerText = "Pass"
+
+    //add it to the correct css
+    button.classList.add('options')
+
+    //click event listener - load the load function for it
+    button.addEventListener('click', () => recCombat(monster, "pass"))
+
+    document.getElementById('button-options').appendChild(button)
+}
 
 //combat function
 function combatFunc(combatNum) {
+
     //Initialize which character we use
-    /*const character = loadVar('character')
-    if(character == 'Wizard')
-        var characterChoice = charStats1.Wizard
-    else if(character == 'Bard')
-        var characterChoice = charStats1.Bard
-    else if(character == 'Barbarian')
-        var characterChoice = charStats1.Barbarian
+    characterChoice = loadVar('character')
+    if(characterChoice == 'Wizard')
+        character = charStats1.Wizard
+    else if(characterChoice == 'Bard')
+        character = charStats1.Bard
+    else if(characterChoice == 'Barbarian')
+        character = charStats1.Barbarian
     else
-        var characterChoice = charStats1.Rogue
+        character = charStats1.Rogue
+    characterHP = 100
     
     //Decide which combat we'll be doing
     if(combatNum == 'Hobgoblin'){
         var monster = Monsters1.Hobgoblin
-        var monsterHP = monster.health
-        var characterHP = characterChoice.maxhp
+        monsterHP = monster.health
     }
-    if(combatNum == 'Goblin'){
+    else if(combatNum == 'Goblin'){
         var monster = Monsters1.Goblin
-        var monsterHP = monster.health
-        var characterHP = characterChoice.maxhp
+        monsterHP = monster.health
+    }
+    else if(combatNum == 'Minotaur'){
+        var monster = Monsters1.Minotaur
+        monsterHP = monster.health
     }
     
     //roll for initiative
-    const monsterRoll = diceRoll(1, 20) + monster.stats.dex
-    const playerRoll = diceRoll(1, 20) + 4
-    
-    //var combatChoices = {'Action', 'Bonus Action', 'Pass', 'Items'}
+    var monsterRoll = diceRoll(1, 20) + monster.stats.dex
+    var playerRoll = diceRoll(1, 20) + character.stats.dex
     
     //if the monster goes first
     if(monsterRoll > playerRoll) {
-        while(monsterHP > 0 && characterHP > 0){
-            //while(true){
-                
-                //create all choices that the character can choose
-                combatChoices.foreach(choice => {
-                   //create button
-                   const button = document.createElement('button')
-
-                   //button name will be weapon/spell name
-                   button.innerText = choice
-
-                   //add it to the correct css
-                   button.classList.add('options')
-
-                   //click event listener
-                   button.addEventListener('click', () => selectOptions(option))
-
-                   //stuff
-                   document.getElementById('button-options').appendChild(button)
-                })
-                
-                
-                wizAttacks.forEach(attacks => {
-                   //create button
-                   const button = document.createElement('button')
-
-                   //button name will be weapon/spell name
-                   button.innerText = attacks.name
-
-                   //add it to the correct css
-                   button.classList.add('options')
-
-                   //click event listener
-                   button.addEventListener('click', () => selectOptions(attacks))
-
-                   //stuff
-                   document.getElementById('button-options').appendChild(button)
-                })
-            //}
-        }
+        console.log("Monster First");
+        recCombat(monster, "enemy")
     }
     
     else{
-        while(monsterHP > 0 && characterHP > 0){
-
-            wizAttacks.forEach(attacks => {
-               //create button
-               const button = document.createElement('button')
-
-               //button name will be weapon/spell name
-               button.innerText = attacks.name
-
-               //add it to the correct css
-               button.classList.add('options')
-
-               //click event listener
-               button.addEventListener('click', () => selectOptions(attacks))
-
-               //stuff
-               document.getElementById('button-options').appendChild(button)
-            })
-        }
+        console.log("Player First");
+        attackAvailable = 1
+        bonusAvailable = 1
+        combatChoice(monster)
     }
-    
-    //If monster dead
-    if(monsterHP == 0)
-        return 'Success'
-    //If player died
-    return 'Fail'
-    */
-    return 'Success'
 }
 
 function printChatNode(chatNodeIndex, load_chapter1vars) {
@@ -153,6 +362,11 @@ function printChatNode(chatNodeIndex, load_chapter1vars) {
     if (chatNodeIndex == '//START//')
         createCheckpoint();
 
+    //If we've reached the end -> finish game
+    if (chatNodeIndex == 'END') {
+        loadContainer7();
+    }
+    
     //if we're coming back to the website - refresh variables
     if (load_chapter1vars) {
         loadChapter1();
@@ -165,8 +379,7 @@ function printChatNode(chatNodeIndex, load_chapter1vars) {
     const chatNode = chatNodes.find(chatNode => chatNode.id === chatNodeIndex)
 
     //display the chatoption with chatlog
-
-    updateChatLog('../Functions/Chapter1/chapter1callscript.txt', chatNodeIndex);
+    if (updateChatLog('../Functions/Chapter1/chapter1callscript.txt', chatNodeIndex));
 
     //If the changeImage != null -> change background
     if (chatNode.changeImage != null) {
@@ -176,7 +389,40 @@ function printChatNode(chatNodeIndex, load_chapter1vars) {
         globalImg = chatNode.changeImage;
     }
 
+   // console.log(globalImg)
+
     document.getElementById("backgroundImage").src=globalImg;
+
+    if (chatNode.changeOverlayImage != null){
+        document.getElementById("overlayedImage").style.display = "inline-block";
+
+        document.getElementById("overlayedImage").src=chatNode.changeOverlayImage;
+    }
+    else {
+        document.getElementById("overlayedImage").style.display = "none";
+    }
+
+        //If there is more to print!
+        if (chatNode.NextAutoChat != null) {
+            //loop through each id and print them
+            chatNode.NextAutoChat.forEach(autochat => {
+
+                if (showOption(autochat)) {
+                    if (updateChatLog('../Functions/Chapter1/chapter1callscript.txt', autochat.id));
+                }
+            }) //end of chatnode
+
+            //display dashed line
+            if (updateChatLog('../Functions/Chapter1/chapter1callscript.txt','//dashes//'));
+
+        }
+        else {
+            
+            //display dashed line
+            if (updateChatLog('../Functions/Chapter1/chapter1callscript.txt','//dashes//'));
+        }
+
+
 
 
 
@@ -189,24 +435,10 @@ function printChatNode(chatNodeIndex, load_chapter1vars) {
         }
 
         //enter combat
-        var combatResult = combatFunc(chatNode.combat);
-
-        combatResult = "Success0"
-        //if we succeeded in combat
-        if (combatResult == "Success0"){
-
-            //check this: !currentVars.lootAdventurer
-            printChatNode(chatNode.sucess0);
-        }
-        else if (combatResult == "Success"){
-            printChatNode(chatNode.sucess)
-        }
-        //failed in combat -> die
-        else {
-            printChatNode(chatNode.fail)
-        }
+        comSucc = chatNode.sucess
+        comFail = chatNode.fail
+        combatFunc(chatNode.combat);
     }
-    //else if (chatNode.restartCheckPoint) {
 
     //did we die - restart from checkpoint
     else if (chatNode.restartCheckPoint) {
@@ -277,9 +509,6 @@ function printChatNode(chatNodeIndex, load_chapter1vars) {
         //loop through each buttons option to display them
         chatNode.options.forEach(option => {
 
-            if (option.NextAutoChat != null) {
-                //printChatNode(option.NextAutoChat);
-            } 
             if (showOption(option)) {
                 //create button
                 const button = document.createElement('button')
@@ -301,10 +530,6 @@ function printChatNode(chatNodeIndex, load_chapter1vars) {
         const previousChatNode = chatNodeIndex
 
     } //end of else
-
-
-    //set the previous Node -> might be used later
-    const previousChatNode = chatNodeIndex
 }
 
 
@@ -364,7 +589,7 @@ function loadChapter1() {
     chapter1var = JSON.parse(loadVar("chapter1vars"));
 
     //load image
-    globalImg = loadVar("backgroundImage");
+    globalImg = (loadVar("backgroundImage"));
 
 } //end of saving chapter 1
 
@@ -455,7 +680,6 @@ const chatNodes = [
             {
                 text: 'Continue',
                 NextChat: '//1.2.0//',
-                NextAutoChat: '//1.2.0//'
             }
         ]
     },
@@ -487,8 +711,17 @@ const chatNodes = [
     //1.3 ==> WARM AND BRIGHT TUNNEL
     {
         id: '//1.3.0//',
-        options: [
+        NextAutoChat: [
             {
+                id: '//1.3.0a//',
+                requiredVar: (currentVars) => !currentVars.metMerchant
+            },
+            {
+                id: '//1.3.0b//',
+            }
+        ],
+        options: [
+/*            {
                 text: 'Continue',
                 NextChat: '//1.3.0a//',
                 requiredVar: (currentVars) => !currentVars.metMerchant
@@ -496,6 +729,27 @@ const chatNodes = [
             {
                 text: 'Continue',
                 NextChat: '//1.3.0b//',
+                requiredVar: (currentVars) => currentVars.metMerchant
+            },
+*/
+            {
+                text: 'Follow Sign to Merchant',
+                NextChat: '//1.3.1a//',
+                requiredVar: (currentVars) => !currentVars.metMerchant
+            },
+            {
+                text: 'Follow Sign to Merchant',
+                NextChat: '//1.3.1b//',
+                requiredVar: (currentVars) => currentVars.metMerchant
+            },
+            {
+                text: 'Continue Down tunnel',
+                NextChat: '//1.3.2//',
+                requiredVar: (currentVars) => !currentVars.metMerchant
+            },
+            {
+                text: 'Continue Down Tunnel',
+                NextChat: '//1.3.3b//',
                 requiredVar: (currentVars) => currentVars.metMerchant
             }
         ]
@@ -588,35 +842,12 @@ const chatNodes = [
         combat: 'Hobgoblin',
         sucess: "//1.3.5//",
         fail: "//1.2.3//",
-        ///*
-        options: [
-            {
-                text: 'Success',
-                NextChat: '//1.3.5//'
-            },
-            {
-                text: 'Fails',
-                NextChat: '//1.2.3//'
-            }
-        ]//*/
     },
     {
         id: '//1.3.3b//',
         combat: 'Hobgoblin',
         sucess: '//1.2.2//',
         fail: '//1.2.3//',
-        ///*
-        options: [
-            {
-                text: 'Success',
-                NextChat: '//1.2.2//',
-                NextAutoChat: '//1.2.0//'
-            },
-            {
-                text: 'Fails',
-                NextChat: '//1.2.3//'
-            }
-        ]//*/
     },
     {
         id: '//1.3.3c//',
@@ -636,17 +867,6 @@ const chatNodes = [
         combat: 'Hobgoblin',
         sucess: "//1.3.5//",
         fail: "//1.2.3//",
-        ///*
-        options: [
-            {
-                text: 'Success',
-                NextChat: '//1.3.5//'
-            },
-            {
-                text: 'Fails',
-                NextChat: '//1.2.3//'
-            }
-        ]//*/
     },
     {
         id: '//1.3.5//',
@@ -697,18 +917,7 @@ const chatNodes = [
         id: '//1.4.2//',
         combat: 'Goblin',
         sucess: '//1.4.5//',
-        fail: '//1.2.3//',
-        ///*
-        options: [
-            {
-                text: 'Success',
-                NextChat: '//1.4.5//'
-            },
-            {
-                text: 'Fails',
-                NextChat: '//1.2.3//'
-            }
-        ]//*/
+        fail: '//1.2.3//'
 
     },
     {
@@ -724,27 +933,8 @@ const chatNodes = [
         id: '//1.4.3b//',
         combat: 'Goblin',
         sucess0: '//1.4.5//',
-        sucess: '//1.3.4//',
-        fail: '//1.3.3a//',
-        ///*
-        options: [
-            {
-                text: 'Success',
-                NextChat: '//1.4.5//',
-                NextAutoChat: '//1.4.5//',
-                requiredVar: (currentVars) => !currentVars.lootAdventurer
-            },
-            {
-                text: 'Success',
-                NextChat: '//1.2.2//',
-                NextAutoChat: '//1.2.0//',
-                requiredVar: (currentVars) => currentVars.lootAdventurer
-            },
-            {
-                text: 'Fails',
-                NextChat: '//1.2.3//',
-            }
-        ]//*/
+        sucess: '//1.4.5//',
+        fail: '//1.2.3//'
     },
     {
         id: '//1.4.5//',
@@ -760,6 +950,34 @@ const chatNodes = [
     {
         id: '//1.5.0//',
         changeImage: 'Functions/Art/Chapter1/waterFallRoom.png',
+        /*NextAutoChat: [
+            {
+                id:'//1.5.0a//',
+                requiredVar: (currentVars) => !currentVars.metCompanion
+            },
+            {
+                id: '//1.5.0b//',
+                requiredVar: (currentVars) => currentVars.foundDoor
+            },
+            {
+                id: '//1.5.0c//',
+                requiredVar: (currentVars) => currentVars.metCompanion,
+                requiredVar: (currentVars) => currentVars.foundDoor,
+                requiredVar: (currentVars) => currentVars.metMerchant
+            },
+            {
+                id: '//1.5.0d//',
+                requiredVar: (currentVars) => currentVars.metCompanion,
+                requiredVar: (currentVars) => !currentVars.metMerchant,
+                requiredVar: (currentVars) => currentVars.foundDoor
+            },
+            {
+                id: '//1.5.0e//',
+                requiredVar: (currentVars) => currentVars.metCompanion,
+            },
+            
+        ],
+    */
         options: [
             {
                 text: 'Continue',
@@ -771,7 +989,7 @@ const chatNodes = [
                 NextChat: '//1.5.0b//',
                 requiredVar: (currentVars) => currentVars.metCompanion,
                 requiredVar: (currentVars) => currentVars.foundDoor
-            }
+            },
         ]
     },
     {
@@ -898,6 +1116,7 @@ const chatNodes = [
     },
     {
         id: '//1.5.1e//',
+        changeOverlayImage: 'Functions/Art/Chapter1/goodBoy.png',
         options: [
             {
                 text: 'Shoo it off',
@@ -977,6 +1196,7 @@ const chatNodes = [
     },
     {
         id: '//1.5.2f//',
+        changeOverlayImage: 'Functions/Art/Chapter1/goodBoy.png',
         options: [
             {
                 text: 'Step out and call to it',
@@ -1006,6 +1226,7 @@ const chatNodes = [
     },
     {
         id: '//1.5.3//',
+        changeOverlayImage: 'Functions/Art/Chapter1/goodBoy.png',
         options: [
             {
                 text: 'Scare it off',
@@ -1019,6 +1240,7 @@ const chatNodes = [
     },
     {
         id: '//1.5.4a//',
+        changeOverlayImage: 'Functions/Art/Chapter1/goodBoy.png',
         options: [
             {
                 text: 'Continue',
@@ -1038,6 +1260,7 @@ const chatNodes = [
     },
     {
         id: '//1.5.4b//',
+        changeOverlayImage: 'Functions/Art/Chapter1/goodBoy.png',
         options: [
             {
                 text: 'Continue',
@@ -1049,6 +1272,7 @@ const chatNodes = [
     },
     {
         id: '//1.5.4c//',
+        changeOverlayImage: 'Functions/Art/Chapter1/goodBoy.png',
         options: [
             {
                 text: 'Continue',
@@ -1060,7 +1284,7 @@ const chatNodes = [
     },
     {
         id: '//1.5.4d//',
-        //dogname set
+        changeOverlayImage: 'Functions/Art/Chapter1/goodBoy.png',
         options: [
             {
                 text: 'Return to Cave',
@@ -1203,5 +1427,14 @@ const chatNodes = [
     },
     {
         id: '//1.6.1d//',
+        options: [
+            {
+                text: 'Finish',
+                NextChat: 'END'
+            }
+        ]
+    },
+    {
+        id: 'END'
     },
 ] //ChatNodes end

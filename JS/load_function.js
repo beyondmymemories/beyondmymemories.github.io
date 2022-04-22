@@ -42,6 +42,7 @@ function load_function() {
     } //end 
     //ELSE 
     else {
+
         printChatNode(loadVar("funcState"), true);
     } //end 
 
