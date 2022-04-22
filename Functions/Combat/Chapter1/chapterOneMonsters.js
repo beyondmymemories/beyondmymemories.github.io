@@ -1,5 +1,5 @@
 var Monsters1 = {
-    'Goblin': {
+    Goblin: {
         type: 'melee',
         weapon: Attacks1.Weapons.Shortsword,
         health: 12,
@@ -12,7 +12,7 @@ var Monsters1 = {
             chr: 1
         }
     },
-    'Hobgoblin': {
+    Hobgoblin: {
         type: 'melee',
         weapon: Attacks1.Weapons.Maul,
         health: 30,
@@ -25,7 +25,7 @@ var Monsters1 = {
             chr: 0
         }
     },
-    'Minotaur': {
+    Minotaur: {
         type: 'melee',
         weapon: Attacks1.Weapons.Greataxe,
         health: 50,
