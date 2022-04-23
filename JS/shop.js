@@ -71,6 +71,9 @@ function setShopItems(shopItemsIn) {
     shopItems = shopItemsIn;
 }
 
+
+
+
 function titleDisplay() {
     document.getElementById("shopTitle").innerHTML = "Ivan's Wandering Shop of Curio's!";
 }
