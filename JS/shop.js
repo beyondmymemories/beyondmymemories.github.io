@@ -56,6 +56,21 @@ var playerItems = {
     item14: 0
 };
 
+//Get and set functions for playerItems and shopItems. Used for accessing variables outside script. (Save System)
+function getPlayerItems() {
+    return playerItems;
+}
+function setPlayerItems(playerItemsIn) {
+    playerItems = playerItemsIn;
+}
+
+function getShopItems() {
+    return shopItems;
+}
+function setShopItems(shopItemsIn) {
+    shopItems = shopItemsIn;
+}
+
 function titleDisplay() {
     document.getElementById("shopTitle").innerHTML = "Ivan's Wandering Shop of Curio's!";
 }
