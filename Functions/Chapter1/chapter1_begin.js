@@ -1383,6 +1383,9 @@ const chatNodes = [
     {
         id: '//1.6.0d//',
         combat: 'Minotaur',
+        sucess: '//1.6.1a//',
+        fail: '//1.2.3//'
+        /*
         options: [
             {
                 text: 'Success',
@@ -1393,6 +1396,7 @@ const chatNodes = [
                 NextChat: '//1.2.3//'
             }
         ]
+        */
     },
     {
         id: '//1.6.1a//',
