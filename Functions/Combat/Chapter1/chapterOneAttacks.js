@@ -96,4 +96,4 @@ var barbAttacks = new Array(Attacks1.Weapons.Greataxe)
 var barbBonus = new Array(Attacks1.Weapons.Greataxe)
 
 var rogueAttacks = new Array(Attacks1.Weapons.Dagger)
-var roguebonus = new Array(Attacks1.Weapons.Dagger)
+var rogueBonus = new Array(Attacks1.Weapons.Dagger)
