@@ -911,7 +911,7 @@ const chatNodes = [
         dicetype: d20,
         tobeat: 13,
         sucess: '//1.4.2//',
-        fails: '//1.4.3a//'
+        fail: '//1.4.3a//'
     },
     {
         id: '//1.4.2//',
