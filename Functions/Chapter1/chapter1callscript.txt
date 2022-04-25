@@ -424,7 +424,7 @@ GENERAL CHAT CALLS
 	They starts petting the small dog, it eventually rolls over on its back and gets comfy in her lap <br>
 	"Cloud. We'll call you 'Cloud'. Isn't it just perfect for this adorable puffball?" <br>
 	"Cloud, huh? That's the best you could think of?" You retort <br>
-	"Oh shut it. Don't listen to him DOGNAME, you'll be ours forever" <br>
+	"Oh shut it. Don't listen to him Cloud, you'll be ours forever" <br>
 	They look back at you once more, smiling with that adorable little dog.
 <br><br>
 //1.6.1a//

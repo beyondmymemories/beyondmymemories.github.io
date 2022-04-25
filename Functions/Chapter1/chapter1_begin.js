@@ -297,7 +297,7 @@ function combatChoice(monster){
     const button = document.createElement('button')
 
     //display the button text
-    button.innerText = "Pass"
+    button.innerText = "End Turn"
 
     //add it to the correct css
     button.classList.add('options')
@@ -707,6 +707,7 @@ const chatNodes = [
     //MERCHANT SHOP!
     {
         id: '//1.2.4//',
+        changeImage: "Functions/Art/Chapter1/OpenShop.png",
     },
     //1.3 ==> WARM AND BRIGHT TUNNEL
     {
@@ -790,6 +791,7 @@ const chatNodes = [
     },
     {
         id: '//1.3.1a//',
+        changeImage: "Functions/Art/Chapter1/CloseShop.png",
         options: [
             {
                 text: 'Talk to Merchant',
@@ -831,6 +833,7 @@ const chatNodes = [
     },
     {
         id: '//1.3.2//',
+        changeImage: "Functions/Art/Chapter1/smallerCave.png",
         rollnumber: 1,
         dicetype: d20,
         tobeat: 13,
@@ -845,6 +848,7 @@ const chatNodes = [
     },
     {
         id: '//1.3.3b//',
+        changeImage: "Functions/Art/Chapter1/smallerCave.png",
         combat: 'Hobgoblin',
         sucess: '//1.2.2//',
         fail: '//1.2.3//',
@@ -1379,6 +1383,9 @@ const chatNodes = [
     {
         id: '//1.6.0d//',
         combat: 'Minotaur',
+        sucess: '//1.6.1a//',
+        fail: '//1.2.3//'
+        /*
         options: [
             {
                 text: 'Success',
@@ -1389,6 +1396,7 @@ const chatNodes = [
                 NextChat: '//1.2.3//'
             }
         ]
+        */
     },
     {
         id: '//1.6.1a//',
