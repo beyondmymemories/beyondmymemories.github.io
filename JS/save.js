@@ -49,6 +49,8 @@ function globalSave() {
 	saveVar("playerName", playerName);
 	saveVar("dogName", dogName);
 	console.log("GLOBAL SAVE COMPLETED");
+
+
 }
 
 function globalLoad() {
@@ -67,28 +69,36 @@ function globalLoad() {
 */
 
 function createCheckpoint() {
-
+	//Chapter data
 	saveVar("checkpoint_chatNodeIndex", getLastChatNodeIndex());
-
-	saveVar("checkpoint_globalImg", getglobalImg())
-
+	saveVar("checkpoint_globalImg", getglobalImg());
 	saveJson("checkpoint_chapterVars", getChapter1Var() );
 
+	//Shop data
+	saveJson("checkpoint_shopItems", getShopItems());
+	saveJson("checkpoint_playerItems", getPlayerItems());
+
+	//global save
 	globalSave();
 	console.log("CHECKPOINT CREATED");
 }
 
 function loadCheckpoint() {
+	//global load
 	globalLoad();
+
+	//Chapter load
 	console.log(loadVar("checkpoint_chatNodeIndex"));
 	console.log(loadJson("checkpoint_chapterVars"));
 
+	//shop and inventory load
+	setPlayerItems(loadJson("checkpoint_playerItems"));
+	setShopItems(loadJson("checkpoint_playerItems"));
+
+	//background image load
 	console.log(loadVar("checkpoint_globalImg"))
-
 	setglobalImg(loadVar("checkpoint_globalImg"));
-
 	globalImg = loadVar("checkpoint_globalImg")
-
 	printChatNode(loadVar("checkpoint_chatNodeIndex"), loadJson("checkpoint_chapterVars"));
 
 	setChatper1Var(loadJson("checkpoint_chapterVars"));
