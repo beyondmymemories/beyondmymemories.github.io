@@ -2,10 +2,19 @@
 <html>
     <head>
     <title> Journal Test</title>
-    <link rel="stylesheet" href="../CSS/Journal.css">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../CSS/JournalContainer.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script type="text/javascript" src="../JS/designScripts.js"></script>
+
     </head>
+    
     <body> 
-    <button class="JournalClick" id="journalbutton" onlick="JournalOn()">Journal</button>
+    <div id="JournalOverlay">
+        <h2>Test</h2>
+        <img src="../Functions/Art/Chapter1/Journal.png">
+        <button onclick="overlayOff()">Exit</button>
+    </div>
+    <button onlick="JournalOn()">Journal</button>
     </body>
 </html>

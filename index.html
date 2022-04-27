@@ -9,7 +9,7 @@
 <link href="CSS/container4.css" rel="stylesheet" type="text/css">
 <link href="CSS/chatLog.css" rel="stylesheet" type="text/css">
 <link href="CSS/DiceStyleSheet.css" rel="stylesheet" type="text/css">
-<link href="CSS/Journal.css" rel="stylesheet" type="text/css">
+<link href="CSS/JournalStyle.css" rel="stylesheet" type="text/css">
 
 <!--Combat tings-->
 <script type="text/javascript" src="Functions/Combat/Chapter1/chapterOneAttacks.js"></script>
@@ -165,14 +165,14 @@
 <!--Creating div for the main hub page that will constantly change-->
 <div class="container3" id="container3" >
     <div class="fade-in-text">
+    <!--Summon Thy Journal-->
+    <button class="JournalClick" id="journalbutton" onlick="JournalOn()">Journal</button>
      <img src="Functions/Art/Chapter1/icon.png" class="CharacterIcon" id="charIcon">
-     <!--Summon Thy Journal-->
-        <button class="options" id="journalbutton" onlick="JournalOn()">Journal</button>
+
 		<div class="imagesettings">
 
-
             <img id="backgroundImage" src="Functions/Art/Chapter1/smallerCave.png" alt="begin">
-           
+
             <! –– The chatlog box. ––>
             <chatLogDisplay class="form">  
                 <p style="font-family: Papyrus;"id="chatLog"></p>
