@@ -3,9 +3,11 @@ var Monsters1 = {
         type: 'melee',
         weapon: Attacks1.Weapons.Shortsword,
         health: 12,
+        hitNode: '//Goblin Hit//',
+        missNode: '//Goblin Miss//',
         stats:{
-            str: 3,
-            dex: 1,
+            str: 1,
+            dex: 3,
             con: 1,
             int: -2,
             wis: -1,
@@ -16,6 +18,8 @@ var Monsters1 = {
         type: 'melee',
         weapon: Attacks1.Weapons.Maul,
         health: 30,
+        hitNode: '//Hobgoblin Hit//',
+        missNode: '//Hobgoblin Miss//',
         stats: {
             str: 4,
             dex: 1,
@@ -29,6 +33,8 @@ var Monsters1 = {
         type: 'melee',
         weapon: Attacks1.Weapons.Greataxe,
         health: 50,
+        hitNode: '//Minotaur Hit//',
+        missNode: '//Minotaur Miss//',
         stats: {
             str: 5,
             dex: 2,
