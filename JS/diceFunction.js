@@ -65,13 +65,4 @@ function overlayOff(){
     document.getElementById("diceOverlay").style.display="none";
 }
 
-function nextPage(){
-    document.getElementById("nextPage").style.display="block";
-    document.getElementById("diceOverlay").style.display="none";
-    
-}
-function JournalOff(){
-
-    document.getElementById("nextPage").style.display="none";
-}
 

@@ -7,23 +7,27 @@ Click nbfs://nbhost/SystemFileSystem/Templates/ClientSide/html.html to edit this
     <head>
         <title>Journal Test</title>
         <meta charset="UTF-8">
-        <link rel="stylesheet" href="../CSS/DiceStyleSheet.css">
+    
+        <link rel="stylesheet" href="../CSS/JournalContainer.css"
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <script type="text/javascript" src="../JS/diceFunction.js"></script>
+       
+        <script type="text/javascript" src="../JS/designScripts.js"></script>
     </head>
     <body>
-        <div id = "diceOverlay">
+        <div id = "JournalOverlay">
          <img src="../Functions/Art/Chapter1/Journal.png" height="550px" onclick="nextPage()">
          
         </div>
 
         <div id="nextPage">
-            <h1 id="CharacterHeader">Character</h1> 
+            <h1 id="CharacterHeader">Character Stats</h1> 
+            <P style="position: absolute; top: 90px; right:570px;">Player Gold:</P>
+            <p style="position: absolute; top: 120px; right:590px;">Inventory:</p>
             <img src="../Functions/Art/Chapter1/OpenJournal.png" height="550px">
             <button onclick="JournalOff()">Exit</button>
         </div>
         <div style = "padding: 20px"> 
-         <button onclick="overlayOn()">Journal</button>  
+         <button onclick="JournalOn()">Journal</button>  
         </div>
     </body>
 </html>

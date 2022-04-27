@@ -8,12 +8,21 @@ function statsOn(){
 function statsOff(){
     document.getElementById("statsOverlay").style.display="none";
 }
+function nextPage(){
+    document.getElementById("nextPage").style.display="block";
+    document.getElementById("diceOverlay").style.display="none";
+    
+}
 function JournalOn(){
+
     document.getElementById("JournalOverlay").style.display="block";
 }
 function JournalOff(){
+
+    document.getElementById("nextPage").style.display="none";
     document.getElementById("JournalOverlay").style.display="none";
 }
+
 
 //Write a Function that changes Icon based on chosen character
 
