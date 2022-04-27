@@ -92,8 +92,8 @@ GENERAL CHAT CALLS
 	In front of you, there are two different paths split by a sign. <br>
 	The sign states: <br>
 	_________________________________________ <br>
-	|	Ivan's Wandering Shop of Curio's!	| <br>
-	| 		--------------------->			| <br>
+	|   Ivan's Wandering Shop of Curio's!   | <br>
+	|       --------------------->          | <br>
 	|_______________________________________| <br>
 <br><br>
 //1.3.0//
@@ -113,8 +113,8 @@ GENERAL CHAT CALLS
 	You see an area where a merchant could set up shop, along with different objects <br>
 	There is a sign on the counter: <br>
 	_________________________________________ <br>
-	| 	Currently out, please come back		| <br>
-	|			   	later!					| <br>
+	|    Currently out, please come back    | <br>
+	|                later!                 | <br>
 	|_______________________________________| <br>
 	As such, you return to the path you came from and continue down this tunnel.
 <br><br>
@@ -385,10 +385,10 @@ GENERAL CHAT CALLS
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 //1.6.0a//
-	As you insert the key into the keyhole, the door opens, sliding over slowly. <br>
-	The tunnel in front of you is dark, with smooth stone rather than the material stone in the cave <br>
-	Gathering your wits, you head in. <br>
-	The monster of you, bigger than anything you ever remember facing, a MINOTAUR! <br>
+	As you insert the key into the keyhole, the door opens, sliding open slowly. <br>
+	The tunnel in front of you is dark, with a small light at the end <br>
+	Gathering your wits, you follow the light to the end of the tunnel before reaching a cavern. <br>
+	You come across a monster! A Minotaur! <br>
 //1.6.0a//
 
 //1.6.0b//

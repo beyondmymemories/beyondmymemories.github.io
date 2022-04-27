@@ -29,6 +29,7 @@
 
 var shopItems = new Object();
 
+// Holds the shop inventory.
 var shopItems = {
     item7: 1,
     item8: 1,
@@ -39,6 +40,7 @@ var shopItems = {
 
 var playerItems = new Object();
 
+// Holds the players items.
 var playerItems = {
     item1: 0,
     item2: 0,
@@ -56,6 +58,21 @@ var playerItems = {
     item14: 0
 };
 
+
+function showShop() {
+    buttonWait();
+    document.getElementById("container3").style.display = "none";
+    document.getElementById("container6").style.display = "inline-block";
+}
+
+function hideShop() {
+
+    document.getElementById("container3").style.display = "inline-block";
+    document.getElementById("container6").style.display = "none";
+
+    printChatNode('//1.2.0//', true);
+}
+
 //Get and set functions for playerItems and shopItems. Used for accessing variables outside script. (Save System)
 function getPlayerItems() {
     return playerItems;
@@ -72,25 +89,22 @@ function setShopItems(shopItemsIn) {
 }
 
 
-
-
-function titleDisplay() {
-    document.getElementById("shopTitle").innerHTML = "Ivan's Wandering Shop of Curio's!";
-}
-
-
+// Turns off the error display.
 function errorOff() {
     document.getElementById("error").style.display = "none";
 }
 
+// Turns on the error display.
 function errorOn() {
     document.getElementById("error").style.display = "block";
 }
 
+// Turns off the enter button.
 function buttonOff() {
     document.getElementById("enter").style.display = "none";
 }
 
+// This fucntion causes the shop buttons to appear once the user enters the store.
 function buttonOn() {
     document.getElementById("item1").style.display = "block";
     document.getElementById("item2").style.display = "block";
@@ -108,6 +122,7 @@ function buttonOn() {
     document.getElementById("item14").style.display = "block";
 }
 
+// This fucntion causes the shop buttons to wait for the user to enter the store.
 function buttonWait() {
     document.getElementById("item1").style.display = "none";
     document.getElementById("item2").style.display = "none";
@@ -125,6 +140,7 @@ function buttonWait() {
     document.getElementById("item14").style.display = "none";
 }
 
+// This function is used to buy items for the user. It also checks the stock of the store and the player inventory.
 function buy(product) {
 
     if (product === 'item1') {
@@ -134,8 +150,7 @@ function buy(product) {
             saveVar(playerGold, loadVar(playerGold) - 150);
             document.getElementById("counter").innerHTML = "Current Gold:" + loadVar(playerGold);
             playerItems.item1 = playerItems.item1 + 1;
-        } 
-        else {
+        } else {
             document.getElementById("error").innerHTML = "Not enough gold";
             errorOn();
         }
@@ -149,8 +164,7 @@ function buy(product) {
             saveVar(playerGold, loadVar(playerGold) - 1);
             document.getElementById("counter").innerHTML = "Current Gold:" + loadVar(playerGold);
             playerItems.item2 = playerItems.item2 + 1;
-        } 
-        else {
+        } else {
             document.getElementById("error").innerHTML = "Not enough gold";
             errorOn();
         }
@@ -164,8 +178,7 @@ function buy(product) {
             saveVar(playerGold, loadVar(playerGold) - 75);
             document.getElementById("counter").innerHTML = "Current Gold:" + loadVar(playerGold);
             playerItems.item3 = playerItems.item3 + 1;
-        } 
-        else {
+        } else {
             document.getElementById("error").innerHTML = "Not enough gold";
             errorOn();
         }
@@ -179,8 +192,7 @@ function buy(product) {
             saveVar(playerGold, loadVar(playerGold) - 35);
             document.getElementById("counter").innerHTML = "Current Gold:" + loadVar(playerGold);
             playerItems.item4 = playerItems.item4 + 1;
-        } 
-        else {
+        } else {
             document.getElementById("error").innerHTML = "Not enough gold";
             errorOn();
         }
@@ -194,8 +206,7 @@ function buy(product) {
             saveVar(playerGold, loadVar(playerGold) - 500);
             document.getElementById("counter").innerHTML = "Current Gold:" + loadVar(playerGold);
             playerItems.item5 = playerItems.item5 + 1;
-        } 
-        else {
+        } else {
             document.getElementById("error").innerHTML = "Not enough gold";
             errorOn();
         }
@@ -209,8 +220,7 @@ function buy(product) {
             saveVar(playerGold, loadVar(playerGold) - 650);
             document.getElementById("counter").innerHTML = "Current Gold:" + loadVar(playerGold);
             playerItems.item6 = playerItems.item6 + 1;
-        } 
-        else {
+        } else {
             document.getElementById("error").innerHTML = "Not enough gold";
             errorOn();
         }
@@ -218,7 +228,7 @@ function buy(product) {
     }
 
     if (product === 'item7') {
-       
+
         if (loadVar(playerGold) >= 650) {
             errorOff();
 
@@ -226,13 +236,11 @@ function buy(product) {
                 saveVar(playerGold, (loadVar(playerGold) - 650));
                 shopItems.item7 = shopItems.item7 - 1;
                 playerItems.item7 = playerItems.item7 + 1;
-            } 
-            else {
+            } else {
                 document.getElementById("error").innerHTML = "Out of stock";
                 errorOn();
             }
-        } 
-        else {
+        } else {
             document.getElementById("error").innerHTML = "Not enough gold";
             errorOn();
         }
@@ -240,7 +248,7 @@ function buy(product) {
     }
 
     if (product === 'item8') {
-       
+
         if (loadVar(playerGold) >= 450) {
             errorOff();
 
@@ -248,13 +256,11 @@ function buy(product) {
                 saveVar(playerGold, (loadVar(playerGold) - 450));
                 shopItems.item8 = shopItems.item8 - 1;
                 playerItems.item8 = playerItems.item8 + 1;
-            } 
-            else {
+            } else {
                 document.getElementById("error").innerHTML = "Out of stock";
                 errorOn();
             }
-        } 
-        else {
+        } else {
             document.getElementById("error").innerHTML = "Not enough gold";
             errorOn();
         }
@@ -268,8 +274,7 @@ function buy(product) {
             saveVar(playerGold, loadVar(playerGold) - 550);
             document.getElementById("counter").innerHTML = "Current Gold:" + loadVar(playerGold);
             playerItems.item9 = playerItems.item9 + 1;
-        } 
-        else {
+        } else {
             document.getElementById("error").innerHTML = "Not enough gold";
             errorOn();
         }
@@ -277,7 +282,7 @@ function buy(product) {
     }
 
     if (product === 'item10') {
-       
+
         if (loadVar(playerGold) >= 500) {
             errorOff();
 
@@ -285,13 +290,11 @@ function buy(product) {
                 saveVar(playerGold, (loadVar(playerGold) - 500));
                 shopItems.item10 = shopItems.item10 - 1;
                 playerItems.item10 = playerItems.item10 + 1;
-            } 
-            else {
+            } else {
                 document.getElementById("error").innerHTML = "Out of stock";
                 errorOn();
             }
-        } 
-        else {
+        } else {
             document.getElementById("error").innerHTML = "Not enough gold";
             errorOn();
         }
@@ -305,8 +308,7 @@ function buy(product) {
             saveVar(playerGold, loadVar(playerGold) - 550);
             document.getElementById("counter").innerHTML = "Current Gold:" + loadVar(playerGold);
             playerItems.item11 = playerItems.item11 + 1;
-        } 
-        else {
+        } else {
             document.getElementById("error").innerHTML = "Not enough gold";
             errorOn();
         }
@@ -321,13 +323,11 @@ function buy(product) {
                 saveVar(playerGold, (loadVar(playerGold) - 700));
                 shopItems.item12 = shopItems.item12 - 1;
                 playerItems.item12 = playerItems.item12 + 1;
-            } 
-            else {
+            } else {
                 document.getElementById("error").innerHTML = "Out of stock";
                 errorOn();
             }
-        } 
-        else {
+        } else {
             document.getElementById("error").innerHTML = "Not enough gold";
             errorOn();
         }
@@ -341,8 +341,7 @@ function buy(product) {
             saveVar(playerGold, loadVar(playerGold) - 100);
             document.getElementById("counter").innerHTML = "Current Gold:" + loadVar(playerGold);
             playerItems.item13 = playerItems.item13 + 1;
-        } 
-        else {
+        } else {
             document.getElementById("error").innerHTML = "Not enough gold";
             errorOn();
         }
@@ -356,8 +355,7 @@ function buy(product) {
             saveVar(playerGold, loadVar(playerGold) - 1);
             document.getElementById("counter").innerHTML = "Current Gold:" + loadVar(playerGold);
             playerItems.item14 = playerItems.item14 + 1;
-        } 
-        else {
+        } else {
             document.getElementById("error").innerHTML = "Not enough gold";
             errorOn();
         }
@@ -365,6 +363,7 @@ function buy(product) {
     }
 }
 
+//This function is used to display the amount of gold the user currently has.
 function goldAmount() {
     if (loadVar(playerGold) === null) {
         saveVar(playerGold, 1000);
