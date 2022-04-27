@@ -8,6 +8,7 @@
 <link href="CSS/container3.css" rel="stylesheet" type="text/css">
 <link href="CSS/container4.css" rel="stylesheet" type="text/css">
 <link href="CSS/container7.css" rel="stylesheet" type="text/css">
+<link href="CSS/shop.css" rel="stylesheet" type="text/css">
 <link href="CSS/chatLog.css" rel="stylesheet" type="text/css">
 <link href="CSS/DiceStyleSheet.css" rel="stylesheet" type="text/css">
 <link href="CSS/JournalStyle.css" rel="stylesheet" type="text/css">
@@ -58,6 +59,8 @@
 		</div>
 	
 		<button class="button button1" onclick="deleteGame()">Delete</button>
+                
+                <button class="button button1" onclick="showShop()">merchant</button>
 	</div>
 </div>
 
@@ -228,12 +231,34 @@
 </div>
 
 
+<!--Creating div for the merchant-->
+<div class="container6" id="container6" onload="buttonWait();">
 
+    
+     <button id="enter" onclick="goldAmount();buttonOff();buttonOn();">Enter</button>
 
+            <div id="shopTitle"> </div>
 
+            <div id="counter"> </div>
 
+            <div id="error"> </div>   
 
-
+            <button id="item1" onclick="buy('item1')">Health Potion $150</button>
+            <button id="item2" onclick="buy('item2')">Return Stone $1</button>
+            <button id="item3" onclick="buy('item3')">Night's rest $75</button>
+            <button id="item4" onclick="buy('item4')">Cat nap $35</button>
+            <button id="item5" onclick="buy('item5')">Greataxe $500</button>
+            <button id="item6" onclick="buy('item6')">Chainmail $650</button>
+            <button id="item7" onclick="buy('item7')">New spell (Mage armor) $650</button>
+            <button id="item8" onclick="buy('item8')">Ring of Fire (increase fire damage) $450</button>
+            <button id="item9" onclick="buy('item9')">Stronger dagger $550</button>
+            <button id="item10" onclick="buy('item10')">Boots of stealth (increase stealth) $500</button>
+            <button id="item11" onclick="buy('item11')">Greater Rapier (increase roll/damage) $500</button>
+            <button id="item12" onclick="buy('item12')">New Spell (Cure Wounds) $700</button>
+            <button id="item13" onclick="buy('item13')">Name dog change $100</button>
+            <button id="item14" onclick="buy('item14')">Doggy treats $1</button>
+      
+</div>
 
 
 <!--Please take our survey div container-->

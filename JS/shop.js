@@ -29,6 +29,7 @@
 
 var shopItems = new Object();
 
+// Holds the shop inventory.
 var shopItems = {
     item7: 1,
     item8: 1,
@@ -39,6 +40,7 @@ var shopItems = {
 
 var playerItems = new Object();
 
+// Holds the players items.
 var playerItems = {
     item1: 0,
     item2: 0,
@@ -56,6 +58,15 @@ var playerItems = {
     item14: 0
 };
 
+
+function showShop() {
+    buttonWait();
+    document.getElementById("container1").style.display = "none";
+    document.getElementById("container6").style.display = "inline-block";
+}
+
+
+
 //Get and set functions for playerItems and shopItems. Used for accessing variables outside script. (Save System)
 function getPlayerItems() {
     return playerItems;
@@ -72,25 +83,22 @@ function setShopItems(shopItemsIn) {
 }
 
 
-
-
-function titleDisplay() {
-    document.getElementById("shopTitle").innerHTML = "Ivan's Wandering Shop of Curio's!";
-}
-
-
+// Turns off the error display.
 function errorOff() {
     document.getElementById("error").style.display = "none";
 }
 
+// Turns on the error display.
 function errorOn() {
     document.getElementById("error").style.display = "block";
 }
 
+// Turns off the enter button.
 function buttonOff() {
     document.getElementById("enter").style.display = "none";
 }
 
+// This fucntion causes the shop buttons to appear once the user enters the store.
 function buttonOn() {
     document.getElementById("item1").style.display = "block";
     document.getElementById("item2").style.display = "block";
@@ -108,6 +116,7 @@ function buttonOn() {
     document.getElementById("item14").style.display = "block";
 }
 
+// This fucntion causes the shop buttons to wait for the user to enter the store.
 function buttonWait() {
     document.getElementById("item1").style.display = "none";
     document.getElementById("item2").style.display = "none";
@@ -125,6 +134,7 @@ function buttonWait() {
     document.getElementById("item14").style.display = "none";
 }
 
+// This function is used to buy items for the user. It also checks the stock of the store and the player inventory.
 function buy(product) {
 
     if (product === 'item1') {
@@ -365,6 +375,7 @@ function buy(product) {
     }
 }
 
+//This function is used to display the amount of gold the user currently has.
 function goldAmount() {
     if (loadVar(playerGold) === null) {
         saveVar(playerGold, 1000);
