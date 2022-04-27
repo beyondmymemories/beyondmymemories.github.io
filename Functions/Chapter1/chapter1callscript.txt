@@ -453,3 +453,33 @@ GENERAL CHAT CALLS
 		~~ Chapter 1 : Beginnings - COMPLETE ~~
 <br><br>
 //1.6.1d//
+
+//Goblin Hit//
+	The goblin is able to get past your armor, hitting you!
+<br><br>
+//Goblin Hit//
+
+//Goblin Miss//
+	The goblin's shortsword misses you barely.
+<br><br>
+//Goblin Miss//
+
+//Hobgoblin Hit//
+	The hobgoblin hits you with their maul!
+<br><br>
+//Hobgoblin Hit//
+
+//Hobgoblin Miss//
+	The hobgoblin's maul whooshes past you.
+<br><br>
+//Hobgoblin Miss//
+
+//Minotaur Hit//
+	The minotaur slices you with their greataxe!
+<br><br>
+//Minotaur Hit//
+
+//Minotaur Miss//
+	The minotaur swings past you, missing.
+<br><br>
+//Minotaur Miss//
