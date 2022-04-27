@@ -1,6 +1,8 @@
 var charStats1 = {
    Barbarian: {
       type: 'Character',
+      hitNode: '//Barbarian Hit//',
+      missNode: '//Barbarian Miss//',
       stats: {
          str: 4,
          dex: 0,
@@ -13,6 +15,8 @@ var charStats1 = {
    },
    Wizard: {
       type: 'Character',
+      hitNode: '//Wizard Hit//',
+      missNode: '//Wizard Miss//',
       stats: {
          str: -1,
          dex: 2,
@@ -26,6 +30,8 @@ var charStats1 = {
    },
    Bard: {
       type: 'Character',
+      hitNode: '//Bard Hit//',
+      missNode: '//Bard Miss//',
       stats: {
          str: 0,
          dex: 3,
@@ -38,6 +44,8 @@ var charStats1 = {
    },
    Rogue: {
       type: 'Character',
+      hitNode: '//Rogue Hit//',
+      missNode: '//Rogue Miss//',
       stats: {
          str: 1,
          dex: 4,
