@@ -2,12 +2,13 @@ div.container6{
     display:none;
 }
 
-body{
+div.container6{
     text-align: center;
     display: block;
-    width: auto;
+    width: 100%;
     height: 97.7vh;
-    background-image:url("../Functions/Art/Chapter1/OpenShopDemo.png");
+    display: none;
+    background-image:url("../Functions/Art/Chapter1/OpenShop.png");
 }
 
 #shopTitle{

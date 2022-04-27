@@ -61,11 +61,17 @@ var playerItems = {
 
 function showShop() {
     buttonWait();
-    document.getElementById("container1").style.display = "none";
+    document.getElementById("container3").style.display = "none";
     document.getElementById("container6").style.display = "inline-block";
 }
 
+function hideShop() {
 
+    document.getElementById("container3").style.display = "inline-block";
+    document.getElementById("container6").style.display = "none";
+
+    printChatNode('//1.2.0//', true);
+}
 
 //Get and set functions for playerItems and shopItems. Used for accessing variables outside script. (Save System)
 function getPlayerItems() {
