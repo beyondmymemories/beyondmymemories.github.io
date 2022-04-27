@@ -11,7 +11,8 @@ var charStats1 = {
          wis: 1,
          chr: 2
       },
-      maxhp: 50
+      maxhp: 50,
+      hp: 50
    },
    Wizard: {
       type: 'Character',
@@ -25,8 +26,8 @@ var charStats1 = {
          wis: 3,
          chr: 1
       },
-      maxhp: 30
-      
+      maxhp: 30,
+      hp: 30
    },
    Bard: {
       type: 'Character',
@@ -40,7 +41,8 @@ var charStats1 = {
          wis: 1,
          chr: 4
       },
-      maxhp: 30
+      maxhp: 30,
+      hp: 30
    },
    Rogue: {
       type: 'Character',
@@ -54,6 +56,7 @@ var charStats1 = {
          wis: 3,
          chr: 2
       },
-      maxhp: 25
+      maxhp: 25,
+      hp: 25
    }
 }
