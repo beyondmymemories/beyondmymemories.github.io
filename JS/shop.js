@@ -124,6 +124,8 @@ function buttonOn() {
 
 // This fucntion causes the shop buttons to wait for the user to enter the store.
 function buttonWait() {
+
+    document.getElementById("enter").style.display = "inline-block";
     document.getElementById("item1").style.display = "none";
     document.getElementById("item2").style.display = "none";
     document.getElementById("item3").style.display = "none";
