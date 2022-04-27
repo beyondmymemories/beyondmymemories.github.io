@@ -11,6 +11,7 @@
 <link href="CSS/shop.css" rel="stylesheet" type="text/css">
 <link href="CSS/chatLog.css" rel="stylesheet" type="text/css">
 <link href="CSS/DiceStyleSheet.css" rel="stylesheet" type="text/css">
+<link href="CSS/JournalStyle.css" rel="stylesheet" type="text/css">
 
 <!--Combat tings-->
 <script type="text/javascript" src="Functions/Combat/Chapter1/chapterOneAttacks.js"></script>
@@ -172,10 +173,12 @@
 <div class="container3" id="container3" >
     <div class="fade-in-text">
      <img src="Functions/Art/Chapter1/icon.png" class="CharacterIcon" id="charIcon">
+
      <img id="overlayedImage" alt="overlayImages" class="topimage">
 		<div class="imagesettings">
-            
+
             <img id="backgroundImage" src="Functions/Art/Chapter1/smallerCave.png" alt="begin">
+
             <! –– The chatlog box. ––>
             <chatLogDisplay class="form">  
                 <p style="font-family: Papyrus;"id="chatLog"></p>
@@ -187,6 +190,7 @@
 		        <button class="options" id="loadCheckpoint" onclick="loadCheckpoint()">Load checkpoint</button>
 	        </div>
 
+
             <!--Buttons for option clicking-->
 	        <div id="button-options" class="button-grid">
 		        <button class="options" id="1">Option 1</button>
@@ -195,7 +199,10 @@
 		        <button class="options" id="4">Option 4</button>
 	        </div>
         </div>
+        
     </div>
+
+ 
 
     <!--the dice fade it beauty-->
     <div id="diceOverlay">

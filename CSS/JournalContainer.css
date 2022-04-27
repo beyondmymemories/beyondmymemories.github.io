@@ -1,20 +1,3 @@
-*{
-    font-family: Helvetica, Arial, sans-serif;
-    text-align: center;
-}
-/*button{
-    background-color: rgb(82, 186, 179);
-    border-radius: 6px;
-    border: none;
-    color: rgb(255, 255, 255);
-    padding: 10px;
-    text-transform: uppercase;
-    width: 200px;
-    cursor: pointer;
-    display:block;
-}
-*/
-
 #placeholder{
     height: 100px;
     width: 100px;
@@ -24,7 +7,7 @@
     border-radius: 10px;  
     font-size:80px;
 }
-#diceOverlay{
+#JournalOverlay{
     position: fixed;
     display: none;
     width: 100%;
