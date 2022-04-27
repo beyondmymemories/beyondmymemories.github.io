@@ -454,6 +454,9 @@ GENERAL CHAT CALLS
 <br><br>
 //1.6.1d//
 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+COMBAT CALLS
+
 //Goblin Hit//
 	The goblin is able to get past your armor, hitting you!
 <br><br>
@@ -483,3 +486,44 @@ GENERAL CHAT CALLS
 	The minotaur swings past you, missing.
 <br><br>
 //Minotaur Miss//
+
+
+//Barbarian Hit//
+	You strike the enemy!
+<br><br>
+//Barbarian Hit//
+
+//Barbarian Miss//
+	You barely whiff the enemy!
+<br><br>
+//Barbarian Miss//
+
+//Wizard Hit//
+	You see the monster reel back in pain!
+<br><br>
+//Wizard Hit//
+
+//Wizard Miss//
+	You watch as the monster dodges your attack.
+<br><br>
+//Wizard Miss//
+
+//Bard Hit//
+	Success! The monster looks weaker!
+<br><br>
+//Bard Hit//
+
+//Bard Miss//
+	The monster barely dodges your attack.
+<br><br>
+//Bard Miss//
+
+//Rogue Hit//
+	You stab the monster!
+<br><br>
+//Rogue Hit//
+
+//Rogue Miss//
+	You stab the air! Good job!
+<br><br>
+//Rogue Miss//
