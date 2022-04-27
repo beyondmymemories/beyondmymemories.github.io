@@ -422,12 +422,15 @@ function printChatNode(chatNodeIndex, load_chapter1vars) {
             if (updateChatLog('../Functions/Chapter1/chapter1callscript.txt','//dashes//'));
         }
 
+   //IF WE GO TO THE MERCHANT SHOP
+   if (chatNode.shop == true) {
+        
+        //change container1 -> container3
+        showShop();
 
-
-
-
+   }
    //if we enter combat
-   if(chatNode.combat != null) {
+   else  if(chatNode.combat != null) {
 
         //display the correct buttons
         while (document.getElementById('button-options').firstChild) {
@@ -439,7 +442,6 @@ function printChatNode(chatNodeIndex, load_chapter1vars) {
         comFail = chatNode.fail
         combatFunc(chatNode.combat);
     }
-
     //did we die - restart from checkpoint
     else if (chatNode.restartCheckPoint) {
 
@@ -708,6 +710,7 @@ const chatNodes = [
     {
         id: '//1.2.4//',
         changeImage: "Functions/Art/Chapter1/OpenShop.png",
+        shop: true
     },
     //1.3 ==> WARM AND BRIGHT TUNNEL
     {

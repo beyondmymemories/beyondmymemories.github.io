@@ -59,8 +59,7 @@
 		</div>
 	
 		<button class="button button1" onclick="deleteGame()">Delete</button>
-                
-                <button class="button button1" onclick="showShop()">merchant</button>
+               
 	</div>
 </div>
 
@@ -179,10 +178,12 @@
 
             <img id="backgroundImage" src="Functions/Art/Chapter1/smallerCave.png" alt="begin">
 
-            <! –– The chatlog box. ––>
-            <chatLogDisplay class="form">  
-                <p style="font-family: Papyrus;"id="chatLog"></p>
-            </chatLogDisplay>
+            <div id="scroll-text">
+                <! –– The chatlog box. ––>
+                <chatLogDisplay class="form">  
+                    <p style="font-family: Papyrus;"id="chatLog"></p>
+                </chatLogDisplay>
+            </div>
 
             <!--buttons for setting checkpoint and loadiing checkpoint-->
             <div id="checkpoint-options" class="checkpoint-grid">
@@ -234,6 +235,11 @@
 <!--Creating div for the merchant-->
 <div class="container6" id="container6" onload="buttonWait();">
 
+    <img id="overlayedImage" alt="overlayImages" class="topimage">
+		<div class="imagesettings">
+
+            <img id="backgroundImage" src="Functions/Art/Chapter1/OpenShop.png" alt="begin">
+        </div>
     
      <button id="enter" onclick="goldAmount();buttonOff();buttonOn();">Enter</button>
 
@@ -258,6 +264,8 @@
             <button id="item13" onclick="buy('item13')">Name dog change $100</button>
             <button id="item14" onclick="buy('item14')">Doggy treats $1</button>
       
+            <button id="exitShop" onclick="hideShop()">Return to Cave</button>
+        
 </div>
 
 
