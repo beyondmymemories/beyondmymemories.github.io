@@ -8,7 +8,7 @@ textarea {
 chatLogDisplay {
 	position:absolute;
     height: 500px;
-    width: 350px;
+    width: 40%;
     overflow: scroll;
     float: left;
     position: relative;
@@ -18,7 +18,7 @@ chatLogDisplay {
     left: 30px;
 	z-index: 1;
     font-family: Papyrus;
-    font-size: medium;
+    font-size: large;
 }
 
 ::-webkit-scrollbar {
