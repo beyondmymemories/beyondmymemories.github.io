@@ -94,6 +94,7 @@ function recCombat(monster, turn){
         bonusAvailable = 1
         
         characterHP = characterHP - (diceRoll(monster.weapon.amount, monster.weapon.damage) + monster.stats.str)
+        updateChatLog('../Functions/Chapter1/chapter1callscript.txt', monster.hitNode)
         if(characterHP > 0)
             combatChoice(monster)
         else
