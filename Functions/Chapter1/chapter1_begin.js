@@ -75,6 +75,7 @@ function comResult(result){
 
 function action(monster, attack){
     monsterHP = monsterHP - (diceRoll(attack.amount, attack.damage) + character.stats.dex)
+    updateChatLog('../Functions/Chapter1/chapter1callscript.txt', character.hitNode)
     console.log(monsterHP);
     if(monsterHP > 0)
         combatChoice(monster)
