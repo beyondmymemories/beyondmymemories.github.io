@@ -323,7 +323,7 @@ function combatFunc(combatNum) {
         character = charStats1.Barbarian
     else
         character = charStats1.Rogue
-    characterHP = charStats1.hp
+    characterHP = character.hp
     
     //Decide which combat we'll be doing
     if(combatNum == 'Hobgoblin'){
