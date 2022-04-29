@@ -1,180 +1,208 @@
 <!doctype html>
 <html>
-<head>
-<!--The following script tag downloads a font from the Adobe Edge Web Fonts server for use within the web page. We recommend that you do not modify it.--><script>var __adobewebfontsappname__="dreamweaver"</script><script src="https://use.edgefonts.net/euphoria-script:n4:default.js" type="text/javascript"></script>
-<link href="CSS/index.css" rel="stylesheet" type="text/css">
-<link href="CSS/container1.css" rel="stylesheet" type="text/css">
-<link href="CSS/container2.css" rel="stylesheet" type="text/css">
-<link href="CSS/container3.css" rel="stylesheet" type="text/css">
-<link href="CSS/container4.css" rel="stylesheet" type="text/css">
-<link href="CSS/container7.css" rel="stylesheet" type="text/css">
-<link href="CSS/chatLog.css" rel="stylesheet" type="text/css">
-<link href="CSS/DiceStyleSheet.css" rel="stylesheet" type="text/css">
-<link href="CSS/JournalStyle.css" rel="stylesheet" type="text/css">
+    <head>
+        <!--The following script tag downloads a font from the Adobe Edge Web Fonts server for use within the web page. We recommend that you do not modify it.--><script>var __adobewebfontsappname__ = "dreamweaver"</script><script src="https://use.edgefonts.net/euphoria-script:n4:default.js" type="text/javascript"></script>
+        <link href="CSS/index.css" rel="stylesheet" type="text/css">
+        <link href="CSS/container1.css" rel="stylesheet" type="text/css">
+        <link href="CSS/container2.css" rel="stylesheet" type="text/css">
+        <link href="CSS/container3.css" rel="stylesheet" type="text/css">
+        <link href="CSS/container4.css" rel="stylesheet" type="text/css">
+        <link href="CSS/container7.css" rel="stylesheet" type="text/css">
+        <link href="CSS/shop.css" rel="stylesheet" type="text/css">
+        <link href="CSS/chatLog.css" rel="stylesheet" type="text/css">
+        <link href="CSS/DiceStyleSheet.css" rel="stylesheet" type="text/css">
+        <link href="CSS/JournalStyle.css" rel="stylesheet" type="text/css">
 
-<!--Combat tings-->
-<script type="text/javascript" src="Functions/Combat/Chapter1/chapterOneAttacks.js"></script>
-<script type="text/javascript" src="Functions/Combat/Chapter1/chapterOneMonsters.js"></script>
-<script type="text/javascript" src="Functions/Chapter1/chapter1Stats.js"></script>
-<script type="text/javascript" src="JS/diceFunction.js"></script>
+        <!--Combat tings-->
+        <script type="text/javascript" src="Functions/Combat/Chapter1/chapterOneAttacks.js"></script>
+        <script type="text/javascript" src="Functions/Combat/Chapter1/chapterOneMonsters.js"></script>
+        <script type="text/javascript" src="Functions/Chapter1/chapter1Stats.js"></script>
+        <script type="text/javascript" src="JS/diceFunction.js"></script>
 
-<!--JAva script Things!-->
-<script type="text/javascript" src="JS/shop.js"></script>
-<script type="text/javascript" src="JS/loadsurveypage.js"></script>
-<script type="text/javascript" src="JS/diceFunction.js"></script>
-<script type="text/javascript" src="JS/chatLog.js"></script>
-<script type="text/javascript" src="Functions/Chapter1/chapter1_begin.js"></script>
-<script type="text/javascript" src="JS/load_function.js"></script>
-<script type="text/javascript" src="JS/save.js"></script>
-<script type="text/javascript" src="JS/designScripts.js"></script>
-
-
-
+        <!--JAva script Things!-->
+        <script type="text/javascript" src="JS/shop.js"></script>
+        <script type="text/javascript" src="JS/loadsurveypage.js"></script>
+        <script type="text/javascript" src="JS/diceFunction.js"></script>
+        <script type="text/javascript" src="JS/chatLog.js"></script>
+        <script type="text/javascript" src="Functions/Chapter1/chapter1_begin.js"></script>
+        <script type="text/javascript" src="JS/load_function.js"></script>
+        <script type="text/javascript" src="JS/save.js"></script>
+        <script type="text/javascript" src="JS/designScripts.js"></script>
 
 
 
-<!--Chapter 1's links -->
 
 
 
-<title>Remember me</title>
-</head>
+        <!--Chapter 1's links -->
 
-<!--
-	This is the beginning page
-	ALL CSS is contained in container1.css
--->
-<body onload="init();">
 
-<div class="container1" id="container1">
-	<div class="fade-in-text">
-		<p class="startup"> 
-	  		Beyond My Memories
-		</p>
 
-		<button class="button button1" onclick="newGame()">Begin</button>
-		<div id="loadBtn" style="display: inline-block;">
-			<button class="button button1" onclick="loadGame()">Load</button>
-		</div>
-	
-		<button class="button button1" onclick="deleteGame()">Delete</button>
-	</div>
-</div>
+        <title>Remember me</title>
+    </head>
 
-<!--
-	This is the character selection container
-	ALL CSS is contained in the container2.css	
--->
-<div class="container2" id="container2"> 
-    <div class="fade-in-text">
-        <!–– The title of the page. ––>
-         <div class="title">
-            <p> Character Selection</p>
-        </div>
-    
-        <! –– This decides the button and art for the Wizard. ––>
-		<div class="characterbutton">
-            <div class="statcontainer">
-                <div class="characters">  
-                    <img src="Functions/Art/Chapter1/wizardChar.png" alt="temp" class="image">
-                        <div class ="statsOverlay">
-                            <div class="text">Wizard Stats:<br>
-                                str: -1<br>
-                                dex: 2<br>
-                                con: 0<br>
-                                int: 4<br>
-                                wis: 3<br>
-                                chr: 1<br>
-                            </div>
-                        </div>
-                </div>    
-            </div>
-            <div class="buttonChar">
-                <button class="button button1" value="Wizard" onclick="saveCharacter(this.value)">Wizard</button>
-            </div>
-        </div>
-    
-        <!–– This decides the button and art for the Barbarian. ––>
-        <div class="characterbutton">
-            <div class="statcontainer"> 
-                <div class="characters"> 
-                    <img src="Functions/Art/Chapter1/barbarianChar.png" alt="temp">
-                        <div class ="statsOverlay">
-                            <div class="text">Barbarian Stats:<br>
-                                str: 4<br>
-                                dex: 0<br>
-                                con: 3<br>
-                                int: -1<br>
-                                wis: 1<br>
-                                chr: 2<br>
-                            </div>
-                        </div>
+    <!--
+            This is the beginning page
+            ALL CSS is contained in container1.css
+    -->
+    <body onload="init();">
+
+        <div class="container1" id="container1">
+            <div class="fade-in-text">
+                <p class="startup"> 
+                    Beyond My Memories
+                </p>
+
+                <button class="button button1" onclick="newGame()">Begin</button>
+                <div id="loadBtn" style="display: inline-block;">
+                    <button class="button button1" onclick="loadGame()">Load</button>
                 </div>
-            </div>
-            <div class="buttonChar">
-                <button class="button button2" value="Barbarian" onclick="saveCharacter(this.value)">Barbarian</button>
+
+                <button class="button button1" onclick="deleteGame()">Delete</button>
+
             </div>
         </div>
-   
-        <!–– This decides the button and art for the Bard. ––>
-        <div class="characterbutton">
-            <div class="statcontainer"> 
-                <div class="characters"> 
-                    <img src="Functions/Art/Chapter1/bardChar.png" alt="temp">
-                        <div class ="statsOverlay">
-                            <div class="text">Bard Stats:<br>
-                                str: 0<br>
-                                dex: 3<br>
-                                con: 2<br>
-                                int: -1<br>
-                                wis: 1<br>
-                                chr: 4<br>                        
-                            </div>
-                        </div>
+
+        <!--
+                This is the character selection container
+                ALL CSS is contained in the container2.css	
+        -->
+        <div class="container2" id="container2"> 
+            <div class="fade-in-text">
+                <!–– The title of the page. ––>
+                <div class="title">
+                    <p> Character Selection</p>
                 </div>
-            </div>
-            <div class="buttonChar">
-                <button class="button button3" value="Bard" onclick="saveCharacter(this.value)">Bard</button>
-            </div>
-        </div>
-    
-        <!–– This decides the button and art for the Rouge. ––>
-        <div class="characterbutton">
-            <div class="statcontainer">
-                <div class="characters"> 
-                    <img src="Functions/Art/Chapter1/rogueChar.png" alt="temp">
-                    <div class ="statsOverlay">
-                            <div class="text">Rogue Stats:<br>
-                                str: 1<br>
-                                dex: 4<br>
-                                con: 0<br>
-                                int: -1<br>
-                                wis: 3<br>
-                                chr: 2<br>
+
+                <! –– This decides the button and art for the Wizard. ––>
+                <div class="characterbutton">
+                    <div class="statcontainer">
+                        <div class="characters">  
+                            <img src="Functions/Art/Chapter1/wizardChar.png" alt="temp" class="image">
+                            <div class ="statsOverlay">
+                                <div class="text">Wizard Stats:<br>
+                                    str: -1<br>
+                                    dex: 2<br>
+                                    con: 0<br>
+                                    int: 4<br>
+                                    wis: 3<br>
+                                    chr: 1<br>
+                                </div>
                             </div>
+                        </div>    
+                    </div>
+                    <div class="buttonChar">
+                        <button class="button button1" value="Wizard" onclick="saveCharacter(this.value)">Wizard</button>
                     </div>
                 </div>
-            </div>
-            <div class="buttonChar">
-                <button class="button button4" value="Rogue" onclick="saveCharacter(this.value)">Rogue</button>
+
+                <!–– This decides the button and art for the Barbarian. ––>
+                <div class="characterbutton">
+                    <div class="statcontainer"> 
+                        <div class="characters"> 
+                            <img src="Functions/Art/Chapter1/barbarianChar.png" alt="temp">
+                            <div class ="statsOverlay">
+                                <div class="text">Barbarian Stats:<br>
+                                    str: 4<br>
+                                    dex: 0<br>
+                                    con: 3<br>
+                                    int: -1<br>
+                                    wis: 1<br>
+                                    chr: 2<br>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="buttonChar">
+                        <button class="button button2" value="Barbarian" onclick="saveCharacter(this.value)">Barbarian</button>
+                    </div>
+                </div>
+
+                <!–– This decides the button and art for the Bard. ––>
+                <div class="characterbutton">
+                    <div class="statcontainer"> 
+                        <div class="characters"> 
+                            <img src="Functions/Art/Chapter1/bardChar.png" alt="temp">
+                            <div class ="statsOverlay">
+                                <div class="text">Bard Stats:<br>
+                                    str: 0<br>
+                                    dex: 3<br>
+                                    con: 2<br>
+                                    int: -1<br>
+                                    wis: 1<br>
+                                    chr: 4<br>                        
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="buttonChar">
+                        <button class="button button3" value="Bard" onclick="saveCharacter(this.value)">Bard</button>
+                    </div>
+                </div>
+
+                <!–– This decides the button and art for the Rouge. ––>
+                <div class="characterbutton">
+                    <div class="statcontainer">
+                        <div class="characters"> 
+                            <img src="Functions/Art/Chapter1/rogueChar.png" alt="temp">
+                            <div class ="statsOverlay">
+                                <div class="text">Rogue Stats:<br>
+                                    str: 1<br>
+                                    dex: 4<br>
+                                    con: 0<br>
+                                    int: -1<br>
+                                    wis: 3<br>
+                                    chr: 2<br>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="buttonChar">
+                        <button class="button button4" value="Rogue" onclick="saveCharacter(this.value)">Rogue</button>
+                    </div>
+                </div>
+
+
             </div>
         </div>
-		
-    	
-    </div>
-</div>
 
 
 
-<!--Creating div for the main hub page that will constantly change-->
-<div class="container3" id="container3" >
-    <div class="fade-in-text">
-     <img src="Functions/Art/Chapter1/icon.png" class="CharacterIcon" id="charIcon">
+        <!--Creating div for the main hub page that will constantly change-->
+        <div class="container3" id="container3" >
+            <div class="fade-in-text">
+                <img src="Functions/Art/Chapter1/icon.png" class="CharacterIcon" id="charIcon">
 
-     <img id="overlayedImage" alt="overlayImages" class="topimage">
-		<div class="imagesettings">
+                <img id="overlayedImage" alt="overlayImages" class="topimage">
+                <div class="imagesettings">
 
-            <img id="backgroundImage" src="Functions/Art/Chapter1/smallerCave.png" alt="begin">
+                    <img id="backgroundImage" src="Functions/Art/Chapter1/smallerCave.png" alt="begin">
+
+                    <div id="scroll-text">
+                        <! –– The chatlog box. ––>
+                        <chatLogDisplay class="form">  
+                            <p style="font-family: Papyrus;"id="chatLog"></p>
+                        </chatLogDisplay>
+                    </div>
+
+                    <!--buttons for setting checkpoint and loadiing checkpoint-->
+                    <div id="checkpoint-options" class="checkpoint-grid">
+                        <button class="options" id="setCheckpoint" onclick="createCheckpoint()">Set checkpoint</button>
+                        <button class="options" id="loadCheckpoint" onclick="loadCheckpoint()">Load checkpoint</button>
+                    </div>
+
+
+                    <!--Buttons for option clicking-->
+                    <div id="button-options" class="button-grid">
+                        <button class="options" id="1">Option 1</button>
+                        <button class="options" id="BUTTONTESTING">Option 2</button>
+                        <button class="options" id="3">Option 3</button>
+                        <button class="options" id="4">Option 4</button>
+                    </div>
+                </div>
+
+            </div>
+
 
 
             <! –– The chatlog box. ––>
@@ -182,21 +210,35 @@
                 <p style="font-family: Papyrus;"id="chatLog"></p>
             </chatLogDisplay>
 
-            <!--buttons for setting checkpoint and loadiing checkpoint-->
-            <div id="checkpoint-options" class="checkpoint-grid">
-		        <button class="options" id="setCheckpoint" onclick="createCheckpoint()">Set checkpoint</button>
-		        <button class="options" id="loadCheckpoint" onclick="loadCheckpoint()">Load checkpoint</button>
-	        </div>
 
 
-            <!--Buttons for option clicking-->
-	        <div id="button-options" class="button-grid">
-		        <button class="options" id="1">Option 1</button>
-		        <button class="options" id="BUTTONTESTING">Option 2</button>
-		        <button class="options" id="3">Option 3</button>
-		        <button class="options" id="4">Option 4</button>
-	        </div>
+            <!--the dice fade it beauty-->
+            <div id="diceOverlay">
+                <h2 style="margin: 50px 10px 50px 10px; color: white; font-family: Papyrus;"> Time for a roll</h2>
+                <input type ="image" id="Theyseemerollin" src="../Functions/Art/DiceRoller/DiceImagePlaceHolder.png" name="rollDice" width="auto" height="200px" alt="rollDice"/>
+                <p id="diceNum" style="font-size: 72px; font-family: Papyrus;"></p>
+                <button id="diceOff"onclick="overlayOff()">Exit</button>
+
+            </div>
         </div>
+
+
+
+        <!--Creating div for the combat hub page that will constantly change-->
+        <div class="container4" id="container4">
+            <div class="fade-in-text">
+
+                <img id="overlayedImage" alt="overlayImages" class="topimage">
+                <div class="imagesettings">
+
+                    <img id="backgroundImage" src="Functions/Art/Combat/combatArea.png" alt="begin">
+                    <! –– The chatlog box. ––>
+                    <chatLogDisplay class="form">  
+                        <p id="chatLog"></p>
+                    </chatLogDisplay>
+                </div>
+            </div>
+
         
     </div>
 
@@ -223,34 +265,64 @@
             <chatLogDisplay class="form">  
                 <p id="chatLog"></p>
             </chatLogDisplay>
+
         </div>
-    </div>
-</div>
 
 
+        <!--Creating div for the merchant-->
+        <div class="container6" id="container6" onload="buttonWait();">
+
+            <img id="overlayedImage" alt="overlayImages" class="topimage">
+            <div class="imagesettings">
+
+                <img id="backgroundImage" src="Functions/Art/Chapter1/OpenShop.png" alt="begin">
+            </div>
 
 
+            <div class="counter" id="counter"> </div>
+
+            <div class="error" id="error"> </div>   
+
+            <div id="door-options" class="door-grid">
+                <button class="doorOptions" id="enter" onclick="goldAmount();buttonOff();buttonOn();">Enter</button>
+                <button class="doorOptions" id="exitShop" onclick="hideShop()">Return to Cave</button>
+            </div>
 
 
+            <div id="shop-options" class="shop-grid">
+                <button class="shopOptions" id="item1" onclick="buy('item1')">Health Potion $150</button>
+                <button class="shopOptions" id="item2" onclick="buy('item2')">Return Stone $1</button>
+                <button class="shopOptions" id="item3" onclick="buy('item3')">Night's rest $75</button>
+                <button class="shopOptions" id="item4" onclick="buy('item4')">Cat nap $35</button>
+                <button class="shopOptions" id="item5" onclick="buy('item5')">Greataxe $500</button>
+                <button class="shopOptions" id="item6" onclick="buy('item6')">Chainmail $650</button>
+                <button class="shopOptions" id="item7" onclick="buy('item7')">New spell (Mage armor) $650</button>
+                <button class="shopOptions" id="item8" onclick="buy('item8')">Ring of Fire (increase fire damage) $450</button>
+                <button class="shopOptions" id="item9" onclick="buy('item9')">Stronger dagger $550</button>
+                <button class="shopOptions" id="item10" onclick="buy('item10')">Boots of stealth (increase stealth) $500</button>
+                <button class="shopOptions" id="item11" onclick="buy('item11')">Greater Rapier (increase roll/damage) $500</button>
+                <button class="shopOptions" id="item12" onclick="buy('item12')">New Spell (Cure Wounds) $700</button>
+                <button class="shopOptions" id="item13" onclick="buy('item13')">Name dog change $100</button>
+                <button class="shopOptions" id="item14" onclick="buy('item14')">Doggy treats $1</button>
+            </div>
+        </div>
 
 
+        <!--Please take our survey div container-->
+        <div class="container7" id="container7">
+            <div class="fade-in-text">
+                <p class="startup"> 
+                    Thank you for Playing!
+                </p>
+                <p id="description" class="textsurvey">
+                    Please give us your thoughts on the game by filling out the 5 minute survey below!    
+                </p>
 
+                <form action="https://forms.office.com/r/g5dQRXr4Ae" taget="_blank">
+                    <input class="input" type="submit" value="Survey"></input>
+                </form>
+            </div>
+        </div>
+    </body> 
 
-<!--Please take our survey div container-->
-<div class="container7" id="container7">
-	<div class="fade-in-text">
-		<p class="startup"> 
-	  		Thank you for Playing!
-		</p>
-        <p id="description" class="textsurvey">
-            Please give us your thoughts on the game by filling out the 5 minute survey below!    
-        </p>
-
-        <form action="https://forms.office.com/r/g5dQRXr4Ae" taget="_blank">
-            <input class="input" type="submit" value="Survey"></input>
-        </form>
-	</div>
-</div>
-</body> 
-	
 </html> 

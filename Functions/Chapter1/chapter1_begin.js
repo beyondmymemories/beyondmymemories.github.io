@@ -60,6 +60,10 @@ var comSucc
 var comFail
 
 function comResult(result){
+
+    //document.getElementById("container4").style.display = "none";
+    //document.getElementById("container3").style.display = "inline-block";
+
     if (result == "Success0"){
         //check this: !currentVars.lootAdventurer
         printChatNode(comSucc);
@@ -422,12 +426,21 @@ function printChatNode(chatNodeIndex, load_chapter1vars) {
             if (updateChatLog('../Functions/Chapter1/chapter1callscript.txt','//dashes//'));
         }
 
+   //IF WE GO TO THE MERCHANT SHOP
+   if (chatNode.shop == true) {
 
+       //Save the state
+       savechapter1(chatNodeIndex);
+        
+        //change container1 -> container3
+        showShop();
 
-
-
+   }
    //if we enter combat
-   if(chatNode.combat != null) {
+   else  if(chatNode.combat != null) {
+
+    //document.getElementById("container3").style.display = "none";
+    //document.getElementById("container4").style.display = "inline-block";
 
         //display the correct buttons
         while (document.getElementById('button-options').firstChild) {
@@ -439,7 +452,6 @@ function printChatNode(chatNodeIndex, load_chapter1vars) {
         comFail = chatNode.fail
         combatFunc(chatNode.combat);
     }
-
     //did we die - restart from checkpoint
     else if (chatNode.restartCheckPoint) {
 
@@ -708,6 +720,7 @@ const chatNodes = [
     {
         id: '//1.2.4//',
         changeImage: "Functions/Art/Chapter1/OpenShop.png",
+        shop: true
     },
     //1.3 ==> WARM AND BRIGHT TUNNEL
     {
@@ -845,13 +858,17 @@ const chatNodes = [
         combat: 'Hobgoblin',
         sucess: "//1.3.5//",
         fail: "//1.2.3//",
+        changeImage: "Functions/Art/Combat/combatArea.png",
+        changeOverlayImage: "Functions/Art/Combat/hobgoblin.png"
     },
     {
         id: '//1.3.3b//',
-        changeImage: "Functions/Art/Chapter1/smallerCave.png",
+        //changeImage: "Functions/Art/Chapter1/smallerCave.png",
         combat: 'Hobgoblin',
         sucess: '//1.2.2//',
         fail: '//1.2.3//',
+        changeImage: "Functions/Art/Combat/combatArea.png",
+        changeOverlayImage: "Functions/Art/Combat/hobgoblin.png"
     },
     {
         id: '//1.3.3c//',
@@ -871,6 +888,8 @@ const chatNodes = [
         combat: 'Hobgoblin',
         sucess: "//1.3.5//",
         fail: "//1.2.3//",
+        changeImage: "Functions/Art/Combat/combatArea.png",
+        changeOverlayImage: "Functions/Art/Combat/hobgoblin.png"
     },
     {
         id: '//1.3.5//',
@@ -921,7 +940,8 @@ const chatNodes = [
         id: '//1.4.2//',
         combat: 'Goblin',
         sucess: '//1.4.5//',
-        fail: '//1.2.3//'
+        fail: '//1.2.3//',
+        changeOverlayImage: "Functions/Art/Combat/goblin.png"
 
     },
     {
@@ -938,7 +958,9 @@ const chatNodes = [
         combat: 'Goblin',
         sucess0: '//1.4.5//',
         sucess: '//1.4.5//',
-        fail: '//1.2.3//'
+        fail: '//1.2.3//',
+        changeImage: "Functions/Art/Combat/combatArea.png",
+        changeOverlayImage: "Functions/Art/Combat/goblin.png"
     },
     {
         id: '//1.4.5//',
@@ -1384,7 +1406,9 @@ const chatNodes = [
         id: '//1.6.0d//',
         combat: 'Minotaur',
         sucess: '//1.6.1a//',
-        fail: '//1.2.3//'
+        fail: '//1.2.3//',
+        changeImage: "Functions/Art/Combat/combatArea.png",
+        changeOverlayImage: "Functions/Art/Combat/minotaur.png"
         /*
         options: [
             {
