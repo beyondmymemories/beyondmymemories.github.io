@@ -1,20 +1,33 @@
 <!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/ClientSide/html.html to edit this template
+-->
 <html>
     <head>
-    <title> Journal Test</title>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="../CSS/JournalContainer.css">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script type="text/javascript" src="../JS/designScripts.js"></script>
-
-    </head>
+        <title>Journal Test</title>
+        <meta charset="UTF-8">
     
-    <body> 
-    <div id="JournalOverlay">
-        <h2>Test</h2>
-        <img src="../Functions/Art/Chapter1/Journal.png">
-        <button onclick="overlayOff()">Exit</button>
-    </div>
-    <button onlick="JournalOn()">Journal</button>
+        <link rel="stylesheet" href="../CSS/JournalContainer.css"
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+       
+        <script type="text/javascript" src="../JS/designScripts.js"></script>
+    </head>
+    <body>
+        <div id = "JournalOverlay">
+         <img src="../Functions/Art/Chapter1/Journal.png" height="550px" onclick="nextPage()">
+         
+        </div>
+
+        <div id="nextPage">
+            <h1 id="CharacterHeader">Character Stats</h1> 
+            <P style="position: absolute; top: 90px; right:570px;">Player Gold:</P>
+            <p style="position: absolute; top: 120px; right:590px;">Inventory:</p>
+            <img src="../Functions/Art/Chapter1/OpenJournal.png" height="550px">
+            <button onclick="JournalOff()">Exit</button>
+        </div>
+        <div style = "padding: 20px"> 
+         <button onclick="JournalOn()">Journal</button>  
+        </div>
     </body>
 </html>

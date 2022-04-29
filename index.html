@@ -205,6 +205,13 @@
 
 
 
+            <! –– The chatlog box. ––>
+            <chatLogDisplay class="form">  
+                <p style="font-family: Papyrus;"id="chatLog"></p>
+            </chatLogDisplay>
+
+
+
             <!--the dice fade it beauty-->
             <div id="diceOverlay">
                 <h2 style="margin: 50px 10px 50px 10px; color: white; font-family: Papyrus;"> Time for a roll</h2>
@@ -214,6 +221,7 @@
 
             </div>
         </div>
+
 
 
         <!--Creating div for the combat hub page that will constantly change-->
@@ -230,6 +238,34 @@
                     </chatLogDisplay>
                 </div>
             </div>
+
+        
+    </div>
+
+ 
+
+    <!--the dice fade it beauty-->
+    <div id="diceOverlay">
+         <h2 style="margin: 50px 10px 50px 10px; color: white; font-family: Papyrus;"> Time for a roll</h2>
+         <input type ="image" id="Theyseemerollin" src="../Functions/Art/DiceRoller/DiceImagePlaceHolder.png" name="rollDice" width="auto" height="200px" alt="rollDice"/>
+         <p id="diceNum" style="font-size: 72px; font-family: Papyrus;"></p>
+         <button id="diceOff"onclick="overlayOff()">Exit</button>
+          
+    </div>
+</div>
+
+<!--Creating div for the combat hub page that will constantly change-->
+<div class="container4" id="container4">
+    <div class="fade-in-text">
+	  
+		<div class="imagesettings">
+            
+            <img src="Functions/Art/Chapter1/smallerCave.png" alt="begin">
+            <! –– The chatlog box. ––>
+            <chatLogDisplay class="form">  
+                <p id="chatLog"></p>
+            </chatLogDisplay>
+
         </div>
 
 
