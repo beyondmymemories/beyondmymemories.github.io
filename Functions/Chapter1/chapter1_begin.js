@@ -722,6 +722,7 @@ const chatNodes = [
     {
         id: '//1.2.4//',
         changeImage: "Functions/Art/Chapter1/OpenShop.png",
+        changeOverlayImage: "Functions/Art/merchant.png",
         shop: true
     },
     //1.3 ==> WARM AND BRIGHT TUNNEL
