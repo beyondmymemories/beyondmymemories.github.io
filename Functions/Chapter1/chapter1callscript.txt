@@ -527,3 +527,18 @@ COMBAT CALLS
 	You stab the air! Good job!
 <br><br>
 //Rogue Miss//
+
+//Healing//
+	You heal yourself. Wow, that's good stuff!
+<br><br>
+//Healing//
+
+//Enemy First//
+	The enemy is faster than you, going first!
+<br><br>
+//Enemy First//
+
+//Player First//
+	You outspeed your opponent, going first!
+<br><br>
+//Player First//

@@ -40,14 +40,6 @@ var Attacks1 = {
             buy: 20,
             sell: 2
         },
-        Shortbow: {
-            name: 'Shortbow',
-            type: 'light',
-            damage: 6,
-            amount: 1,
-            buy: 20,
-            sell: 2
-        },
         Rapier: {
             name: 'Rapier',
             type: 'finesse',
