@@ -1,12 +1,3 @@
-#placeholder{
-    height: 100px;
-    width: 100px;
-    padding: 50px;
-    margin: 50px auto;
-    border: 1px solid gray;
-    border-radius: 10px;  
-    font-size:80px;
-}
 #JournalOverlay{
     position: fixed;
     display: none;
@@ -19,4 +10,36 @@
     background-color: rgba(0,0,0,0.5);
     z-index: 2;
     cursor: pointer;
+}
+#nextPage{
+    position: fixed;
+    display: none;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 2;
+    cursor: pointer;
+}
+#CharacterHeader{
+    position: absolute;
+    right:430px;
+    top:40px;
+
+}
+*{
+    font-family: Helvetica, Arial, sans-serif;
+    text-align: center;
+}
+#placeholder{
+    height: 100px;
+    width: 100px;
+    padding: 50px;
+    margin: 50px auto;
+    border: 1px solid gray;
+    border-radius: 10px;  
+    font-size:80px;
 }

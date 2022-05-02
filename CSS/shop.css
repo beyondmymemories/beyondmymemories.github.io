@@ -106,3 +106,14 @@ div.counter {
     left:43%;
     top: 20%;
 }
+
+.merchantimage {
+    margin-top: +20;
+    height: 80%;
+    width: px;
+    z-index: 0;
+    position: absolute;
+    top: auto;
+    left: 40%;
+    display: inline-block;
+}

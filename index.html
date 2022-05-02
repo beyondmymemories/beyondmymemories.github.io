@@ -11,7 +11,6 @@
         <link href="CSS/shop.css" rel="stylesheet" type="text/css">
         <link href="CSS/chatLog.css" rel="stylesheet" type="text/css">
         <link href="CSS/DiceStyleSheet.css" rel="stylesheet" type="text/css">
-        <link href="CSS/JournalStyle.css" rel="stylesheet" type="text/css">
 
         <!--Combat tings-->
         <script type="text/javascript" src="Functions/Combat/Chapter1/chapterOneAttacks.js"></script>
@@ -216,26 +215,32 @@
         </div>
 
 
+
         <!--Creating div for the combat hub page that will constantly change-->
         <div class="container4" id="container4">
             <div class="fade-in-text">
 
+                <img id="overlayedImage" alt="overlayImages" class="topimage">
                 <div class="imagesettings">
 
-                    <img src="Functions/Art/Chapter1/smallerCave.png" alt="begin">
+                    <img id="backgroundImage" src="Functions/Art/Combat/combatArea.png" alt="begin">
                     <! –– The chatlog box. ––>
                     <chatLogDisplay class="form">  
                         <p id="chatLog"></p>
                     </chatLogDisplay>
                 </div>
             </div>
-        </div>
+
+        
+    </div>
+
+ 
 
 
         <!--Creating div for the merchant-->
         <div class="container6" id="container6" onload="buttonWait();">
 
-            <img id="overlayedImage" alt="overlayImages" class="topimage">
+            <img src="Functions/Art/merchant.png" id="overlayedImage" alt="overlayImages" class="merchantimage">
             <div class="imagesettings">
 
                 <img id="backgroundImage" src="Functions/Art/Chapter1/OpenShop.png" alt="begin">
@@ -245,7 +250,6 @@
             <div class="counter" id="counter"> </div>
 
             <div class="error" id="error"> </div>   
-
 
             <div id="door-options" class="door-grid">
                 <button class="doorOptions" id="enter" onclick="goldAmount();buttonOff();buttonOn();">Enter</button>

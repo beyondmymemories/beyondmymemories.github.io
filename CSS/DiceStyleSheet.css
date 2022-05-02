@@ -15,7 +15,7 @@
 }
 */
 
-#placeholder{
+#Jplaceholder{
     height: 100px;
     width: 100px;
     padding: 50px;
@@ -37,3 +37,4 @@
     z-index: 2;
     cursor: pointer;
 }
+
