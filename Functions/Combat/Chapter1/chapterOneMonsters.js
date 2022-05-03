@@ -19,7 +19,7 @@ var Monsters1 = {
         type: 'melee',
         weapon: Attacks1.Weapons.Maul,
         health: 24,
-        ac: 18,
+        ac: 15,
         hitNode: '//Hobgoblin Hit//',
         missNode: '//Hobgoblin Miss//',
         stats: {
