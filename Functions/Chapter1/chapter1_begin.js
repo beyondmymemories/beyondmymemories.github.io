@@ -511,6 +511,9 @@ function printChatNode(chatNodeIndex, load_chapter1vars) {
             if (updateChatLog('../Functions/Chapter1/chapter1callscript.txt','//dashes//'));
         }
 
+    //UPDATE HEALTH
+    document.getElementById("displayHealth").innerText =  charCurrHP +  " / " + charMaxHP;
+
    //IF WE GO TO THE MERCHANT SHOP
    if (chatNode.shop == true) {
 
