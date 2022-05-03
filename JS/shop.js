@@ -64,7 +64,8 @@ function showShop() {
 
 // Hides the shop.
 function hideShop() {
-    errorOff()
+    errorOff();
+    goldOff();
     document.getElementById("container3").style.display = "inline-block";
     document.getElementById("container6").style.display = "none";
 
@@ -90,6 +91,16 @@ function setShopItems(shopItemsIn) {
 // Turns off the error display.
 function errorOff() {
     document.getElementById("error").style.display = "none";
+}
+
+// Turns off the gold display.
+function goldOff() {
+    document.getElementById("counter").style.display = "none";
+}
+
+// Turns on the gold display.
+function goldOn() {
+    document.getElementById("counter").style.display = "block";
 }
 
 // Turns on the error display.
