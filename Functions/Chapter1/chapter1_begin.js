@@ -157,6 +157,7 @@ function action(monster, attack){
         }
     }
     console.log(monsterHP);
+    document.getElementById("displayHealth").innerText =  charCurrHP +  " / " + charMaxHP;
     if(monsterHP > 0)
         combatChoice(monster)
     else
