@@ -453,3 +453,92 @@ GENERAL CHAT CALLS
 		~~ Chapter 1 : Beginnings - COMPLETE ~~
 <br><br>
 //1.6.1d//
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+COMBAT CALLS
+
+//Goblin Hit//
+	The goblin is able to get past your armor, hitting you!
+<br><br>
+//Goblin Hit//
+
+//Goblin Miss//
+	The goblin's shortsword misses you barely.
+<br><br>
+//Goblin Miss//
+
+//Hobgoblin Hit//
+	The hobgoblin hits you with their maul!
+<br><br>
+//Hobgoblin Hit//
+
+//Hobgoblin Miss//
+	The hobgoblin's maul whooshes past you.
+<br><br>
+//Hobgoblin Miss//
+
+//Minotaur Hit//
+	The minotaur slices you with their greataxe!
+<br><br>
+//Minotaur Hit//
+
+//Minotaur Miss//
+	The minotaur swings past you, missing.
+<br><br>
+//Minotaur Miss//
+
+
+//Barbarian Hit//
+	You strike the enemy!
+<br><br>
+//Barbarian Hit//
+
+//Barbarian Miss//
+	You barely whiff the enemy!
+<br><br>
+//Barbarian Miss//
+
+//Wizard Hit//
+	You see the monster reel back in pain!
+<br><br>
+//Wizard Hit//
+
+//Wizard Miss//
+	You watch as the monster dodges your attack.
+<br><br>
+//Wizard Miss//
+
+//Bard Hit//
+	Success! The monster looks weaker!
+<br><br>
+//Bard Hit//
+
+//Bard Miss//
+	The monster barely dodges your attack.
+<br><br>
+//Bard Miss//
+
+//Rogue Hit//
+	You stab the monster!
+<br><br>
+//Rogue Hit//
+
+//Rogue Miss//
+	You stab the air! Good job!
+<br><br>
+//Rogue Miss//
+
+//Healing//
+	You heal yourself. Wow, that's good stuff!
+<br><br>
+//Healing//
+
+//Enemy First//
+	The enemy is faster than you, going first!
+<br><br>
+//Enemy First//
+
+//Player First//
+	You outspeed your opponent, going first!
+<br><br>
+//Player First//

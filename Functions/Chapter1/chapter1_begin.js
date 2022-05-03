@@ -55,7 +55,6 @@ var bonusAvailable = 1
 var monsterHP = 0
 var characterChoice = ""
 var character = "empty"
-var characterHP = 0
 var comSucc
 var comFail
 
@@ -78,7 +77,67 @@ function comResult(result){
 }
 
 function action(monster, attack){
-    monsterHP = monsterHP - (diceRoll(attack.amount, attack.damage) + character.stats.dex)
+    var type = attack.type
+    if(type == 'heavy' || type == 'finesse'){
+        if(type == 'heavy'){
+            var tobeat = diceRoll(1,20) + character.stats.str + 3
+            if(tobeat >= monster.ac){
+                monsterHP = monsterHP - (diceRoll(attack.amount, attack.damage) + character.stats.str)
+                updateChatLog('../Functions/Chapter1/chapter1callscript.txt', character.hitNode)
+            }
+            else
+                updateChatLog('../Functions/Chapter1/chapter1callscript.txt', character.missNode)
+        }
+        else if(type == 'finesse'){
+            if(character.stats.str > character.stats.dex){
+                var tobeat = diceRoll(1,20) + character.stats.str + 3
+                if(tobeat >= monster.ac){
+                    monsterHP = monsterHP - (diceRoll(attack.amount, attack.damage) + character.stats.str)
+                    updateChatLog('../Functions/Chapter1/chapter1callscript.txt', character.hitNode)
+                }
+                else
+                    updateChatLog('../Functions/Chapter1/chapter1callscript.txt', character.missNode)
+            }
+            else{
+                var tobeat = diceRoll(1,20) + character.stats.dex + 3
+                if(tobeat >= monster.ac){
+                    monsterHP = monsterHP - (diceRoll(attack.amount, attack.damage) + character.stats.dex)
+                    updateChatLog('../Functions/Chapter1/chapter1callscript.txt', character.hitNode)
+                }
+                else
+                    updateChatLog('../Functions/Chapter1/chapter1callscript.txt', character.missNode)
+            }
+        }
+    }
+    else{
+        if(type == 'heal'){
+            character.hp = character.hp + diceRoll(attack.amount, attack.heal) + character.stats.chr
+            updateChatLog('../Functions/Chapter1/chapter1callscript.txt', '//Healing//')
+        }
+        else{
+            if(type == 'fire'){
+                var tobeat = diceRoll(1,20) + monster.stats.dex
+                if(tobeat >= (11+character.stats.int)){
+                    monsterHP = monsterHP - ((diceRoll(attack.amount, attack.damage))/2)
+                    updateChatLog('../Functions/Chapter1/chapter1callscript.txt', character.hitNode)
+                }
+                else{
+                    monsterHP = monsterHP - (diceRoll(attack.amount, attack.damage))
+                    updateChatLog('../Functions/Chapter1/chapter1callscript.txt', character.hitNode)
+                }
+            }
+            else{
+                var tobeat = diceRoll(1,20) + monster.stats.wis
+                if(tobeat >= (11+character.stats.chr)){
+                    updateChatLog('../Functions/Chapter1/chapter1callscript.txt', character.missNode)
+                }
+                else{
+                    monsterHP = monsterHP - (diceRoll(attack.amount, attack.damage))
+                    updateChatLog('../Functions/Chapter1/chapter1callscript.txt', character.hitNode)
+                }
+            }
+        }
+    }
     console.log(monsterHP);
     if(monsterHP > 0)
         combatChoice(monster)
@@ -93,12 +152,20 @@ function recCombat(monster, turn){
     }
 
     if(turn == "enemy" || turn == "pass"){
-        console.log(characterHP);
+        console.log(character.hp);
         attackAvailable = 1
         bonusAvailable = 1
-        
-        characterHP = characterHP - (diceRoll(monster.weapon.amount, monster.weapon.damage) + monster.stats.str)
-        if(characterHP > 0)
+        if(monster.stats.dex > monster.stats.str)
+            var sub = monster.stats.dex
+        else
+            var sub = monster.stats.str
+        if((diceRoll(1, 20)+sub+3) >= character.ac){
+            character.hp = character.hp - (diceRoll(monster.weapon.amount, monster.weapon.damage) + monster.stats.str)
+            updateChatLog('../Functions/Chapter1/chapter1callscript.txt', monster.hitNode)
+        }
+        else
+            updateChatLog('../Functions/Chapter1/chapter1callscript.txt', monster.missNode)
+        if(character.hp > 0)
             combatChoice(monster)
         else
             comResult("Fail")
@@ -325,7 +392,6 @@ function combatFunc(combatNum) {
         character = charStats1.Barbarian
     else
         character = charStats1.Rogue
-    characterHP = 100
     
     //Decide which combat we'll be doing
     if(combatNum == 'Hobgoblin'){
@@ -348,6 +414,7 @@ function combatFunc(combatNum) {
     //if the monster goes first
     if(monsterRoll > playerRoll) {
         console.log("Monster First");
+        updateChatLog('../Functions/Chapter1/chapter1callscript.txt', '//Enemy First//')
         recCombat(monster, "enemy")
     }
     
@@ -355,6 +422,7 @@ function combatFunc(combatNum) {
         console.log("Player First");
         attackAvailable = 1
         bonusAvailable = 1
+        updateChatLog('../Functions/Chapter1/chapter1callscript.txt', '//Player First//')
         combatChoice(monster)
     }
 }
