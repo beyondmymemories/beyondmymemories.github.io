@@ -182,8 +182,10 @@ function recCombat(monster, turn){
         }
         else
             updateChatLog('../Functions/Chapter1/chapter1callscript.txt', monster.missNode)
-            console.log("Character HP: " + charCurrHP);
-            if(charCurrHP > 0)
+        console.log("Character HP: " + charCurrHP);
+        //UPDATE HEALTH
+        document.getElementById("displayHealth").innerText =  charCurrHP +  " / " + charMaxHP;
+        if(charCurrHP > 0)
             combatChoice(monster)
         else
             comResult("Fail")
