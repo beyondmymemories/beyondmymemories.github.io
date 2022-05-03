@@ -2,11 +2,11 @@
 
 
 .fade-in-text {
-    font-size: 70px; 
-    color: black; 
-    animation: fadeIn linear 4s; 
+    font-size: 70px;
+    color: black;
+    animation: fadeIn linear 4s;
     -webkit-animation: fadeIn linear 4s;
-    -moz-animation: fadeIn linear 4s; 
+    -moz-animation: fadeIn linear 4s;
     -ms-animation: fadeIn linear 4s;
 }
 
@@ -14,9 +14,9 @@
 div.container7 {
     text-align: center;
     display: none;
-	width: 97.7vw;
-	height: 97.7vh;
-	background-image:url("../Functions/Art/Chapter1/beginCave.png");
+    width: 97.7vw;
+    height: 97.7vh;
+    background-image:url("../Functions/Art/Chapter1/beginCave.png");
 }
 
 .startup {
@@ -40,41 +40,63 @@ div.container7 {
     display: none;
 }
 
-.button1, .button2, .button3, .button4 {border-radius: 8px}
+.button1, .button2, .button3, .button4 {
+    border-radius: 8px
+}
 
 @keyframes fadeIn {
-    0% {opacity:0;}
-    100% {opacity:1;}
+    0% {
+        opacity:0;
+    }
+    100% {
+        opacity:1;
+    }
 }
 
 @-moz-keyframes fadeIn {
-    0% {opacity:0;}
-    100% {opacity:1;}
+    0% {
+        opacity:0;
+    }
+    100% {
+        opacity:1;
+    }
 }
 
 @-webkit-keyframes fadeIn {
-    0% {opacity:0;}
-    100% {opacity:1;}
+    0% {
+        opacity:0;
+    }
+    100% {
+        opacity:1;
+    }
 }
 
 @-o-keyframes fadeIn {
-    0% {opacity:0;}
-    100% {opacity:1;}
+    0% {
+        opacity:0;
+    }
+    100% {
+        opacity:1;
+    }
 }
 
 @-ms-keyframes fadeIn {
 
-    0% {opacity:0;}
-    100% {opacity:1;}
+    0% {
+        opacity:0;
+    }
+    100% {
+        opacity:1;
+    }
 }
 
 .input:hover{
     color: white;
-    background-color:#2f3352 
+    background-color:#2f3352
 }
 
 .input:active {
-	color: white;
+    color: white;
     background-color: #2f3352;
     box-sizing: 0 5px #666;
     transform: translateY(4px);

@@ -22,11 +22,10 @@
  -New Spell (Cure Wounds)(once): 700 gold
  
  Dog Shop (if they have dog):
- -Name change(multiple): 100 gold
  -Doggy treats (for fun :P)(multiple): 1 gold
  **/
 
-
+// Creates the shop inventory.
 var shopItems = new Object();
 
 // Holds the shop inventory.
@@ -37,7 +36,7 @@ var shopItems = {
     item12: 1
 };
 
-
+// Creates the players inventory.
 var playerItems = new Object();
 
 // Holds the players items.
@@ -56,13 +55,14 @@ var playerItems = {
     item12: 0
 };
 
-
+// Shows the shop.
 function showShop() {
     buttonWait();
     document.getElementById("container3").style.display = "none";
     document.getElementById("container6").style.display = "inline-block";
 }
 
+// Hides the shop.
 function hideShop() {
 
     document.getElementById("container3").style.display = "inline-block";
@@ -75,6 +75,7 @@ function hideShop() {
 function getPlayerItems() {
     return playerItems;
 }
+
 function setPlayerItems(playerItemsIn) {
     playerItems = playerItemsIn;
 }
@@ -85,7 +86,6 @@ function getShopItems() {
 function setShopItems(shopItemsIn) {
     shopItems = shopItemsIn;
 }
-
 
 // Turns off the error display.
 function errorOff() {
@@ -141,6 +141,8 @@ function buttonWait() {
 // This function is used to buy items for the user. It also checks the stock of the store and the player inventory.
 function buy(product) {
 
+
+    // Check for the Health Potion which can be bought multiple times.
     if (product === 'item1') {
 
         if (loadVar(playerGold) >= 150) {
@@ -155,6 +157,7 @@ function buy(product) {
         document.getElementById("counter").innerHTML = "Current Gold:" + loadVar(playerGold);
     }
 
+    // Check for the Return Stone which can be bought multiple times.
     if (product === 'item2') {
 
         if (loadVar(playerGold) >= 1) {
@@ -169,6 +172,7 @@ function buy(product) {
         document.getElementById("counter").innerHTML = "Current Gold:" + loadVar(playerGold);
     }
 
+    // Check for the Night's rest which can be bought multiple times.
     if (product === 'item3') {
 
         if (loadVar(playerGold) >= 75) {
@@ -183,6 +187,7 @@ function buy(product) {
         document.getElementById("counter").innerHTML = "Current Gold:" + loadVar(playerGold);
     }
 
+    // Check for the Cat nap which can be bought multiple times.
     if (product === 'item4') {
 
         if (loadVar(playerGold) >= 35) {
@@ -197,6 +202,7 @@ function buy(product) {
         document.getElementById("counter").innerHTML = "Current Gold:" + loadVar(playerGold);
     }
 
+    // Check for the Greataxe which can be bought multiple times.
     if (product === 'item5') {
 
         if (loadVar(playerGold) >= 500) {
@@ -211,6 +217,7 @@ function buy(product) {
         document.getElementById("counter").innerHTML = "Current Gold:" + loadVar(playerGold);
     }
 
+    // Check for the Chainmail which can be bought multiple times.
     if (product === 'item6') {
 
         if (loadVar(playerGold) >= 650) {
@@ -225,6 +232,7 @@ function buy(product) {
         document.getElementById("counter").innerHTML = "Current Gold:" + loadVar(playerGold);
     }
 
+    // Check for the New spell which can be bought once.
     if (product === 'item7') {
 
         if (loadVar(playerGold) >= 650) {
@@ -245,6 +253,7 @@ function buy(product) {
         document.getElementById("counter").innerHTML = "Current Gold:" + loadVar(playerGold);
     }
 
+    // Check for the Ring of Fire which can be bought only once.
     if (product === 'item8') {
 
         if (loadVar(playerGold) >= 450) {
@@ -265,6 +274,7 @@ function buy(product) {
         document.getElementById("counter").innerHTML = "Current Gold:" + loadVar(playerGold);
     }
 
+    // Check for the Stronger dagger which can be bought multiple times.
     if (product === 'item9') {
 
         if (loadVar(playerGold) >= 550) {
@@ -279,6 +289,7 @@ function buy(product) {
         document.getElementById("counter").innerHTML = "Current Gold:" + loadVar(playerGold);
     }
 
+    // Check for the Boots of stealth which can be bought only once.
     if (product === 'item10') {
 
         if (loadVar(playerGold) >= 500) {
@@ -299,6 +310,7 @@ function buy(product) {
         document.getElementById("counter").innerHTML = "Current Gold:" + loadVar(playerGold);
     }
 
+    // Check for the Greater Rapier which can be bought multiple times.
     if (product === 'item11') {
 
         if (loadVar(playerGold) >= 550) {
@@ -313,6 +325,7 @@ function buy(product) {
         document.getElementById("counter").innerHTML = "Current Gold:" + loadVar(playerGold);
     }
 
+    // Check for New Spell which can be bought only once.
     if (product === 'item12') {
         if (loadVar(playerGold) >= 700) {
             errorOff();
@@ -332,6 +345,7 @@ function buy(product) {
         document.getElementById("counter").innerHTML = "Current Gold:" + loadVar(playerGold);
     }
 
+    // Check for Doggy treats which can be bought multiple times.
     if (product === 'item13') {
 
         if (loadVar(playerGold) >= 1) {
