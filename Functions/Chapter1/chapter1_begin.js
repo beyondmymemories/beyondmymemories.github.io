@@ -512,9 +512,7 @@ function printChatNode(chatNodeIndex, load_chapter1vars) {
         }
 
     //UPDATE HEALTH
-    document.getElementById("displayHealth").innerText = "29 / 50";
-
-
+    document.getElementById("displayHealth").innerText =  charCurrHP +  " / " + charMaxHP;
 
    //IF WE GO TO THE MERCHANT SHOP
    if (chatNode.shop == true) {
