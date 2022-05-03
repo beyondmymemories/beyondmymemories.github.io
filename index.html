@@ -11,6 +11,7 @@
         <link href="CSS/shop.css" rel="stylesheet" type="text/css">
         <link href="CSS/chatLog.css" rel="stylesheet" type="text/css">
         <link href="CSS/DiceStyleSheet.css" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="../CSS/JournalContainer.css">
 
         <!--Combat tings-->
         <script type="text/javascript" src="Functions/Combat/Chapter1/chapterOneAttacks.js"></script>
@@ -170,7 +171,8 @@
         <!--Creating div for the main hub page that will constantly change-->
         <div class="container3" id="container3" >
             <div class="fade-in-text">
-                <img src="Functions/Art/Chapter1/icon.png" class="CharacterIcon" id="charIcon">
+
+                <img src="Functions/Art/Chapter1/icon.png" class="CharacterIcon" id="charIcon" onclick="JournalOn()">
 
                 <img id="overlayedImage" alt="overlayImages" class="topimage">
                 <div class="imagesettings">
@@ -185,11 +187,12 @@
                     </div>
 
                     <!--buttons for setting checkpoint and loadiing checkpoint-->
+                    <!--
                     <div id="checkpoint-options" class="checkpoint-grid">
                         <button class="options" id="setCheckpoint" onclick="createCheckpoint()">Set checkpoint</button>
                         <button class="options" id="loadCheckpoint" onclick="loadCheckpoint()">Load checkpoint</button>
                     </div>
-
+                    -->
 
                     <!--Buttons for option clicking-->
                     <div id="button-options" class="button-grid">
@@ -204,7 +207,7 @@
 
 
 
-            <!--the dice fade it beauty-->
+        <!--the dice fade it beauty-->
             <div id="diceOverlay">
                 <h2 style="margin: 50px 10px 50px 10px; color: white; font-family: Papyrus;"> Time for a roll</h2>
                 <input type ="image" id="Theyseemerollin" src="../Functions/Art/DiceRoller/DiceImagePlaceHolder.png" name="rollDice" width="auto" height="200px" alt="rollDice"/>
@@ -214,7 +217,27 @@
             </div>
         </div>
 
+        <!--Journal Madness-->
+        <div id = "JournalOverlay">
+         <img src="../Functions/Art/Chapter1/Journal.png" height="550px" onclick="nextPage()">
+         
+        </div>
 
+        <div id="nextPage">
+            <h1 id="CharacterHeader">Character Stats</h1> 
+            <P style="position: absolute; top: 17%; right:44%; color:black;">Player Gold:</P>
+            <p style="position: absolute; top: 27%; right:45%; color:black;">Inventory:</p>
+            <!-- Need to work on formatting-->
+            <div id="checkpoint-options" class="checkpoint-grid">
+                <button style="position: relative; top:100%; left:170%;"class="options" id="setCheckpoint" onclick="createCheckpoint()">Set checkpoint</button>
+                <button style="position: relative; top:200%;left:60%;"class="options" id="loadCheckpoint" onclick="loadCheckpoint()">Load checkpoint</button>
+            </div>
+            <img src="../Functions/Art/Chapter1/OpenJournal.png" height="550px">
+            <button onclick="JournalOff()">Exit</button>
+        </div>
+        <div style = "padding: 20px"> 
+         <button onclick="JournalOn()">Journal</button>  
+        </div>
 
         <!--Creating div for the combat hub page that will constantly change-->
         <div class="container4" id="container4">
