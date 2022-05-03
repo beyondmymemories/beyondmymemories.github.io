@@ -45,3 +45,20 @@ function iconPicker(){
     }//end of Rogue Choice
     return;
 }
+function journalstats(){
+    var charStats=loadVar("character")
+    console.log(charStats);
+    if(charStats=="Wizard"){
+        document.getElementById("CharStatsy").innerHTML ="Wizard Stats<br>Str:-1<br>Dex:2<br>Con:0<br>Int:4<br>Wis:3<br>Chr:1";
+    }
+    if(charStats=="Barbarian"){
+        document.getElementById("CharStatsy").innerHTML = "Barbarian Stats<br>Str:4<br>Dex:0<br>Con:3<br>Int:-1<br>Wis:1<br>Chr:2";
+    }
+    if(charStats=="Bard"){
+        document.getElementById("CharStatsy").innerHTML = "Bard Stats<br>Str:0<br>Dex:3<br>Con:2<br>Int:-1<br>Wis:1<br>Chr:4";
+    }
+    if(charStats=="Rogue"){
+        document.getElementById("CharStatsy").innerHTML = "Rogue Stats<br>Str:1<br>Dex:4<br>Con:0<br>Int:-1<br>Wis:3<br>Chr:2";
+    }
+    return;
+}

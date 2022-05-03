@@ -219,12 +219,14 @@
 
         <!--Journal Madness-->
         <div id = "JournalOverlay">
-         <img src="../Functions/Art/Chapter1/Journal.png" height="550px" onclick="nextPage()">
+         <img src="../Functions/Art/Chapter1/Journal.png" height="550px" onclick="nextPage(); journalstats()">
          
         </div>
 
         <div id="nextPage">
+            
             <h1 style="position: absolute; top:9%; left:27%;">Character Stats</h1>
+            <p style="position: absolute; top: 17%; left:27%; color:black; font-size:25px;"id="CharStatsy" ></p>
             <h1 style="position: absolute; top:9%; right:44%;">Bag</h1> 
             <P style="position: absolute; top: 17%; right:44%; color:black;">Player Gold:</P>
             <p style="position: absolute; top: 27%; right:45%; color:black;">Inventory:</p>
@@ -232,7 +234,7 @@
             <button onclick="JournalOff()">Exit</button>
         </div>
         <div id="nextPageAgain"> 
-                        <!-- Need to work on formatting-->
+            <!-- Need to work on formatting-->
             <div id="checkpoint-options" class="checkpoint-grid">
                 <button style="position: relative; top:100%; left:170%;"class="options" id="setCheckpoint" onclick="createCheckpoint()">Set checkpoint</button>
                 <button style="position: relative; top:200%;left:60%;"class="options" id="loadCheckpoint" onclick="loadCheckpoint()">Load checkpoint</button>
