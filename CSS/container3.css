@@ -91,5 +91,15 @@ div.container3 {
  
  }
 
+
+ .charhealth {
+
+    position: fixed;
+    font-size: 30px;
+    font-family: Papyrus;
+    right: 3%;
+    top: 30%;
+
+ }
  /*End of main container*/
  
