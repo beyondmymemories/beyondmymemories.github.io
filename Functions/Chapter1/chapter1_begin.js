@@ -155,9 +155,16 @@ function recCombat(monster, turn){
         console.log(character.hp);
         attackAvailable = 1
         bonusAvailable = 1
-        
-        character.hp = character.hp - (diceRoll(monster.weapon.amount, monster.weapon.damage) + monster.stats.str)
-        updateChatLog('../Functions/Chapter1/chapter1callscript.txt', monster.hitNode)
+        if(monster.stats.dex > monster.stats.str)
+            var sub = monster.stats.dex
+        else
+            var sub = monster.stats.str
+        if((diceRoll(1, 20)+sub+3) >= character.ac){
+            character.hp = character.hp - (diceRoll(monster.weapon.amount, monster.weapon.damage) + monster.stats.str)
+            updateChatLog('../Functions/Chapter1/chapter1callscript.txt', monster.hitNode)
+        }
+        else
+            updateChatLog('../Functions/Chapter1/chapter1callscript.txt', monster.missNode)
         if(character.hp > 0)
             combatChoice(monster)
         else
