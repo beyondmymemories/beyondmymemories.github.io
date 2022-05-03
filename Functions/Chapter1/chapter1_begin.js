@@ -40,6 +40,7 @@ function setChatper1Var(input) {
 function StartChapter1() {
 
     chapter1var = { character: loadVar("character") }
+    setCharInfo()
 
     setglobalImg("Functions/Art/Chapter1/smallerCave.png");
 
@@ -54,15 +55,30 @@ var attackAvailable = 1
 var bonusAvailable = 1
 var monsterHP = 0
 var characterChoice = ""
-var character = "empty"
+var characterHP = ""
+var character = ""
 var comSucc
 var comFail
+
+function setCharInfo() {
+    characterChoice = loadVar('character')
+    if(characterChoice == 'Wizard')
+        character = charStats1.Wizard
+    else if(characterChoice == 'Bard')
+        character = charStats1.Bard
+    else if(characterChoice == 'Barbarian')
+        character = charStats1.Barbarian
+    else
+        character = charStats1.Rogue
+    charMaxHP = character.maxhp
+    charCurrHP = character.hp
+}
 
 function comResult(result){
 
     //document.getElementById("container4").style.display = "none";
     //document.getElementById("container3").style.display = "inline-block";
-
+    updateChatLog('../Functions/Chapter1/chapter1callscript.txt', '//dashes//')
     if (result == "Success0"){
         //check this: !currentVars.lootAdventurer
         printChatNode(comSucc);
@@ -111,7 +127,9 @@ function action(monster, attack){
     }
     else{
         if(type == 'heal'){
-            character.hp = character.hp + diceRoll(attack.amount, attack.heal) + character.stats.chr
+            charCurrHP = charCurrHP + diceRoll(attack.amount, attack.heal) + character.stats.chr
+            if(charCurrHP > charMaxHP)
+                charCurrHP = charMaxHP
             updateChatLog('../Functions/Chapter1/chapter1callscript.txt', '//Healing//')
         }
         else{
@@ -152,7 +170,6 @@ function recCombat(monster, turn){
     }
 
     if(turn == "enemy" || turn == "pass"){
-        console.log(character.hp);
         attackAvailable = 1
         bonusAvailable = 1
         if(monster.stats.dex > monster.stats.str)
@@ -160,12 +177,13 @@ function recCombat(monster, turn){
         else
             var sub = monster.stats.str
         if((diceRoll(1, 20)+sub+3) >= character.ac){
-            character.hp = character.hp - (diceRoll(monster.weapon.amount, monster.weapon.damage) + monster.stats.str)
+            charCurrHP = charCurrHP - (diceRoll(monster.weapon.amount, monster.weapon.damage) + sub)
             updateChatLog('../Functions/Chapter1/chapter1callscript.txt', monster.hitNode)
         }
         else
             updateChatLog('../Functions/Chapter1/chapter1callscript.txt', monster.missNode)
-        if(character.hp > 0)
+            console.log("Character HP: " + charCurrHP);
+            if(charCurrHP > 0)
             combatChoice(monster)
         else
             comResult("Fail")
@@ -383,6 +401,7 @@ function combatChoice(monster){
 function combatFunc(combatNum) {
 
     //Initialize which character we use
+    /*
     characterChoice = loadVar('character')
     if(characterChoice == 'Wizard')
         character = charStats1.Wizard
@@ -391,7 +410,7 @@ function combatFunc(combatNum) {
     else if(characterChoice == 'Barbarian')
         character = charStats1.Barbarian
     else
-        character = charStats1.Rogue
+        character = charStats1.Rogue*/
     
     //Decide which combat we'll be doing
     if(combatNum == 'Hobgoblin'){
