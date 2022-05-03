@@ -10,15 +10,17 @@ function statsOff(){
 }
 function nextPage(){
     document.getElementById("nextPage").style.display="block";
-    document.getElementById("diceOverlay").style.display="none";
     
+}
+function nextPageAgain(){
+    document.getElementById("nextPageAgain").style.display="block";
 }
 function JournalOn(){
 
     document.getElementById("JournalOverlay").style.display="block";
 }
 function JournalOff(){
-
+    document.getElementById("nextPageAgain").style.display="none";
     document.getElementById("nextPage").style.display="none";
     document.getElementById("JournalOverlay").style.display="none";
 }

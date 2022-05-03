@@ -480,8 +480,6 @@ function printChatNode(chatNodeIndex, load_chapter1vars) {
         globalImg = chatNode.changeImage;
     }
 
-   // console.log(globalImg)
-
     document.getElementById("backgroundImage").src=globalImg;
 
     if (chatNode.changeOverlayImage != null){
@@ -517,7 +515,7 @@ function printChatNode(chatNodeIndex, load_chapter1vars) {
    if (chatNode.shop == true) {
 
        //Save the state
-       savechapter1(chatNodeIndex);
+       //savechapter1(chatNodeIndex);
         
         //change container1 -> container3
         showShop();
@@ -595,10 +593,11 @@ function printChatNode(chatNodeIndex, load_chapter1vars) {
 
     
     } //if we have dice to roll! 
+    //CONTINUE WITH THE ACTUAL CHOICES GAME PLZ
     else {
 
         //Save the state
-        savechapter1(chatNodeIndex);
+        //savechapter1(chatNodeIndex);
 
         //display the correct buttons
         while (document.getElementById('button-options').firstChild) {
@@ -636,8 +635,6 @@ function showOption(option) {
 
     //do we have a required state/variable
     const test = (option.requiredVar == null) || option.requiredVar(chapter1var)
-
-    console.log(test);
 
     return option.requiredVar == null || option.requiredVar(chapter1var) 
     //return true;
@@ -985,7 +982,7 @@ const chatNodes = [
             {
                 text: 'Shop',
                 NextChat: '//1.2.4//',
-                updateVars: { metmerchant: true }
+                updateVars: { metMerchant: true }
             },
             {
                 text: 'Return to Cave',
