@@ -53,7 +53,9 @@ var playerItems = {
     item9: 0,
     item10: 0,
     item11: 0,
-    item12: 0
+    item12: 0,
+    item13: 0,
+    item14: 0
 };
 
 
@@ -117,6 +119,7 @@ function buttonOn() {
     document.getElementById("item11").style.display = "block";
     document.getElementById("item12").style.display = "block";
     document.getElementById("item13").style.display = "block";
+    document.getElementById("item14").style.display = "block";
 }
 
 // This fucntion causes the shop buttons to wait for the user to enter the store.
@@ -136,6 +139,7 @@ function buttonWait() {
     document.getElementById("item11").style.display = "none";
     document.getElementById("item12").style.display = "none";
     document.getElementById("item13").style.display = "none";
+    document.getElementById("item14").style.display = "none";
 }
 
 // This function is used to buy items for the user. It also checks the stock of the store and the player inventory.
@@ -334,12 +338,25 @@ function buy(product) {
 
     if (product === 'item13') {
 
+        if (loadVar(playerGold) >= 100) {
+            errorOff();
+            saveVar(playerGold, loadVar(playerGold) - 100);
+            document.getElementById("counter").innerHTML = "Current Gold:" + loadVar(playerGold);
+            playerItems.item13 = playerItems.item13 + 1;
+        } else {
+            document.getElementById("error").innerHTML = "Not enough gold";
+            errorOn();
+        }
+        document.getElementById("counter").innerHTML = "Current Gold:" + loadVar(playerGold);
+    }
+
+    if (product === 'item14') {
+
         if (loadVar(playerGold) >= 1) {
             errorOff();
             saveVar(playerGold, loadVar(playerGold) - 1);
             document.getElementById("counter").innerHTML = "Current Gold:" + loadVar(playerGold);
-            document.getElementById("error").innerHTML = "Your Dogo looks happy as he munches on his treat!";
-            errorOn();
+            playerItems.item14 = playerItems.item14 + 1;
         } else {
             document.getElementById("error").innerHTML = "Not enough gold";
             errorOn();
@@ -368,4 +385,5 @@ function goldAmount() {
     var item11 = document.getElementById("item11");
     var item12 = document.getElementById("item12");
     var item13 = document.getElementById("item13");
+    var item14 = document.getElementById("item14");
 }
