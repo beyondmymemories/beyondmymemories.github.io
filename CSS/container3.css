@@ -79,7 +79,7 @@ div.container3 {
 	z-index:1;
 	position:absolute;
     display: grid;
-    border: 3px solid white;
+    /*border: 3px solid white;*/
     grid-template-columns: repeat(2,auto);
     gap: 10px;
     width: auto;
