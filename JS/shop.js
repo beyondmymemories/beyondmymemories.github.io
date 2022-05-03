@@ -64,7 +64,7 @@ function showShop() {
 
 // Hides the shop.
 function hideShop() {
-
+    errorOff()
     document.getElementById("container3").style.display = "inline-block";
     document.getElementById("container6").style.display = "none";
 
@@ -365,7 +365,7 @@ function buy(product) {
 //This function is used to display the amount of gold the user currently has.
 function goldAmount() {
     if (loadVar(playerGold) === null) {
-        saveVar(playerGold, 1000);
+        saveVar(playerGold, 0);
     }
     document.getElementById("counter").innerHTML = "Current Gold:" + loadVar(playerGold);
 
