@@ -6,7 +6,7 @@ var Monsters1 = {
         ac: 15,
         hitNode: '//Goblin Hit//',
         missNode: '//Goblin Miss//',
-        stats:{
+        stats: {
             str: -1,
             dex: 2,
             con: 0,
