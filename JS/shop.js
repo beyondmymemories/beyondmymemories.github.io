@@ -25,6 +25,9 @@
  -Doggy treats (for fun :P)(multiple): 1 gold
  **/
 
+// Gets character type.
+var charType = loadVar("character");
+
 // Creates the shop inventory.
 var shopItems = new Object();
 
@@ -213,148 +216,215 @@ function buy(product) {
         document.getElementById("counter").innerHTML = "Current Gold:" + loadVar(playerGold);
     }
 
-    // Check for the Greataxe which can be bought multiple times.
-    if (product === 'item5') {
+    // Check for character type.
+    if (charType == "Barbarian") {
 
-        if (loadVar(playerGold) >= 500) {
-            errorOff();
-            saveVar(playerGold, loadVar(playerGold) - 500);
-            document.getElementById("counter").innerHTML = "Current Gold:" + loadVar(playerGold);
-            playerItems.item5 = playerItems.item5 + 1;
-        } else {
-            document.getElementById("error").innerHTML = "Not enough gold";
-            errorOn();
-        }
-        document.getElementById("counter").innerHTML = "Current Gold:" + loadVar(playerGold);
-    }
+        // Check for the Greataxe which can be bought multiple times.
+        if (product === 'item5') {
 
-    // Check for the Chainmail which can be bought multiple times.
-    if (product === 'item6') {
-
-        if (loadVar(playerGold) >= 650) {
-            errorOff();
-            saveVar(playerGold, loadVar(playerGold) - 650);
-            document.getElementById("counter").innerHTML = "Current Gold:" + loadVar(playerGold);
-            playerItems.item6 = playerItems.item6 + 1;
-        } else {
-            document.getElementById("error").innerHTML = "Not enough gold";
-            errorOn();
-        }
-        document.getElementById("counter").innerHTML = "Current Gold:" + loadVar(playerGold);
-    }
-
-    // Check for the New spell which can be bought once.
-    if (product === 'item7') {
-
-        if (loadVar(playerGold) >= 650) {
-            errorOff();
-
-            if (shopItems.item7 > 0) {
-                saveVar(playerGold, (loadVar(playerGold) - 650));
-                shopItems.item7 = shopItems.item7 - 1;
-                playerItems.item7 = playerItems.item7 + 1;
+            if (loadVar(playerGold) >= 500) {
+                errorOff();
+                saveVar(playerGold, loadVar(playerGold) - 500);
+                document.getElementById("counter").innerHTML = "Current Gold:" + loadVar(playerGold);
+                playerItems.item5 = playerItems.item5 + 1;
             } else {
-                document.getElementById("error").innerHTML = "Out of stock";
+                document.getElementById("error").innerHTML = "Not enough gold";
                 errorOn();
             }
-        } else {
-            document.getElementById("error").innerHTML = "Not enough gold";
-            errorOn();
-        }
-        document.getElementById("counter").innerHTML = "Current Gold:" + loadVar(playerGold);
-    }
-
-    // Check for the Ring of Fire which can be bought only once.
-    if (product === 'item8') {
-
-        if (loadVar(playerGold) >= 450) {
-            errorOff();
-
-            if (shopItems.item8 > 0) {
-                saveVar(playerGold, (loadVar(playerGold) - 450));
-                shopItems.item8 = shopItems.item8 - 1;
-                playerItems.item8 = playerItems.item8 + 1;
-            } else {
-                document.getElementById("error").innerHTML = "Out of stock";
-                errorOn();
-            }
-        } else {
-            document.getElementById("error").innerHTML = "Not enough gold";
-            errorOn();
-        }
-        document.getElementById("counter").innerHTML = "Current Gold:" + loadVar(playerGold);
-    }
-
-    // Check for the Stronger dagger which can be bought multiple times.
-    if (product === 'item9') {
-
-        if (loadVar(playerGold) >= 550) {
-            errorOff();
-            saveVar(playerGold, loadVar(playerGold) - 550);
             document.getElementById("counter").innerHTML = "Current Gold:" + loadVar(playerGold);
-            playerItems.item9 = playerItems.item9 + 1;
-        } else {
-            document.getElementById("error").innerHTML = "Not enough gold";
-            errorOn();
         }
-        document.getElementById("counter").innerHTML = "Current Gold:" + loadVar(playerGold);
+
+    } else {
+        document.getElementById("error").innerHTML = "This gear is for a barbarian";
+        errorOn();
     }
 
-    // Check for the Boots of stealth which can be bought only once.
-    if (product === 'item10') {
+    // Check for character type.
+    if (charType == "Barbarian") {
 
-        if (loadVar(playerGold) >= 500) {
-            errorOff();
+        // Check for the Chainmail which can be bought multiple times.
+        if (product === 'item6') {
 
-            if (shopItems.item10 > 0) {
-                saveVar(playerGold, (loadVar(playerGold) - 500));
-                shopItems.item10 = shopItems.item10 - 1;
-                playerItems.item10 = playerItems.item10 + 1;
+            if (loadVar(playerGold) >= 650) {
+                errorOff();
+                saveVar(playerGold, loadVar(playerGold) - 650);
+                document.getElementById("counter").innerHTML = "Current Gold:" + loadVar(playerGold);
+                playerItems.item6 = playerItems.item6 + 1;
             } else {
-                document.getElementById("error").innerHTML = "Out of stock";
+                document.getElementById("error").innerHTML = "Not enough gold";
                 errorOn();
             }
-        } else {
-            document.getElementById("error").innerHTML = "Not enough gold";
-            errorOn();
-        }
-        document.getElementById("counter").innerHTML = "Current Gold:" + loadVar(playerGold);
-    }
-
-    // Check for the Greater Rapier which can be bought multiple times.
-    if (product === 'item11') {
-
-        if (loadVar(playerGold) >= 550) {
-            errorOff();
-            saveVar(playerGold, loadVar(playerGold) - 550);
             document.getElementById("counter").innerHTML = "Current Gold:" + loadVar(playerGold);
-            playerItems.item11 = playerItems.item11 + 1;
-        } else {
-            document.getElementById("error").innerHTML = "Not enough gold";
-            errorOn();
         }
-        document.getElementById("counter").innerHTML = "Current Gold:" + loadVar(playerGold);
+
+    } else {
+        document.getElementById("error").innerHTML = "This gear is for a barbarian";
+        errorOn();
     }
 
-    // Check for New Spell which can be bought only once.
-    if (product === 'item12') {
-        if (loadVar(playerGold) >= 700) {
-            errorOff();
+    // Check for character type.
+    if (charType == "Wizard") {
 
-            if (shopItems.item12 > 0) {
-                saveVar(playerGold, (loadVar(playerGold) - 700));
-                shopItems.item12 = shopItems.item12 - 1;
-                playerItems.item12 = playerItems.item12 + 1;
+        // Check for the New spell which can be bought once.
+        if (product === 'item7') {
+
+            if (loadVar(playerGold) >= 650) {
+                errorOff();
+
+                if (shopItems.item7 > 0) {
+                    saveVar(playerGold, (loadVar(playerGold) - 650));
+                    shopItems.item7 = shopItems.item7 - 1;
+                    playerItems.item7 = playerItems.item7 + 1;
+                } else {
+                    document.getElementById("error").innerHTML = "Out of stock";
+                    errorOn();
+                }
             } else {
-                document.getElementById("error").innerHTML = "Out of stock";
+                document.getElementById("error").innerHTML = "Not enough gold";
                 errorOn();
             }
-        } else {
-            document.getElementById("error").innerHTML = "Not enough gold";
-            errorOn();
+            document.getElementById("counter").innerHTML = "Current Gold:" + loadVar(playerGold);
         }
-        document.getElementById("counter").innerHTML = "Current Gold:" + loadVar(playerGold);
+
+    } else {
+        document.getElementById("error").innerHTML = "This gear is for a wizard";
+        errorOn();
     }
+
+    // Check for character type.
+    if (charType === "Wizard") {
+
+        // Check for the Ring of Fire which can be bought only once.
+        if (product === 'item8') {
+
+            if (loadVar(playerGold) >= 450) {
+                errorOff();
+
+                if (shopItems.item8 > 0) {
+                    saveVar(playerGold, (loadVar(playerGold) - 450));
+                    shopItems.item8 = shopItems.item8 - 1;
+                    playerItems.item8 = playerItems.item8 + 1;
+                } else {
+                    document.getElementById("error").innerHTML = "Out of stock";
+                    errorOn();
+                }
+            } else {
+                document.getElementById("error").innerHTML = "Not enough gold";
+                errorOn();
+            }
+            document.getElementById("counter").innerHTML = "Current Gold:" + loadVar(playerGold);
+        }
+
+    } else {
+        document.getElementById("error").innerHTML = "This gear is for a wizard";
+        errorOn();
+    }
+
+    // Check for character type.
+    if (charType == "Rogue") {
+
+        // Check for the Stronger dagger which can be bought multiple times.
+        if (product === 'item9') {
+
+            if (loadVar(playerGold) >= 550) {
+                errorOff();
+                saveVar(playerGold, loadVar(playerGold) - 550);
+                document.getElementById("counter").innerHTML = "Current Gold:" + loadVar(playerGold);
+                playerItems.item9 = playerItems.item9 + 1;
+            } else {
+                document.getElementById("error").innerHTML = "Not enough gold";
+                errorOn();
+            }
+            document.getElementById("counter").innerHTML = "Current Gold:" + loadVar(playerGold);
+        }
+
+    } else {
+        document.getElementById("error").innerHTML = "This gear is for a rogue";
+        errorOn();
+    }
+
+    // Check for character type.
+    if (charType == "Rogue") {
+
+        // Check for the Boots of stealth which can be bought only once.
+        if (product === 'item10') {
+
+            if (loadVar(playerGold) >= 500) {
+                errorOff();
+
+                if (shopItems.item10 > 0) {
+                    saveVar(playerGold, (loadVar(playerGold) - 500));
+                    shopItems.item10 = shopItems.item10 - 1;
+                    playerItems.item10 = playerItems.item10 + 1;
+                } else {
+                    document.getElementById("error").innerHTML = "Out of stock";
+                    errorOn();
+                }
+            } else {
+                document.getElementById("error").innerHTML = "Not enough gold";
+                errorOn();
+            }
+            document.getElementById("counter").innerHTML = "Current Gold:" + loadVar(playerGold);
+        }
+
+    } else {
+        document.getElementById("error").innerHTML = "This gear is for a rogue";
+        errorOn();
+    }
+
+    // Check for character type.
+    if (charType == "Bard") {
+
+        // Check for the Greater Rapier which can be bought multiple times.
+        if (product === 'item11') {
+
+            if (loadVar(playerGold) >= 550) {
+                errorOff();
+                saveVar(playerGold, loadVar(playerGold) - 550);
+                document.getElementById("counter").innerHTML = "Current Gold:" + loadVar(playerGold);
+                playerItems.item11 = playerItems.item11 + 1;
+            } else {
+                document.getElementById("error").innerHTML = "Not enough gold";
+                errorOn();
+            }
+            document.getElementById("counter").innerHTML = "Current Gold:" + loadVar(playerGold);
+        }
+
+    } else {
+        document.getElementById("error").innerHTML = "This gear is for a bard";
+        errorOn();
+    }
+
+
+    // Check for character type.
+    if (charType == "Bard") {
+
+        // Check for New Spell which can be bought only once.
+        if (product === 'item12') {
+            if (loadVar(playerGold) >= 700) {
+                errorOff();
+
+                if (shopItems.item12 > 0) {
+                    saveVar(playerGold, (loadVar(playerGold) - 700));
+                    shopItems.item12 = shopItems.item12 - 1;
+                    playerItems.item12 = playerItems.item12 + 1;
+                } else {
+                    document.getElementById("error").innerHTML = "Out of stock";
+                    errorOn();
+                }
+            } else {
+                document.getElementById("error").innerHTML = "Not enough gold";
+                errorOn();
+            }
+            document.getElementById("counter").innerHTML = "Current Gold:" + loadVar(playerGold);
+        }
+
+    } else {
+        document.getElementById("error").innerHTML = "This gear is for a bard";
+        errorOn();
+    }
+
+
 
     // Check for Doggy treats which can be bought multiple times.
     if (product === 'item13') {
@@ -376,7 +446,7 @@ function buy(product) {
 //This function is used to display the amount of gold the user currently has.
 function goldAmount() {
     if (loadVar(playerGold) === null) {
-        saveVar(playerGold, 0);
+        saveVar(playerGold, 1000);
     }
     document.getElementById("counter").innerHTML = "Current Gold:" + loadVar(playerGold);
 
