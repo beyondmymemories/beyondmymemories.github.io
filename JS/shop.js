@@ -216,12 +216,13 @@ function buy(product) {
         document.getElementById("counter").innerHTML = "Current Gold:" + loadVar(playerGold);
     }
 
-    // Check for character type.
-    if (charType == "Barbarian") {
 
-        // Check for the Greataxe which can be bought multiple times.
-        if (product === 'item5') {
 
+    // Check for the Greataxe which can be bought multiple times.
+    if (product === 'item5') {
+
+        // Check for character type.
+        if (charType == "Barbarian") {
             if (loadVar(playerGold) >= 500) {
                 errorOff();
                 saveVar(playerGold, loadVar(playerGold) - 500);
@@ -232,18 +233,20 @@ function buy(product) {
                 errorOn();
             }
             document.getElementById("counter").innerHTML = "Current Gold:" + loadVar(playerGold);
+        } else {
+            document.getElementById("error").innerHTML = "This gear is for a barbarian";
+            errorOn();
         }
 
-    } else {
-        document.getElementById("error").innerHTML = "This gear is for a barbarian";
-        errorOn();
     }
 
-    // Check for character type.
-    if (charType == "Barbarian") {
 
-        // Check for the Chainmail which can be bought multiple times.
-        if (product === 'item6') {
+
+    // Check for the Chainmail which can be bought multiple times.
+    if (product === 'item6') {
+
+        // Check for character type.
+        if (charType == "Barbarian") {
 
             if (loadVar(playerGold) >= 650) {
                 errorOff();
@@ -255,18 +258,23 @@ function buy(product) {
                 errorOn();
             }
             document.getElementById("counter").innerHTML = "Current Gold:" + loadVar(playerGold);
+
+        } else {
+            document.getElementById("error").innerHTML = "This gear is for a barbarian";
+            errorOn();
+
         }
 
-    } else {
-        document.getElementById("error").innerHTML = "This gear is for a barbarian";
-        errorOn();
+
     }
 
-    // Check for character type.
-    if (charType == "Wizard") {
 
-        // Check for the New spell which can be bought once.
-        if (product === 'item7') {
+
+    // Check for the New spell which can be bought once.
+    if (product === 'item7') {
+
+        // Check for character type.
+        if (charType == "Wizard") {
 
             if (loadVar(playerGold) >= 650) {
                 errorOff();
@@ -284,18 +292,24 @@ function buy(product) {
                 errorOn();
             }
             document.getElementById("counter").innerHTML = "Current Gold:" + loadVar(playerGold);
+
+        } else {
+            document.getElementById("error").innerHTML = "This gear is for a wizard";
+            errorOn();
+
         }
 
-    } else {
-        document.getElementById("error").innerHTML = "This gear is for a wizard";
-        errorOn();
+
     }
 
-    // Check for character type.
-    if (charType === "Wizard") {
 
-        // Check for the Ring of Fire which can be bought only once.
-        if (product === 'item8') {
+
+    // Check for the Ring of Fire which can be bought only once.
+    if (product === 'item8') {
+
+        // Check for character type.
+        if (charType == "Wizard") {
+
 
             if (loadVar(playerGold) >= 450) {
                 errorOff();
@@ -313,18 +327,24 @@ function buy(product) {
                 errorOn();
             }
             document.getElementById("counter").innerHTML = "Current Gold:" + loadVar(playerGold);
+
+        } else {
+            document.getElementById("error").innerHTML = "This gear is for a wizard";
+            errorOn();
+
         }
 
-    } else {
-        document.getElementById("error").innerHTML = "This gear is for a wizard";
-        errorOn();
+
     }
 
-    // Check for character type.
-    if (charType == "Rogue") {
 
-        // Check for the Stronger dagger which can be bought multiple times.
-        if (product === 'item9') {
+
+    // Check for the Stronger dagger which can be bought multiple times.
+    if (product === 'item9') {
+
+
+        // Check for character type.
+        if (charType == "Rogue") {
 
             if (loadVar(playerGold) >= 550) {
                 errorOff();
@@ -336,18 +356,24 @@ function buy(product) {
                 errorOn();
             }
             document.getElementById("counter").innerHTML = "Current Gold:" + loadVar(playerGold);
+        } else {
+            document.getElementById("error").innerHTML = "This gear is for a rogue";
+            errorOn();
+
+
         }
 
-    } else {
-        document.getElementById("error").innerHTML = "This gear is for a rogue";
-        errorOn();
+
     }
 
-    // Check for character type.
-    if (charType == "Rogue") {
 
-        // Check for the Boots of stealth which can be bought only once.
-        if (product === 'item10') {
+
+    // Check for the Boots of stealth which can be bought only once.
+    if (product === 'item10') {
+
+
+        // Check for character type.
+        if (charType == "Rogue") {
 
             if (loadVar(playerGold) >= 500) {
                 errorOff();
@@ -365,18 +391,23 @@ function buy(product) {
                 errorOn();
             }
             document.getElementById("counter").innerHTML = "Current Gold:" + loadVar(playerGold);
+
+        } else {
+            document.getElementById("error").innerHTML = "This gear is for a rogue";
+            errorOn();
+
         }
 
-    } else {
-        document.getElementById("error").innerHTML = "This gear is for a rogue";
-        errorOn();
+
     }
 
-    // Check for character type.
-    if (charType == "Bard") {
 
-        // Check for the Greater Rapier which can be bought multiple times.
-        if (product === 'item11') {
+
+    // Check for the Greater Rapier which can be bought multiple times.
+    if (product === 'item11') {
+
+// Check for character type.
+        if (charType == "Bard") {
 
             if (loadVar(playerGold) >= 550) {
                 errorOff();
@@ -388,19 +419,24 @@ function buy(product) {
                 errorOn();
             }
             document.getElementById("counter").innerHTML = "Current Gold:" + loadVar(playerGold);
+
+        } else {
+            document.getElementById("error").innerHTML = "This gear is for a bard";
+            errorOn();
         }
 
-    } else {
-        document.getElementById("error").innerHTML = "This gear is for a bard";
-        errorOn();
     }
 
 
-    // Check for character type.
-    if (charType == "Bard") {
 
-        // Check for New Spell which can be bought only once.
-        if (product === 'item12') {
+
+    // Check for New Spell which can be bought only once.
+    if (product === 'item12') {
+
+        // Check for character type.
+        if (charType == "Bard") {
+
+
             if (loadVar(playerGold) >= 700) {
                 errorOff();
 
@@ -417,11 +453,10 @@ function buy(product) {
                 errorOn();
             }
             document.getElementById("counter").innerHTML = "Current Gold:" + loadVar(playerGold);
+        } else {
+            document.getElementById("error").innerHTML = "This gear is for a bard";
+            errorOn();
         }
-
-    } else {
-        document.getElementById("error").innerHTML = "This gear is for a bard";
-        errorOn();
     }
 
 
