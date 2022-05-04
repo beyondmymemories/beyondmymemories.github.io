@@ -25,8 +25,6 @@
  -Doggy treats (for fun :P)(multiple): 1 gold
  **/
 
-// Gets character type.
-var charType = loadVar("character");
 
 // Creates the shop inventory.
 var shopItems = new Object();
@@ -63,6 +61,7 @@ function showShop() {
     buttonWait();
     document.getElementById("container3").style.display = "none";
     document.getElementById("container6").style.display = "inline-block";
+    charType = loadVar("character");
 }
 
 // Hides the shop.
@@ -216,13 +215,11 @@ function buy(product) {
         document.getElementById("counter").innerHTML = "Current Gold:" + loadVar(playerGold);
     }
 
-
-
     // Check for the Greataxe which can be bought multiple times.
     if (product === 'item5') {
 
         // Check for character type.
-        if (charType == "Barbarian") {
+        if (charType === "Barbarian") {
             if (loadVar(playerGold) >= 500) {
                 errorOff();
                 saveVar(playerGold, loadVar(playerGold) - 500);
@@ -237,16 +234,13 @@ function buy(product) {
             document.getElementById("error").innerHTML = "This gear is for a barbarian";
             errorOn();
         }
-
     }
-
-
 
     // Check for the Chainmail which can be bought multiple times.
     if (product === 'item6') {
 
         // Check for character type.
-        if (charType == "Barbarian") {
+        if (charType === "Barbarian") {
 
             if (loadVar(playerGold) >= 650) {
                 errorOff();
@@ -262,13 +256,8 @@ function buy(product) {
         } else {
             document.getElementById("error").innerHTML = "This gear is for a barbarian";
             errorOn();
-
         }
-
-
     }
-
-
 
     // Check for the New spell which can be bought once.
     if (product === 'item7') {
@@ -296,13 +285,8 @@ function buy(product) {
         } else {
             document.getElementById("error").innerHTML = "This gear is for a wizard";
             errorOn();
-
         }
-
-
     }
-
-
 
     // Check for the Ring of Fire which can be bought only once.
     if (product === 'item8') {
@@ -331,20 +315,15 @@ function buy(product) {
         } else {
             document.getElementById("error").innerHTML = "This gear is for a wizard";
             errorOn();
-
         }
-
-
     }
-
-
 
     // Check for the Stronger dagger which can be bought multiple times.
     if (product === 'item9') {
 
 
         // Check for character type.
-        if (charType == "Rogue") {
+        if (charType === "Rogue") {
 
             if (loadVar(playerGold) >= 550) {
                 errorOff();
@@ -359,21 +338,14 @@ function buy(product) {
         } else {
             document.getElementById("error").innerHTML = "This gear is for a rogue";
             errorOn();
-
-
         }
-
-
     }
-
-
 
     // Check for the Boots of stealth which can be bought only once.
     if (product === 'item10') {
 
-
         // Check for character type.
-        if (charType == "Rogue") {
+        if (charType === "Rogue") {
 
             if (loadVar(playerGold) >= 500) {
                 errorOff();
@@ -395,19 +367,14 @@ function buy(product) {
         } else {
             document.getElementById("error").innerHTML = "This gear is for a rogue";
             errorOn();
-
         }
-
-
     }
-
-
 
     // Check for the Greater Rapier which can be bought multiple times.
     if (product === 'item11') {
 
-// Check for character type.
-        if (charType == "Bard") {
+        // Check for character type.
+        if (charType === "Bard") {
 
             if (loadVar(playerGold) >= 550) {
                 errorOff();
@@ -424,17 +391,13 @@ function buy(product) {
             document.getElementById("error").innerHTML = "This gear is for a bard";
             errorOn();
         }
-
     }
-
-
-
 
     // Check for New Spell which can be bought only once.
     if (product === 'item12') {
 
         // Check for character type.
-        if (charType == "Bard") {
+        if (charType === "Bard") {
 
 
             if (loadVar(playerGold) >= 700) {
@@ -458,8 +421,6 @@ function buy(product) {
             errorOn();
         }
     }
-
-
 
     // Check for Doggy treats which can be bought multiple times.
     if (product === 'item13') {
