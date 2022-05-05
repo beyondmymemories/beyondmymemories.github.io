@@ -154,7 +154,7 @@ function buttonWait() {
 // This function is used to buy items for the user. It also checks the stock of the store and the player inventory.
 function buy(product) {
 
-
+    
     // Check for the Health Potion which can be bought multiple times.
     if (product === 'item1') {
 
