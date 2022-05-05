@@ -435,7 +435,7 @@ function printChatNode(chatNodeIndex, load_chapter1vars) {
     lastChatNodeIndex = chatNodeIndex;
 
     //STUPID FREAKING THINGS THAT I LOVE
-    if (chatNodeIndex == '//START//')
+    if (chatNodeIndex == '//START//' && !load_chapter1vars)
         createCheckpoint();
 
     //If we've reached the end -> finish game
@@ -592,10 +592,40 @@ function printChatNode(chatNodeIndex, load_chapter1vars) {
             document.getElementById('button-options').removeChild(document.getElementById('button-options').firstChild)
         }
 
+        //set values for show or not
+        //show = false;
+
         //loop through each buttons option to display them
         chatNode.options.forEach(option => {
 
-            if (showOption(option)) {
+
+            //Need to check if we can show this option
+            show = false;
+            wasfalse = false
+
+            //if theres nothing required -> just show it
+            if (option.requireCheck == null) {
+                show = true
+            }
+            //Theres something required -> check
+            else {
+            option.requireCheck.forEach(requireC => {
+
+                //if is false OR AT ANY POINT WAS FALSE
+                if (showOption(requireC) != true || wasfalse == true) {
+                    show = false;
+                    wasfalse = true;
+                }
+                else {
+                    //everything is true -> just show it
+                    show = true;
+                }
+
+            })
+        }
+
+
+            if (show) {
                 //create button
                 const button = document.createElement('button')
 
@@ -624,8 +654,7 @@ function showOption(option) {
     //do we have a required state/variable
     const test = (option.requiredVar == null) || option.requiredVar(chapter1var)
 
-    return option.requiredVar == null || option.requiredVar(chapter1var)
-    //return true;
+    return option.requiredVar == null || option.requiredVar(chapter1var) 
 } //end of showOption
 
 function selectOption(option) {
@@ -822,22 +851,42 @@ const chatNodes = [
             {
                 text: 'Follow Sign to Merchant',
                 NextChat: '//1.3.1a//',
-                requiredVar: (currentVars) => !currentVars.metMerchant
+                requireCheck: [
+                    {
+                        requiredVar: (currentVars) => !currentVars.metMerchant
+                    }
+                ]
+                //requiredVar: (currentVars) => !currentVars.metMerchant
             },
             {
                 text: 'Follow Sign to Merchant',
                 NextChat: '//1.3.1b//',
-                requiredVar: (currentVars) => currentVars.metMerchant
+                requireCheck: [
+                    {
+                        requiredVar: (currentVars) => currentVars.metMerchant
+                    }
+                ]
+                //requiredVar: (currentVars) => currentVars.metMerchant
             },
             {
                 text: 'Continue Down tunnel',
                 NextChat: '//1.3.2//',
-                requiredVar: (currentVars) => !currentVars.metMerchant
+                requireCheck: [
+                    {
+                        requiredVar: (currentVars) => !currentVars.metMerchant
+                    }
+                ]
+                //requiredVar: (currentVars) => !currentVars.metMerchant
             },
             {
                 text: 'Continue Down Tunnel',
                 NextChat: '//1.3.3b//',
-                requiredVar: (currentVars) => currentVars.metMerchant
+                requireCheck: [
+                    {
+                        requiredVar: (currentVars) => currentVars.metMerchant
+                    }
+                ]
+                //requiredVar: (currentVars) => currentVars.metMerchant
             }
         ]
     },
@@ -856,22 +905,38 @@ const chatNodes = [
             {
                 text: 'Follow Sign to Merchant',
                 NextChat: '//1.3.1a//',
-                requiredVar: (currentVars) => !currentVars.metMerchant
+                requireCheck: [
+                    {
+                        requiredVar: (currentVars) => !currentVars.metMerchant
+                    }
+                ]
             },
             {
                 text: 'Follow Sign to Merchant',
                 NextChat: '//1.3.1b//',
-                requiredVar: (currentVars) => currentVars.metMerchant
+                requireCheck: [
+                    {
+                        requiredVar: (currentVars) => currentVars.metMerchant
+                    }
+                ]
             },
             {
                 text: 'Continue Down tunnel',
                 NextChat: '//1.3.2//',
-                requiredVar: (currentVars) => !currentVars.metMerchant
+                requireCheck: [
+                    {
+                        requiredVar: (currentVars) => !currentVars.metMerchant
+                    }
+                ]
             },
             {
                 text: 'Continue Down Tunnel',
                 NextChat: '//1.3.3b//',
-                requiredVar: (currentVars) => currentVars.metMerchant
+                requireCheck: [
+                    {
+                        requiredVar: (currentVars) => currentVars.metMerchant
+                    }
+                ]
             }
         ]
     },
@@ -882,17 +947,32 @@ const chatNodes = [
             {
                 text: 'Talk to Merchant',
                 NextChat: '//1.2.4//',
-                requiredVar: (currentVars) => currentVars.metMerchant
+                requireCheck: [
+                    {
+                        requiredVar: (currentVars) => currentVars.metMerchant
+                    }
+                ]
+                //requiredVar: (currentVars) => currentVars.metMerchant
             },
             {
                 text: 'Continue Down tunnel',
                 NextChat: '//1.3.2//',
-                requiredVar: (currentVars) => !currentVars.metMerchant
+                requireCheck: [
+                    {
+                        requiredVar: (currentVars) => !currentVars.metMerchant
+                    }
+                ]
+                //requiredVar: (currentVars) => !currentVars.metMerchant
             },
             {
                 text: 'Continue Down tunnel',
                 NextChat: '//1.3.3b//',
-                requiredVar: (currentVars) => currentVars.metMerchant
+                requireCheck: [
+                    {
+                        requiredVar: (currentVars) => currentVars.metMerchant
+                    }
+                ]
+                //requiredVar: (currentVars) => currentVars.metMerchant
             }
         ]
     },
@@ -902,17 +982,29 @@ const chatNodes = [
             {
                 text: 'Talk to Merchant',
                 NextChat: '//1.2.4//',
-                requiredVar: (currentVars) => currentVars.metMerchant
+                requireCheck: [
+                    {
+                        requiredVar: (currentVars) => currentVars.metMerchant
+                    }
+                ]
             },
             {
                 text: 'Continue Down tunnel',
                 NextChat: '//1.3.2//',
-                requiredVar: (currentVars) => !currentVars.metMerchant
+                requireCheck: [
+                    {
+                        requiredVar: (currentVars) => !currentVars.metMerchant
+                    }
+                ]
             },
             {
                 text: 'Continue Down tunnel',
                 NextChat: '//1.3.3b//',
-                requiredVar: (currentVars) => currentVars.metMerchant
+                requireCheck: [
+                    {
+                        requiredVar: (currentVars) => currentVars.metMerchant
+                    }
+                ]
             }
         ]
 
@@ -986,18 +1078,30 @@ const chatNodes = [
             {
                 text: 'Try to Sneak',
                 NextChat: '//1.4.1//',
-                requiredVar: (currentVars) => !currentVars.lootAdventurer
+                requireCheck: [
+                    {
+                        requiredVar: (currentVars) => !currentVars.lootAdventurer
+                    }
+                ]
 
             },
             {
                 text: 'Don\'t Sneak',
                 NextChat: '//1.4.3a//',
-                requiredVar: (currentVars) => !currentVars.lootAdventurer
+                requireCheck: [
+                    {
+                        requiredVar: (currentVars) => !currentVars.lootAdventurer
+                    }
+                ]
             },
             {
                 text: 'Continue',
                 NextChat: '//1.4.3b//',
-                requiredVar: (currentVars) => currentVars.lootAdventurer
+                requireCheck: [
+                    {
+                        requiredVar: (currentVars) => currentVars.lootAdventurer
+                    }
+                ]
             }
         ]
     },
@@ -1081,14 +1185,36 @@ const chatNodes = [
             {
                 text: 'Continue',
                 NextChat: '//1.5.0a//',
-                requiredVar: (currentVars) => !currentVars.metCompanion
+                requireCheck: [
+                    {
+                        requiredVar: (currentVars) => !currentVars.metCompanion,
+                    },
+                    {
+                        requiredVar: (currentVars) => !currentVars.foundDoor
+                    }
+                ]
             },
             {
                 text: 'Continue',
                 NextChat: '//1.5.0b//',
-                requiredVar: (currentVars) => currentVars.metCompanion,
-                requiredVar: (currentVars) => currentVars.foundDoor
+                requireCheck: [
+                    {
+                        requiredVar: (currentVars) => currentVars.foundDoor
+                    }
+                ]
             },
+            {
+                text: 'Continue',
+                NextChat: '//1.5.0e//',
+                requireCheck: [
+                    {
+                        requiredVar: (currentVars) => currentVars.metCompanion,
+                    },
+                    {
+                        requiredVar: (currentVars) => !currentVars.foundDoor
+                    }
+                ]
+            }
         ]
     },
     {
@@ -1097,22 +1223,38 @@ const chatNodes = [
             {
                 text: 'Surprise the Creature!',
                 NextChat: '//1.5.1a//',
-                requiredVar: (currentVars) => currentVars.character == 'Wizard'
+                requireCheck: [
+                    {
+                        requiredVar: (currentVars) => currentVars.character == 'Wizard'
+                    }
+                ]
             },
             {
                 text: 'Surprise the Creature!',
                 NextChat: '//1.5.1b//',
-                requiredVar: (currentVars) => currentVars.character == 'Rogue'
+                requireCheck: [
+                    {
+                        requiredVar: (currentVars) => currentVars.character == 'Rogue'
+                    }
+                ]
             },
             {
                 text: 'Surprise the Creature!',
                 NextChat: '//1.5.1c//',
-                requiredVar: (currentVars) => currentVars.character == 'Barbarian'
+                requireCheck: [
+                    {
+                        requiredVar: (currentVars) => currentVars.character == 'Barbarian'
+                    }
+                ]
             },
             {
                 text: 'Surprise the Creature!',
                 NextChat: '//1.5.1d//',
-                requiredVar: (currentVars) => currentVars.character == 'Bard'
+                requireCheck: [
+                    {
+                        requiredVar: (currentVars) => currentVars.character == 'Bard'
+                    }
+                ]
             },
             {
                 text: 'Cautiously Approach',
@@ -1126,12 +1268,20 @@ const chatNodes = [
             {
                 text: 'Continue',
                 NextChat: '//1.5.0c//',
-                requiredVar: (currentVars) => currentVars.metMerchant
+                requireCheck: [
+                    {
+                        requiredVar: (currentVars) => currentVars.metMerchant
+                    }
+                ]
             },
             {
                 text: 'Continue',
                 NextChat: '//1.5.0d//',
-                requiredVar: (currentVars) => !currentVars.metMerchant
+                requireCheck: [
+                    {
+                        requiredVar: (currentVars) => !currentVars.metMerchant
+                    }
+                ]
             },
         ]
     },
@@ -1164,12 +1314,23 @@ const chatNodes = [
             {
                 text: 'Search around',
                 NextChat: '//1.5.6a//',
-                requiredVar: (currentVars) => !currentVars.foundDoor
+                requireCheck: [
+                    {
+                        requiredVar: (currentVars) => !currentVars.foundDoor
+                    }
+                ]
             },
             {
                 text: 'Try inserting key',
                 NextChat: '//1.6.0a//',
-                requiredVar: (currentVars) => currentVars.metMerchant
+                requireCheck: [
+                    {
+                        requiredVar: (currentVars) => currentVars.metMerchant
+                    },
+                    {
+                        requiredVar: (currentVars) => currentVars.foundDoor
+                    }
+                ]
             }
         ]
     },
@@ -1233,22 +1394,38 @@ const chatNodes = [
             {
                 text: 'Continue',
                 NextChat: '//1.5.2b//',
-                requiredVar: (currentVars) => currentVars.character == 'Wizard'
+                requireCheck: [
+                    {
+                        requiredVar: (currentVars) => currentVars.character == 'Wizard'
+                    }
+                ]
             },
             {
                 text: 'Continue',
                 NextChat: '//1.5.2c//',
-                requiredVar: (currentVars) => currentVars.character == 'Rogue'
+                requireCheck: [
+                    {
+                        requiredVar: (currentVars) => currentVars.character == 'Rogue'
+                    }
+                ]
             },
             {
                 text: 'Continue',
                 NextChat: '//1.5.2d//',
-                requiredVar: (currentVars) => currentVars.character == 'Barbarian'
+                requireCheck: [
+                    {
+                        requiredVar: (currentVars) => currentVars.character == 'Barbarian'
+                    }
+                ]
             },
             {
                 text: 'Continue',
                 NextChat: '//1.5.2e//',
-                requiredVar: (currentVars) => currentVars.character == 'Bard'
+                requireCheck: [
+                    {
+                        requiredVar: (currentVars) => currentVars.character == 'Bard'
+                    }
+                ]
             }
         ]
     },
@@ -1304,22 +1481,38 @@ const chatNodes = [
             {
                 text: 'Surprise the Creature!',
                 NextChat: '//1.5.1a//',
-                requiredVar: (currentVars) => currentVars.character == 'Wizard'
+                requireCheck: [
+                    {
+                        requiredVar: (currentVars) => currentVars.character == 'Wizard'
+                    }
+                ]
             },
             {
                 text: 'Surprise the Creature!',
                 NextChat: '//1.5.1b//',
-                requiredVar: (currentVars) => currentVars.character == 'Rogue'
+                requireCheck: [
+                    {
+                        requiredVar: (currentVars) => currentVars.character == 'Rogue'
+                    }
+                ]
             },
             {
                 text: 'Surprise the Creature!',
                 NextChat: '//1.5.1c//',
-                requiredVar: (currentVars) => currentVars.character == 'Barbarian'
+                requireCheck: [
+                    {
+                        requiredVar: (currentVars) => currentVars.character == 'Barbarian'              
+                    }
+                ]
             },
             {
                 text: 'Surprise the Creature!',
                 NextChat: '//1.5.1d//',
-                requiredVar: (currentVars) => currentVars.character == 'Bard'
+                requireCheck: [
+                    {
+                        requiredVar: (currentVars) => currentVars.character == 'Bard'
+                    }
+                ]
             }
         ]
     },
@@ -1346,14 +1539,22 @@ const chatNodes = [
                 NextChat: '//1.5.4b//',
                 NextAutoChat: '//1.5.4b//',
                 updateVars: {metCompanion: true, Companion: true},
-                requiredVar: (currentVars) => currentVars.character != 'Barbarian'
+                requireCheck: [
+                    {
+                        requiredVar: (currentVars) => currentVars.character != 'Barbarian'
+                    }
+                ]
             },
             {
                 text: 'Continue',
                 NextChat: '//1.5.4c//',
                 NextAutoChat: '//1.5.4c//',
                 updateVars: {metCompanion: true, Companion: true},
-                requiredVar: (currentVars) => currentVars.character == 'Barbarian'
+                requireCheck: [
+                    {
+                        requiredVar: (currentVars) => currentVars.character == 'Barbarian'
+                    }
+                ]
             }
         ]
     },
@@ -1418,13 +1619,21 @@ const chatNodes = [
                 text: 'Return to Cave',
                 NextChat: '//1.2.0//',
                 updateVars: {foundDoor: true},
-                requiredVar: (currentVars) => !currentVars.metMerchant
+                requireCheck: [
+                    {
+                        requiredVar: (currentVars) => !currentVars.metMerchant
+                    }
+                ]
             },
             {
                 text: 'Continue',
                 NextChat: '//1.5.6b//',
                 updateVars: {foundDoor: true},
-                requiredVar: (currentVars) => currentVars.metMerchant
+                requireCheck: [
+                    {
+                        requiredVar: (currentVars) => currentVars.metMerchant
+                    }
+                ]
             }
         ]
     },
@@ -1448,12 +1657,20 @@ const chatNodes = [
             {
                 text: 'Continue',
                 NextChat: '//1.6.0b//',
-                requiredVar: (currentVars) => currentVars.character == 'Barbarian'
+                requireCheck: [
+                    {
+                        requiredVar: (currentVars) => currentVars.character == 'Barbarian'
+                    }
+                ]
             },
             {
                 text: 'Continue',
                 NextChat: '//1.6.0c//',
-                requiredVar: (currentVars) => currentVars.character != 'Barbarian'
+                requireCheck: [
+                    {
+                        requiredVar: (currentVars) => currentVars.character != 'Barbarian'
+                    }
+                ]
             }
         ]
     },
@@ -1501,12 +1718,20 @@ const chatNodes = [
             {
                 text: 'Continue',
                 NextChat: '//1.6.1b//',
-                requiredVar: (currentVars) => currentVars.Companion
+                requireCheck: [
+                    {
+                        requiredVar: (currentVars) => currentVars.Companion
+                    }
+                ]
             },
             {
                 text: 'Continue',
                 NextChat: '//1.6.1c//',
-                requiredVar: (currentVars) => !currentVars.Companion
+                requireCheck: [
+                    {
+                        requiredVar: (currentVars) => !currentVars.Companion
+                    }
+                ]
             }
         ]
     },
