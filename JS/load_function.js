@@ -1,15 +1,15 @@
 /*
-    This function expects a value, telling it what function/area the user is in
-    It should call that function.
-
-*/
+ This function expects a value, telling it what function/area the user is in
+ It should call that function.
+ 
+ */
 
 /*
-Function saveCharacter: called when the click the button with their character
-Inputs:                 a string value with the character choice
-Does:                   Saves the funcState to be the beginning state 
-Outputs:                nothing, calls a load_function
-*/
+ Function saveCharacter: called when the click the button with their character
+ Inputs:                 a string value with the character choice
+ Does:                   Saves the funcState to be the beginning state 
+ Outputs:                nothing, calls a load_function
+ */
 function saveCharacter(characterChoice) {
 
     //save the character choice that was picked
@@ -35,7 +35,7 @@ function load_function() {
 
     //IF funcState == '//START//'
 
-    if(loadVar("funcState") == "//START//") {
+    if (loadVar("funcState") == "//START//") {
         //get character value (should late be set to larger value than chapter 1)
 
         StartChapter1();

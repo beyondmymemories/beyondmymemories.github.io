@@ -172,7 +172,8 @@
         <div class="container3" id="container3" >
             <div class="fade-in-text">
 
-                <img src="Functions/Art/Chapter1/icon.png" class="CharacterIcon" id="charIcon" onclick="JournalOn()">
+                <img title="Journal" src="Functions/Art/Chapter1/icon.png" class="CharacterIcon" id="charIcon" onclick="JournalOn()">
+                <p class="charhealth" id="displayHealth"></p>
 
                 <img id="overlayedImage" alt="overlayImages" class="topimage">
                 <div class="imagesettings">
@@ -207,7 +208,7 @@
 
 
 
-        <!--the dice fade it beauty-->
+            <!--the dice fade it beauty-->
             <div id="diceOverlay">
                 <h2 style="margin: 50px 10px 50px 10px; color: white; font-family: Papyrus;"> Time for a roll</h2>
                 <input type ="image" id="Theyseemerollin" src="../Functions/Art/DiceRoller/DiceImagePlaceHolder.png" name="rollDice" width="auto" height="200px" alt="rollDice"/>
@@ -219,27 +220,30 @@
 
         <!--Journal Madness-->
         <div id = "JournalOverlay">
-         <img src="../Functions/Art/Chapter1/Journal.png" height="550px" onclick="nextPage()">
-         
+            <img src="../Functions/Art/Chapter1/Journal.png" height="550px" onclick="nextPage(); journalstats()">
+
         </div>
 
         <div id="nextPage">
-            <h1 style="position: absolute; top:9%; left:27%;">Character Stats</h1>
-            <h1 style="position: absolute; top:9%; right:44%;">Bag</h1> 
-            <P style="position: absolute; top: 17%; right:44%; color:black;">Player Gold:</P>
-            <p style="position: absolute; top: 27%; right:45%; color:black;">Inventory:</p>
+
+            <h1 style="position: absolute; top:5%; left:31%;">Character Stats</h1>
+            <p style="position: absolute; top: 15%; left:31%; color:black; font-size:25px;"id="CharStatsy" ></p>
+            <h1 style="position: absolute; top:5%; right:36%;">Inventory</h1> 
+            <P style="position: absolute; top: 15%; right:44%; color:black;">Player Gold:</P>
+            <p style="position: absolute; top: 27%; right:45%; color:black;">Items:</p>
             <img src="../Functions/Art/Chapter1/OpenJournal.png" height="550px" onclick="nextPageAgain()">
             <button onclick="JournalOff()">Exit</button>
         </div>
         <div id="nextPageAgain"> 
-                        <!-- Need to work on formatting-->
+            <!-- Need to work on formatting-->
             <div id="checkpoint-options" class="checkpoint-grid">
-                <button style="position: relative; top:100%; left:170%;"class="options" id="setCheckpoint" onclick="createCheckpoint()">Set checkpoint</button>
-                <button style="position: relative; top:200%;left:60%;"class="options" id="loadCheckpoint" onclick="loadCheckpoint()">Load checkpoint</button>
+                <button style="position: relative; top:5%; left:31%;"class="options" id="setCheckpoint" onclick="createCheckpoint()">Set checkpoint</button>
+                <button style="position: relative; top:100%; left:31%;"class="options" id="loadCheckpoint" onclick="loadCheckpoint()">Load checkpoint</button>
             </div>
-            <img src="../Functions/Art/Chapter1/OpenJournal.png" height="550px">
+            <img src="../Functions/Art/Chapter1/OpenJournal.png" height="550px" onclick="nextPage()">
             <button onclick="JournalOff()">Exit</button>
         </div>
+
 
         <!--Creating div for the combat hub page that will constantly change-->
         <div class="container4" id="container4">
@@ -256,32 +260,35 @@
                 </div>
             </div>
 
-        
-    </div>
 
- 
+        </div>
 
 
-        <!--Creating div for the merchant-->
+        <!--Creating div for the merchant.-->
         <div class="container6" id="container6" onload="buttonWait();">
 
+            <!--This creates the merchant.-->
             <img src="Functions/Art/merchant.png" id="overlayedImage" alt="overlayImages" class="merchantimage">
+
+            <!--This creates the background for the shop.-->
             <div class="imagesettings">
 
                 <img id="backgroundImage" src="Functions/Art/Chapter1/OpenShop.png" alt="begin">
             </div>
 
-
+            <!--Prints out the amount of gold.-->
             <div class="counter" id="counter"> </div>
 
+            <!--Prints out if there is and issue with a purchase or the dogs reaction to a treat.-->
             <div class="error" id="error"> </div>   
 
+            <!--Enter the shop or leave it.-->
             <div id="door-options" class="door-grid">
-                <button class="doorOptions" id="enter" onclick="goldAmount();buttonOff();buttonOn();">Enter</button>
+                <button class="doorOptions" id="enter" onclick="goldOn();goldAmount();buttonOff();buttonOn();">Enter</button>
                 <button class="doorOptions" id="exitShop" onclick="hideShop()">Return to Cave</button>
             </div>
 
-
+            <!--The choices of items for the player to buy.-->
             <div id="shop-options" class="shop-grid">
                 <button class="shopOptions" id="item1" onclick="buy('item1')">Health Potion $150</button>
                 <button class="shopOptions" id="item2" onclick="buy('item2')">Return Stone $1</button>
@@ -293,10 +300,9 @@
                 <button class="shopOptions" id="item8" onclick="buy('item8')">Ring of Fire (increase fire damage) $450</button>
                 <button class="shopOptions" id="item9" onclick="buy('item9')">Stronger dagger $550</button>
                 <button class="shopOptions" id="item10" onclick="buy('item10')">Boots of stealth (increase stealth) $500</button>
-                <button class="shopOptions" id="item11" onclick="buy('item11')">Greater Rapier (increase roll/damage) $500</button>
+                <button class="shopOptions" id="item11" onclick="buy('item11')">Greater Rapier (increase roll/damage) $550</button>
                 <button class="shopOptions" id="item12" onclick="buy('item12')">New Spell (Cure Wounds) $700</button>
-                <button class="shopOptions" id="item13" onclick="buy('item13')">Name dog change $100</button>
-                <button class="shopOptions" id="item14" onclick="buy('item14')">Doggy treats $1</button>
+                <button class="shopOptions" id="item13" onclick="buy('item13')">Doggy treats $1</button>
             </div>
         </div>
 

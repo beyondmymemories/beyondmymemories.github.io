@@ -1,37 +1,37 @@
 /* This is to define our background. */
 body{
-	background-color:black;
+    background-color:black;
 }
 /* This handles the title of the page. */
 div.title {
 
     height: 1em;
-    position: relative; 
+    position: relative;
     margin-top: 30px;
-    margin-bottom: 10px; 
+    margin-bottom: 10px;
 }
 
-p {	
-	color: white;
+p {
+    color: white;
     text-align: center;
     font-family: 'euphoria-script';
 }
 
 /*Div for the main container of all main hub information*/
 div.container3 {
-   /*display:none;*/
-   font-family: 'euphoria-script';
-   padding: 0;
-   margin : 0;
-   display: flex;
-   justify-content: center;
-   align-items: center;
+    /*display:none;*/
+    font-family: 'euphoria-script';
+    padding: 0;
+    margin : 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .button-grid {
-   display: grid;
-   grid-template-columns: repeat(2,auto);
-   gap: 10px;
+    display: grid;
+    grid-template-columns: repeat(2,auto);
+    gap: 10px;
 
 }
 
@@ -40,8 +40,8 @@ button.options {
 }
 
 button.options:hover {
-   border-color: black; 
-   box-shadow: 0 0 5px 2px;
+    border-color: black;
+    box-shadow: 0 0 5px 2px;
 
 }
 

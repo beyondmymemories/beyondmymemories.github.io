@@ -1,12 +1,12 @@
 textarea {
-	position:absolute;
+    position:absolute;
     margin-top: 15px;
-    width: 50%; 
-	z-index: 1;
+    width: 50%;
+    z-index: 1;
 }
 
 chatLogDisplay {
-	position:absolute;
+    position:absolute;
     height: 500px;
     width: 40%;
     overflow: scroll;
@@ -16,31 +16,31 @@ chatLogDisplay {
     flex-direction: column-reverse;
     top: -540px;
     left: 30px;
-	z-index: 1;
+    z-index: 1;
     font-family: Papyrus;
     font-size: large;
 }
 
 ::-webkit-scrollbar {
-  width: 5px;
-  height: 5px;
-  background: transparent;
+    width: 5px;
+    height: 5px;
+    background: transparent;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: lightgrey;
-  border-radius:5px;
+    background: lightgrey;
+    border-radius:5px;
 }
 
 ::-webkit-scrollbar-corner {
-  border-radius: 5px;
-  background: transparent;
+    border-radius: 5px;
+    background: transparent;
 }
 
 
 
 chatDemo {
-	position:absolute;
+    position:absolute;
     height: 500px;
     width: 350px;
     overflow: scroll;
@@ -68,46 +68,54 @@ chatDemo {
 }
 
 .chatbtndemo:hover {
-   border-color: black; 
-   box-shadow: 0 0 5px 2px;
+    border-color: black;
+    box-shadow: 0 0 5px 2px;
 
 }
 
 #scroll-text {
-  height: 100%;
-  text-align: center;
-  
-  /* animation properties */
-  -moz-transform: translateY(100%);
-  -webkit-transform: translateY(100%);
-  transform: translateY(100%);
-  
-  -moz-animation: my-animation 5s linear infinite;
-  -webkit-animation: my-animation 5s linear infinite;
-  animation: my-animation 5s linear infinite;
+    height: 100%;
+    text-align: center;
+
+    /* animation properties */
+    -moz-transform: translateY(100%);
+    -webkit-transform: translateY(100%);
+    transform: translateY(100%);
+
+    -moz-animation: my-animation 5s linear infinite;
+    -webkit-animation: my-animation 5s linear infinite;
+    animation: my-animation 5s linear infinite;
 }
 
 /* for Firefox */
 @-moz-keyframes my-animation {
-  from { -moz-transform: translateY(100%); }
-  to { -moz-transform: translateY(-100%); }
+    from {
+        -moz-transform: translateY(100%);
+    }
+    to {
+        -moz-transform: translateY(-100%);
+    }
 }
 
 /* for Chrome */
 @-webkit-keyframes my-animation {
-  from { -webkit-transform: translateY(100%); }
-  to { -webkit-transform: translateY(-100%); }
+    from {
+        -webkit-transform: translateY(100%);
+    }
+    to {
+        -webkit-transform: translateY(-100%);
+    }
 }
 
 @keyframes my-animation {
-  from {
-    -moz-transform: translateY(100%);
-    -webkit-transform: translateY(100%);
-    transform: translateY(100%);
-  }
-  to {
-    -moz-transform: translateY(-100%);
-    -webkit-transform: translateY(-100%);
-    transform: translateY(-100%);
-  }
+    from {
+        -moz-transform: translateY(100%);
+        -webkit-transform: translateY(100%);
+        transform: translateY(100%);
+    }
+    to {
+        -moz-transform: translateY(-100%);
+        -webkit-transform: translateY(-100%);
+        transform: translateY(-100%);
+    }
 }
