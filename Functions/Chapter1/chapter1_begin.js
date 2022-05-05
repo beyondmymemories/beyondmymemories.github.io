@@ -40,6 +40,7 @@ function setChatper1Var(input) {
 function StartChapter1() {
 
     chapter1var = { character: loadVar("character") }
+    chapter1var.metMerchant = false;
 
     setglobalImg("Functions/Art/Chapter1/smallerCave.png");
 
@@ -431,7 +432,7 @@ function printChatNode(chatNodeIndex, load_chapter1vars) {
     lastChatNodeIndex = chatNodeIndex;
 
     //STUPID FREAKING THINGS THAT I LOVE
-    if (chatNodeIndex == '//START//')
+    if (chatNodeIndex == '//START//' && !(loadVar("checkpoint_chatNodeIndex") === '//START//'))
         createCheckpoint();
 
     //If we've reached the end -> finish game
@@ -651,7 +652,7 @@ function savechapter1(chatNodeIndex) {
     //Load the "string"
     saveVar("chapter1vars", chapter1vars);
 
-
+    console.log("SAVECHAPTER1()");
 } //end of saving chapter 1
 
 /*
@@ -667,6 +668,8 @@ function loadChapter1() {
 
     //load image
     globalImg = (loadVar("backgroundImage"));
+
+    console.log("LOADCHAPTER1()")
 
 } //end of saving chapter 1
 

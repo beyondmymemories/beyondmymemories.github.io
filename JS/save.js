@@ -48,7 +48,7 @@ function globalSave() {
 	saveVar("playerLevel", playerLevel);
 	saveVar("playerName", playerName);
 	saveVar("dogName", dogName);
-	console.log("GLOBAL SAVE COMPLETED");
+	//console.log("GLOBAL SAVE COMPLETED");
 
 
 }
@@ -60,7 +60,7 @@ function globalLoad() {
 	playerLevel = loadVar("playerLevel");
 	playerName = loadVar("playerName");
 	dogName = loadVar("dogName");
-	console.log("GLOBAL LOAD COMPLETED");
+	//console.log("GLOBAL LOAD COMPLETED");
 
 }
 
@@ -72,8 +72,9 @@ function createCheckpoint() {
 	//Chapter data
 	saveVar("checkpoint_chatNodeIndex", getLastChatNodeIndex());
 	saveVar("checkpoint_globalImg", getglobalImg());
-	saveJson("checkpoint_chapterVars", getChapter1Var() );
-
+	saveJson("checkpoint_chapterVars", getChapter1Var());
+	console.log("MERCHANT STATUS SAVED:" + loadJson("checkpoint_chapterVars").metMerchant);
+	console.log("CHAPTER1VARS = :" + getChapter1Var().metMerchant);
 	//Shop data
 	saveJson("checkpoint_shopItems", getShopItems());
 	saveJson("checkpoint_playerItems", getPlayerItems());
@@ -86,24 +87,28 @@ function createCheckpoint() {
 function loadCheckpoint() {
 	//global load
 	globalLoad();
-
+	console.log("CHARACTER TYPE: " + getChapter1Var().character);
 	//Chapter load
-	console.log(loadVar("checkpoint_chatNodeIndex"));
-	console.log(loadJson("checkpoint_chapterVars"));
-
+	//console.log(loadVar("checkpoint_chatNodeIndex"));
+	//console.log(loadJson("checkpoint_chapterVars"));
+	console.log("MERCHANT STATUS LOADED:" + loadJson("checkpoint_chapterVars").metMerchant);
 	//shop and inventory load
 	setPlayerItems(loadJson("checkpoint_playerItems"));
 	setShopItems(loadJson("checkpoint_playerItems"));
 
+	
+
 	//background image load
-	console.log(loadVar("checkpoint_globalImg"))
+	//console.log(loadVar("checkpoint_globalImg"))
 	setglobalImg(loadVar("checkpoint_globalImg"));
 	globalImg = loadVar("checkpoint_globalImg")
-	printChatNode(loadVar("checkpoint_chatNodeIndex"), loadJson("checkpoint_chapterVars"));
+	printChatNode(loadVar("checkpoint_chatNodeIndex"), false);
 
 	setChatper1Var(loadJson("checkpoint_chapterVars"));
-
+	console.log("POST LOADING MERCHANT STATUS: " + getChapter1Var().metMerchant);
 	console.log("CHECKPOINT LOADED AT:  " + loadVar("checkpoint_chatNodeIndex"))
+
+	//loadChapter1(loadVar("checkpoint_chatNodeIndex"))
 }
 
 
