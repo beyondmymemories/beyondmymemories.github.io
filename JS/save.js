@@ -86,8 +86,8 @@ function loadCheckpoint() {
 	globalLoad();
 	console.log("CHARACTER TYPE: " + getChapter1Var().character);
 	//Chapter load
-	//console.log(loadVar("checkpoint_chatNodeIndex"));
-	//console.log(loadJson("checkpoint_chapterVars"));
+	console.log(loadVar("checkpoint_chatNodeIndex"));
+	console.log(loadJson("checkpoint_chapterVars"));
 	console.log("MERCHANT STATUS LOADED:" + loadJson("checkpoint_chapterVars").metMerchant);
 	//shop and inventory load
 	setPlayerItems(loadJson("checkpoint_playerItems"));
@@ -96,7 +96,7 @@ function loadCheckpoint() {
 	
 
 	//background image load
-	//console.log(loadVar("checkpoint_globalImg"))
+	console.log(loadVar("checkpoint_globalImg"))
 	setglobalImg(loadVar("checkpoint_globalImg"));
 	globalImg = loadVar("checkpoint_globalImg")
 	printChatNode(loadVar("checkpoint_chatNodeIndex"), false);
@@ -116,7 +116,7 @@ var debug = true;
  Live variables and their get and set functions
  */
 var saveExists
-var playerGold
+var playerGold = 0;
 var playerLevel
 var playerName
 var dogName
@@ -182,6 +182,7 @@ function getLiveVar(selection) {
 }
 
 function addGold(amount) {
+    console.log("[SAVE]: Added gold: " + amount);
     playerGold = parseInt(playerGold) + parseInt(amount);
 }
 
@@ -280,17 +281,25 @@ function newGame() {
     console.log(loadVar("saveExists"));
     if (localStorage.getItem("saveExists") === null || loadVar("saveExists") == "undefined") {
         alert("No save exists, A new game will start");
+        deleteGame();
         localStorage.setItem("saveExists", "True")
         //window.location.href = "charSelect.html";
         document.getElementById("container2").style.display = 'inline-block'
         document.getElementById("container1").style.display = 'none'
         element.style.backgroundColor = "#00FF00";
+
+        playerGold = 0;
+
     } else {
         if (confirm("A game already Exists. Do you want to start a New Game?")) {
             alert("A new game will start");
+            deleteGame();
             document.getElementById("container2").style.display = 'inline-block'
             document.getElementById("container1").style.display = 'none'
             element.style.backgroundColor = "#00FF00";
+            playerGold = 0;
+
+
         } else {
             alert("A new game will NOT start");
         }
@@ -319,10 +328,13 @@ function deleteGame() {
             localStorage.removeItem("playerLevel");
 
             localStorage.removeItem("funcState");
+            localStorage.clear();
 
 
+
+            console.log("GAME DELETED");
         }
-        saveVar("saveExists") = null;
+        saveVar("saveExists", null);
     } else {
         alert("No game save exists");
     }
