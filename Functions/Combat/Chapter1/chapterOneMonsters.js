@@ -1,7 +1,7 @@
 var Monsters1 = {
     Goblin: {
         type: 'melee',
-        weapon: Attacks1.Weapons.Shortsword,
+        weapon: Attacks1.Weapons.Dagger,
         health: 12,
         ac: 15,
         hitNode: '//Goblin Hit//',

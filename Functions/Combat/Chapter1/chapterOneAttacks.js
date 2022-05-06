@@ -12,7 +12,7 @@ var Attacks1 = {
             name: 'Maul',
             type: 'heavy',
             damage: 6,
-            amount: 2,
+            amount: 1,
             buy: 35,
             sell: 3.5
         },

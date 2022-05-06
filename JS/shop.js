@@ -197,7 +197,10 @@ function buy(product) {
             addGold(-75);
             document.getElementById("counter").innerHTML = "Current Gold:" + getLiveVar("playerGold");
             playerItems.item3 = playerItems.item3 + 1;
-            //charCurrHP = charMaxHP
+            charCurrHP = charMaxHP
+            setCharCurrHP(charCurrHP)
+            saveVar("checkpoint_charCurrHP", getCharCurrHP());
+            document.getElementById("displayHealth").innerText = charCurrHP + " / " + charMaxHP;
         } else {
             document.getElementById("error").innerHTML = "Not enough gold";
             errorOn();
