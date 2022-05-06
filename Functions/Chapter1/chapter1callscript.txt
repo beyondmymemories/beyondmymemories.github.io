@@ -178,7 +178,7 @@ GENERAL CHAT CALLS
 	Nevertheless, I am most grateful to you for saving my life, please allow me to guide you back to my shop <br>
 	and give you a token of my gratitude." <br>
 *You wander back to his shop* <br>
-	Ivan, who was at your side, is immediately behind the counter, mumbling and searching to himself <br>
+	Ivan, who was at your side, is immediately behind the counter, searching and mumbling to himself <br>
 	"Ah! Here we are, for you!" <br>
 	~~You've obtained a black obsidian key! It may help you~~ <br>
 	"Please come to my shop anytime! I happen to sell many different items that may be of use to you in this cavern <br>

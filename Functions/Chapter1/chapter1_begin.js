@@ -17,7 +17,7 @@ function getChapter1Var() {
 }
 
 function getglobalImg() {
-    
+
     console.log(globalImg)
 
     return globalImg;
@@ -28,7 +28,7 @@ function setglobalImg(input) {
 
     globalImg = input;
 
-    document.getElementById("backgroundImage").src=globalImg;
+    document.getElementById("backgroundImage").src = globalImg;
 
     console.log(globalImg)
 
@@ -39,14 +39,17 @@ function setChatper1Var(input) {
 
 function StartChapter1() {
 
-    chapter1var = { character: loadVar("character") }
+
+    chapter1var = {character: loadVar("character")}
     setCharInfo()
+    chapter1var.metMerchant = false;
+
 
     setglobalImg("Functions/Art/Chapter1/smallerCave.png");
 
     globalImg = "Functions/Art/Chapter1/smallerCave.png";
 
-   // chapter1var = { character: characterChoice }
+    // chapter1var = { character: characterChoice }
     printChatNode('//START//', false)
 }
 
@@ -62,11 +65,11 @@ var comFail
 
 function setCharInfo() {
     characterChoice = loadVar('character')
-    if(characterChoice == 'Wizard')
+    if (characterChoice == 'Wizard')
         character = charStats1.Wizard
-    else if(characterChoice == 'Bard')
+    else if (characterChoice == 'Bard')
         character = charStats1.Bard
-    else if(characterChoice == 'Barbarian')
+    else if (characterChoice == 'Barbarian')
         character = charStats1.Barbarian
     else
         character = charStats1.Rogue
@@ -74,7 +77,7 @@ function setCharInfo() {
     charCurrHP = character.hp
 }
 
-function comResult(result){
+function comResult(result) {
 
     //document.getElementById("container4").style.display = "none";
     //document.getElementById("container3").style.display = "inline-block";
@@ -83,74 +86,63 @@ function comResult(result){
     if (result == "Success0"){
         //check this: !currentVars.lootAdventurer
         printChatNode(comSucc);
-    }
-    else if (result == "Success"){
+    } else if (result == "Success") {
         printChatNode(comSucc)
     }
     //failed in combat -> die
-    else{
+    else {
         printChatNode(comFail)
     }
 }
 
-function action(monster, attack){
+function action(monster, attack) {
     var type = attack.type
-    if(type == 'heavy' || type == 'finesse'){
-        if(type == 'heavy'){
-            var tobeat = diceRoll(1,20) + character.stats.str + 3
-            if(tobeat >= monster.ac){
+    if (type == 'heavy' || type == 'finesse') {
+        if (type == 'heavy') {
+            var tobeat = diceRoll(1, 20) + character.stats.str + 3
+            if (tobeat >= monster.ac) {
                 monsterHP = monsterHP - (diceRoll(attack.amount, attack.damage) + character.stats.str)
                 updateChatLog('../Functions/Chapter1/chapter1callscript.txt', character.hitNode)
-            }
-            else
+            } else
                 updateChatLog('../Functions/Chapter1/chapter1callscript.txt', character.missNode)
-        }
-        else if(type == 'finesse'){
-            if(character.stats.str > character.stats.dex){
-                var tobeat = diceRoll(1,20) + character.stats.str + 3
-                if(tobeat >= monster.ac){
+        } else if (type == 'finesse') {
+            if (character.stats.str > character.stats.dex) {
+                var tobeat = diceRoll(1, 20) + character.stats.str + 3
+                if (tobeat >= monster.ac) {
                     monsterHP = monsterHP - (diceRoll(attack.amount, attack.damage) + character.stats.str)
                     updateChatLog('../Functions/Chapter1/chapter1callscript.txt', character.hitNode)
-                }
-                else
+                } else
                     updateChatLog('../Functions/Chapter1/chapter1callscript.txt', character.missNode)
-            }
-            else{
-                var tobeat = diceRoll(1,20) + character.stats.dex + 3
-                if(tobeat >= monster.ac){
+            } else {
+                var tobeat = diceRoll(1, 20) + character.stats.dex + 3
+                if (tobeat >= monster.ac) {
                     monsterHP = monsterHP - (diceRoll(attack.amount, attack.damage) + character.stats.dex)
                     updateChatLog('../Functions/Chapter1/chapter1callscript.txt', character.hitNode)
-                }
-                else
+                } else
                     updateChatLog('../Functions/Chapter1/chapter1callscript.txt', character.missNode)
             }
         }
-    }
-    else{
-        if(type == 'heal'){
+    } else {
+        if (type == 'heal') {
             charCurrHP = charCurrHP + diceRoll(attack.amount, attack.heal) + character.stats.chr
-            if(charCurrHP > charMaxHP)
+            if (charCurrHP > charMaxHP)
                 charCurrHP = charMaxHP
             updateChatLog('../Functions/Chapter1/chapter1callscript.txt', '//Healing//')
-        }
-        else{
-            if(type == 'fire'){
-                var tobeat = diceRoll(1,20) + monster.stats.dex
-                if(tobeat >= (11+character.stats.int)){
-                    monsterHP = monsterHP - ((diceRoll(attack.amount, attack.damage))/2)
+        } else {
+            if (type == 'fire') {
+                var tobeat = diceRoll(1, 20) + monster.stats.dex
+                if (tobeat >= (11 + character.stats.int)) {
+                    monsterHP = monsterHP - ((diceRoll(attack.amount, attack.damage)) / 2)
                     updateChatLog('../Functions/Chapter1/chapter1callscript.txt', character.hitNode)
-                }
-                else{
+                } else {
                     monsterHP = monsterHP - (diceRoll(attack.amount, attack.damage))
                     updateChatLog('../Functions/Chapter1/chapter1callscript.txt', character.hitNode)
                 }
-            }
-            else{
-                var tobeat = diceRoll(1,20) + monster.stats.wis
-                if(tobeat >= (11+character.stats.chr)){
+            } else {
+                var tobeat = diceRoll(1, 20) + monster.stats.wis
+                if (tobeat >= (11 + character.stats.chr)) {
                     updateChatLog('../Functions/Chapter1/chapter1callscript.txt', character.missNode)
-                }
-                else{
+                } else {
                     monsterHP = monsterHP - (diceRoll(attack.amount, attack.damage))
                     updateChatLog('../Functions/Chapter1/chapter1callscript.txt', character.hitNode)
                 }
@@ -158,57 +150,55 @@ function action(monster, attack){
         }
     }
     console.log(monsterHP);
-    document.getElementById("displayHealth").innerText =  charCurrHP +  " / " + charMaxHP;
-    if(monsterHP > 0)
+    document.getElementById("displayHealth").innerText = charCurrHP + " / " + charMaxHP;
+    if (monsterHP > 0)
         combatChoice(monster)
     else
         comResult("Success")
 }
 
-function recCombat(monster, turn){
+function recCombat(monster, turn) {
 
     while (document.getElementById('button-options').firstChild) {
         document.getElementById('button-options').removeChild(document.getElementById('button-options').firstChild)
     }
 
-    if(turn == "enemy" || turn == "pass"){
+    if (turn == "enemy" || turn == "pass") {
         attackAvailable = 1
         bonusAvailable = 1
-        if(monster.stats.dex > monster.stats.str)
+        if (monster.stats.dex > monster.stats.str)
             var sub = monster.stats.dex
         else
             var sub = monster.stats.str
-        if((diceRoll(1, 20)+sub+3) >= character.ac){
+        if ((diceRoll(1, 20) + sub + 3) >= character.ac) {
             charCurrHP = charCurrHP - (diceRoll(monster.weapon.amount, monster.weapon.damage) + sub)
             updateChatLog('../Functions/Chapter1/chapter1callscript.txt', monster.hitNode)
-        }
-        else
+        } else
             updateChatLog('../Functions/Chapter1/chapter1callscript.txt', monster.missNode)
         console.log("Character HP: " + charCurrHP);
         //UPDATE HEALTH
-        document.getElementById("displayHealth").innerText =  charCurrHP +  " / " + charMaxHP;
-        if(charCurrHP > 0)
+        document.getElementById("displayHealth").innerText = charCurrHP + " / " + charMaxHP;
+        if (charCurrHP > 0)
             combatChoice(monster)
         else
             comResult("Fail")
-    }
-    else if(turn == "action") {
+    } else if (turn == "action") {
         attackAvailable = 0
-        switch(characterChoice){
+        switch (characterChoice) {
             case 'Wizard':
                 wizAttacks.forEach(attacks => {
                     //create button
                     const button = document.createElement('button')
- 
+
                     //button name will be weapon/spell name
                     button.innerText = attacks.name
- 
+
                     //add it to the correct css
                     button.classList.add('options')
- 
+
                     //click event listener
                     button.addEventListener('click', () => action(monster, attacks))
- 
+
                     //stuff
                     document.getElementById('button-options').appendChild(button)
                 })
@@ -217,16 +207,16 @@ function recCombat(monster, turn){
                 barbAttacks.forEach(attacks => {
                     //create button
                     const button = document.createElement('button')
- 
+
                     //button name will be weapon/spell name
                     button.innerText = attacks.name
- 
+
                     //add it to the correct css
                     button.classList.add('options')
- 
+
                     //click event listener
                     button.addEventListener('click', () => action(monster, attacks))
- 
+
                     //stuff
                     document.getElementById('button-options').appendChild(button)
                 })
@@ -235,16 +225,16 @@ function recCombat(monster, turn){
                 bardAttacks.forEach(attacks => {
                     //create button
                     const button = document.createElement('button')
- 
+
                     //button name will be weapon/spell name
                     button.innerText = attacks.name
- 
+
                     //add it to the correct css
                     button.classList.add('options')
- 
+
                     //click event listener
                     button.addEventListener('click', () => action(monster, attacks))
- 
+
                     //stuff
                     document.getElementById('button-options').appendChild(button)
                 })
@@ -253,39 +243,38 @@ function recCombat(monster, turn){
                 rogueAttacks.forEach(attacks => {
                     //create button
                     const button = document.createElement('button')
- 
+
                     //button name will be weapon/spell name
                     button.innerText = attacks.name
- 
+
                     //add it to the correct css
                     button.classList.add('options')
- 
+
                     //click event listener
                     button.addEventListener('click', () => action(monster, attacks))
- 
+
                     //stuff
                     document.getElementById('button-options').appendChild(button)
                 })
                 break;
         }
-    }
-    else if(turn == "bonus"){
+    } else if (turn == "bonus") {
         bonusAvailable = 0
-        switch(characterChoice){
+        switch (characterChoice) {
             case 'Wizard':
                 wizBonus.forEach(attacks => {
                     //create button
                     const button = document.createElement('button')
- 
+
                     //button name will be weapon/spell name
                     button.innerText = attacks.name
- 
+
                     //add it to the correct css
                     button.classList.add('options')
- 
+
                     //click event listener
                     button.addEventListener('click', () => action(monster, attacks))
- 
+
                     //stuff
                     document.getElementById('button-options').appendChild(button)
                 })
@@ -294,16 +283,16 @@ function recCombat(monster, turn){
                 barbBonus.forEach(attacks => {
                     //create button
                     const button = document.createElement('button')
- 
+
                     //button name will be weapon/spell name
                     button.innerText = attacks.name
- 
+
                     //add it to the correct css
                     button.classList.add('options')
- 
+
                     //click event listener
                     button.addEventListener('click', () => action(monster, attacks))
- 
+
                     //stuff
                     document.getElementById('button-options').appendChild(button)
                 })
@@ -312,16 +301,16 @@ function recCombat(monster, turn){
                 bardBonus.forEach(attacks => {
                     //create button
                     const button = document.createElement('button')
- 
+
                     //button name will be weapon/spell name
                     button.innerText = attacks.name
- 
+
                     //add it to the correct css
                     button.classList.add('options')
- 
+
                     //click event listener
                     button.addEventListener('click', () => action(monster, attacks))
- 
+
                     //stuff
                     document.getElementById('button-options').appendChild(button)
                 })
@@ -330,16 +319,16 @@ function recCombat(monster, turn){
                 rogueBonus.forEach(attacks => {
                     //create button
                     const button = document.createElement('button')
- 
+
                     //button name will be weapon/spell name
                     button.innerText = attacks.name
- 
+
                     //add it to the correct css
                     button.classList.add('options')
- 
+
                     //click event listener
                     button.addEventListener('click', () => action(monster, attacks))
- 
+
                     //stuff
                     document.getElementById('button-options').appendChild(button)
                 })
@@ -348,14 +337,14 @@ function recCombat(monster, turn){
     }
 }
 
-function combatChoice(monster){
+function combatChoice(monster) {
     //display the correct buttons
     while (document.getElementById('button-options').firstChild) {
         document.getElementById('button-options').removeChild(document.getElementById('button-options').firstChild)
     }
 
-    if(attackAvailable == 1){
-        
+    if (attackAvailable == 1) {
+
         console.log("Action made");
         const button = document.createElement('button')
 
@@ -370,7 +359,7 @@ function combatChoice(monster){
 
         document.getElementById('button-options').appendChild(button)
     }
-    if(bonusAvailable == 1){
+    if (bonusAvailable == 1) {
         console.log("Bonus Made");
         const button = document.createElement('button')
 
@@ -406,42 +395,38 @@ function combatFunc(combatNum) {
 
     //Initialize which character we use
     /*
-    characterChoice = loadVar('character')
-    if(characterChoice == 'Wizard')
-        character = charStats1.Wizard
-    else if(characterChoice == 'Bard')
-        character = charStats1.Bard
-    else if(characterChoice == 'Barbarian')
-        character = charStats1.Barbarian
-    else
-        character = charStats1.Rogue*/
-    
+     characterChoice = loadVar('character')
+     if(characterChoice == 'Wizard')
+     character = charStats1.Wizard
+     else if(characterChoice == 'Bard')
+     character = charStats1.Bard
+     else if(characterChoice == 'Barbarian')
+     character = charStats1.Barbarian
+     else
+     character = charStats1.Rogue*/
+
     //Decide which combat we'll be doing
-    if(combatNum == 'Hobgoblin'){
+    if (combatNum == 'Hobgoblin') {
         var monster = Monsters1.Hobgoblin
         monsterHP = monster.health
-    }
-    else if(combatNum == 'Goblin'){
+    } else if (combatNum == 'Goblin') {
         var monster = Monsters1.Goblin
         monsterHP = monster.health
-    }
-    else if(combatNum == 'Minotaur'){
+    } else if (combatNum == 'Minotaur') {
         var monster = Monsters1.Minotaur
         monsterHP = monster.health
     }
-    
+
     //roll for initiative
     var monsterRoll = diceRoll(1, 20) + monster.stats.dex
     var playerRoll = diceRoll(1, 20) + character.stats.dex
-    
+
     //if the monster goes first
-    if(monsterRoll > playerRoll) {
+    if (monsterRoll > playerRoll) {
         console.log("Monster First");
         updateChatLog('../Functions/Chapter1/chapter1callscript.txt', '//Enemy First//')
         recCombat(monster, "enemy")
-    }
-    
-    else{
+    } else {
         console.log("Player First");
         attackAvailable = 1
         bonusAvailable = 1
@@ -454,27 +439,25 @@ function printChatNode(chatNodeIndex, load_chapter1vars) {
     lastChatNodeIndex = chatNodeIndex;
 
     //STUPID FREAKING THINGS THAT I LOVE
-    if (chatNodeIndex == '//START//')
+    if (chatNodeIndex == '//START//' && !(loadVar("checkpoint_chatNodeIndex") === '//START//'))
         createCheckpoint();
 
     //If we've reached the end -> finish game
     if (chatNodeIndex == 'END') {
         loadContainer7();
     }
-    
+
     //if we're coming back to the website - refresh variables
     if (load_chapter1vars) {
         loadChapter1();
     } //end of if load chapter1vars
 
-    //Save the state
-    savechapter1(chatNodeIndex);
-
     //get the current chatNode/option to display
     const chatNode = chatNodes.find(chatNode => chatNode.id === chatNodeIndex)
 
     //display the chatoption with chatlog
-    if (updateChatLog('../Functions/Chapter1/chapter1callscript.txt', chatNodeIndex));
+    if (updateChatLog('../Functions/Chapter1/chapter1callscript.txt', chatNodeIndex))
+        ;
 
     //If the changeImage != null -> change background
     if (chatNode.changeImage != null) {
@@ -484,55 +467,56 @@ function printChatNode(chatNodeIndex, load_chapter1vars) {
         globalImg = chatNode.changeImage;
     }
 
-    document.getElementById("backgroundImage").src=globalImg;
+    document.getElementById("backgroundImage").src = globalImg;
 
-    if (chatNode.changeOverlayImage != null){
+    if (chatNode.changeOverlayImage != null) {
         document.getElementById("overlayedImage").style.display = "inline-block";
 
-        document.getElementById("overlayedImage").src=chatNode.changeOverlayImage;
-    }
-    else {
+        document.getElementById("overlayedImage").src = chatNode.changeOverlayImage;
+    } else {
         document.getElementById("overlayedImage").style.display = "none";
     }
 
-        //If there is more to print!
-        if (chatNode.NextAutoChat != null) {
-            //loop through each id and print them
-            chatNode.NextAutoChat.forEach(autochat => {
+    //If there is more to print!
+    if (chatNode.NextAutoChat != null) {
+        //loop through each id and print them
+        chatNode.NextAutoChat.forEach(autochat => {
 
-                if (showOption(autochat)) {
-                    if (updateChatLog('../Functions/Chapter1/chapter1callscript.txt', autochat.id));
-                }
-            }) //end of chatnode
+            if (showOption(autochat)) {
+                if (updateChatLog('../Functions/Chapter1/chapter1callscript.txt', autochat.id))
+                    ;
+            }
+        }) //end of chatnode
 
-            //display dashed line
-            if (updateChatLog('../Functions/Chapter1/chapter1callscript.txt','//dashes//'));
+        //display dashed line
+        if (updateChatLog('../Functions/Chapter1/chapter1callscript.txt', '//dashes//'))
+            ;
 
-        }
-        else {
-            
-            //display dashed line
-            if (updateChatLog('../Functions/Chapter1/chapter1callscript.txt','//dashes//'));
-        }
+    } else {
+
+        //display dashed line
+        if (updateChatLog('../Functions/Chapter1/chapter1callscript.txt', '//dashes//'))
+            ;
+    }
 
     //UPDATE HEALTH
-    document.getElementById("displayHealth").innerText =  charCurrHP +  " / " + charMaxHP;
+    document.getElementById("displayHealth").innerText = charCurrHP + " / " + charMaxHP;
 
-   //IF WE GO TO THE MERCHANT SHOP
-   if (chatNode.shop == true) {
+    //IF WE GO TO THE MERCHANT SHOP
+    if (chatNode.shop == true) {
 
-       //Save the state
-       //savechapter1(chatNodeIndex);
-        
+        //Save the state
+        //savechapter1(chatNodeIndex);
+
         //change container1 -> container3
         showShop();
 
-   }
-   //if we enter combat
-   else  if(chatNode.combat != null) {
+    }
+    //if we enter combat
+    else if (chatNode.combat != null) {
 
-    //document.getElementById("container3").style.display = "none";
-    //document.getElementById("container4").style.display = "inline-block";
+        //document.getElementById("container3").style.display = "none";
+        //document.getElementById("container4").style.display = "inline-block";
 
         //display the correct buttons
         while (document.getElementById('button-options').firstChild) {
@@ -555,19 +539,19 @@ function printChatNode(chatNodeIndex, load_chapter1vars) {
 
         chatNode.options.forEach(option => {
             const button = document.createElement('button')
-    
+
             //display the button text
             button.innerText = option.text
-    
+
             //add it to the correct css
             button.classList.add('options')
 
             //click event listener - load the load function for it
             button.addEventListener('click', () => loadCheckpoint())
-    
+
             document.getElementById('button-options').appendChild(button)
         });
-    
+
     }
     //check if we need to roll dice here
     else if (chatNode.dicetype != null) {
@@ -579,42 +563,70 @@ function printChatNode(chatNodeIndex, load_chapter1vars) {
 
         var returnedDiceResult
 
-        document.getElementById("Theyseemerollin").addEventListener("click", function() {
-   
-           returnedDiceResult = diceRoll(chatNode.rollnumber,chatNode.dicetype);
+        document.getElementById("Theyseemerollin").addEventListener("click", function () {
 
-           document.getElementById('Theyseemerollin').style.display = 'none';
-           document.getElementById('diceNum').innerHTML = returnedDiceResult
+            returnedDiceResult = diceRoll(chatNode.rollnumber, chatNode.dicetype);
+
+            document.getElementById('Theyseemerollin').style.display = 'none';
+            document.getElementById('diceNum').innerHTML = returnedDiceResult
 
             if (returnedDiceResult >= chatNode.tobeat) {
                 //we suceeded - chatnode to suceeed
                 printChatNode(chatNode.sucess, false)
-            }
-            else if (returnedDiceResult < chatNode.tobeat) {
+            } else if (returnedDiceResult < chatNode.tobeat) {
                 //fails - chatnode to fail
                 printChatNode(chatNode.fail, false)
-            }
-            else 
+            } else
                 alert("FAILED!")
         }); //end of eventlistener
 
-    
+
     } //if we have dice to roll! 
     //CONTINUE WITH THE ACTUAL CHOICES GAME PLZ
     else {
 
         //Save the state
-        //savechapter1(chatNodeIndex);
+        savechapter1(chatNodeIndex);
 
         //display the correct buttons
         while (document.getElementById('button-options').firstChild) {
             document.getElementById('button-options').removeChild(document.getElementById('button-options').firstChild)
         }
 
+        //set values for show or not
+        //show = false;
+
         //loop through each buttons option to display them
         chatNode.options.forEach(option => {
 
-            if (showOption(option)) {
+
+            //Need to check if we can show this option
+            show = false;
+            wasfalse = false
+
+            //if theres nothing required -> just show it
+            if (option.requireCheck == null) {
+                show = true
+            }
+            //Theres something required -> check
+            else {
+            option.requireCheck.forEach(requireC => {
+
+                //if is false OR AT ANY POINT WAS FALSE
+                if (showOption(requireC) != true || wasfalse == true) {
+                    show = false;
+                    wasfalse = true;
+                }
+                else {
+                    //everything is true -> just show it
+                    show = true;
+                }
+
+            })
+        }
+
+
+            if (show) {
                 //create button
                 const button = document.createElement('button')
 
@@ -644,27 +656,26 @@ function showOption(option) {
     const test = (option.requiredVar == null) || option.requiredVar(chapter1var)
 
     return option.requiredVar == null || option.requiredVar(chapter1var) 
-    //return true;
 } //end of showOption
 
 function selectOption(option) {
-    
-        //get next chatNode
-        const nextChatNodeId = option.NextChat
 
-        //update chapter1 var
-        chapter1var = Object.assign(chapter1var, option.updateVars)
+    //get next chatNode
+    const nextChatNodeId = option.NextChat
 
-        //show next chatlog node
-        printChatNode(nextChatNodeId, false)
+    //update chapter1 var
+    chapter1var = Object.assign(chapter1var, option.updateVars)
+
+    //show next chatlog node
+    printChatNode(nextChatNodeId, false)
 
 } //end of selectOption
 
 /*
-SAVING FUNCTION
-*/
+ SAVING FUNCTION
+ */
 function savechapter1(chatNodeIndex) {
-   
+
     //Save where we are - chatnodeindex -> called function state
     saveVar("funcState", chatNodeIndex);
 
@@ -676,15 +687,20 @@ function savechapter1(chatNodeIndex) {
 
     //Load the "string"
     saveVar("chapter1vars", chapter1vars);
+  
+    //save character health
+    saveVar("characterHealth",charCurrHP)
+    saveVar("totcharacterHealth", charMaxHP)
 
+    console.log("SAVECHAPTER1()");
 
 } //end of saving chapter 1
 
 /*
-Load function
-*/
+ Load function
+ */
 function loadChapter1() {
-   
+
     //load chapter 1 function state
     loadVar("funcState");
 
@@ -693,6 +709,12 @@ function loadChapter1() {
 
     //load image
     globalImg = (loadVar("backgroundImage"));
+
+
+    charCurrHP = loadVar("characterHealth")
+    charMaxHP = loadVar("totcharacterHealth")
+
+    console.log("LOADCHAPTER1()")
 
 } //end of saving chapter 1
 
@@ -707,12 +729,12 @@ const chatNodes = [
             {
                 text: 'Sit and wait',
                 NextChat: '//1.1.0//',
-               // updateVars: { character: "Barbarian" }
+                // updateVars: { character: "Barbarian" }
             },
             {
                 text: 'Search around you',
                 NextChat: '//1.2.1//',
-              //  updateVars: { character: "Barbarian" }
+                //  updateVars: { character: "Barbarian" }
             }
         ]
     },
@@ -773,7 +795,7 @@ const chatNodes = [
             },
             {
                 text: 'Tunnel with Waters Origin',
-                NextChat:'//1.5.0//'
+                NextChat: '//1.5.0//'
             }
         ]
     },
@@ -827,36 +849,56 @@ const chatNodes = [
             }
         ],
         options: [
-/*            {
-                text: 'Continue',
-                NextChat: '//1.3.0a//',
-                requiredVar: (currentVars) => !currentVars.metMerchant
-            },
-            {
-                text: 'Continue',
-                NextChat: '//1.3.0b//',
-                requiredVar: (currentVars) => currentVars.metMerchant
-            },
-*/
+            /*            {
+             text: 'Continue',
+             NextChat: '//1.3.0a//',
+             requiredVar: (currentVars) => !currentVars.metMerchant
+             },
+             {
+             text: 'Continue',
+             NextChat: '//1.3.0b//',
+             requiredVar: (currentVars) => currentVars.metMerchant
+             },
+             */
             {
                 text: 'Follow Sign to Merchant',
                 NextChat: '//1.3.1a//',
-                requiredVar: (currentVars) => !currentVars.metMerchant
+                requireCheck: [
+                    {
+                        requiredVar: (currentVars) => !currentVars.metMerchant
+                    }
+                ]
+                //requiredVar: (currentVars) => !currentVars.metMerchant
             },
             {
                 text: 'Follow Sign to Merchant',
                 NextChat: '//1.3.1b//',
-                requiredVar: (currentVars) => currentVars.metMerchant
+                requireCheck: [
+                    {
+                        requiredVar: (currentVars) => currentVars.metMerchant
+                    }
+                ]
+                //requiredVar: (currentVars) => currentVars.metMerchant
             },
             {
                 text: 'Continue Down tunnel',
                 NextChat: '//1.3.2//',
-                requiredVar: (currentVars) => !currentVars.metMerchant
+                requireCheck: [
+                    {
+                        requiredVar: (currentVars) => !currentVars.metMerchant
+                    }
+                ]
+                //requiredVar: (currentVars) => !currentVars.metMerchant
             },
             {
                 text: 'Continue Down Tunnel',
                 NextChat: '//1.3.3b//',
-                requiredVar: (currentVars) => currentVars.metMerchant
+                requireCheck: [
+                    {
+                        requiredVar: (currentVars) => currentVars.metMerchant
+                    }
+                ]
+                //requiredVar: (currentVars) => currentVars.metMerchant
             }
         ]
     },
@@ -875,22 +917,38 @@ const chatNodes = [
             {
                 text: 'Follow Sign to Merchant',
                 NextChat: '//1.3.1a//',
-                requiredVar: (currentVars) => !currentVars.metMerchant
+                requireCheck: [
+                    {
+                        requiredVar: (currentVars) => !currentVars.metMerchant
+                    }
+                ]
             },
             {
                 text: 'Follow Sign to Merchant',
                 NextChat: '//1.3.1b//',
-                requiredVar: (currentVars) => currentVars.metMerchant
+                requireCheck: [
+                    {
+                        requiredVar: (currentVars) => currentVars.metMerchant
+                    }
+                ]
             },
             {
                 text: 'Continue Down tunnel',
                 NextChat: '//1.3.2//',
-                requiredVar: (currentVars) => !currentVars.metMerchant
+                requireCheck: [
+                    {
+                        requiredVar: (currentVars) => !currentVars.metMerchant
+                    }
+                ]
             },
             {
                 text: 'Continue Down Tunnel',
                 NextChat: '//1.3.3b//',
-                requiredVar: (currentVars) => currentVars.metMerchant
+                requireCheck: [
+                    {
+                        requiredVar: (currentVars) => currentVars.metMerchant
+                    }
+                ]
             }
         ]
     },
@@ -901,17 +959,32 @@ const chatNodes = [
             {
                 text: 'Talk to Merchant',
                 NextChat: '//1.2.4//',
-                requiredVar: (currentVars) => currentVars.metMerchant
+                requireCheck: [
+                    {
+                        requiredVar: (currentVars) => currentVars.metMerchant
+                    }
+                ]
+                //requiredVar: (currentVars) => currentVars.metMerchant
             },
             {
                 text: 'Continue Down tunnel',
                 NextChat: '//1.3.2//',
-                requiredVar: (currentVars) => !currentVars.metMerchant
+                requireCheck: [
+                    {
+                        requiredVar: (currentVars) => !currentVars.metMerchant
+                    }
+                ]
+                //requiredVar: (currentVars) => !currentVars.metMerchant
             },
             {
                 text: 'Continue Down tunnel',
                 NextChat: '//1.3.3b//',
-                requiredVar: (currentVars) => currentVars.metMerchant
+                requireCheck: [
+                    {
+                        requiredVar: (currentVars) => currentVars.metMerchant
+                    }
+                ]
+                //requiredVar: (currentVars) => currentVars.metMerchant
             }
         ]
     },
@@ -921,17 +994,29 @@ const chatNodes = [
             {
                 text: 'Talk to Merchant',
                 NextChat: '//1.2.4//',
-                requiredVar: (currentVars) => currentVars.metMerchant
+                requireCheck: [
+                    {
+                        requiredVar: (currentVars) => currentVars.metMerchant
+                    }
+                ]
             },
             {
                 text: 'Continue Down tunnel',
                 NextChat: '//1.3.2//',
-                requiredVar: (currentVars) => !currentVars.metMerchant
+                requireCheck: [
+                    {
+                        requiredVar: (currentVars) => !currentVars.metMerchant
+                    }
+                ]
             },
             {
                 text: 'Continue Down tunnel',
                 NextChat: '//1.3.3b//',
-                requiredVar: (currentVars) => currentVars.metMerchant
+                requireCheck: [
+                    {
+                        requiredVar: (currentVars) => currentVars.metMerchant
+                    }
+                ]
             }
         ]
 
@@ -989,12 +1074,12 @@ const chatNodes = [
             {
                 text: 'Shop',
                 NextChat: '//1.2.4//',
-                updateVars: { metMerchant: true }
+                updateVars: {metMerchant: true}
             },
             {
                 text: 'Return to Cave',
                 NextChat: '//1.2.0//',
-                updateVars: { metMerchant: true }
+                updateVars: {metMerchant: true}
             }
         ]
     },
@@ -1005,18 +1090,30 @@ const chatNodes = [
             {
                 text: 'Try to Sneak',
                 NextChat: '//1.4.1//',
-                requiredVar: (currentVars) => !currentVars.lootAdventurer
+                requireCheck: [
+                    {
+                        requiredVar: (currentVars) => !currentVars.lootAdventurer
+                    }
+                ]
 
             },
             {
                 text: 'Don\'t Sneak',
                 NextChat: '//1.4.3a//',
-                requiredVar: (currentVars) => !currentVars.lootAdventurer
+                requireCheck: [
+                    {
+                        requiredVar: (currentVars) => !currentVars.lootAdventurer
+                    }
+                ]
             },
             {
                 text: 'Continue',
                 NextChat: '//1.4.3b//',
-                requiredVar: (currentVars) => currentVars.lootAdventurer
+                requireCheck: [
+                    {
+                        requiredVar: (currentVars) => currentVars.lootAdventurer
+                    }
+                ]
             }
         ]
     },
@@ -1056,7 +1153,7 @@ const chatNodes = [
     },
     {
         id: '//1.4.5//',
-        updateVars: { lootAdventurer: true },
+        updateVars: {lootAdventurer: true},
         options: [
             {
                 text: 'Return to Cave',
@@ -1069,45 +1166,67 @@ const chatNodes = [
         id: '//1.5.0//',
         changeImage: 'Functions/Art/Chapter1/waterFallRoom.png',
         /*NextAutoChat: [
-            {
-                id:'//1.5.0a//',
-                requiredVar: (currentVars) => !currentVars.metCompanion
-            },
-            {
-                id: '//1.5.0b//',
-                requiredVar: (currentVars) => currentVars.foundDoor
-            },
-            {
-                id: '//1.5.0c//',
-                requiredVar: (currentVars) => currentVars.metCompanion,
-                requiredVar: (currentVars) => currentVars.foundDoor,
-                requiredVar: (currentVars) => currentVars.metMerchant
-            },
-            {
-                id: '//1.5.0d//',
-                requiredVar: (currentVars) => currentVars.metCompanion,
-                requiredVar: (currentVars) => !currentVars.metMerchant,
-                requiredVar: (currentVars) => currentVars.foundDoor
-            },
-            {
-                id: '//1.5.0e//',
-                requiredVar: (currentVars) => currentVars.metCompanion,
-            },
-            
-        ],
-    */
+         {
+         id:'//1.5.0a//',
+         requiredVar: (currentVars) => !currentVars.metCompanion
+         },
+         {
+         id: '//1.5.0b//',
+         requiredVar: (currentVars) => currentVars.foundDoor
+         },
+         {
+         id: '//1.5.0c//',
+         requiredVar: (currentVars) => currentVars.metCompanion,
+         requiredVar: (currentVars) => currentVars.foundDoor,
+         requiredVar: (currentVars) => currentVars.metMerchant
+         },
+         {
+         id: '//1.5.0d//',
+         requiredVar: (currentVars) => currentVars.metCompanion,
+         requiredVar: (currentVars) => !currentVars.metMerchant,
+         requiredVar: (currentVars) => currentVars.foundDoor
+         },
+         {
+         id: '//1.5.0e//',
+         requiredVar: (currentVars) => currentVars.metCompanion,
+         },
+         
+         ],
+         */
         options: [
             {
                 text: 'Continue',
                 NextChat: '//1.5.0a//',
-                requiredVar: (currentVars) => !currentVars.metCompanion
+                requireCheck: [
+                    {
+                        requiredVar: (currentVars) => !currentVars.metCompanion,
+                    },
+                    {
+                        requiredVar: (currentVars) => !currentVars.foundDoor
+                    }
+                ]
             },
             {
                 text: 'Continue',
                 NextChat: '//1.5.0b//',
-                requiredVar: (currentVars) => currentVars.metCompanion,
-                requiredVar: (currentVars) => currentVars.foundDoor
+                requireCheck: [
+                    {
+                        requiredVar: (currentVars) => currentVars.foundDoor
+                    }
+                ]
             },
+            {
+                text: 'Continue',
+                NextChat: '//1.5.0e//',
+                requireCheck: [
+                    {
+                        requiredVar: (currentVars) => currentVars.metCompanion,
+                    },
+                    {
+                        requiredVar: (currentVars) => !currentVars.foundDoor
+                    }
+                ]
+            }
         ]
     },
     {
@@ -1116,22 +1235,38 @@ const chatNodes = [
             {
                 text: 'Surprise the Creature!',
                 NextChat: '//1.5.1a//',
-                requiredVar: (currentVars) => currentVars.character == 'Wizard'
+                requireCheck: [
+                    {
+                        requiredVar: (currentVars) => currentVars.character == 'Wizard'
+                    }
+                ]
             },
             {
                 text: 'Surprise the Creature!',
                 NextChat: '//1.5.1b//',
-                requiredVar: (currentVars) => currentVars.character == 'Rogue'
+                requireCheck: [
+                    {
+                        requiredVar: (currentVars) => currentVars.character == 'Rogue'
+                    }
+                ]
             },
             {
                 text: 'Surprise the Creature!',
                 NextChat: '//1.5.1c//',
-                requiredVar: (currentVars) => currentVars.character == 'Barbarian'
+                requireCheck: [
+                    {
+                        requiredVar: (currentVars) => currentVars.character == 'Barbarian'
+                    }
+                ]
             },
             {
                 text: 'Surprise the Creature!',
                 NextChat: '//1.5.1d//',
-                requiredVar: (currentVars) => currentVars.character == 'Bard'
+                requireCheck: [
+                    {
+                        requiredVar: (currentVars) => currentVars.character == 'Bard'
+                    }
+                ]
             },
             {
                 text: 'Cautiously Approach',
@@ -1145,12 +1280,20 @@ const chatNodes = [
             {
                 text: 'Continue',
                 NextChat: '//1.5.0c//',
-                requiredVar: (currentVars) => currentVars.metMerchant
+                requireCheck: [
+                    {
+                        requiredVar: (currentVars) => currentVars.metMerchant
+                    }
+                ]
             },
             {
                 text: 'Continue',
                 NextChat: '//1.5.0d//',
-                requiredVar: (currentVars) => !currentVars.metMerchant
+                requireCheck: [
+                    {
+                        requiredVar: (currentVars) => !currentVars.metMerchant
+                    }
+                ]
             },
         ]
     },
@@ -1162,7 +1305,7 @@ const chatNodes = [
                 NextChat: '//1.5.0e//'
             }
         ]
-        
+
     },
     {
         id: '//1.5.0d//',
@@ -1183,12 +1326,23 @@ const chatNodes = [
             {
                 text: 'Search around',
                 NextChat: '//1.5.6a//',
-                requiredVar: (currentVars) => !currentVars.foundDoor
+                requireCheck: [
+                    {
+                        requiredVar: (currentVars) => !currentVars.foundDoor
+                    }
+                ]
             },
             {
                 text: 'Try inserting key',
                 NextChat: '//1.6.0a//',
-                requiredVar: (currentVars) => currentVars.metMerchant
+                requireCheck: [
+                    {
+                        requiredVar: (currentVars) => currentVars.metMerchant
+                    },
+                    {
+                        requiredVar: (currentVars) => currentVars.foundDoor
+                    }
+                ]
             }
         ]
     },
@@ -1252,22 +1406,38 @@ const chatNodes = [
             {
                 text: 'Continue',
                 NextChat: '//1.5.2b//',
-                requiredVar: (currentVars) => currentVars.character == 'Wizard'
+                requireCheck: [
+                    {
+                        requiredVar: (currentVars) => currentVars.character == 'Wizard'
+                    }
+                ]
             },
             {
                 text: 'Continue',
                 NextChat: '//1.5.2c//',
-                requiredVar: (currentVars) => currentVars.character == 'Rogue'
+                requireCheck: [
+                    {
+                        requiredVar: (currentVars) => currentVars.character == 'Rogue'
+                    }
+                ]
             },
             {
                 text: 'Continue',
                 NextChat: '//1.5.2d//',
-                requiredVar: (currentVars) => currentVars.character == 'Barbarian'
+                requireCheck: [
+                    {
+                        requiredVar: (currentVars) => currentVars.character == 'Barbarian'
+                    }
+                ]
             },
             {
                 text: 'Continue',
                 NextChat: '//1.5.2e//',
-                requiredVar: (currentVars) => currentVars.character == 'Bard'
+                requireCheck: [
+                    {
+                        requiredVar: (currentVars) => currentVars.character == 'Bard'
+                    }
+                ]
             }
         ]
     },
@@ -1323,22 +1493,38 @@ const chatNodes = [
             {
                 text: 'Surprise the Creature!',
                 NextChat: '//1.5.1a//',
-                requiredVar: (currentVars) => currentVars.character == 'Wizard'
+                requireCheck: [
+                    {
+                        requiredVar: (currentVars) => currentVars.character == 'Wizard'
+                    }
+                ]
             },
             {
                 text: 'Surprise the Creature!',
                 NextChat: '//1.5.1b//',
-                requiredVar: (currentVars) => currentVars.character == 'Rogue'
+                requireCheck: [
+                    {
+                        requiredVar: (currentVars) => currentVars.character == 'Rogue'
+                    }
+                ]
             },
             {
                 text: 'Surprise the Creature!',
                 NextChat: '//1.5.1c//',
-                requiredVar: (currentVars) => currentVars.character == 'Barbarian'
+                requireCheck: [
+                    {
+                        requiredVar: (currentVars) => currentVars.character == 'Barbarian'              
+                    }
+                ]
             },
             {
                 text: 'Surprise the Creature!',
                 NextChat: '//1.5.1d//',
-                requiredVar: (currentVars) => currentVars.character == 'Bard'
+                requireCheck: [
+                    {
+                        requiredVar: (currentVars) => currentVars.character == 'Bard'
+                    }
+                ]
             }
         ]
     },
@@ -1364,15 +1550,23 @@ const chatNodes = [
                 text: 'Continue',
                 NextChat: '//1.5.4b//',
                 NextAutoChat: '//1.5.4b//',
-                updateVars: { metCompanion: true, Companion: true },
-                requiredVar: (currentVars) => currentVars.character != 'Barbarian'
+                updateVars: {metCompanion: true, Companion: true},
+                requireCheck: [
+                    {
+                        requiredVar: (currentVars) => currentVars.character != 'Barbarian'
+                    }
+                ]
             },
             {
                 text: 'Continue',
                 NextChat: '//1.5.4c//',
                 NextAutoChat: '//1.5.4c//',
-                updateVars: { metCompanion: true, Companion: true },
-                requiredVar: (currentVars) => currentVars.character == 'Barbarian'
+                updateVars: {metCompanion: true, Companion: true},
+                requireCheck: [
+                    {
+                        requiredVar: (currentVars) => currentVars.character == 'Barbarian'
+                    }
+                ]
             }
         ]
     },
@@ -1413,19 +1607,19 @@ const chatNodes = [
                 NextChat: '//1.5.6a//'
             }
         ]
-    
+
     },
     {
         id: '//1.5.5//',
         options: [
             {
                 text: 'Return to Cave',
-                updateVars: { metCompanion: true, Companion: false },
+                updateVars: {metCompanion: true, Companion: false},
                 NextChat: '//1.2.0//'
             },
             {
                 text: 'Search around',
-                updateVars: { metCompanion: true, Companion: false },
+                updateVars: {metCompanion: true, Companion: false},
                 NextChat: '//1.5.6a//'
             }
         ]
@@ -1436,14 +1630,22 @@ const chatNodes = [
             {
                 text: 'Return to Cave',
                 NextChat: '//1.2.0//',
-                updateVars: { foundDoor: true },
-                requiredVar: (currentVars) => !currentVars.metMerchant
+                updateVars: {foundDoor: true},
+                requireCheck: [
+                    {
+                        requiredVar: (currentVars) => !currentVars.metMerchant
+                    }
+                ]
             },
             {
                 text: 'Continue',
                 NextChat: '//1.5.6b//',
-                updateVars: { foundDoor: true },
-                requiredVar: (currentVars) => currentVars.metMerchant
+                updateVars: {foundDoor: true},
+                requireCheck: [
+                    {
+                        requiredVar: (currentVars) => currentVars.metMerchant
+                    }
+                ]
             }
         ]
     },
@@ -1467,12 +1669,20 @@ const chatNodes = [
             {
                 text: 'Continue',
                 NextChat: '//1.6.0b//',
-                requiredVar: (currentVars) => currentVars.character == 'Barbarian'
+                requireCheck: [
+                    {
+                        requiredVar: (currentVars) => currentVars.character == 'Barbarian'
+                    }
+                ]
             },
             {
                 text: 'Continue',
                 NextChat: '//1.6.0c//',
-                requiredVar: (currentVars) => currentVars.character != 'Barbarian'
+                requireCheck: [
+                    {
+                        requiredVar: (currentVars) => currentVars.character != 'Barbarian'
+                    }
+                ]
             }
         ]
     },
@@ -1501,18 +1711,18 @@ const chatNodes = [
         fail: '//1.2.3//',
         changeImage: "Functions/Art/Combat/combatArea.png",
         changeOverlayImage: "Functions/Art/Combat/minotaur.png"
-        /*
-        options: [
-            {
-                text: 'Success',
-                NextChat: '//1.6.1a//'
-            },
-            {
-                text: 'Fails',
-                NextChat: '//1.2.3//'
-            }
-        ]
-        */
+                /*
+                 options: [
+                 {
+                 text: 'Success',
+                 NextChat: '//1.6.1a//'
+                 },
+                 {
+                 text: 'Fails',
+                 NextChat: '//1.2.3//'
+                 }
+                 ]
+                 */
     },
     {
         id: '//1.6.1a//',
@@ -1520,12 +1730,20 @@ const chatNodes = [
             {
                 text: 'Continue',
                 NextChat: '//1.6.1b//',
-                requiredVar: (currentVars) => currentVars.Companion
+                requireCheck: [
+                    {
+                        requiredVar: (currentVars) => currentVars.Companion
+                    }
+                ]
             },
             {
                 text: 'Continue',
                 NextChat: '//1.6.1c//',
-                requiredVar: (currentVars) => !currentVars.Companion
+                requireCheck: [
+                    {
+                        requiredVar: (currentVars) => !currentVars.Companion
+                    }
+                ]
             }
         ]
     },
