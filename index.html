@@ -221,7 +221,7 @@
 
         <!--Journal Madness-->
         <div id = "JournalOverlay">
-            <img src="../Functions/Art/Chapter1/Journal.png" height="550px" onclick="nextPage(); journalstats()">
+            <img src="../Functions/Art/Chapter1/Journal.png" height="550px" onclick="nextPage(); journalstats(); journalgold();">
 
         </div>
 
@@ -231,7 +231,7 @@
             <p style="position: absolute; top: 15%; left:31%; color:black; font-size:25px; font-family: Papyrus;"id="CharStatsy" ></p>
             <h1 style="position: absolute; top:5%; right:36%; font-family: Papyrus">Inventory</h1> 
             <P style="position: absolute; top: 15%; right:44%; color:black; font-family: Papyrus">Player Gold:</P>
-            <p style="position: absolute; top: 27%; right:45%; color:black; font-family: Papyrus">Items:</p>
+            <p style="position: absolute; top: 27%; right:45%; color:black; font-family: Papyrus" id="GoldDis"></p>
             <img style="position: absolute; width:50px; height:50px; top: 70%; right:30%;"src="../Functions/Art/Chapter1/JournalArrow.png" height="550px" onclick="nextPageAgain()">
             <img src="../Functions/Art/Chapter1/OpenJournal.png" height="550px">
             <button onclick="JournalOff()">Exit</button>
