@@ -158,61 +158,65 @@ function buy(product) {
     // Check for the Health Potion which can be bought multiple times.
     if (product === 'item1') {
 
-        if (loadVar(playerGold) >= 150) {
+        if (getLiveVar("playerGold") >= 150) {
             errorOff();
-            saveVar(playerGold, loadVar(playerGold) - 150);
-            document.getElementById("counter").innerHTML = "Current Gold:" + loadVar(playerGold);
+           // saveVar(playerGold, getLiveVar("playerGold") - 150);
+            addGold(-150);
+            document.getElementById("counter").innerHTML = "Current Gold:" + getLiveVar("playerGold");
             playerItems.item1 = playerItems.item1 + 1;
         } else {
             document.getElementById("error").innerHTML = "Not enough gold";
             errorOn();
         }
-        document.getElementById("counter").innerHTML = "Current Gold:" + loadVar(playerGold);
+        document.getElementById("counter").innerHTML = "Current Gold:" + getLiveVar("playerGold");
     }
 
     // Check for the Return Stone which can be bought multiple times.
     if (product === 'item2') {
 
-        if (loadVar(playerGold) >= 1) {
+        if (getLiveVar("playerGold") >= 1) {
             errorOff();
-            saveVar(playerGold, loadVar(playerGold) - 1);
-            document.getElementById("counter").innerHTML = "Current Gold:" + loadVar(playerGold);
+            //saveVar(playerGold, getLiveVar("playerGold") - 1);
+            addGold(-1);
+            document.getElementById("counter").innerHTML = "Current Gold:" + getLiveVar("playerGold");
             playerItems.item2 = playerItems.item2 + 1;
         } else {
             document.getElementById("error").innerHTML = "Not enough gold";
             errorOn();
         }
-        document.getElementById("counter").innerHTML = "Current Gold:" + loadVar(playerGold);
+        document.getElementById("counter").innerHTML = "Current Gold:" + getLiveVar("playerGold");
     }
 
     // Check for the Night's rest which can be bought multiple times.
     if (product === 'item3') {
 
-        if (loadVar(playerGold) >= 75) {
+        if (getLiveVar("playerGold") >= 75) {
             errorOff();
-            saveVar(playerGold, loadVar(playerGold) - 75);
-            document.getElementById("counter").innerHTML = "Current Gold:" + loadVar(playerGold);
+            //saveVar(playerGold, getLiveVar("playerGold") - 75);
+            addGold(-75);
+            document.getElementById("counter").innerHTML = "Current Gold:" + getLiveVar("playerGold");
             playerItems.item3 = playerItems.item3 + 1;
         } else {
             document.getElementById("error").innerHTML = "Not enough gold";
             errorOn();
         }
-        document.getElementById("counter").innerHTML = "Current Gold:" + loadVar(playerGold);
+        document.getElementById("counter").innerHTML = "Current Gold:" + getLiveVar("playerGold");
     }
 
     // Check for the Cat nap which can be bought multiple times.
     if (product === 'item4') {
 
-        if (loadVar(playerGold) >= 35) {
+        if (getLiveVar("playerGold") >= 35) {
             errorOff();
-            saveVar(playerGold, loadVar(playerGold) - 35);
-            document.getElementById("counter").innerHTML = "Current Gold:" + loadVar(playerGold);
+            //saveVar(playerGold, getLiveVar("playerGold") - 35);
+            addGold(-35);
+            document.getElementById("counter").innerHTML = "Current Gold:" + getLiveVar("playerGold");
             playerItems.item4 = playerItems.item4 + 1;
         } else {
             document.getElementById("error").innerHTML = "Not enough gold";
             errorOn();
         }
-        document.getElementById("counter").innerHTML = "Current Gold:" + loadVar(playerGold);
+        document.getElementById("counter").innerHTML = "Current Gold:" + getLiveVar("playerGold");
     }
 
     // Check for the Greataxe which can be bought multiple times.
@@ -220,16 +224,17 @@ function buy(product) {
 
         // Check for character type.
         if (charType === "Barbarian") {
-            if (loadVar(playerGold) >= 500) {
+            if (getLiveVar("playerGold") >= 500) {
                 errorOff();
-                saveVar(playerGold, loadVar(playerGold) - 500);
-                document.getElementById("counter").innerHTML = "Current Gold:" + loadVar(playerGold);
+                //saveVar(playerGold, getLiveVar("playerGold") - 500);
+                addGold(-500);
+                document.getElementById("counter").innerHTML = "Current Gold:" + getLiveVar("playerGold");
                 playerItems.item5 = playerItems.item5 + 1;
             } else {
                 document.getElementById("error").innerHTML = "Not enough gold";
                 errorOn();
             }
-            document.getElementById("counter").innerHTML = "Current Gold:" + loadVar(playerGold);
+            document.getElementById("counter").innerHTML = "Current Gold:" + getLiveVar("playerGold");
         } else {
             document.getElementById("error").innerHTML = "This gear is for a barbarian";
             errorOn();
@@ -242,16 +247,17 @@ function buy(product) {
         // Check for character type.
         if (charType === "Barbarian") {
 
-            if (loadVar(playerGold) >= 650) {
+            if (getLiveVar("playerGold") >= 650) {
                 errorOff();
-                saveVar(playerGold, loadVar(playerGold) - 650);
-                document.getElementById("counter").innerHTML = "Current Gold:" + loadVar(playerGold);
+                //saveVar(playerGold, getLiveVar("playerGold") - 650);
+                addGold(-650);
+                document.getElementById("counter").innerHTML = "Current Gold:" + getLiveVar("playerGold");
                 playerItems.item6 = playerItems.item6 + 1;
             } else {
                 document.getElementById("error").innerHTML = "Not enough gold";
                 errorOn();
             }
-            document.getElementById("counter").innerHTML = "Current Gold:" + loadVar(playerGold);
+            document.getElementById("counter").innerHTML = "Current Gold:" + getLiveVar("playerGold");
 
         } else {
             document.getElementById("error").innerHTML = "This gear is for a barbarian";
@@ -265,11 +271,12 @@ function buy(product) {
         // Check for character type.
         if (charType == "Wizard") {
 
-            if (loadVar(playerGold) >= 650) {
+            if (getLiveVar("playerGold") >= 650) {
                 errorOff();
 
                 if (shopItems.item7 > 0) {
-                    saveVar(playerGold, (loadVar(playerGold) - 650));
+                    //saveVar(playerGold, (getLiveVar("playerGold") - 650));
+                    addGold(-650);
                     shopItems.item7 = shopItems.item7 - 1;
                     playerItems.item7 = playerItems.item7 + 1;
                 } else {
@@ -280,7 +287,7 @@ function buy(product) {
                 document.getElementById("error").innerHTML = "Not enough gold";
                 errorOn();
             }
-            document.getElementById("counter").innerHTML = "Current Gold:" + loadVar(playerGold);
+            document.getElementById("counter").innerHTML = "Current Gold:" + getLiveVar("playerGold");
 
         } else {
             document.getElementById("error").innerHTML = "This gear is for a wizard";
@@ -295,11 +302,12 @@ function buy(product) {
         if (charType == "Wizard") {
 
 
-            if (loadVar(playerGold) >= 450) {
+            if (getLiveVar("playerGold") >= 450) {
                 errorOff();
 
                 if (shopItems.item8 > 0) {
-                    saveVar(playerGold, (loadVar(playerGold) - 450));
+                    //saveVar(playerGold, (getLiveVar("playerGold") - 450));
+                    addGold(-450);
                     shopItems.item8 = shopItems.item8 - 1;
                     playerItems.item8 = playerItems.item8 + 1;
                 } else {
@@ -310,7 +318,7 @@ function buy(product) {
                 document.getElementById("error").innerHTML = "Not enough gold";
                 errorOn();
             }
-            document.getElementById("counter").innerHTML = "Current Gold:" + loadVar(playerGold);
+            document.getElementById("counter").innerHTML = "Current Gold:" + getLiveVar("playerGold");
 
         } else {
             document.getElementById("error").innerHTML = "This gear is for a wizard";
@@ -325,16 +333,17 @@ function buy(product) {
         // Check for character type.
         if (charType === "Rogue") {
 
-            if (loadVar(playerGold) >= 550) {
+            if (getLiveVar("playerGold") >= 550) {
                 errorOff();
-                saveVar(playerGold, loadVar(playerGold) - 550);
-                document.getElementById("counter").innerHTML = "Current Gold:" + loadVar(playerGold);
+                //saveVar(playerGold, getLiveVar("playerGold") - 550);
+                addGold(-550);
+                document.getElementById("counter").innerHTML = "Current Gold:" + getLiveVar("playerGold");
                 playerItems.item9 = playerItems.item9 + 1;
             } else {
                 document.getElementById("error").innerHTML = "Not enough gold";
                 errorOn();
             }
-            document.getElementById("counter").innerHTML = "Current Gold:" + loadVar(playerGold);
+            document.getElementById("counter").innerHTML = "Current Gold:" + getLiveVar("playerGold");
         } else {
             document.getElementById("error").innerHTML = "This gear is for a rogue";
             errorOn();
@@ -347,11 +356,12 @@ function buy(product) {
         // Check for character type.
         if (charType === "Rogue") {
 
-            if (loadVar(playerGold) >= 500) {
+            if (getLiveVar("playerGold") >= 500) {
                 errorOff();
 
                 if (shopItems.item10 > 0) {
-                    saveVar(playerGold, (loadVar(playerGold) - 500));
+                    //saveVar(playerGold, (getLiveVar("playerGold") - 500));
+                    addGold(-500);
                     shopItems.item10 = shopItems.item10 - 1;
                     playerItems.item10 = playerItems.item10 + 1;
                 } else {
@@ -362,7 +372,7 @@ function buy(product) {
                 document.getElementById("error").innerHTML = "Not enough gold";
                 errorOn();
             }
-            document.getElementById("counter").innerHTML = "Current Gold:" + loadVar(playerGold);
+            document.getElementById("counter").innerHTML = "Current Gold:" + getLiveVar("playerGold");
 
         } else {
             document.getElementById("error").innerHTML = "This gear is for a rogue";
@@ -376,16 +386,17 @@ function buy(product) {
         // Check for character type.
         if (charType === "Bard") {
 
-            if (loadVar(playerGold) >= 550) {
+            if (getLiveVar("playerGold") >= 550) {
                 errorOff();
-                saveVar(playerGold, loadVar(playerGold) - 550);
-                document.getElementById("counter").innerHTML = "Current Gold:" + loadVar(playerGold);
+                //saveVar(playerGold, getLiveVar("playerGold") - 550);
+                addGold(-550);
+                document.getElementById("counter").innerHTML = "Current Gold:" + getLiveVar("playerGold");
                 playerItems.item11 = playerItems.item11 + 1;
             } else {
                 document.getElementById("error").innerHTML = "Not enough gold";
                 errorOn();
             }
-            document.getElementById("counter").innerHTML = "Current Gold:" + loadVar(playerGold);
+            document.getElementById("counter").innerHTML = "Current Gold:" + getLiveVar("playerGold");
 
         } else {
             document.getElementById("error").innerHTML = "This gear is for a bard";
@@ -400,11 +411,12 @@ function buy(product) {
         if (charType === "Bard") {
 
 
-            if (loadVar(playerGold) >= 700) {
+            if (getLiveVar("playerGold") >= 700) {
                 errorOff();
 
                 if (shopItems.item12 > 0) {
-                    saveVar(playerGold, (loadVar(playerGold) - 700));
+                    //saveVar(playerGold, (getLiveVar("playerGold") - 700));
+                    addGold(-700);
                     shopItems.item12 = shopItems.item12 - 1;
                     playerItems.item12 = playerItems.item12 + 1;
                 } else {
@@ -415,7 +427,7 @@ function buy(product) {
                 document.getElementById("error").innerHTML = "Not enough gold";
                 errorOn();
             }
-            document.getElementById("counter").innerHTML = "Current Gold:" + loadVar(playerGold);
+            document.getElementById("counter").innerHTML = "Current Gold:" + getLiveVar("playerGold");
         } else {
             document.getElementById("error").innerHTML = "This gear is for a bard";
             errorOn();
@@ -425,26 +437,27 @@ function buy(product) {
     // Check for Doggy treats which can be bought multiple times.
     if (product === 'item13') {
 
-        if (loadVar(playerGold) >= 1) {
+        if (getLiveVar("playerGold") >= 1) {
             errorOff();
-            saveVar(playerGold, loadVar(playerGold) - 1);
+            //saveVar(playerGold, getLiveVar("playerGold") - 1);
+            addGold(-1);
             document.getElementById("error").innerHTML = "Your doggo looks happy!";
             errorOn();
-            document.getElementById("counter").innerHTML = "Current Gold:" + loadVar(playerGold);
+            document.getElementById("counter").innerHTML = "Current Gold:" + getLiveVar("playerGold");
         } else {
             document.getElementById("error").innerHTML = "Not enough gold";
             errorOn();
         }
-        document.getElementById("counter").innerHTML = "Current Gold:" + loadVar(playerGold);
+        document.getElementById("counter").innerHTML = "Current Gold:" + getLiveVar("playerGold");
     }
 }
 
 //This function is used to display the amount of gold the user currently has.
 function goldAmount() {
-    if (loadVar(playerGold) === null) {
-        saveVar(playerGold, 1000);
-    }
-    document.getElementById("counter").innerHTML = "Current Gold:" + loadVar(playerGold);
+    //if (getLiveVar("playerGold") === null) {
+        //saveVar(playerGold, 1000);
+    //}
+    document.getElementById("counter").innerHTML = "Current Gold:" + getLiveVar("playerGold");
 
     var item1 = document.getElementById("item1");
     var item2 = document.getElementById("item2");

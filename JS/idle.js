@@ -8,7 +8,15 @@
  */
 function beginIdle() {
     saveVar("exitTime", Date.now());
+    console.log("[IDLE]: time saved: + " + Date.now());
 }
+
+
+function startIdle() {
+
+
+}
+
 
 function endIdle() {
 
@@ -24,12 +32,15 @@ function translateSeconds(secondsIn) {
     return new Date(secondsIn * 1000).toISOString().substr(11, 8);
 }
 
+
+//give player 1 gold per second idled.
 function applyIdle() {
     var timeIdle = Date.now() - loadVar("exitTime");
     seconds = Math.round(timeIdle / 1000)
     addGold(seconds);
     console.log("added: " + seconds);
-    displayAll();
+    console.log("[IDLE]: time idled: + " + timeIdle + ", gold earned: " + seconds);
+    //displayAll();
     //alert(playerGold.concat(" + ", endIdle(), " = ", (playerGold + endIdle())));
 }
 
