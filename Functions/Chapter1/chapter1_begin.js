@@ -77,6 +77,15 @@ function setCharInfo() {
     charCurrHP = character.hp
 }
 
+function getCharCurrHP() {
+    return charCurrHP
+}
+
+function setCharCurrHP(inputHP) {
+    charCurrHP = inputHP;
+}
+
+
 function comResult(result) {
 
     //document.getElementById("container4").style.display = "none";
