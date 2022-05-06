@@ -112,7 +112,7 @@ function comResult(monster, result) {
 function itemUsed(monster, item){
     if(item == "item1"){
         playerItems.item1 -= 1
-        charCurrHP = charCurrHP + (diceRoll(2, 4) + 4)
+        charCurrHP = parseInt(charCurrHP) + (diceRoll(2, 4) + 4)
         if (charCurrHP > charMaxHP)
             charCurrHP = charMaxHP
         updateChatLog('../Functions/Chapter1/chapter1callscript.txt', '//Healing//')
@@ -797,6 +797,8 @@ function savechapter1(chatNodeIndex) {
     saveVar("characterHealth",charCurrHP)
     saveVar("totcharacterHealth", charMaxHP)
 
+    beginIdle();
+
     console.log("SAVECHAPTER1()");
 
 } //end of saving chapter 1
@@ -820,6 +822,8 @@ function loadChapter1() {
     charMaxHP = loadVar("totcharacterHealth")
 
     console.log("LOADCHAPTER1()")
+
+    applyIdle();
 
 } //end of saving chapter 1
 
