@@ -438,21 +438,23 @@ function buy(product) {
     // Check for Doggy treats which can be bought multiple times.
     if (product === 'item13') {
 
+        if (varListChapterOne.Companion == true) {
 
-        if (getLiveVar("playerGold") >= 1) {
-            errorOff();
-            //saveVar(playerGold, getLiveVar("playerGold") - 1);
-            addGold(-1);
-            if (varListChapterOne.Companion == true) {
+            if (getLiveVar("playerGold") >= 1) {
+                errorOff();
+                //saveVar(playerGold, getLiveVar("playerGold") - 1);
+                addGold(-1);
+
                 document.getElementById("error").innerHTML = "Your doggo looks happy!";
                 errorOn();
+
+                document.getElementById("counter").innerHTML = "Current Gold:" + getLiveVar("playerGold");
             } else {
-                document.getElementById("error").innerHTML = "This would be great for a dog";
+                document.getElementById("error").innerHTML = "Not enough gold";
                 errorOn();
             }
-            document.getElementById("counter").innerHTML = "Current Gold:" + getLiveVar("playerGold");
         } else {
-            document.getElementById("error").innerHTML = "Not enough gold";
+            document.getElementById("error").innerHTML = "This would be great for a dog";
             errorOn();
         }
         document.getElementById("counter").innerHTML = "Current Gold:" + getLiveVar("playerGold");
