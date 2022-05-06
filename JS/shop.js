@@ -62,6 +62,7 @@ function showShop() {
     document.getElementById("container3").style.display = "none";
     document.getElementById("container6").style.display = "inline-block";
     charType = loadVar("character");
+    varListChapterOne = JSON.parse(loadVar("chapter1vars"));
 }
 
 // Hides the shop.
@@ -154,13 +155,13 @@ function buttonWait() {
 // This function is used to buy items for the user. It also checks the stock of the store and the player inventory.
 function buy(product) {
 
-    
+
     // Check for the Health Potion which can be bought multiple times.
     if (product === 'item1') {
 
         if (getLiveVar("playerGold") >= 150) {
             errorOff();
-           // saveVar(playerGold, getLiveVar("playerGold") - 150);
+            // saveVar(playerGold, getLiveVar("playerGold") - 150);
             addGold(-150);
             document.getElementById("counter").innerHTML = "Current Gold:" + getLiveVar("playerGold");
             playerItems.item1 = playerItems.item1 + 1;
@@ -437,12 +438,18 @@ function buy(product) {
     // Check for Doggy treats which can be bought multiple times.
     if (product === 'item13') {
 
+
         if (getLiveVar("playerGold") >= 1) {
             errorOff();
             //saveVar(playerGold, getLiveVar("playerGold") - 1);
             addGold(-1);
-            document.getElementById("error").innerHTML = "Your doggo looks happy!";
-            errorOn();
+            if (varListChapterOne.Companion == true) {
+                document.getElementById("error").innerHTML = "Your doggo looks happy!";
+                errorOn();
+            } else {
+                document.getElementById("error").innerHTML = "This would be great for a dog";
+                errorOn();
+            }
             document.getElementById("counter").innerHTML = "Current Gold:" + getLiveVar("playerGold");
         } else {
             document.getElementById("error").innerHTML = "Not enough gold";
@@ -455,7 +462,7 @@ function buy(product) {
 //This function is used to display the amount of gold the user currently has.
 function goldAmount() {
     //if (getLiveVar("playerGold") === null) {
-        //saveVar(playerGold, 1000);
+    //  saveVar(playerGold, 1000);
     //}
     document.getElementById("counter").innerHTML = "Current Gold:" + getLiveVar("playerGold");
 
