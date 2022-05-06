@@ -22,11 +22,11 @@
  -New Spell (Cure Wounds)(once): 700 gold
  
  Dog Shop (if they have dog):
- -Name change(multiple): 100 gold
  -Doggy treats (for fun :P)(multiple): 1 gold
  **/
 
 
+// Creates the shop inventory.
 var shopItems = new Object();
 
 // Holds the shop inventory.
@@ -37,7 +37,7 @@ var shopItems = {
     item12: 1
 };
 
-
+// Creates the players inventory.
 var playerItems = new Object();
 
 // Holds the players items.
@@ -53,12 +53,10 @@ var playerItems = {
     item9: 0,
     item10: 0,
     item11: 0,
-    item12: 0,
-    item13: 0,
-    item14: 0
+    item12: 0
 };
 
-
+// Shows the shop.
 function showShop() {
     buttonWait();
     document.getElementById("container3").style.display = "none";
@@ -67,8 +65,10 @@ function showShop() {
     varListChapterOne = JSON.parse(loadVar("chapter1vars"));
 }
 
+// Hides the shop.
 function hideShop() {
-
+    errorOff();
+    goldOff();
     document.getElementById("container3").style.display = "inline-block";
     document.getElementById("container6").style.display = "none";
 
@@ -79,6 +79,7 @@ function hideShop() {
 function getPlayerItems() {
     return playerItems;
 }
+
 function setPlayerItems(playerItemsIn) {
     playerItems = playerItemsIn;
 }
@@ -90,10 +91,19 @@ function setShopItems(shopItemsIn) {
     shopItems = shopItemsIn;
 }
 
-
 // Turns off the error display.
 function errorOff() {
     document.getElementById("error").style.display = "none";
+}
+
+// Turns off the gold display.
+function goldOff() {
+    document.getElementById("counter").style.display = "none";
+}
+
+// Turns on the gold display.
+function goldOn() {
+    document.getElementById("counter").style.display = "block";
 }
 
 // Turns on the error display.
@@ -121,7 +131,6 @@ function buttonOn() {
     document.getElementById("item11").style.display = "block";
     document.getElementById("item12").style.display = "block";
     document.getElementById("item13").style.display = "block";
-    document.getElementById("item14").style.display = "block";
 }
 
 // This fucntion causes the shop buttons to wait for the user to enter the store.
@@ -141,11 +150,11 @@ function buttonWait() {
     document.getElementById("item11").style.display = "none";
     document.getElementById("item12").style.display = "none";
     document.getElementById("item13").style.display = "none";
-    document.getElementById("item14").style.display = "none";
 }
 
 // This function is used to buy items for the user. It also checks the stock of the store and the player inventory.
 function buy(product) {
+
 
     // Check for the Health Potion which can be bought multiple times.
     if (product === 'item1') {
@@ -163,6 +172,7 @@ function buy(product) {
         document.getElementById("counter").innerHTML = "Current Gold:" + getLiveVar("playerGold");
     }
 
+    // Check for the Return Stone which can be bought multiple times.
     if (product === 'item2') {
 
         if (getLiveVar("playerGold") >= 1) {
@@ -178,6 +188,7 @@ function buy(product) {
         document.getElementById("counter").innerHTML = "Current Gold:" + getLiveVar("playerGold");
     }
 
+    // Check for the Night's rest which can be bought multiple times.
     if (product === 'item3') {
 
         if (getLiveVar("playerGold") >= 75) {
@@ -193,6 +204,7 @@ function buy(product) {
         document.getElementById("counter").innerHTML = "Current Gold:" + getLiveVar("playerGold");
     }
 
+    // Check for the Cat nap which can be bought multiple times.
     if (product === 'item4') {
 
         if (getLiveVar("playerGold") >= 35) {
@@ -208,7 +220,9 @@ function buy(product) {
         document.getElementById("counter").innerHTML = "Current Gold:" + getLiveVar("playerGold");
     }
 
+    // Check for the Greataxe which can be bought multiple times.
     if (product === 'item5') {
+
         // Check for character type.
         if (charType === "Barbarian") {
             if (getLiveVar("playerGold") >= 500) {
@@ -223,12 +237,12 @@ function buy(product) {
             }
             document.getElementById("counter").innerHTML = "Current Gold:" + getLiveVar("playerGold");
         } else {
-            document.getElementById("error").innerHTML = "Not enough gold";
+            document.getElementById("error").innerHTML = "This gear is for a barbarian";
             errorOn();
         }
-        document.getElementById("counter").innerHTML = "Current Gold:" + loadVar(playerGold);
     }
 
+    // Check for the Chainmail which can be bought multiple times.
     if (product === 'item6') {
 
         // Check for character type.
@@ -245,13 +259,14 @@ function buy(product) {
                 errorOn();
             }
             document.getElementById("counter").innerHTML = "Current Gold:" + getLiveVar("playerGold");
+
         } else {
-            document.getElementById("error").innerHTML = "Not enough gold";
+            document.getElementById("error").innerHTML = "This gear is for a barbarian";
             errorOn();
         }
-        document.getElementById("counter").innerHTML = "Current Gold:" + loadVar(playerGold);
     }
 
+    // Check for the New spell which can be bought once.
     if (product === 'item7') {
 
         // Check for character type.
@@ -270,17 +285,18 @@ function buy(product) {
                     errorOn();
                 }
             } else {
-                document.getElementById("error").innerHTML = "Out of stock";
+                document.getElementById("error").innerHTML = "Not enough gold";
                 errorOn();
             }
             document.getElementById("counter").innerHTML = "Current Gold:" + getLiveVar("playerGold");
+
         } else {
-            document.getElementById("error").innerHTML = "Not enough gold";
+            document.getElementById("error").innerHTML = "This gear is for a wizard";
             errorOn();
         }
-        document.getElementById("counter").innerHTML = "Current Gold:" + loadVar(playerGold);
     }
 
+    // Check for the Ring of Fire which can be bought only once.
     if (product === 'item8') {
 
         // Check for character type.
@@ -300,17 +316,18 @@ function buy(product) {
                     errorOn();
                 }
             } else {
-                document.getElementById("error").innerHTML = "Out of stock";
+                document.getElementById("error").innerHTML = "Not enough gold";
                 errorOn();
             }
             document.getElementById("counter").innerHTML = "Current Gold:" + getLiveVar("playerGold");
+
         } else {
-            document.getElementById("error").innerHTML = "Not enough gold";
+            document.getElementById("error").innerHTML = "This gear is for a wizard";
             errorOn();
         }
-        document.getElementById("counter").innerHTML = "Current Gold:" + loadVar(playerGold);
     }
 
+    // Check for the Stronger dagger which can be bought multiple times.
     if (product === 'item9') {
 
 
@@ -329,12 +346,12 @@ function buy(product) {
             }
             document.getElementById("counter").innerHTML = "Current Gold:" + getLiveVar("playerGold");
         } else {
-            document.getElementById("error").innerHTML = "Not enough gold";
+            document.getElementById("error").innerHTML = "This gear is for a rogue";
             errorOn();
         }
-        document.getElementById("counter").innerHTML = "Current Gold:" + loadVar(playerGold);
     }
 
+    // Check for the Boots of stealth which can be bought only once.
     if (product === 'item10') {
 
         // Check for character type.
@@ -353,17 +370,18 @@ function buy(product) {
                     errorOn();
                 }
             } else {
-                document.getElementById("error").innerHTML = "Out of stock";
+                document.getElementById("error").innerHTML = "Not enough gold";
                 errorOn();
             }
             document.getElementById("counter").innerHTML = "Current Gold:" + getLiveVar("playerGold");
+
         } else {
-            document.getElementById("error").innerHTML = "Not enough gold";
+            document.getElementById("error").innerHTML = "This gear is for a rogue";
             errorOn();
         }
-        document.getElementById("counter").innerHTML = "Current Gold:" + loadVar(playerGold);
     }
 
+    // Check for the Greater Rapier which can be bought multiple times.
     if (product === 'item11') {
 
         // Check for character type.
@@ -382,12 +400,12 @@ function buy(product) {
             document.getElementById("counter").innerHTML = "Current Gold:" + getLiveVar("playerGold");
 
         } else {
-            document.getElementById("error").innerHTML = "Not enough gold";
+            document.getElementById("error").innerHTML = "This gear is for a bard";
             errorOn();
         }
-        document.getElementById("counter").innerHTML = "Current Gold:" + loadVar(playerGold);
     }
 
+    // Check for New Spell which can be bought only once.
     if (product === 'item12') {
 
         // Check for character type.
@@ -407,37 +425,34 @@ function buy(product) {
                     errorOn();
                 }
             } else {
-                document.getElementById("error").innerHTML = "Out of stock";
-                errorOn();
-            }
-            document.getElementById("counter").innerHTML = "Current Gold:" + getLiveVar("playerGold");
-
-        } else {
-            document.getElementById("error").innerHTML = "Not enough gold";
-            errorOn();
-        }
-        document.getElementById("counter").innerHTML = "Current Gold:" + loadVar(playerGold);
-    }
-
-    if (product === 'item13') {
-
-        if (varListChapterOne.Companion == true) {
-
-            if (getLiveVar("playerGold") >= 1) {
-                errorOff();
-                //saveVar(playerGold, getLiveVar("playerGold") - 1);
-                addGold(-1);
-
-                document.getElementById("error").innerHTML = "Your doggo looks happy!";
-                errorOn();
-
-                document.getElementById("counter").innerHTML = "Current Gold:" + getLiveVar("playerGold");
-            } else {
                 document.getElementById("error").innerHTML = "Not enough gold";
                 errorOn();
             }
+            document.getElementById("counter").innerHTML = "Current Gold:" + getLiveVar("playerGold");
         } else {
-            document.getElementById("error").innerHTML = "This would be great for a dog";
+            document.getElementById("error").innerHTML = "This gear is for a bard";
+            errorOn();
+        }
+    }
+
+    // Check for Doggy treats which can be bought multiple times.
+    if (product === 'item13') {
+
+
+        if (getLiveVar("playerGold") >= 1) {
+            errorOff();
+            //saveVar(playerGold, getLiveVar("playerGold") - 1);
+            addGold(-1);
+            if (varListChapterOne.Companion == true) {
+                document.getElementById("error").innerHTML = "Your doggo looks happy!";
+                errorOn();
+            } else {
+                document.getElementById("error").innerHTML = "This would be great for a dog";
+                errorOn();
+            }
+            document.getElementById("counter").innerHTML = "Current Gold:" + getLiveVar("playerGold");
+        } else {
+            document.getElementById("error").innerHTML = "Not enough gold";
             errorOn();
         }
         document.getElementById("counter").innerHTML = "Current Gold:" + getLiveVar("playerGold");
@@ -464,5 +479,4 @@ function goldAmount() {
     var item11 = document.getElementById("item11");
     var item12 = document.getElementById("item12");
     var item13 = document.getElementById("item13");
-    var item14 = document.getElementById("item14");
 }
