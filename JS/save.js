@@ -193,12 +193,12 @@ function getLiveVar(selection) {
 */
 function addGold(amount) {
 
-    if (amount > playerGold) {
+    if (amount > playerGold && amount <= 0) {
         console.log("[SAVE]: Gold subtraction results in negative gold balance"); 
     }
     else {
         playerGold = parseInt(playerGold) + parseInt(amount);
-        console.log("[SAVE]: Added gold: " + amount);
+        console.log("[SAVE]: Added gold: " + amount + " - " + playerGold);
     }
 }
 
