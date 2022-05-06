@@ -51,16 +51,16 @@ function journalstats() {
     var charStats = loadVar("character")
     console.log(charStats);
     if (charStats == "Wizard") {
-        document.getElementById("CharStatsy").innerHTML = "Wizard Stats<br>Str:-1<br>Dex:2<br>Con:0<br>Int:4<br>Wis:3<br>Chr:1";
+        document.getElementById("CharStatsy").innerHTML = "Wizard Stats<br>Strength:-1<br>Dexterity:2<br>Constitution:0<br>Intelligence:4<br>Wisdom:3<br>Charisma:1";
     }
     if (charStats == "Barbarian") {
-        document.getElementById("CharStatsy").innerHTML = "Barbarian Stats<br>Str:4<br>Dex:0<br>Con:3<br>Int:-1<br>Wis:1<br>Chr:2";
+        document.getElementById("CharStatsy").innerHTML = "Barbarian Stats<br>Strength:4<br>Dexterity:0<br>Constitution:3<br>Intelligence:-1<br>Wisdom:1<br>Charisma:2";
     }
     if (charStats == "Bard") {
-        document.getElementById("CharStatsy").innerHTML = "Bard Stats<br>Str:0<br>Dex:3<br>Con:2<br>Int:-1<br>Wis:1<br>Chr:4";
+        document.getElementById("CharStatsy").innerHTML = "Bard Stats<br>Strength:0<br>Dexterity:3<br>Constitution:2<br>Intelligence:-1<br>Wisdom:1<br>Charisma:4";
     }
     if (charStats == "Rogue") {
-        document.getElementById("CharStatsy").innerHTML = "Rogue Stats<br>Str:1<br>Dex:4<br>Con:0<br>Int:-1<br>Wis:3<br>Chr:2";
+        document.getElementById("CharStatsy").innerHTML = "Rogue Stats<br>Strength:1<br>Dexterity:4<br>Constitution:0<br>Intelligence:-1<br>Wisdom:3<br>Charisma:2";
     }
     return;
 }
