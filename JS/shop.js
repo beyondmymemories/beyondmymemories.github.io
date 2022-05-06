@@ -389,8 +389,6 @@ function buy(product) {
     }
 
     if (product === 'item12') {
-        if (loadVar(playerGold) >= 700) {
-            errorOff();
 
         // Check for character type.
         if (charType === "Bard") {
