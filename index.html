@@ -21,6 +21,7 @@
 
         <!--JAva script Things!-->
         <script type="text/javascript" src="JS/shop.js"></script>
+        <script type="text/javascript" src="JS/idle.js"></script>
         <script type="text/javascript" src="JS/loadsurveypage.js"></script>
         <script type="text/javascript" src="JS/diceFunction.js"></script>
         <script type="text/javascript" src="JS/chatLog.js"></script>
@@ -239,6 +240,9 @@
             <div id="checkpoint-options" class="checkpoint-grid">
                 <button style="position: relative; top:5%; left:31%;"class="options" id="setCheckpoint" onclick="createCheckpoint()">Set checkpoint</button>
                 <button style="position: relative; top:100%; left:31%;"class="options" id="loadCheckpoint" onclick="loadCheckpoint()">Load checkpoint</button>
+
+                <button style="position: relative; top:100%; left:31%;"class="options" id="loadCheckpoint" onclick="beginIdle()">Start Idle</button>
+                <button style="position: relative; top:100%; left:31%;"class="options" id="loadCheckpoint" onclick="applyIdle()">Redeem Idle</button>
             </div>
             <img src="../Functions/Art/Chapter1/OpenJournal.png" height="550px" onclick="nextPage()">
             <button onclick="JournalOff()">Exit</button>
