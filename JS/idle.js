@@ -6,33 +6,16 @@
  1 seconds / second lmao
  
  */
+
+ //IDLE FUNCTIONS  -----------------------------
+
+ //Saves a timestamp to localStorage named "exitTime"
 function beginIdle() {
     saveVar("exitTime", Date.now());
     console.log("[IDLE]: time saved: + " + Date.now());
 }
 
-
-function startIdle() {
-
-
-}
-
-
-function endIdle() {
-
-}
-
-function displayTimeIdle() {
-    var enterTime = Date.now();
-
-    var timeIdle = enterTime - loadVar("exitTime");
-    document.getElementById("idleOutput").innerHTML = translateSeconds(Math.round(timeIdle / 1000));
-}
-function translateSeconds(secondsIn) {
-    return new Date(secondsIn * 1000).toISOString().substr(11, 8);
-}
-
-
+//Takes difference of exitTime and the current time and give the player gold depending on time spent.
 //give player 1 gold per second idled.
 function applyIdle() {
     var timeIdle = Date.now() - loadVar("exitTime");
@@ -43,6 +26,19 @@ function applyIdle() {
     //displayAll();
     //alert(playerGold.concat(" + ", endIdle(), " = ", (playerGold + endIdle())));
 }
+
+
+//test functions for test page at /Tests/test.html
+function displayTimeIdle() {
+    var enterTime = Date.now();
+
+    var timeIdle = enterTime - loadVar("exitTime");
+    document.getElementById("idleOutput").innerHTML = translateSeconds(Math.round(timeIdle / 1000));
+}
+function translateSeconds(secondsIn) {
+    return new Date(secondsIn * 1000).toISOString().substr(11, 8);
+}
+
 
 //TIMER FUNCTIONS -----------------------------
 
