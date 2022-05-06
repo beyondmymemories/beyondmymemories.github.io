@@ -12,6 +12,7 @@
  Any JS scripts that uses save.js will use saveVar() and loadVar(). saveVar() needs to be within a scripts own uniquely named save function and loadVar() needs do be within a scripts own uniquely named load function that loads saved variables to the live variables within.
  
  */
+
 //UNIVERSAL FUNCTIONS----------------------------
 
 /*	saveVar() and loadVar() are for other scripts to use localStorage to permanantly store 			variables.
@@ -38,7 +39,8 @@ function loadJson(name) {
     return JSON.parse(loadVar(name));
 }
 
-/*	These are the ultimate saving and loading functions. They will call all save and load 			functions from any other js script that needs variables saved to localStorage.
+/*	
+    These are the ultimate saving and loading functions. They will call all save and load functions from any other js script that needs variables saved to localStorage.
  */
 function globalSave() {
     //alert("placeholder: globalSave\(\)");
@@ -62,9 +64,13 @@ function globalLoad() {
 }
 
 /*
- CHECKPOINT FUNCTIONS
+ CHECKPOINT FUNCTIONS----------------------------
  */
 
+ /* createCheckpoint()
+
+    saves multiple variables to localStorage with the names having "checkpoint_" behind the name.
+ */
 function createCheckpoint() {
 	//Chapter data
 	saveVar("checkpoint_chatNodeIndex", getLastChatNodeIndex());
@@ -76,11 +82,19 @@ function createCheckpoint() {
 	saveJson("checkpoint_shopItems", getShopItems());
 	saveJson("checkpoint_playerItems", getPlayerItems());
 
+    //Character Health
+    saveVar("checkpoint_charCurrHP", getCharCurrHP());
+
+
 	//global save
 	globalSave();
 	console.log("CHECKPOINT CREATED");
 }
 
+/*  loadCheckpoint()
+
+    Loads previously saved checkpoint variables into their live variables.
+*/
 function loadCheckpoint() {
 	//global load
 	globalLoad();
@@ -93,7 +107,8 @@ function loadCheckpoint() {
 	setPlayerItems(loadJson("checkpoint_playerItems"));
 	setShopItems(loadJson("checkpoint_playerItems"));
 
-	
+	//Character Health
+    setCharCurrHP(loadVar("checkpoint_charCurrHP"));
 
 	//background image load
 	console.log(loadVar("checkpoint_globalImg"))
@@ -138,21 +153,16 @@ function setLiveVar(selection, value) {
             break;
 
         case "playerLevel":
-            playerGold = value;
+            playerLevel = value;
             break;
 
         case "playerName":
-            playerGold = value;
+            playerName = value;
             break;
 
         case "dogName":
-            playerGold = value;
+            dogName = value;
             break;
-
-        case "playerGold":
-            playerGold = value;
-            break;
-
     }
 }
 //getLiveVar() is a universal function to call any variable in this script from any other script.
@@ -163,40 +173,36 @@ function getLiveVar(selection) {
             break;
 
         case "playerLevel":
-            return playerGold;
+            return playerLevel;
             break;
 
         case "playerName":
-            return playerGold;
+            return playerName;
             break;
 
         case "dogName":
-            return playerGold;
+            return playerdogNameGold;
             break;
-
-        case "playerGold":
-            return playerGold;
-            break;
-
     }
 }
 
+/*  addGold(amount) 
+
+    manipulates the playerGold variable from outside the script.
+    (amount) can be a negative number to take away player's gold.
+*/
 function addGold(amount) {
-    console.log("[SAVE]: Added gold: " + amount);
-    playerGold = parseInt(playerGold) + parseInt(amount);
+
+    if (amount > playerGold) {
+        console.log("[SAVE]: Gold subtraction results in negative gold balance"); 
+    }
+    else {
+        playerGold = parseInt(playerGold) + parseInt(amount);
+        console.log("[SAVE]: Added gold: " + amount);
+    }
 }
 
-//UNIVERSAL FUNCTIONS----------------------------
-function saveVar(name, value) {
-    localStorage.setItem(name, value);
-}
-function loadVar(name) {
-
-    //console.log(localStorage.getItem(name))
-
-    return localStorage.getItem(name);
-}
-
+//Test functions for use in /Test/test.html----------------------------
 
 //Load variables from text box inputs to live variables
 function updateAll() {
@@ -262,28 +268,32 @@ function clearState() {
         console.log("!State cleared!")
 }
 
-//MAIN SCREEN TEST POPUPS---------------------------------------------------------
+//MAIN SCREEN POPUPS AND MENU---------------------------------------------------------
 //Test initialization by removing load button if save does not exist.
 window.onload = init();
 function init() {
     if (localStorage.getItem("funcState") === null) {
+
         document.getElementById("loadBtn").style.display = 'none';
-        //alert("NO SAVE");
+
     } else {
+
         document.getElementById("loadBtn").style.display = 'inline-block';
-        //alert("SAVE EXISTS");
     }
-    //alert("test");
 }
 
-//Create new game and set saveExists to "True". 
+/*
+    newGame() 
+
+    Initializes a new game and prompts the user to confirm choice.
+*/
 function newGame() {
     console.log(loadVar("saveExists"));
     if (localStorage.getItem("saveExists") === null || loadVar("saveExists") == "undefined") {
         alert("No save exists, A new game will start");
-        deleteGame();
+        deleteGame(false);
         localStorage.setItem("saveExists", "True")
-        //window.location.href = "charSelect.html";
+    
         document.getElementById("container2").style.display = 'inline-block'
         document.getElementById("container1").style.display = 'none'
         element.style.backgroundColor = "#00FF00";
@@ -293,7 +303,7 @@ function newGame() {
     } else {
         if (confirm("A game already Exists. Do you want to start a New Game?")) {
             alert("A new game will start");
-            deleteGame();
+            deleteGame(false);
             document.getElementById("container2").style.display = 'inline-block'
             document.getElementById("container1").style.display = 'none'
             element.style.backgroundColor = "#00FF00";
@@ -306,7 +316,11 @@ function newGame() {
     }
 }
 
-//Check for saveExists and report outcome. In the future, initil
+/*
+    loadGame()
+
+    calls load_function from chapter1_begin.js to initialize the game based on the last chatNode seen.
+*/
 function loadGame() {
     if (localStorage.getItem("saveExists") == null) {
         alert("A save does not exist.");
@@ -318,25 +332,43 @@ function loadGame() {
     load_function();
 }
 
+/*
+    deleteGame(prompt)
 
-function deleteGame() {
+    Deletes the game save. 
+    
+    Prompt can be true or false to dictate weather it prompts the user for confirmation
+    or not. Non-prompting is for use in newGame(); to delete the game before creating a new one.
+*/
+function deleteGame(prompt) {
 
-    if (localStorage.getItem("saveExists") != null) {
-        if (confirm("Are you sure you want to delete your game save?\n ALL PROGRESS WILL BE LOST")) {
-            localStorage.removeItem("playerGold");
-            localStorage.removeItem("playerName");
-            localStorage.removeItem("playerLevel");
-
-            localStorage.removeItem("funcState");
-            localStorage.clear();
-
-
-
-            console.log("GAME DELETED");
+    if (prompt) {
+        if (localStorage.getItem("saveExists") != null) {
+            if (confirm("Are you sure you want to delete your game save?\n ALL PROGRESS WILL BE LOST")) {
+                localStorage.removeItem("playerGold");
+                localStorage.removeItem("playerName");
+                localStorage.removeItem("playerLevel");
+    
+                localStorage.removeItem("funcState");
+                localStorage.clear();
+    
+    
+    
+                console.log("GAME DELETED");
+            }
+            saveVar("saveExists", null);
+        } else {
+            alert("No game save exists");
         }
-        saveVar("saveExists", null);
-    } else {
-        alert("No game save exists");
     }
+    else {
+        localStorage.removeItem("playerGold");
+        localStorage.removeItem("playerName");
+        localStorage.removeItem("playerLevel");
 
+        localStorage.removeItem("funcState");
+        localStorage.clear();
+
+        console.log("GAME DELETED");
+    }
 }
