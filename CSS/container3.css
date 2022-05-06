@@ -86,7 +86,7 @@ button.options:hover {
     height: auto;
     padding: 15px;
     position: absolute;
-    left: 5%;
+    left: 20.5%;
     top: 3%;
 
 }
@@ -101,4 +101,14 @@ button.options:hover {
     top: 30%;
 
 }
+
+
+.health {
+
+    position: fixed;
+    height: 33px;
+    right: 10%;
+    top: 35.8%;
+}
+
 /*End of main container*/

@@ -482,6 +482,14 @@ function combatFunc(combatNum) {
     }
 }
 
+/*
+
+printChatNode function: constantly gets recalled so that the story can continue
+
+
+
+
+*/
 function printChatNode(chatNodeIndex, load_chapter1vars) {
     lastChatNodeIndex = chatNodeIndex;
 
@@ -524,6 +532,8 @@ function printChatNode(chatNodeIndex, load_chapter1vars) {
         document.getElementById("overlayedImage").style.display = "none";
     }
 
+    console.log(chapter1var)
+
     //If there is more to print!
     if (chatNode.NextAutoChat != null) {
         //loop through each id and print them
@@ -553,7 +563,7 @@ function printChatNode(chatNodeIndex, load_chapter1vars) {
     if (chatNode.shop == true) {
 
         //Save the state
-        //savechapter1(chatNodeIndex);
+        savechapter1(chatNodeIndex);
 
         //change container1 -> container3
         showShop();
@@ -603,8 +613,23 @@ function printChatNode(chatNodeIndex, load_chapter1vars) {
     //check if we need to roll dice here
     else if (chatNode.dicetype != null) {
 
-        //test that overlay works
-        overlayOn();
+        //display the correct buttons
+        while (document.getElementById('button-options').firstChild) {
+             document.getElementById('button-options').removeChild(document.getElementById('button-options').firstChild)
+        }
+
+        const button = document.createElement('button')
+
+        //display the button text
+        button.innerText = "Continue"
+
+        //add it to the correct css
+        button.classList.add('options')
+
+        //click event listener - load the load function for it
+        button.addEventListener('click', () => overlayOn())
+
+        document.getElementById('button-options').appendChild(button)
 
         //printpls(chatNode.rollnumber, chatNode.dicetype, chatNode.tobeat, chatNode.sucess, chatNode.fail);
 
@@ -617,15 +642,48 @@ function printChatNode(chatNodeIndex, load_chapter1vars) {
             document.getElementById('Theyseemerollin').style.display = 'none';
             document.getElementById('diceNum').innerHTML = returnedDiceResult
 
-            if (returnedDiceResult >= chatNode.tobeat) {
-                //we suceeded - chatnode to suceeed
-                printChatNode(chatNode.sucess, false)
-            } else if (returnedDiceResult < chatNode.tobeat) {
-                //fails - chatnode to fail
-                printChatNode(chatNode.fail, false)
-            } else
-                alert("FAILED!")
         }); //end of eventlistener
+
+        //add event listener to exit:
+        document.getElementById("diceOff").addEventListener("click", function () {
+
+
+
+
+            //display the correct buttons
+            while (document.getElementById('button-options').firstChild) {
+                document.getElementById('button-options').removeChild(document.getElementById('button-options').firstChild)
+            }
+
+            const button = document.createElement('button')
+
+            //display the button text
+            button.innerText = "Continue"
+
+            //add it to the correct css
+            button.classList.add('options')
+
+            //click event listener - load the load function for it
+            button.addEventListener('click', function() {
+
+
+                if (returnedDiceResult >= chatNode.tobeat) {
+                    //we suceeded - chatnode to suceeed
+                    printChatNode(chatNode.sucess, false)
+                } else if (returnedDiceResult < chatNode.tobeat) {
+                    //fails - chatnode to fail
+                    printChatNode(chatNode.fail, false)
+                } else
+                    alert("FAILED!")
+
+
+            })
+
+            document.getElementById('button-options').appendChild(button)
+
+            });
+
+        document.getElementById("diceOff").removeEventListener
 
 
     } //if we have dice to roll! 

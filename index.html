@@ -174,6 +174,7 @@
             <div class="fade-in-text">
 
                 <img title="Journal" src="Functions/Art/Chapter1/icon.png" class="CharacterIcon" id="charIcon" onclick="JournalOn()">
+                <img id="heathImage" alt="HeartImage" src="Functions/Art/heartHealth.png" class="health">
                 <p class="charhealth" id="displayHealth"></p>
 
                 <img id="overlayedImage" alt="overlayImages" class="topimage">
@@ -230,10 +231,10 @@
             <h1 style="position: absolute; top:5%; left:31%; font-family: Papyrus;">Character Stats</h1>
             <p style="position: absolute; top: 15%; left:31%; color:black; font-size:25px; font-family: Papyrus;"id="CharStatsy" ></p>
             <h1 style="position: absolute; top:5%; right:36%; font-family: Papyrus">Inventory</h1> 
-            <P style="position: absolute; top: 15%; right:44%; color:black; font-family: Papyrus">Player Gold:</P>
-            <p style="position: absolute; top: 27%; right:45%; color:black; font-family: Papyrus" id="GoldDis"></p>
+            <P style="position: absolute; top: 15%; right:41%; color:black; font-family: Papyrus">Player Gold:</P>
+            <p style="position: absolute; top: 13%; right:33%; color:black; font-size: 500%; font-family: Papyrus" id="GoldDis"></p>
             <img style="position: absolute; width:50px; height:50px; top: 67%; right:32%;"src="../Functions/Art/Chapter1/JournalArrow.png" height="550px" onclick="nextPageAgain()">
-            <img style="position: absolute; width:30px; height:30px; top: 5%; right:32%;"src="../Functions/Art/Chapter1/exitJournal.png" height="550px" onclick="JournalOff()">
+            <img style="position: absolute; width:30px; height:30px; top: 8%; right:30.2%;"src="../Functions/Art/Chapter1/exitJournal.png" height="550px" onclick="JournalOff()">
             <img src="../Functions/Art/Chapter1/OpenJournal.png" height="550px">
         </div>
         <div id="nextPageAgain"> 
@@ -242,12 +243,12 @@
                 <button style="position: relative; top:100%; left:150%;"class="options" id="setCheckpoint" onclick="createCheckpoint()">Set checkpoint</button>
                 <button style="position: relative; top:100%; left:150%;"class="options" id="loadCheckpoint" onclick="loadCheckpoint()">Load checkpoint</button>
             </div>
-            <p style="position: absolute; top:50%; left:29%; color:black; font-family: Papyrus">Checkpoints:<br> check points are used to <br> save what position you are in the game. <br> Upon death a character returns to the checkpoint last set.</p>
+            <p style="position: absolute; top:29%; left:32%; text-align: left; color:black; font-family: Papyrus">Checkpoints:<br><br> check points are used to <br> save what position you are in the<br> game. <br><br> Upon death: <br> a character returns to <br> the checkpoint last set.</p>
             <img style="position: absolute; width:50px; height:50px; top: 67%; left:29%;"src="../Functions/Art/Chapter1/JournalArrowBack.png" height="550px" onclick="nextPage()">
-            <img style="position: absolute; width:30px; height:30px; top: 5%; right:32%;"src="../Functions/Art/Chapter1/exitJournal.png" height="550px" onclick="JournalOff()">
+            <img style="position: absolute; width:30px; height:30px; top: 8%; right:30.2%;"src="../Functions/Art/Chapter1/exitJournal.png" height="550px" onclick="JournalOff()">
             <img src="../Functions/Art/Chapter1/OpenJournal.png" height="550px">
         
-            <button onclick="JournalOff()">Exit</button>
+          
         </div>
 
 
