@@ -443,9 +443,9 @@ function buy(product) {
         if (getLiveVar("playerGold") >= 1) {
             errorOff();
             //saveVar(playerGold, getLiveVar("playerGold") - 1);
-            addGold(-1);
             if (varListChapterOne.Companion == true) {
                 document.getElementById("error").innerHTML = "Your doggo looks happy!";
+                addGold(-1);
                 errorOn();
             } else {
                 document.getElementById("error").innerHTML = "This would be great for a dog";
