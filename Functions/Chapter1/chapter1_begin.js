@@ -112,7 +112,7 @@ function comResult(monster, result) {
 function itemUsed(monster, item){
     if(item == "item1"){
         playerItems.item1 -= 1
-        charCurrHP = charCurrHP + (diceRoll(2, 4) + 4)
+        charCurrHP = parseInt(charCurrHP) + (diceRoll(2, 4) + 4)
         if (charCurrHP > charMaxHP)
             charCurrHP = charMaxHP
         updateChatLog('../Functions/Chapter1/chapter1callscript.txt', '//Healing//')
