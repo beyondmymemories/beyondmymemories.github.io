@@ -199,6 +199,7 @@ function buy(product) {
             playerItems.item3 = playerItems.item3 + 1;
             charCurrHP = charMaxHP
             setCharCurrHP(charCurrHP)
+            saveVar("characterHealth", charCurrHP)
             saveVar("checkpoint_charCurrHP", getCharCurrHP());
             document.getElementById("displayHealth").innerText = charCurrHP + " / " + charMaxHP;
         } else {
