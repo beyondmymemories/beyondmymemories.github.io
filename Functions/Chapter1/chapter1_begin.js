@@ -87,7 +87,7 @@ function setCharCurrHP(inputHP) {
 }
 
 
-function comResult(result) {
+function comResult(monster, result) {
 
     //document.getElementById("container4").style.display = "none";
     //document.getElementById("container3").style.display = "inline-block";
