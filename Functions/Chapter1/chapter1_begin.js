@@ -79,6 +79,7 @@ function comResult(result){
     //document.getElementById("container4").style.display = "none";
     //document.getElementById("container3").style.display = "inline-block";
     updateChatLog('../Functions/Chapter1/chapter1callscript.txt', '//dashes//')
+    saveVar(playerGold, loadVar(playerGold) + monster.gold);
     if (result == "Success0"){
         //check this: !currentVars.lootAdventurer
         printChatNode(comSucc);
