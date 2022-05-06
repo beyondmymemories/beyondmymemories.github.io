@@ -448,9 +448,6 @@ function printChatNode(chatNodeIndex, load_chapter1vars) {
         loadChapter1();
     } //end of if load chapter1vars
 
-    //Save the state
-    savechapter1(chatNodeIndex);
-
     //get the current chatNode/option to display
     const chatNode = chatNodes.find(chatNode => chatNode.id === chatNodeIndex)
 
@@ -585,7 +582,7 @@ function printChatNode(chatNodeIndex, load_chapter1vars) {
     else {
 
         //Save the state
-        //savechapter1(chatNodeIndex);
+        savechapter1(chatNodeIndex);
 
         //display the correct buttons
         while (document.getElementById('button-options').firstChild) {
@@ -687,6 +684,9 @@ function savechapter1(chatNodeIndex) {
     //Load the "string"
     saveVar("chapter1vars", chapter1vars);
 
+    //save character health
+    saveVar("characterHealth",charCurrHP)
+    saveVar("totcharacterHealth", charMaxHP)
 
 } //end of saving chapter 1
 
@@ -703,6 +703,9 @@ function loadChapter1() {
 
     //load image
     globalImg = (loadVar("backgroundImage"));
+
+    charCurrHP = loadVar("characterHealth")
+    charMaxHP = loadVar("totcharacterHealth")
 
 } //end of saving chapter 1
 
