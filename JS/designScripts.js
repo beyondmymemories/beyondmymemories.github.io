@@ -33,7 +33,9 @@ function JournalOff() {
     document.getElementById("JournalOverlay").style.display = "none";
 }
 
-
+function journalgold(){
+    document.getElementById("GoldDis").innerHTML = getLiveVar("playerGold");
+}
 //Write a Function that changes Icon based on chosen character
 
 function iconPicker() {
