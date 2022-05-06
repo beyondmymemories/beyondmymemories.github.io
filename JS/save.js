@@ -21,7 +21,7 @@
  explicit save event.
  */
 
-function saveVar(name, value) {
+ function saveVar(name, value) {
     localStorage.setItem(name, value);
 }
 function loadVar(name) {
@@ -68,7 +68,6 @@ function globalLoad() {
  */
 
  /* createCheckpoint()
-
     saves multiple variables to localStorage with the names having "checkpoint_" behind the name.
  */
 function createCheckpoint() {
@@ -92,7 +91,6 @@ function createCheckpoint() {
 }
 
 /*  loadCheckpoint()
-
     Loads previously saved checkpoint variables into their live variables.
 */
 function loadCheckpoint() {
@@ -187,7 +185,6 @@ function getLiveVar(selection) {
 }
 
 /*  addGold(amount) 
-
     manipulates the playerGold variable from outside the script.
     (amount) can be a negative number to take away player's gold.
 */
@@ -284,7 +281,6 @@ function init() {
 
 /*
     newGame() 
-
     Initializes a new game and prompts the user to confirm choice.
 */
 function newGame() {
@@ -318,7 +314,6 @@ function newGame() {
 
 /*
     loadGame()
-
     calls load_function from chapter1_begin.js to initialize the game based on the last chatNode seen.
 */
 function loadGame() {
@@ -334,7 +329,6 @@ function loadGame() {
 
 /*
     deleteGame(prompt)
-
     Deletes the game save. 
     
     Prompt can be true or false to dictate weather it prompts the user for confirmation
