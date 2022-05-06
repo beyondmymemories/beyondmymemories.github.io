@@ -53,7 +53,7 @@ function StartChapter1() {
     printChatNode('//START//', false)
 }
 
-//if player can use either attack or bonus
+//These variables help set up combat before it happens
 var attackAvailable = 1
 var bonusAvailable = 1
 var monsterHP = 0
@@ -63,6 +63,8 @@ var character = ""
 var comSucc
 var comFail
 
+//When the player initially choose their character from the main menu.
+//set their max HP, normal HP, and stats
 function setCharInfo() {
     characterChoice = loadVar('character')
     if (characterChoice == 'Wizard')
@@ -77,12 +79,24 @@ function setCharInfo() {
     charCurrHP = character.hp
 }
 
-function comResult(result) {
+//Gets the player's current HP
+function getCharCurrHP() {
+    return charCurrHP
+}
+
+//Sets the player's current HP
+function setCharCurrHP(inputHP) {
+    charCurrHP = inputHP;
+}
+
+//After combat is done, return where we go in the story
+function comResult(monster, result) {
 
     //document.getElementById("container4").style.display = "none";
     //document.getElementById("container3").style.display = "inline-block";
     updateChatLog('../Functions/Chapter1/chapter1callscript.txt', '//dashes//')
-    if (result == "Success0") {
+    addGold(monster.gold);
+    if (result == "Success0"){
         //check this: !currentVars.lootAdventurer
         printChatNode(comSucc);
     } else if (result == "Success") {
@@ -94,6 +108,20 @@ function comResult(result) {
     }
 }
 
+//If item was used, actually use it
+function itemUsed(monster, item){
+    if(item == "item1"){
+        playerItems.item1 -= 1
+        charCurrHP = charCurrHP + (diceRoll(2, 4) + 4)
+        if (charCurrHP > charMaxHP)
+            charCurrHP = charMaxHP
+        updateChatLog('../Functions/Chapter1/chapter1callscript.txt', '//Healing//')
+        document.getElementById("displayHealth").innerText = charCurrHP + " / " + charMaxHP;
+        combatChoice(monster)
+    }
+}
+
+//After the player chooses either Action or Bonus Action, do what we should
 function action(monster, attack) {
     var type = attack.type
     if (type == 'heavy' || type == 'finesse') {
@@ -153,9 +181,10 @@ function action(monster, attack) {
     if (monsterHP > 0)
         combatChoice(monster)
     else
-        comResult("Success")
+        comResult(monster, "Success")
 }
 
+//There define the actions that happen in combat. Define's the enemies turn, actions, and bonus actions
 function recCombat(monster, turn) {
 
     while (document.getElementById('button-options').firstChild) {
@@ -180,7 +209,7 @@ function recCombat(monster, turn) {
         if (charCurrHP > 0)
             combatChoice(monster)
         else
-            comResult("Fail")
+            comResult(monster, "Fail")
     } else if (turn == "action") {
         attackAvailable = 0
         switch (characterChoice) {
@@ -259,6 +288,24 @@ function recCombat(monster, turn) {
         }
     } else if (turn == "bonus") {
         bonusAvailable = 0
+
+        //shop item check
+        console.log("Health Potions: " + playerItems.item1)
+        if(playerItems.item1 > 0){
+            const button = document.createElement('button')
+
+            //button name will be weapon/spell name
+            button.innerText = "Health Potion"
+
+            //add it to the correct css
+            button.classList.add('options')
+
+            //click event listener
+            button.addEventListener('click', () => itemUsed(monster, 'item1'))
+
+            //stuff
+            document.getElementById('button-options').appendChild(button)
+        }
         switch (characterChoice) {
             case 'Wizard':
                 wizBonus.forEach(attacks => {
@@ -336,6 +383,7 @@ function recCombat(monster, turn) {
     }
 }
 
+//The player can either take their action, bonus action, or pass their turn to the enemy
 function combatChoice(monster) {
     //display the correct buttons
     while (document.getElementById('button-options').firstChild) {
@@ -389,7 +437,7 @@ function combatChoice(monster) {
     document.getElementById('button-options').appendChild(button)
 }
 
-//combat function
+//Sets what the enemy is, rolls for who goes first, and then starts combat
 function combatFunc(combatNum) {
 
     //Initialize which character we use
