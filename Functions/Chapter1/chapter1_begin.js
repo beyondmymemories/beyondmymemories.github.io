@@ -442,8 +442,10 @@ function combatFunc(combatNum) {
 
     //Initialize which character we use
     
-    if(characterChoice != "Wizard" || characterChoice != "Barbarian" || characterChoice != "Bard" || characterChoice != "Rogue")
+    if(characterChoice != "Wizard" || characterChoice != "Barbarian" || characterChoice != "Bard" || characterChoice != "Rogue"){
         setCharInfo()
+        charCurrHP = loadVar("characterHealth")
+    }
     //Decide which combat we'll be doing
     if (combatNum == 'Hobgoblin') {
         var monster = Monsters1.Hobgoblin
