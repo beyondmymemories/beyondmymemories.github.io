@@ -739,6 +739,8 @@ function savechapter1(chatNodeIndex) {
     saveVar("characterHealth",charCurrHP)
     saveVar("totcharacterHealth", charMaxHP)
 
+    beginIdle();
+
     console.log("SAVECHAPTER1()");
 
 } //end of saving chapter 1
@@ -762,6 +764,8 @@ function loadChapter1() {
     charMaxHP = loadVar("totcharacterHealth")
 
     console.log("LOADCHAPTER1()")
+
+    applyIdle();
 
 } //end of saving chapter 1
 
