@@ -92,7 +92,9 @@ function comResult(monster, result) {
     //document.getElementById("container4").style.display = "none";
     //document.getElementById("container3").style.display = "inline-block";
     updateChatLog('../Functions/Chapter1/chapter1callscript.txt', '//dashes//')
-    saveVar(playerGold, loadVar(playerGold) + monster.gold);
+    console.log("Before: " + getLiveVar("playerGold"))
+    addGold(500);
+    console.log("After: " + getLiveVar("playerGold"))
     if (result == "Success0"){
         //check this: !currentVars.lootAdventurer
         printChatNode(comSucc);
