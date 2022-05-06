@@ -193,9 +193,13 @@ function addGold(amount) {
     if (amount > playerGold && amount <= 0) {
         console.log("[SAVE]: Gold subtraction results in negative gold balance"); 
     }
+    else if (amount + playerGold >=2500 || playerGold >=2500) {
+        console.log("[SAVE]: Gold balance too high, capped at 2500"); 
+        playerGold = 2500;
+    }
     else {
         playerGold = parseInt(playerGold) + parseInt(amount);
-        console.log("[SAVE]: Added gold: " + amount + " - " + playerGold);
+        console.log("[SAVE]: Added gold: " + amount + " = " + playerGold);
     }
 }
 

@@ -53,7 +53,7 @@ function StartChapter1() {
     printChatNode('//START//', false)
 }
 
-//if player can use either attack or bonus
+//These variables help set up combat before it happens
 var attackAvailable = 1
 var bonusAvailable = 1
 var monsterHP = 0
@@ -63,6 +63,8 @@ var character = ""
 var comSucc
 var comFail
 
+//When the player initially choose their character from the main menu.
+//set their max HP, normal HP, and stats
 function setCharInfo() {
     characterChoice = loadVar('character')
     if (characterChoice == 'Wizard')
@@ -77,16 +79,17 @@ function setCharInfo() {
     charCurrHP = character.hp
 }
 
-
+//Gets the player's current HP
 function getCharCurrHP() {
     return charCurrHP
 }
 
+//Sets the player's current HP
 function setCharCurrHP(inputHP) {
     charCurrHP = inputHP;
 }
 
-
+//After combat is done, return where we go in the story
 function comResult(monster, result) {
 
     //document.getElementById("container4").style.display = "none";
@@ -104,7 +107,8 @@ function comResult(monster, result) {
         printChatNode(comFail)
     }
 }
-//Item was used
+
+//If item was used, actually use it
 function itemUsed(monster, item){
     if(item == "item1"){
         playerItems.item1 -= 1
@@ -117,6 +121,7 @@ function itemUsed(monster, item){
     }
 }
 
+//After the player chooses either Action or Bonus Action, do what we should
 function action(monster, attack) {
     var type = attack.type
     if (type == 'heavy' || type == 'finesse') {
@@ -179,6 +184,7 @@ function action(monster, attack) {
         comResult(monster, "Success")
 }
 
+//There define the actions that happen in combat. Define's the enemies turn, actions, and bonus actions
 function recCombat(monster, turn) {
 
     while (document.getElementById('button-options').firstChild) {
@@ -377,6 +383,7 @@ function recCombat(monster, turn) {
     }
 }
 
+//The player can either take their action, bonus action, or pass their turn to the enemy
 function combatChoice(monster) {
     //display the correct buttons
     while (document.getElementById('button-options').firstChild) {
@@ -430,7 +437,7 @@ function combatChoice(monster) {
     document.getElementById('button-options').appendChild(button)
 }
 
-//combat function
+//Sets what the enemy is, rolls for who goes first, and then starts combat
 function combatFunc(combatNum) {
 
     //Initialize which character we use
