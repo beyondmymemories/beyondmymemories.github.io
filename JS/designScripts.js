@@ -1,26 +1,32 @@
 // JavaScript Document
 // This is for any design scripts that may be used
-//Currently has, overlay script 
+//Currently has, overlay scripts, journal scripts, various character choice scripts. 
 
+//turn on stats overlay in character selection
 function statsOn() {
     document.getElementById("statsOverlay").style.display = "block";
 }
+//turn off stats overlay in character selection
 function statsOff() {
     document.getElementById("statsOverlay").style.display = "none";
 }
+//go to next page of journal 
 function nextPage() {
     document.getElementById("nextPage").style.display = "block";
     document.getElementById("nextPageAgain").style.display = "none";
 
 }
+//go to second page of journal 
 function nextPageAgain() {
     document.getElementById("nextPageAgain").style.display = "block";
     document.getElementById("nextPage").style.display = "none";
 }
+//turn the journal on
 function JournalOn() {
 
     document.getElementById("JournalOverlay").style.display = "block";
 }
+//turn the journal off
 function JournalOff() {
     document.getElementById("nextPage").style.display = "none";
     document.getElementById("nextPageAgain").style.display = "none";
@@ -47,6 +53,8 @@ function iconPicker() {
     }//end of Rogue Choice
     return;
 }
+
+//Function to display character stats in the journal 
 function journalstats() {
     var charStats = loadVar("character")
     console.log(charStats);

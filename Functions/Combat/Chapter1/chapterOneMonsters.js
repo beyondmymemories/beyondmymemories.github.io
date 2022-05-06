@@ -13,7 +13,8 @@ var Monsters1 = {
             int: 0,
             wis: -1,
             chr: -1
-        }
+        },
+        gold: 25
     },
     Hobgoblin: {
         type: 'melee',
@@ -29,7 +30,8 @@ var Monsters1 = {
             int: -2,
             wis: -1,
             chr: 0
-        }
+        },
+        gold: 50
     },
     Minotaur: {
         type: 'melee',
@@ -45,6 +47,7 @@ var Monsters1 = {
             int: -2,
             wis: -2,
             chr: 0
-        }
+        },
+        gold: 1000
     }
 }
