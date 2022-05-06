@@ -77,6 +77,7 @@ function setCharInfo() {
     charCurrHP = character.hp
 }
 
+
 function getCharCurrHP() {
     return charCurrHP
 }
@@ -91,7 +92,8 @@ function comResult(result) {
     //document.getElementById("container4").style.display = "none";
     //document.getElementById("container3").style.display = "inline-block";
     updateChatLog('../Functions/Chapter1/chapter1callscript.txt', '//dashes//')
-    if (result == "Success0") {
+    saveVar(playerGold, loadVar(playerGold) + monster.gold);
+    if (result == "Success0"){
         //check this: !currentVars.lootAdventurer
         printChatNode(comSucc);
     } else if (result == "Success") {
@@ -100,6 +102,18 @@ function comResult(result) {
     //failed in combat -> die
     else {
         printChatNode(comFail)
+    }
+}
+//Item was used
+function itemUsed(monster, item){
+    if(item == "item1"){
+        playerItems.item1 -= 1
+        charCurrHP = charCurrHP + (diceRoll(2, 4) + 4)
+        if (charCurrHP > charMaxHP)
+            charCurrHP = charMaxHP
+        updateChatLog('../Functions/Chapter1/chapter1callscript.txt', '//Healing//')
+        document.getElementById("displayHealth").innerText = charCurrHP + " / " + charMaxHP;
+        combatChoice(monster)
     }
 }
 
@@ -162,7 +176,7 @@ function action(monster, attack) {
     if (monsterHP > 0)
         combatChoice(monster)
     else
-        comResult("Success")
+        comResult(monster, "Success")
 }
 
 function recCombat(monster, turn) {
@@ -189,7 +203,7 @@ function recCombat(monster, turn) {
         if (charCurrHP > 0)
             combatChoice(monster)
         else
-            comResult("Fail")
+            comResult(monster, "Fail")
     } else if (turn == "action") {
         attackAvailable = 0
         switch (characterChoice) {
@@ -268,6 +282,24 @@ function recCombat(monster, turn) {
         }
     } else if (turn == "bonus") {
         bonusAvailable = 0
+
+        //shop item check
+        console.log("Health Potions: " + playerItems.item1)
+        if(playerItems.item1 > 0){
+            const button = document.createElement('button')
+
+            //button name will be weapon/spell name
+            button.innerText = "Health Potion"
+
+            //add it to the correct css
+            button.classList.add('options')
+
+            //click event listener
+            button.addEventListener('click', () => itemUsed(monster, 'item1'))
+
+            //stuff
+            document.getElementById('button-options').appendChild(button)
+        }
         switch (characterChoice) {
             case 'Wizard':
                 wizBonus.forEach(attacks => {
