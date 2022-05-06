@@ -434,6 +434,14 @@ function combatFunc(combatNum) {
     }
 }
 
+/*
+
+printChatNode function: constantly gets recalled so that the story can continue
+
+
+
+
+*/
 function printChatNode(chatNodeIndex, load_chapter1vars) {
     lastChatNodeIndex = chatNodeIndex;
 
@@ -476,6 +484,8 @@ function printChatNode(chatNodeIndex, load_chapter1vars) {
         document.getElementById("overlayedImage").style.display = "none";
     }
 
+    console.log(chapter1var)
+
     //If there is more to print!
     if (chatNode.NextAutoChat != null) {
         //loop through each id and print them
@@ -505,7 +515,7 @@ function printChatNode(chatNodeIndex, load_chapter1vars) {
     if (chatNode.shop == true) {
 
         //Save the state
-        //savechapter1(chatNodeIndex);
+        savechapter1(chatNodeIndex);
 
         //change container1 -> container3
         showShop();

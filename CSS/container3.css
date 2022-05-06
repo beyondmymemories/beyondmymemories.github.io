@@ -101,4 +101,14 @@ button.options:hover {
     top: 30%;
 
 }
+
+
+.health {
+
+    position: fixed;
+    height: 33px;
+    right: 10%;
+    top: 35.8%;
+}
+
 /*End of main container*/
